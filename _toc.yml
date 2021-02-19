@@ -7,23 +7,27 @@
 
 - part: Materials
   chapters:
-    - file: materials/event_based_model.md
+    - file: pages/materials/event_based_model
       title: Event Based model
 
 
 - part: Notebooks
   chapters:
-  - file: pages/notebooksnotebooks/notebooks.md
-  - file: pages/notebooks/leaspy.md
+  - file: pages/notebooks/notebooks/notebooks
+  - file: pages/notebooks/leaspy
     title: Leaspy
     sections:
       - file: pages/notebooks/leaspy/TP1_LMM
-        title: TP1: Linear Mixed Effect Models
+        title: TP1 - Linear Mixed Effect Models
       - file: pages/notebooks/leaspy/TP2_leaspy_beginner
-        title: Get ready with Leaspy
+        title: TP2 - Get ready with Leaspy
       - file: pages/notebooks/leaspy/TP3_advanced_leaspy
-        title: Leaspy advanced
+        title: TP3 - Leaspy advanced
 
 - part: Conferences
   chapters:
-  - file: pages/conferences/ISBI.md
+  - file: pages/conferences/ISBI
+
+- part: Other
+  chapters:
+  - file: pages/other/contributors
