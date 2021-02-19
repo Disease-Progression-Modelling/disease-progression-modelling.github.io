@@ -1,5 +1,0 @@
-# in _config.yml
-title: "My book title"
-logo: images/logo.png
-execute:
-  execute_notebooks: "off"
