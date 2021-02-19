@@ -13,8 +13,8 @@
 
 - part: Notebooks
   chapters:
-  - file: pages/notebooks/notebooks/notebooks
-  - file: pages/notebooks/leaspy
+  - file: pages/notebooks/notebooks
+  - file: pages/notebooks/leaspy/leaspy
     title: Leaspy
     sections:
       - file: pages/notebooks/leaspy/TP1_LMM
