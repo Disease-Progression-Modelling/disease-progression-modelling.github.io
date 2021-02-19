@@ -1,5 +1,15 @@
 # in _config.yml
-title: "ISBI 2021"
+title: "Disease Progression Modelling"
+author: The Disease Progression Modelling community
 #logo: images/logo.png
 execute:
   execute_notebooks: "off"
+
+
+repository:
+  url: https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/
+
+html:
+  use_issues_button: true
+  use_edit_page_button: true
+  use_repository_button: true

@@ -1,4 +1,29 @@
 - file: pages/main
-- file: pages/conferences/ISBI
-- file: pages/notebooks/test
-- file: pages/other/contributors
+
+- part: Introduction
+  chapters:
+  - file: pages/DPM/introduction.md
+    title: Introduction to Disease Progression Modelling
+
+- part: Materials
+  chapters:
+    - file: materials/event_based_model.md
+      title: Event Based model
+
+
+- part: Notebooks
+  chapters:
+  - file: pages/notebooksnotebooks/notebooks.md
+  - file: pages/notebooks/leaspy.md
+    title: Leaspy
+    sections:
+      - file: pages/notebooks/leaspy/TP1_LMM
+        title: TP1: Linear Mixed Effect Models
+      - file: pages/notebooks/leaspy/TP2_leaspy_beginner
+        title: Get ready with Leaspy
+      - file: pages/notebooks/leaspy/TP3_advanced_leaspy
+        title: Leaspy advanced
+
+- part: Conferences
+  chapters:
+  - file: pages/conferences/ISBI.md
