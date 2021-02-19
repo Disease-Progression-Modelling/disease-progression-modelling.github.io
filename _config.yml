@@ -1,5 +1,5 @@
 # in _config.yml
-title: "My book title"
-logo: images/logo.png
+title: "ISBI 2021"
+#logo: images/logo.png
 execute:
   execute_notebooks: "off"

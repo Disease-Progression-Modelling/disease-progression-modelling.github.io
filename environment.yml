@@ -1,0 +1,4 @@
+name: DPM_website
+channels:
+  - defaults
+prefix: /Users/igor.koval/miniconda3/envs/DPM_website
