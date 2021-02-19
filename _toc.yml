@@ -1,4 +1,4 @@
 - file: pages/main
-- file: conferences/ISBI
-- file: notebooks/test
-- file: other/contributors
+- file: pages/conferences/ISBI
+- file: pages/notebooks/test
+- file: pages/other/contributors
