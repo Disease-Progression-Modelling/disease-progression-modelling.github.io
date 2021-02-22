@@ -9,6 +9,8 @@ Everyone is welcome to collaborate to the website and to be part of the communit
 To that end, you can add yours materials and notebooks to the repo.
 These will be reviewed and merged to the current website
 
+Note : You can find a Notebook Template in `pages/notebooks/_template.ipynb` to comply to the website template
+
 
 ## Website structure
 
@@ -26,7 +28,6 @@ Overall, you have :
 - `README.md` : read me of the github repo
 - `environment.yml` : requirements of the
 - `_toc.yml`, `_config.yml` : Jupyter book configuration files. Note that `_toc.yml` contains the structure of the website
-- `_build` : contains the static files created by Jupyter book. Do not change these files directly.
 
 
 
