@@ -1,3 +1,0 @@
-# Contributors
-
-Some intro text
