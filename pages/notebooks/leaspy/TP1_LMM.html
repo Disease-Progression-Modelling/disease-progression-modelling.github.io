@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -43,6 +44,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -57,7 +59,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="First steps with Leaspy" href="TP2_leaspy_beginner.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="leaspy.html" />
+    <link rel="prev" title="This is a test" href="leaspy.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,7 +102,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../DPM/introduction.html">
-   Introduction to Disease Progression Modelling
+   Introduction
   </a>
  </li>
 </ul>
@@ -111,8 +113,23 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/introduction.html">
+   Introduction to Disease Progression Models
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../materials/event_based_model.html">
    Event Based model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/leaspy.html">
+   Leaspy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/non_parametric_DPM.html">
+   Non-Parametric Disease Progression Model
   </a>
  </li>
 </ul>
@@ -127,162 +144,29 @@
    Notebooks
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Linear Mixed-effects Models
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="leaspy.html">
+   Leaspy
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-i-the-data">
-   Part I: The data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-ii-linear-regression">
-   Part II: Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iii-the-longitudinal-aspect">
-   Part III: The longitudinal aspect
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iv-indivual-linear-regressions">
-   PART IV: Indivual Linear Regressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-v-linear-mixed-effects-model-with-statsmodels">
-   Part V : Linear Mixed effects Model with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     statsmodels
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-   PART VI: A taste of the future - Linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-   PART VII: A taste of the future - Non-linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-   For the fast-running Zebras: all-in-one with a more realistic split of data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-   Bonus: have a look at the LMM log-likelihood landscape
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html">
-   First steps with Leaspy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-i-data">
-   Part I: Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-ii-instantiate-a-leaspy-object">
-   Part II : Instantiate a
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Leaspy
-    </span>
-   </code>
-   object
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-iii-choose-your-algorithms">
-   Part III : Choose your algorithms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-iv-fit-your-model">
-   Part IV : Fit your model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-v-personalize-the-model-to-individual-data">
-   Part V : Personalize the model to individual data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-vi-impute-missing-values-predict-individual-trajectories">
-   Part VI : Impute missing values &amp; predict individual trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-vii-leaspy-application-cofactor-analysis">
-   Part VII : Leaspy application - Cofactor analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-viii-data-simulation">
-   Part VIII : Data Simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#congratulations-this-is-the-end">
-   Congratulations this is the end !!!!!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html">
-   Advanced Leaspy Utilisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-i-the-prediction">
-   Part I: The prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-ii-the-cofactor-evaluation">
-   Part II: The cofactor evaluation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-iii-univariate-vs-multivariate">
-   Part III: Univariate vs Multivariate
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-iv-get-the-best-model-as-you-can">
-   Part IV: Get the best model as you can
-  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP2_leaspy_beginner.html">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP3_advanced_leaspy.html">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -399,6 +283,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/leaspy/TP1_LMM.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -413,266 +302,37 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Linear Mixed-effects Models
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives :
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objectives">
-     Objectives :
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-set-up">
    The set-up
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-1-span-run-the-following-command-lines">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 1 💬
-     </span>
-     Run the following command lines
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-i-the-data">
    Part I: The data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#important-the-values-have-been-normalized-such-that-a-normal-value-is-zero-and-a-very-abrnomal-value-is-one">
-     IMPORTANT: The values have been normalized such that a
-     <em>
-      normal value
-     </em>
-     is zero and a
-     <em>
-      very abrnomal value
-     </em>
-     is one.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-2-span-run-the-following-cell-and-look-at-the-head-of-the-dataframe-to-better-understand-what-the-data-are">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 2 💬
-     </span>
-     Run the following cell and look at the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       head
-      </span>
-     </code>
-     of the dataframe to better understand what the data are.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-3-span-describe-the-target-variable-putamen-and-the-explicative-variable-time-you-can-plot">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 3 💬
-     </span>
-     Describe the target variable
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       PUTAMEN
-      </span>
-     </code>
-     and the explicative variable
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       TIME
-      </span>
-     </code>
-     . You can plot:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-4-span-from-this-value-what-can-you-say-about-the-disease-stage-of-the-population">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 4 💬
-     </span>
-     From this value, what can you say about the disease stage of the population?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#answer">
-     Answer:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-5-span-display-the-data-where-the-putamen-y-axis-is-plot-with-respect-to-the-time-x-axis">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 5 💬
-     </span>
-     Display the data, where the Putamen (y-axis) is plot with respect to the Time (x-axis)
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-ii-linear-regression">
    Part II: Linear Regression
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-6-span-store-the-train-and-test-data-in-df-train-and-df-test">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 6 💬
-     </span>
-     Store the train and test data in
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       df_train
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       df_test
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-7-span-run-the-linear-reagression-that-is-in-scipy">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 7 💬
-     </span>
-     Run the linear reagression that is in scipy.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-8-span-add-the-predictions-done-by-the-linear-regression-in-the-column-linear-regression">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 8 💬
-     </span>
-     Add the predictions done by the linear regression in the column
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       Linear
-      </span>
-      <span class="pre">
-       Regression
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-9-span-run-the-following-cell-to-see-the-results">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 9 💬
-     </span>
-     Run the following cell to see the results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-10-span-use-the-following-cell">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 10 💬
-     </span>
-     Use the following cell.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#is-the-previous-plot-relevant-to-assess-the-quality-of-our-model">
-     Is the previous plot relevant to assess the quality of our model?
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iii-the-longitudinal-aspect">
    Part III: The longitudinal aspect
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-12-span-what-are-actually-the-test-data">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 12 💬
-     </span>
-     What are actually the test data ?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-13-span-why-does-the-global-linear-model-not-describe-the-temporal-evolution-of-the-variable">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 13 💬
-     </span>
-     Why does the global linear model not describe the temporal evolution of the variable?
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iv-indivual-linear-regressions">
    PART IV: Indivual Linear Regressions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-14-span-look-at-what-this-function-is-doing-and-at-the-result">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 14 💬
-     </span>
-     Look at what this function is doing and at the result
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-15-span-apply-the-function-to-everyone">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 15 💬
-     </span>
-     Apply the function to everyone
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-17-span-use-the-compute-train-test-mean-absolute-error-function-to-get-the-train-and-test-errors-and-compare-the-two-models">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 17 💬
-     </span>
-     Use the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       compute_train_test_mean_absolute_error
-      </span>
-     </code>
-     function to get the train and test errors and compare the two models.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-18-span-create-a-list-with-the-five-patients-having-the-more-visits-and-the-five-patients-having-the-less-visits-then-use-plot-individuals-function-to-display-their-observations-and-reconstructions-by-the-model">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 18 💬
-     </span>
-     Create a list with the five patients having the more visits and the five patients having the less visits, then use
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       plot_individuals
-      </span>
-     </code>
-     function to display their observations and reconstructions by the model
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-19-span-explain-why-rmse-test-rmse-train">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 19 💬
-     </span>
-     Explain why
-     <span class="math notranslate nohighlight">
-      \(RMSE_{test} &gt;&gt; RMSE_{train}\)
-     </span>
-     :
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-v-linear-mixed-effects-model-with-statsmodels">
    Part V : Linear Mixed effects Model with
    <code class="docutils literal notranslate">
@@ -682,7 +342,7 @@
    </code>
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#run-a-lmm-with-statsmodels">
      Run a LMM with
      <code class="docutils literal notranslate">
@@ -691,355 +351,34 @@
       </span>
      </code>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-20-span-load-the-following-lines-to-import-the-packages">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 20 💬
-       </span>
-       Load the following lines to import the packages
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-21-span-let-s-try-a-very-naive-run">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 21 💬
-       </span>
-       Let’s try a very
-       <strong>
-        <em>
-         naive
-        </em>
-       </strong>
-       run:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-22-span-run-the-following-commands-to-get-the-intercept-and-slope">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 22 💬
-       </span>
-       Run the following commands to get the intercept and slope
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-23-span-run-the-following-commands-to-get-the-variation-to-the-mean-slope-and-intercept">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 23 💬
-       </span>
-       Run the following commands to get the variation to the mean slope and intercept
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-24-span-from-the-fixed-and-random-effects-compute-for-each-subject-its-intercept-and-slope">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 24 💬
-       </span>
-       From the fixed and random effects, compute for each subject its INTERCEPT and SLOPE:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-25-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-to-compute-the-prediction-with-the-new-individual-effects">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 25 💬
-       </span>
-       Use the
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         compute_individual_reconstruction
-        </span>
-       </code>
-       function but with
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         df_random_effects
-        </span>
-       </code>
-       to compute the prediction with the new individual effects
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-28-span-let-s-rerun-it-by-normalizing-the-time-first-add-to-df-train-and-df-test-a-renormalizing-function-be-careful-to-normalize-only-with-the-known-ages-from-train">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 28 💬
-       </span>
-       Let’s rerun it by normalizing the time first. Add to
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         df_train
-        </span>
-       </code>
-       and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         df_test
-        </span>
-       </code>
-       a renormalizing function. Be careful to normalize only with the known ages from train.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-30-span-get-the-parameters-as-previously-in-df-random-effects-2-and-store-the-intercept-normalized-and-slope-normalized">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 30 💬
-       </span>
-       Get the parameters as previously in
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         df_random_effects_2
-        </span>
-       </code>
-       and store the
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         INTERCEPT_NORMALIZED
-        </span>
-       </code>
-       and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         SLOPE_NORMALIZED
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-31-span-from-intercept-normalized-slope-normalized-compute-for-each-subject-its-intercept-and-slope">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 31 💬
-       </span>
-       From INTERCEPT_NORMALIZED &amp; SLOPE_NORMALIZED, compute for each subject its INTERCEPT and SLOPE:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-32-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-2-to-compute-the-prediction-with-the-new-individual-effects">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 32 💬
-       </span>
-       Use the
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         compute_individual_reconstruction
-        </span>
-       </code>
-       function but with
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         df_random_effects_2
-        </span>
-       </code>
-       to compute the prediction with the new individual effects
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-34-span-display-the-subjects-of-sublist">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 34 💬
-       </span>
-       Display the subjects of
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         sublist
-        </span>
-       </code>
-       :
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-35-span-what-is-the-main-advantage-of-a-linear-mixed-effects-model-compared-to-multiple-linear-models">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 35 💬
-       </span>
-       What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-36-span-let-s-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects">
-       <span style="color: #a13203; font-weight: 600;">
-        💬 Question 36 💬
-       </span>
-       Let’s check the average RMSE per subject depending of the number of timepoints per subjects:
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
    PART VI: A taste of the future - Linear mixed-effect model with
    <em>
     Leaspy
    </em>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-37-span-run-the-following-cell-to-make-the-import-of-leaspy-methods-format-the-data-and-fit-a-model">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 37 💬
-     </span>
-     Run the following cell to make the import of leaspy methods, format the data and fit a model :
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#well-it-s-a-bit-slow-but-here-is-a-joke-to-wait">
-     Well it’s a bit slow, but here is a joke to wait:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-38-span-run-the-following-two-cells-to-make-the-predictions">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 38 💬
-     </span>
-     Run the following two cells to make the predictions:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-41-span-display-the-subjects-of-sublist">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 41 💬
-     </span>
-     Display the subjects of
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       sublist
-      </span>
-     </code>
-     :
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
    PART VII: A taste of the future - Non-linear mixed-effect model with
    <em>
     Leaspy
    </em>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#well-it-s-a-bit-slow-but-here-is-meme-to-wait">
-     Well it’s a bit slow, but here is meme to wait:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-43-span-run-the-following-two-cells-to-make-the-predictions">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 43 💬
-     </span>
-     Run the following two cells to make the predictions:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-46-span-display-the-subjects-of-sublist">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 46 💬
-     </span>
-     Display the subjects of
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       sublist
-      </span>
-     </code>
-     :
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-47-span-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 47 💬
-     </span>
-     Check the average RMSE per subject depending of the number of timepoints per subjects
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
    For the fast-running Zebras: all-in-one with a more realistic split of data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-48-span-split-data-differently-so-to-respect-real-world-constraint">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 48 💬
-     </span>
-     Split data differently so to respect real-world constraint
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-49-span-check-consistence-of-new-train-test-split-and-compare-to-previous-split">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 49 💬
-     </span>
-     Check consistence of new train/test split and compare to previous split
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-50-span-double-check-number-of-individuals-and-visits-in-each-split-of-our-dataset">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 50 💬
-     </span>
-     Double check number of individuals and visits in each split of our dataset
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-51-span-write-a-all-in-one-personalization-prediction-function-thanks-to-leaspy-api">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 51 💬
-     </span>
-     Write a all-in-one personalization &amp; prediction function thanks to Leaspy api
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-52-span-calibrate-personalize-predict-with-lmm-univariate-linear-univariate-logistic-thanks-to-leaspy">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 52 💬
-     </span>
-     Calibrate, personalize &amp; predict with LMM, univariate linear &amp; univariate logistic thanks to Leaspy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-53-span-display-rmse-on-all-splits-of-data-depending-on-models-part-where-models-were-personalized-on">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 53 💬
-     </span>
-     Display RMSE on all splits of data depending on models &amp; part where models were personalized on
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-54-span-plot-distributions-of-absolute-errors">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 54 💬
-     </span>
-     Plot distributions of absolute errors
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-55-span-plot-some-individual-trajectories-with-their-associated-predicted-trajectories">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 55 💬
-     </span>
-     Plot some individual trajectories with their associated predicted trajectories
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
    Bonus: have a look at the LMM log-likelihood landscape
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#span-style-color-a13203-font-weight-600-question-56-span-plot-log-likelihood-landscapes-for-lmm-model-depending-on-variance-covariance-matrix-of-random-effects">
-     <span style="color: #a13203; font-weight: 600;">
-      💬 Question 56 💬
-     </span>
-     Plot log-likelihood landscapes for LMM model, depending on variance-covariance matrix of random effects
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1063,16 +402,14 @@
 <li><p>Get a taste of state-of-the-art techniques</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="the-set-up">
-<h1>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h1>
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
 <p>If you have followed the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions">installation details</a> carefully, you should</p>
 <ul class="simple">
 <li><p>be running this notebook in the <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> conda environment (be sure that the kernel you are using is <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> =&gt; check <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> above)</p></li>
 <li><p>having all the needed packages already install</p></li>
 </ul>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-1-span-run-the-following-command-lines">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-1-span-run-the-following-command-lines" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1090,15 +427,11 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="part-i-the-data">
-<h1>Part I: The data<a class="headerlink" href="#part-i-the-data" title="Permalink to this headline">¶</a></h1>
+<h2>Part I: The data<a class="headerlink" href="#part-i-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We import a functional medical imaging dataset. We have extracted, for each timepoint, the average value of the metabolic activity of the <em>putamen</em>. This brain region is commonly damaged by <em>Parkinson’s disease</em>.</p>
-<div class="section" id="important-the-values-have-been-normalized-such-that-a-normal-value-is-zero-and-a-very-abrnomal-value-is-one">
-<h2>IMPORTANT: The values have been normalized such that a <em>normal value</em> is zero and a <em>very abrnomal value</em> is one.<a class="headerlink" href="#important-the-values-have-been-normalized-such-that-a-normal-value-is-zero-and-a-very-abrnomal-value-is-one" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-2-span-run-the-following-cell-and-look-at-the-head-of-the-dataframe-to-better-understand-what-the-data-are">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> Run the following cell and look at the <code class="docutils literal notranslate"><span class="pre">head</span></code> of the dataframe to better understand what the data are.<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-2-span-run-the-following-cell-and-look-at-the-head-of-the-dataframe-to-better-understand-what-the-data-are" title="Permalink to this headline">¶</a></h2>
+<p>IMPORTANT: The values have been normalized such that a <em>normal value</em> is zero and a <em>very abrnomal value</em> is one.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> Run the following cell and look at the <code class="docutils literal notranslate"><span class="pre">head</span></code> of the dataframe to better understand what the data are.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">leaspy.datasets</span> <span class="kn">import</span> <span class="n">Loader</span>
@@ -1181,9 +514,7 @@
 </div></div></div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> The <code class="docutils literal notranslate"><span class="pre">SPLIT</span></code> column already distinguishes the train and test data.</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-3-span-describe-the-target-variable-putamen-and-the-explicative-variable-time-you-can-plot">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> Describe the target variable <code class="docutils literal notranslate"><span class="pre">PUTAMEN</span></code> and the explicative variable <code class="docutils literal notranslate"><span class="pre">TIME</span></code>. You can plot:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-3-span-describe-the-target-variable-putamen-and-the-explicative-variable-time-you-can-plot" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> Describe the target variable <code class="docutils literal notranslate"><span class="pre">PUTAMEN</span></code> and the explicative variable <code class="docutils literal notranslate"><span class="pre">TIME</span></code>. You can plot:</p>
 <ul class="simple">
 <li><p>Sample size</p></li>
 <li><p>Mean, std</p></li>
@@ -1263,17 +594,11 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-4-span-from-this-value-what-can-you-say-about-the-disease-stage-of-the-population">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> From this value, what can you say about the disease stage of the population?<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-4-span-from-this-value-what-can-you-say-about-the-disease-stage-of-the-population" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> From this value, what can you say about the disease stage of the population?</p>
 <p>Your answer: …</p>
-</div>
-<div class="section" id="answer">
-<h2>Answer:<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h2>
-<p>The median and mean value is 0.71, so the average disease stage is high for these subjects.</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-5-span-display-the-data-where-the-putamen-y-axis-is-plot-with-respect-to-the-time-x-axis">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> Display the data, where the Putamen (y-axis) is plot with respect to the Time (x-axis)<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-5-span-display-the-data-where-the-putamen-y-axis-is-plot-with-respect-to-the-time-x-axis" title="Permalink to this headline">¶</a></h2>
+<p>Answer:
+The median and mean value is 0.71, so the average disease stage is high for these subjects.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> Display the data, where the Putamen (y-axis) is plot with respect to the Time (x-axis)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
@@ -1302,12 +627,10 @@
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> At first look, the <em>PUTAMEN values</em> do not seem highly correlated to <em>TIME</em>.</p>
 </div>
-</div>
 <div class="section" id="part-ii-linear-regression">
-<h1>Part II: Linear Regression<a class="headerlink" href="#part-ii-linear-regression" title="Permalink to this headline">¶</a></h1>
+<h2>Part II: Linear Regression<a class="headerlink" href="#part-ii-linear-regression" title="Permalink to this headline">¶</a></h2>
 <p>As we are some pro ML players, let’s make some predictions : let’s try to predict the putamen value based on the time alone.</p>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-6-span-store-the-train-and-test-data-in-df-train-and-df-test">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Store the train and test data in <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code><a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-6-span-store-the-train-and-test-data-in-df-train-and-df-test" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Store the train and test data in <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
@@ -1328,9 +651,7 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-7-span-run-the-linear-reagression-that-is-in-scipy">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> Run the linear reagression that is in scipy.<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-7-span-run-the-linear-reagression-that-is-in-scipy" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> Run the linear reagression that is in scipy.</p>
 <p>Be carefull, you have to train it only with the train set!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1406,9 +727,7 @@
 </table>
 <p>This will ease the comparison of the models.</p>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> No need to add these predictions to <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code>. You should be able to easily run the notebook by keeping <code class="docutils literal notranslate"><span class="pre">df_train</span></code> the way it is while appending the results in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-8-span-add-the-predictions-done-by-the-linear-regression-in-the-column-linear-regression">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> Add the predictions done by the linear regression in the column <code class="docutils literal notranslate"><span class="pre">Linear</span> <span class="pre">Regression</span></code><a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-8-span-add-the-predictions-done-by-the-linear-regression-in-the-column-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> Add the predictions done by the linear regression in the column <code class="docutils literal notranslate"><span class="pre">Linear</span> <span class="pre">Regression</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Linear Regression&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="c1"># Your code here</span>
@@ -1432,9 +751,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">overall_results</span></code> will be the dataframe that stores the root mean square error on the train and test set for the different models</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">compute_rmse_train_test</span></code> is the function that given the dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code> and a <code class="docutils literal notranslate"><span class="pre">model_name</span></code> (<code class="docutils literal notranslate"><span class="pre">Linear</span> <span class="pre">Regression</span></code> for instance), compute the mean absolute error on the train and test set and stores it in <code class="docutils literal notranslate"><span class="pre">overall_results</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-9-span-run-the-following-cell-to-see-the-results">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> Run the following cell to see the results<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-9-span-run-the-following-cell-to-see-the-results" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> Run the following cell to see the results</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overall_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">[]})</span>  
@@ -1493,9 +810,7 @@
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> The RMSE is higher on the test set as on the train set</p>
 <p>Let’s look at what we are doing by plotting the data and the linear regression. Throughout the notebook, we will use the function <code class="docutils literal notranslate"><span class="pre">plot_individuals</span></code> that, given a subset of IDs and a model name (as stored in the <code class="docutils literal notranslate"><span class="pre">df</span></code> dataframe) plots the individual data and their prediction</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-10-span-use-the-following-cell">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> Use the following cell.<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-10-span-use-the-following-cell" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> Use the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="n">overall_results</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
@@ -1573,14 +888,11 @@
 <img alt="../../../_images/TP1_LMM_26_0.png" src="../../../_images/TP1_LMM_26_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="is-the-previous-plot-relevant-to-assess-the-quality-of-our-model">
-<h2>Is the previous plot relevant to assess the quality of our model?<a class="headerlink" href="#is-the-previous-plot-relevant-to-assess-the-quality-of-our-model" title="Permalink to this headline">¶</a></h2>
+<p>Is the previous plot relevant to assess the quality of our model?</p>
 <p>We will answer this question in the following cells:</p>
 </div>
-</div>
 <div class="section" id="part-iii-the-longitudinal-aspect">
-<h1>Part III: The longitudinal aspect<a class="headerlink" href="#part-iii-the-longitudinal-aspect" title="Permalink to this headline">¶</a></h1>
+<h2>Part III: The longitudinal aspect<a class="headerlink" href="#part-iii-the-longitudinal-aspect" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> Run the cell to have a better understanding of your data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1595,21 +907,16 @@
 <img alt="../../../_images/TP1_LMM_29_0.png" src="../../../_images/TP1_LMM_29_0.png" />
 </div>
 </div>
-<p>The test data are highlited with dots.</p>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-12-span-what-are-actually-the-test-data">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> What are actually the test data ?<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-12-span-what-are-actually-the-test-data" title="Permalink to this headline">¶</a></h2>
+<p>The test data are highlited with dots.
+<span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> What are actually the test data ?</p>
 <p>Your answer: …</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-13-span-why-does-the-global-linear-model-not-describe-the-temporal-evolution-of-the-variable">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span>Why does the global linear model not describe the temporal evolution of the variable?<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-13-span-why-does-the-global-linear-model-not-describe-the-temporal-evolution-of-the-variable" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span>Why does the global linear model not describe the temporal evolution of the variable?</p>
 <p>Your answer: …</p>
-</div>
 </div>
 <div class="section" id="part-iv-indivual-linear-regressions">
-<h1>PART IV: Indivual Linear Regressions<a class="headerlink" href="#part-iv-indivual-linear-regressions" title="Permalink to this headline">¶</a></h1>
+<h2>PART IV: Indivual Linear Regressions<a class="headerlink" href="#part-iv-indivual-linear-regressions" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> In fact, this is not the best idea to have one general linear regression. Because we do not benefit from indiviudal information. Therefore, let’s do one linear regression per individual</p>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-14-span-look-at-what-this-function-is-doing-and-at-the-result">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> Look at what this function is doing and at the result<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-14-span-look-at-what-this-function-is-doing-and-at-the-result" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> Look at what this function is doing and at the result</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">individual_parameters</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;INTERCEPT&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;SLOPE&#39;</span><span class="p">:</span> <span class="p">[]})</span>
@@ -1668,9 +975,7 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-15-span-apply-the-function-to-everyone">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> Apply the function to everyone<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-15-span-apply-the-function-to-everyone" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> Apply the function to everyone</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your answer</span>
@@ -1770,9 +1075,7 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-17-span-use-the-compute-train-test-mean-absolute-error-function-to-get-the-train-and-test-errors-and-compare-the-two-models">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_train_test_mean_absolute_error</span></code> function to get the train and test errors and compare the two models.<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-17-span-use-the-compute-train-test-mean-absolute-error-function-to-get-the-train-and-test-errors-and-compare-the-two-models" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_train_test_mean_absolute_error</span></code> function to get the train and test errors and compare the two models.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -1829,11 +1132,9 @@
 </table>
 </div></div></div>
 </div>
-<p>We clearly see that the RMSE is much better!</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-18-span-create-a-list-with-the-five-patients-having-the-more-visits-and-the-five-patients-having-the-less-visits-then-use-plot-individuals-function-to-display-their-observations-and-reconstructions-by-the-model">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> Create a list with the five patients having the more visits and the five patients having the less visits, then use <code class="docutils literal notranslate"><span class="pre">plot_individuals</span></code> function to display their observations and reconstructions by the model<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-18-span-create-a-list-with-the-five-patients-having-the-more-visits-and-the-five-patients-having-the-less-visits-then-use-plot-individuals-function-to-display-their-observations-and-reconstructions-by-the-model" title="Permalink to this headline">¶</a></h2>
-<p><em>Hint</em> : use the keyword <code class="docutils literal notranslate"><span class="pre">sublist</span></code></p>
+<p>We clearly see that the RMSE is much better!
+<span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> Create a list with the five patients having the more visits and the five patients having the less visits, then use <code class="docutils literal notranslate"><span class="pre">plot_individuals</span></code> function to display their observations and reconstructions by the model
+<em>Hint</em> : use the keyword <code class="docutils literal notranslate"><span class="pre">sublist</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sublist = # TODO</span>
@@ -1861,21 +1162,17 @@
 <img alt="../../../_images/TP1_LMM_46_0.png" src="../../../_images/TP1_LMM_46_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-19-span-explain-why-rmse-test-rmse-train">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> Explain why <span class="math notranslate nohighlight">\(RMSE_{test} &gt;&gt; RMSE_{train}\)</span>:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-19-span-explain-why-rmse-test-rmse-train" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> Explain why <span class="math notranslate nohighlight">\(RMSE_{test} &gt;&gt; RMSE_{train}\)</span>:</p>
 <p>Your answer: …</p>
 <p><strong>Answer</strong>: the LM overfit for patients with only few data</p>
 </div>
-</div>
 <div class="section" id="part-v-linear-mixed-effects-model-with-statsmodels">
-<h1>Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#part-v-linear-mixed-effects-model-with-statsmodels" title="Permalink to this headline">¶</a></h1>
+<h2>Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#part-v-linear-mixed-effects-model-with-statsmodels" title="Permalink to this headline">¶</a></h2>
 <p>With the previous method, we made a significant improvement. However, we suffer fro an overfitting problem. Let’s see what a <em>mixed effect model</em> can do for us!</p>
 <div class="section" id="run-a-lmm-with-statsmodels">
-<h2>Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#run-a-lmm-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+<h3>Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#run-a-lmm-with-statsmodels" title="Permalink to this headline">¶</a></h3>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> We will use the <code class="docutils literal notranslate"><span class="pre">statsmodel</span></code> package to run a Linear Mixed Effect Model (LMM or LMEM in the literature).</p>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-20-span-load-the-following-lines-to-import-the-packages">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Load the following lines to import the packages<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-20-span-load-the-following-lines-to-import-the-packages" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Load the following lines to import the packages</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
@@ -1893,9 +1190,7 @@
 </ul>
 <p>If you go back to the equation you get :
 <span class="math notranslate nohighlight">\( PUTAMEN_{id,time} = \underbrace{\alpha*TIME_{id,time} + \beta}_\text{formula} + \underbrace{\alpha_{id}*TIME_{id,time} + \beta_{id}}_\text{re_formula}\)</span></p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-21-span-let-s-try-a-very-naive-run">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> Let’s try a very <strong><em>naive</em></strong> run:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-21-span-let-s-try-a-very-naive-run" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> Let’s try a very <strong><em>naive</em></strong> run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lmm</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;PUTAMEN ~ 1 + TIME&#39;</span><span class="p">,</span> 
@@ -1957,9 +1252,7 @@
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> Let’s skip the different warning for now and see what happens if we ignore it</p>
 <p>Let’s try and see.</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-22-span-run-the-following-commands-to-get-the-intercept-and-slope">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> Run the following commands to get the intercept and slope<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-22-span-run-the-following-commands-to-get-the-intercept-and-slope" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> Run the following commands to get the intercept and slope</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lmm</span><span class="o">.</span><span class="n">fe_params</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">])</span>
@@ -1974,10 +1267,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-23-span-run-the-following-commands-to-get-the-variation-to-the-mean-slope-and-intercept">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> Run the following commands to get the variation to the mean slope and intercept<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-23-span-run-the-following-commands-to-get-the-variation-to-the-mean-slope-and-intercept" title="Permalink to this headline">¶</a></h3>
-<p>Example on few subject</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> Run the following commands to get the variation to the mean slope and intercept
+Example on few subject</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">lmm</span><span class="o">.</span><span class="n">random_effects</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> 
@@ -1999,9 +1290,7 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-24-span-from-the-fixed-and-random-effects-compute-for-each-subject-its-intercept-and-slope">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> From the fixed and random effects, compute for each subject its INTERCEPT and SLOPE:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-24-span-from-the-fixed-and-random-effects-compute-for-each-subject-its-intercept-and-slope" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> From the fixed and random effects, compute for each subject its INTERCEPT and SLOPE:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_random_effects[&#39;INTERCEPT&#39;] = # TODO</span>
@@ -2093,9 +1382,7 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-25-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-to-compute-the-prediction-with-the-new-individual-effects">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_individual_reconstruction</span></code> function but with <code class="docutils literal notranslate"><span class="pre">df_random_effects</span></code> to compute the prediction with the new individual effects<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-25-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-to-compute-the-prediction-with-the-new-individual-effects" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_individual_reconstruction</span></code> function but with <code class="docutils literal notranslate"><span class="pre">df_random_effects</span></code> to compute the prediction with the new individual effects</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Linear Mixed Effect Model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="c1"># Your code here</span>
@@ -2179,7 +1466,7 @@
 </div></div></div>
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> The result is worse than with the previous model.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> <strong>What do you think happened? Let’s check it visually</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> What do you think happened? Let’s check it visually</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -2203,10 +1490,8 @@
 </div>
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> All the slopes are the same. This is related to the warning above : these are warnings are a way of alerting you that you may be in a non-standard situation. Most likely, one of your variance parameters is converging to zero. Which is the case if you have a look to time variance.</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-28-span-let-s-rerun-it-by-normalizing-the-time-first-add-to-df-train-and-df-test-a-renormalizing-function-be-careful-to-normalize-only-with-the-known-ages-from-train">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> Let’s rerun it by normalizing the time first. Add to <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code> a renormalizing function. Be careful to normalize only with the known ages from train.<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-28-span-let-s-rerun-it-by-normalizing-the-time-first-add-to-df-train-and-df-test-a-renormalizing-function-be-careful-to-normalize-only-with-the-known-ages-from-train" title="Permalink to this headline">¶</a></h3>
-<p><em>Hint</em> : Watchout to data leakage!</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> Let’s rerun it by normalizing the time first. Add to <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code> a renormalizing function. Be careful to normalize only with the known ages from train.
+<em>Hint</em> : Watchout to data leakage!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2240,7 +1525,7 @@
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> <strong>Rerun the previous mixed lm (some cells above) but with the TIME_NORMALIZED instead of TIME in the formula and re_formula.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> Rerun the previous mixed lm (some cells above) but with the TIME_NORMALIZED instead of TIME in the formula and re_formula.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE</span>
@@ -2305,9 +1590,7 @@
 </table></div></div>
 </div>
 <p>Ahaaaaah! No warnings!</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-30-span-get-the-parameters-as-previously-in-df-random-effects-2-and-store-the-intercept-normalized-and-slope-normalized">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> Get the parameters as previously in <code class="docutils literal notranslate"><span class="pre">df_random_effects_2</span></code> and store the <code class="docutils literal notranslate"><span class="pre">INTERCEPT_NORMALIZED</span></code> and <code class="docutils literal notranslate"><span class="pre">SLOPE_NORMALIZED</span></code><a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-30-span-get-the-parameters-as-previously-in-df-random-effects-2-and-store-the-intercept-normalized-and-slope-normalized" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> Get the parameters as previously in <code class="docutils literal notranslate"><span class="pre">df_random_effects_2</span></code> and store the <code class="docutils literal notranslate"><span class="pre">INTERCEPT_NORMALIZED</span></code> and <code class="docutils literal notranslate"><span class="pre">SLOPE_NORMALIZED</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO </span>
@@ -2411,9 +1694,7 @@
 <div class="math notranslate nohighlight">
 \[ y = SLOPE * TIME + INTERCEPT \]</div>
 <p>where $<span class="math notranslate nohighlight">\(SLOPE = \frac{SLOPE_{normalized}}{ std_{ages}}\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(INTERCEPT = INTERCEPT_{normalized} - \frac{SLOPE_{normalized} * mean_{ages}}{std_{ages}}\)</span>$</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-31-span-from-intercept-normalized-slope-normalized-compute-for-each-subject-its-intercept-and-slope">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> From INTERCEPT_NORMALIZED &amp; SLOPE_NORMALIZED, compute for each subject its INTERCEPT and SLOPE:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-31-span-from-intercept-normalized-slope-normalized-compute-for-each-subject-its-intercept-and-slope" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> From INTERCEPT_NORMALIZED &amp; SLOPE_NORMALIZED, compute for each subject its INTERCEPT and SLOPE:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;GS-001&#39;</span><span class="p">]</span> 
 <span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;INTERCEPT&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;SLOPE&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
@@ -2438,9 +1719,7 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-32-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-2-to-compute-the-prediction-with-the-new-individual-effects">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 32 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_individual_reconstruction</span></code> function but with <code class="docutils literal notranslate"><span class="pre">df_random_effects_2</span></code> to compute the prediction with the new individual effects<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-32-span-use-the-compute-individual-reconstruction-function-but-with-df-random-effects-2-to-compute-the-prediction-with-the-new-individual-effects" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 32 💬</span> Use the <code class="docutils literal notranslate"><span class="pre">compute_individual_reconstruction</span></code> function but with <code class="docutils literal notranslate"><span class="pre">df_random_effects_2</span></code> to compute the prediction with the new individual effects</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2460,7 +1739,7 @@
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 33 💬</span> <strong>Store the results in <code class="docutils literal notranslate"><span class="pre">overall_results</span></code> (thanks to <code class="docutils literal notranslate"><span class="pre">compute_rmse_train_test</span></code> function) and compare the models</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 33 💬</span> Store the results in <code class="docutils literal notranslate"><span class="pre">overall_results</span></code> (thanks to <code class="docutils literal notranslate"><span class="pre">compute_rmse_train_test</span></code> function) and compare the models</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2529,9 +1808,7 @@
 </div></div></div>
 </div>
 <p>The RMSE is much better!</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-34-span-display-the-subjects-of-sublist">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 34 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-34-span-display-the-subjects-of-sublist" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 34 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2554,13 +1831,9 @@
 <img alt="../../../_images/TP1_LMM_92_0.png" src="../../../_images/TP1_LMM_92_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-35-span-what-is-the-main-advantage-of-a-linear-mixed-effects-model-compared-to-multiple-linear-models">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 35 💬</span> What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-35-span-what-is-the-main-advantage-of-a-linear-mixed-effects-model-compared-to-multiple-linear-models" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 35 💬</span> What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?</p>
 <p>Your answer…</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-36-span-let-s-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects">
-<h3><span style='color: #a13203; font-weight: 600;'>💬 Question 36 💬</span> Let’s check the average RMSE per subject depending of the number of timepoints per subjects:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-36-span-let-s-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 36 💬</span> Let’s check the average RMSE per subject depending of the number of timepoints per subjects:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Individual Linear Regression&#39;</span><span class="p">,</span> <span class="s1">&#39;Linear Mixed Effect Model - V2&#39;</span><span class="p">]</span>
@@ -2605,12 +1878,10 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-<h1>PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h1>
+<h2>PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h2>
 <p>In the next practical sessions you will learn to use the package developped by the Aramis team. Now, just to be able to compare performances you will run a few methods of leaspy in advance…</p>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-37-span-run-the-following-cell-to-make-the-import-of-leaspy-methods-format-the-data-and-fit-a-model">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 37 💬</span>  Run the following cell to make the import of leaspy methods, format the data and fit a model :<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-37-span-run-the-following-cell-to-make-the-import-of-leaspy-methods-format-the-data-and-fit-a-model" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 37 💬</span>  Run the following cell to make the import of leaspy methods, format the data and fit a model :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Import methods</span>
@@ -2637,9 +1908,7 @@ Calibration took: 26s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="well-it-s-a-bit-slow-but-here-is-a-joke-to-wait">
-<h2>Well it’s a bit slow, but here is a joke to wait:<a class="headerlink" href="#well-it-s-a-bit-slow-but-here-is-a-joke-to-wait" title="Permalink to this headline">¶</a></h2>
+<p>Well it’s a bit slow, but here is a joke to wait:</p>
 <ul class="simple">
 <li><p>What did the triangle say to the circle? “You’re pointless.”</p></li>
 </ul>
@@ -2648,9 +1917,7 @@ Calibration took: 26s
 <ul class="simple">
 <li><p>I had an argument with a 90° angle. It turns out it was right.</p></li>
 </ul>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-38-span-run-the-following-two-cells-to-make-the-predictions">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 38 💬</span>  Run the following two cells to make the predictions:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-38-span-run-the-following-two-cells-to-make-the-predictions" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 38 💬</span>  Run the following two cells to make the predictions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings_personalize</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;scipy_minimize&#39;</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_jacobian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2678,7 +1945,7 @@ Personalization scipy_minimize took: 20s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 39 💬</span>  <strong>Add the predictions to <code class="docutils literal notranslate"><span class="pre">df</span></code></strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 39 💬</span>  Add the predictions to <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Leaspy linear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
@@ -2689,7 +1956,7 @@ Personalization scipy_minimize took: 20s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 40 💬</span>  <strong>Compute and add the new rmse</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 40 💬</span>  Compute and add the new rmse</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_rmse_train_test</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">overall_results</span><span class="p">,</span> <span class="s1">&#39;Leaspy linear&#39;</span><span class="p">)</span>
@@ -2746,9 +2013,7 @@ Personalization scipy_minimize took: 20s
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-41-span-display-the-subjects-of-sublist">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 41 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-41-span-display-the-subjects-of-sublist" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 41 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2772,11 +2037,10 @@ Personalization scipy_minimize took: 20s
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-<h1>PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h1>
+<h2>PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h2>
 <p>Again you will use an other model of leapsy…</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 42 💬</span> <strong>Fit the model with the data.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 42 💬</span> Fit the model with the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy_univariate</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="s1">&#39;univariate_logistic&#39;</span><span class="p">)</span>
@@ -2796,12 +2060,7 @@ Calibration took: 27s
 </div>
 </div>
 </div>
-<div class="section" id="well-it-s-a-bit-slow-but-here-is-meme-to-wait">
-<h2>Well it’s a bit slow, but here is meme to wait:<a class="headerlink" href="#well-it-s-a-bit-slow-but-here-is-meme-to-wait" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image.png" src="pages/notebooks/leaspy/attachment:7e587d1a-67e7-4a36-bb4b-ce28105cbaa8.png" /></p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-43-span-run-the-following-two-cells-to-make-the-predictions">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 43 💬</span>  Run the following two cells to make the predictions:<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-43-span-run-the-following-two-cells-to-make-the-predictions" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 43 💬</span>  Run the following two cells to make the predictions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings_personalize</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;scipy_minimize&#39;</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_jacobian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2829,7 +2088,7 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 44 💬</span>  <strong>Add the predictions to <code class="docutils literal notranslate"><span class="pre">df</span></code></strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 44 💬</span>  Add the predictions to <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Leaspy logistic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
@@ -2840,7 +2099,7 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 45 💬</span>  <strong>Compute and add the new rmse</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 45 💬</span>  Compute and add the new rmse</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_rmse_train_test</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">overall_results</span><span class="p">,</span> <span class="s1">&#39;Leaspy logistic&#39;</span><span class="p">)</span>
@@ -2902,9 +2161,7 @@ Personalization scipy_minimize took: 4s
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-46-span-display-the-subjects-of-sublist">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 46 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-46-span-display-the-subjects-of-sublist" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 46 💬</span> Display the subjects of <code class="docutils literal notranslate"><span class="pre">sublist</span></code> :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code</span>
@@ -2924,12 +2181,10 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_123_0.png" src="../../../_images/TP1_LMM_123_0.png" />
+<img alt="../../../_images/TP1_LMM_121_0.png" src="../../../_images/TP1_LMM_121_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-47-span-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 47 💬</span> Check the average RMSE per subject depending of the number of timepoints per subjects<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-47-span-check-the-average-rmse-per-subject-depending-of-the-number-of-timepoints-per-subjects" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 47 💬</span> Check the average RMSE per subject depending of the number of timepoints per subjects</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Individual Linear Regression&#39;</span><span class="p">,</span> 
@@ -2944,14 +2199,13 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_125_0.png" src="../../../_images/TP1_LMM_125_0.png" />
+<img alt="../../../_images/TP1_LMM_123_0.png" src="../../../_images/TP1_LMM_123_0.png" />
 </div>
 </div>
 <p>Here we clearly see that the few subjects who have less than 6 timepoints are better reconstructed with a mixed effect model!</p>
 </div>
-</div>
 <div class="section" id="for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-<h1>For the fast-running Zebras: all-in-one with a more realistic split of data<a class="headerlink" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data" title="Permalink to this headline">¶</a></h1>
+<h2>For the fast-running Zebras: all-in-one with a more realistic split of data<a class="headerlink" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data" title="Permalink to this headline">¶</a></h2>
 <p>Let’s try to split differently data so to mimic real-world applications.</p>
 <p>We don’t want to fit again a new model every time we predict the future of a new patient.
 To this aim, we want to calibrate (fit) a model on a large and representative dataset once and then personalize this model to totally new individuals. We can then make forecasts about these new individuals.</p>
@@ -2965,8 +2219,7 @@ To this aim, we want to calibrate (fit) a model on a large and representative da
 </ul>
 </li>
 </ul>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-48-span-split-data-differently-so-to-respect-real-world-constraint">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 48 💬</span> Split data differently so to respect real-world constraint<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-48-span-split-data-differently-so-to-respect-real-world-constraint" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 48 💬</span> Split data differently so to respect real-world constraint</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># be sure that ages are increasing</span>
@@ -3009,9 +2262,7 @@ To this aim, we want to calibrate (fit) a model on a large and representative da
 </div>
 </div>
 <p>Let’s check that distributions of ages and putamen values between train &amp; test are similar… unlike previous split!</p>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-49-span-check-consistence-of-new-train-test-split-and-compare-to-previous-split">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 49 💬</span> Check consistence of new train/test split and compare to previous split<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-49-span-check-consistence-of-new-train-test-split-and-compare-to-previous-split" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 49 💬</span> Check consistence of new train/test split and compare to previous split</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_new_split</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span>
@@ -3041,13 +2292,11 @@ To this aim, we want to calibrate (fit) a model on a large and representative da
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_133_0.png" src="../../../_images/TP1_LMM_133_0.png" />
-<img alt="../../../_images/TP1_LMM_133_1.png" src="../../../_images/TP1_LMM_133_1.png" />
+<img alt="../../../_images/TP1_LMM_131_0.png" src="../../../_images/TP1_LMM_131_0.png" />
+<img alt="../../../_images/TP1_LMM_131_1.png" src="../../../_images/TP1_LMM_131_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-50-span-double-check-number-of-individuals-and-visits-in-each-split-of-our-dataset">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 50 💬</span> Double check number of individuals and visits in each split of our dataset<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-50-span-double-check-number-of-individuals-and-visits-in-each-split-of-our-dataset" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 50 💬</span> Double check number of individuals and visits in each split of our dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some descriptive stats on number of visits in test set (present part)</span>
@@ -3142,9 +2391,7 @@ Visits per individual in each split
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-51-span-write-a-all-in-one-personalization-prediction-function-thanks-to-leaspy-api">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 51 💬</span> Write a all-in-one personalization &amp; prediction function thanks to Leaspy api<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-51-span-write-a-all-in-one-personalization-prediction-function-thanks-to-leaspy-api" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 51 💬</span> Write a all-in-one personalization &amp; prediction function thanks to Leaspy api</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">personalize_model</span><span class="p">(</span><span class="n">leaspy_model</span><span class="p">,</span> <span class="n">settings_perso</span><span class="p">):</span>
@@ -3188,9 +2435,7 @@ Visits per individual in each split
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-52-span-calibrate-personalize-predict-with-lmm-univariate-linear-univariate-logistic-thanks-to-leaspy">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 52 💬</span> Calibrate, personalize &amp; predict with LMM, univariate linear &amp; univariate logistic thanks to Leaspy<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-52-span-calibrate-personalize-predict-with-lmm-univariate-linear-univariate-logistic-thanks-to-leaspy" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 52 💬</span> Calibrate, personalize &amp; predict with LMM, univariate linear &amp; univariate logistic thanks to Leaspy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Leaspy LMM (using integrated exact personalization formula)</span>
@@ -3319,9 +2564,7 @@ RMSE on test future: 1.62%
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-53-span-display-rmse-on-all-splits-of-data-depending-on-models-part-where-models-were-personalized-on">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 53 💬</span> Display RMSE on all splits of data depending on models &amp; part where models were personalized on<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-53-span-display-rmse-on-all-splits-of-data-depending-on-models-part-where-models-were-personalized-on" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 53 💬</span> Display RMSE on all splits of data depending on models &amp; part where models were personalized on</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reconstruct using different personalizations made</span>
@@ -3429,9 +2672,7 @@ RMSE on test future: 1.62%
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-54-span-plot-distributions-of-absolute-errors">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 54 💬</span> Plot distributions of absolute errors<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-54-span-plot-distributions-of-absolute-errors" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 54 💬</span> Plot distributions of absolute errors</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_dist_errs</span><span class="p">(</span><span class="n">pred_errs</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">grouping_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -3471,13 +2712,11 @@ RMSE on test future: 1.62%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_146_0.png" src="../../../_images/TP1_LMM_146_0.png" />
-<img alt="../../../_images/TP1_LMM_146_1.png" src="../../../_images/TP1_LMM_146_1.png" />
+<img alt="../../../_images/TP1_LMM_144_0.png" src="../../../_images/TP1_LMM_144_0.png" />
+<img alt="../../../_images/TP1_LMM_144_1.png" src="../../../_images/TP1_LMM_144_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-55-span-plot-some-individual-trajectories-with-their-associated-predicted-trajectories">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 55 💬</span> Plot some individual trajectories with their associated predicted trajectories<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-55-span-plot-some-individual-trajectories-with-their-associated-predicted-trajectories" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 55 💬</span> Plot some individual trajectories with their associated predicted trajectories</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">s_test</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -3510,13 +2749,12 @@ RMSE on test future: 1.62%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_148_0.png" src="../../../_images/TP1_LMM_148_0.png" />
-</div>
+<img alt="../../../_images/TP1_LMM_146_0.png" src="../../../_images/TP1_LMM_146_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-<h1>Bonus: have a look at the LMM log-likelihood landscape<a class="headerlink" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape" title="Permalink to this headline">¶</a></h1>
+<h2>Bonus: have a look at the LMM log-likelihood landscape<a class="headerlink" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
@@ -3546,8 +2784,7 @@ RMSE on test future: 1.62%
 </div>
 </div>
 </div>
-<div class="section" id="span-style-color-a13203-font-weight-600-question-56-span-plot-log-likelihood-landscapes-for-lmm-model-depending-on-variance-covariance-matrix-of-random-effects">
-<h2><span style='color: #a13203; font-weight: 600;'>💬 Question 56 💬</span> Plot log-likelihood landscapes for LMM model, depending on variance-covariance matrix of random effects<a class="headerlink" href="#span-style-color-a13203-font-weight-600-question-56-span-plot-log-likelihood-landscapes-for-lmm-model-depending-on-variance-covariance-matrix-of-random-effects" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 56 💬</span> Plot log-likelihood landscapes for LMM model, depending on variance-covariance matrix of random effects</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fix_k</span><span class="p">,</span> <span class="n">fix_v</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">([</span>
@@ -3584,76 +2821,76 @@ RMSE on test future: 1.62%
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/18 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_1.png" src="../../../_images/TP1_LMM_152_1.png" />
+<img alt="../../../_images/TP1_LMM_150_1.png" src="../../../_images/TP1_LMM_150_1.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|▌         | 1/18 [01:23&lt;23:39, 83.51s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_3.png" src="../../../_images/TP1_LMM_152_3.png" />
+<img alt="../../../_images/TP1_LMM_150_3.png" src="../../../_images/TP1_LMM_150_3.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|█         | 2/18 [02:58&lt;24:06, 90.39s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_5.png" src="../../../_images/TP1_LMM_152_5.png" />
+<img alt="../../../_images/TP1_LMM_150_5.png" src="../../../_images/TP1_LMM_150_5.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|█▋        | 3/18 [04:43&lt;24:16, 97.10s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_7.png" src="../../../_images/TP1_LMM_152_7.png" />
+<img alt="../../../_images/TP1_LMM_150_7.png" src="../../../_images/TP1_LMM_150_7.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██▏       | 4/18 [06:01&lt;20:53, 89.53s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_9.png" src="../../../_images/TP1_LMM_152_9.png" />
+<img alt="../../../_images/TP1_LMM_150_9.png" src="../../../_images/TP1_LMM_150_9.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██▊       | 5/18 [07:27&lt;19:04, 88.05s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_11.png" src="../../../_images/TP1_LMM_152_11.png" />
+<img alt="../../../_images/TP1_LMM_150_11.png" src="../../../_images/TP1_LMM_150_11.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|███▎      | 6/18 [08:53&lt;17:31, 87.61s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_13.png" src="../../../_images/TP1_LMM_152_13.png" />
+<img alt="../../../_images/TP1_LMM_150_13.png" src="../../../_images/TP1_LMM_150_13.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|███▉      | 7/18 [10:06&lt;15:08, 82.59s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_15.png" src="../../../_images/TP1_LMM_152_15.png" />
+<img alt="../../../_images/TP1_LMM_150_15.png" src="../../../_images/TP1_LMM_150_15.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|████▍     | 8/18 [11:19&lt;13:17, 79.72s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_17.png" src="../../../_images/TP1_LMM_152_17.png" />
+<img alt="../../../_images/TP1_LMM_150_17.png" src="../../../_images/TP1_LMM_150_17.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|█████     | 9/18 [12:31&lt;11:35, 77.33s/it]/Users/etienne.maheux/Documents/repos/disease-course-mapping-solutions/TP1_LMM/utils/loglikelihood_landspace_lmm.py:130: UserWarning: No contour levels were found within the data range.
   colors=&#39;black&#39;, alpha=.8, linewidths=1)
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_19.png" src="../../../_images/TP1_LMM_152_19.png" />
+<img alt="../../../_images/TP1_LMM_150_19.png" src="../../../_images/TP1_LMM_150_19.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████▌    | 10/18 [13:44&lt;10:07, 75.94s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_21.png" src="../../../_images/TP1_LMM_152_21.png" />
+<img alt="../../../_images/TP1_LMM_150_21.png" src="../../../_images/TP1_LMM_150_21.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|██████    | 11/18 [14:58&lt;08:46, 75.22s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_23.png" src="../../../_images/TP1_LMM_152_23.png" />
+<img alt="../../../_images/TP1_LMM_150_23.png" src="../../../_images/TP1_LMM_150_23.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████▋   | 12/18 [16:11&lt;07:27, 74.57s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_25.png" src="../../../_images/TP1_LMM_152_25.png" />
+<img alt="../../../_images/TP1_LMM_150_25.png" src="../../../_images/TP1_LMM_150_25.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|███████▏  | 13/18 [17:24&lt;06:10, 74.09s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_27.png" src="../../../_images/TP1_LMM_152_27.png" />
+<img alt="../../../_images/TP1_LMM_150_27.png" src="../../../_images/TP1_LMM_150_27.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|███████▊  | 14/18 [18:38&lt;04:56, 74.21s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_29.png" src="../../../_images/TP1_LMM_152_29.png" />
+<img alt="../../../_images/TP1_LMM_150_29.png" src="../../../_images/TP1_LMM_150_29.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████▎ | 15/18 [19:56&lt;03:45, 75.18s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_31.png" src="../../../_images/TP1_LMM_152_31.png" />
+<img alt="../../../_images/TP1_LMM_150_31.png" src="../../../_images/TP1_LMM_150_31.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|████████▉ | 16/18 [21:14&lt;02:32, 76.14s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_33.png" src="../../../_images/TP1_LMM_152_33.png" />
+<img alt="../../../_images/TP1_LMM_150_33.png" src="../../../_images/TP1_LMM_150_33.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|█████████▍| 17/18 [22:27&lt;01:15, 75.09s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_152_35.png" src="../../../_images/TP1_LMM_152_35.png" />
+<img alt="../../../_images/TP1_LMM_150_35.png" src="../../../_images/TP1_LMM_150_35.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 18/18 [23:52&lt;00:00, 79.58s/it]
 </pre></div>
 </div>
@@ -3690,7 +2927,7 @@ RMSE on test future: 1.62%
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="leaspy.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="leaspy.html" title="previous page">This is a test</a>
     <a class='right-next' id="next-link" href="TP2_leaspy_beginner.html" title="next page">First steps with Leaspy</a>
 
     </div>

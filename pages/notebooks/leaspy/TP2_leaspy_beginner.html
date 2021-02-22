@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -43,6 +44,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -100,7 +102,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../DPM/introduction.html">
-   Introduction to Disease Progression Modelling
+   Introduction
   </a>
  </li>
 </ul>
@@ -111,8 +113,23 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/introduction.html">
+   Introduction to Disease Progression Models
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../materials/event_based_model.html">
    Event Based model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/leaspy.html">
+   Leaspy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/non_parametric_DPM.html">
+   Non-Parametric Disease Progression Model
   </a>
  </li>
 </ul>
@@ -127,162 +144,29 @@
    Notebooks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html">
-   Linear Mixed-effects Models
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="leaspy.html">
+   Leaspy
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-i-the-data">
-   Part I: The data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-ii-linear-regression">
-   Part II: Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-iii-the-longitudinal-aspect">
-   Part III: The longitudinal aspect
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-iv-indivual-linear-regressions">
-   PART IV: Indivual Linear Regressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-v-linear-mixed-effects-model-with-statsmodels">
-   Part V : Linear Mixed effects Model with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     statsmodels
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-   PART VI: A taste of the future - Linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-   PART VII: A taste of the future - Non-linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-   For the fast-running Zebras: all-in-one with a more realistic split of data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-   Bonus: have a look at the LMM log-likelihood landscape
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   First steps with Leaspy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-i-data">
-   Part I: Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-ii-instantiate-a-leaspy-object">
-   Part II : Instantiate a
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Leaspy
-    </span>
-   </code>
-   object
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iii-choose-your-algorithms">
-   Part III : Choose your algorithms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iv-fit-your-model">
-   Part IV : Fit your model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-v-personalize-the-model-to-individual-data">
-   Part V : Personalize the model to individual data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-vi-impute-missing-values-predict-individual-trajectories">
-   Part VI : Impute missing values &amp; predict individual trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-vii-leaspy-application-cofactor-analysis">
-   Part VII : Leaspy application - Cofactor analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-viii-data-simulation">
-   Part VIII : Data Simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#congratulations-this-is-the-end">
-   Congratulations this is the end !!!!!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html">
-   Advanced Leaspy Utilisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-i-the-prediction">
-   Part I: The prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-ii-the-cofactor-evaluation">
-   Part II: The cofactor evaluation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-iii-univariate-vs-multivariate">
-   Part III: Univariate vs Multivariate
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP3_advanced_leaspy.html#part-iv-get-the-best-model-as-you-can">
-   Part IV: Get the best model as you can
-  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP1_LMM.html">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP3_advanced_leaspy.html">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -399,6 +283,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/leaspy/TP2_leaspy_beginner.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -413,51 +302,22 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   First steps with Leaspy
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives :
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objectives">
-     Objectives :
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-set-up">
    The set-up
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-i-data">
    Part I: Data
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#this-result-in-multiple-rows-per-subject-the-input-format-must-follow-the-following-rules">
-     This result in multiple rows per subject. The input format
-     <strong>
-      <em>
-       MUST
-      </em>
-     </strong>
-     follow the following rules:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#concerning-the-features-values-as-we-are-using-a-logistic-model-they-must">
-     Concerning the features’ values, as we are using a logistic model, they
-     <strong>
-      <em>
-       MUST
-      </em>
-     </strong>
-     :
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#leaspy-s-data-container">
      Leaspy’s
      <code class="docutils literal notranslate">
@@ -470,7 +330,7 @@
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-ii-instantiate-a-leaspy-object">
    Part II : Instantiate a
    <code class="docutils literal notranslate">
@@ -481,39 +341,34 @@
    object
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iii-choose-your-algorithms">
    Part III : Choose your algorithms
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iv-fit-your-model">
    Part IV : Fit your model
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-v-personalize-the-model-to-individual-data">
    Part V : Personalize the model to individual data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-vi-impute-missing-values-predict-individual-trajectories">
    Part VI : Impute missing values &amp; predict individual trajectories
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-vii-leaspy-application-cofactor-analysis">
    Part VII : Leaspy application - Cofactor analysis
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-viii-data-simulation">
    Part VIII : Data Simulation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#congratulations-this-is-the-end">
-   Congratulations this is the end !!!!!
   </a>
  </li>
 </ul>
@@ -536,15 +391,14 @@
 <li><p>Learn to use Leaspy methods</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="the-set-up">
-<h1>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h1>
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
 <p>As before, if you have followed the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions">installation details</a> carefully, you should</p>
 <ul class="simple">
 <li><p>be running this notebook in the <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> virtual environment</p></li>
 <li><p>having all the needed packages already installed</p></li>
 </ul>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> <strong>Run the following command lines</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -564,19 +418,16 @@
 </div>
 </div>
 <div class="section" id="part-i-data">
-<h1>Part I: Data<a class="headerlink" href="#part-i-data" title="Permalink to this headline">¶</a></h1>
+<h2>Part I: Data<a class="headerlink" href="#part-i-data" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Data that can be used as a leaspy input should have the following format.</p>
-<div class="section" id="this-result-in-multiple-rows-per-subject-the-input-format-must-follow-the-following-rules">
-<h2>This result in multiple rows per subject. The input format <strong><em>MUST</em></strong> follow the following rules:<a class="headerlink" href="#this-result-in-multiple-rows-per-subject-the-input-format-must-follow-the-following-rules" title="Permalink to this headline">¶</a></h2>
+<p>This result in multiple rows per subject. The input format <strong><em>MUST</em></strong> follow the following rules:</p>
 <ul class="simple">
 <li><p>A column named <code class="docutils literal notranslate"><span class="pre">ID</span></code>: corresponds to the subject indices</p></li>
 <li><p>A columns named <code class="docutils literal notranslate"><span class="pre">TIME</span></code>: corresponds to the subject’s age at the corresponding visit</p></li>
 <li><p>One column per feature</p></li>
 <li><p>Each row is a visit, therefore the concatenation of the subject ID, the patient age at which the corresponding visit occured, and then the feature values</p></li>
 </ul>
-</div>
-<div class="section" id="concerning-the-features-values-as-we-are-using-a-logistic-model-they-must">
-<h2>Concerning the features’ values, as we are using a logistic model, they <strong><em>MUST</em></strong>:<a class="headerlink" href="#concerning-the-features-values-as-we-are-using-a-logistic-model-they-must" title="Permalink to this headline">¶</a></h2>
+<p>Concerning the features’ values, as we are using a logistic model, they <strong><em>MUST</em></strong>:</p>
 <ul class="simple">
 <li><p>Be between 0 and 1</p></li>
 <li><p>In average increase with time for each subject (normal states correspond to values near 0 and pathological states to values near 1)</p></li>
@@ -716,9 +567,9 @@
 </table>
 </div></div></div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> <strong>Does the data set seem to have the good format?</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> Does the data set seem to have the good format?</p>
 <p>Your answer: …</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> <strong>How many patients are there in the dataset?</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> How many patients are there in the dataset?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
@@ -743,11 +594,11 @@
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> <strong>Create a training test that contains the first 160 patients and a testing set the rest. Each set will only contain the following features:</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> Create a training test that contains the first 160 patients and a testing set the rest. Each set will only contain the following features:</p>
 <ul class="simple">
-<li><p><strong>MDS1_total</strong></p></li>
-<li><p><strong>MDS2_total</strong></p></li>
-<li><p><strong>MDS3_off_total</strong></p></li>
+<li><p>MDS1_total</p></li>
+<li><p>MDS2_total</p></li>
+<li><p>MDS3_off_total</p></li>
 </ul>
 <p>Help : Be careful, one patient is not one line …</p>
 <div class="cell docutils container">
@@ -772,11 +623,10 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="leaspy-s-data-container">
-<h2>Leaspy’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> container<a class="headerlink" href="#leaspy-s-data-container" title="Permalink to this headline">¶</a></h2>
+<h3>Leaspy’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> container<a class="headerlink" href="#leaspy-s-data-container" title="Permalink to this headline">¶</a></h3>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> <em>Leaspy</em> comes with its own data containers. The one used in a daily basis is <code class="docutils literal notranslate"><span class="pre">Data</span></code>. You can load your data from a csv with it <code class="docutils literal notranslate"><span class="pre">Data.from_csv_file</span></code> or from a DataFrame <code class="docutils literal notranslate"><span class="pre">Data.from_dataframe</span></code>.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> <strong>Run the following lines to convert DataFrame into Data object.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Run the following lines to convert DataFrame into Data object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_train</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
@@ -788,7 +638,7 @@
 </div>
 </div>
 <div class="section" id="part-ii-instantiate-a-leaspy-object">
-<h1>Part II : Instantiate a <code class="docutils literal notranslate"><span class="pre">Leaspy</span></code> object<a class="headerlink" href="#part-ii-instantiate-a-leaspy-object" title="Permalink to this headline">¶</a></h1>
+<h2>Part II : Instantiate a <code class="docutils literal notranslate"><span class="pre">Leaspy</span></code> object<a class="headerlink" href="#part-ii-instantiate-a-leaspy-object" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Before creating a leaspy object, you need to choose the type of progression shape you want to give to your data. The available models are the following:</p>
 <ul class="simple">
 <li><p>linear</p></li>
@@ -805,7 +655,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">lme_model</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">constant_model</span></code></p></li>
 </ul>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> <strong>We choose a logistic model. Run the following line to instantiate the leaspy object.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> We choose a logistic model. Run the following line to instantiate the leaspy object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="s2">&quot;logistic&quot;</span><span class="p">,</span> <span class="n">source_dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -821,7 +671,7 @@
 <li><p><strong>simulate</strong> synthetic subjects base on your calibrated model, a collection of individual parameters and data</p></li>
 <li><p><strong>load</strong> and <strong>save</strong> a model</p></li>
 </ul>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> <strong>Check it out by running the following line</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> Check it out by running the following line</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> Leaspy
@@ -829,7 +679,7 @@
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> <strong>This <code class="docutils literal notranslate"><span class="pre">Leaspy</span></code> object comes with an handy attribute for vizualization. Let’s have a look on the data that will be used to calibrate our model</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> This <code class="docutils literal notranslate"><span class="pre">Leaspy</span></code> object comes with an handy attribute for vizualization. Let’s have a look on the data that will be used to calibrate our model</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dimension</span>
@@ -853,10 +703,10 @@
 <p>Well… not so engaging, right? Let’s see what Leaspy can do for you.</p>
 </div>
 <div class="section" id="part-iii-choose-your-algorithms">
-<h1>Part III : Choose your algorithms<a class="headerlink" href="#part-iii-choose-your-algorithms" title="Permalink to this headline">¶</a></h1>
+<h2>Part III : Choose your algorithms<a class="headerlink" href="#part-iii-choose-your-algorithms" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Once you choosed your model, you need to choose an algorithm to calibrate it.</p>
 <p>To run any algorithm, you need to specify the settings of the related algorithm thanks to the <code class="docutils literal notranslate"><span class="pre">AlgorithmSettings</span></code> object. To ease Leaspy’s usage for new users, we specified default values for each algorithm. Therefore, the name of the algorithm used is enough to run it. The one you need to fit your progression model is <code class="docutils literal notranslate"><span class="pre">mcmc_saem</span></code>, which stands for <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Markov chain Monte Carlo</a> - Stochastic Approximation of <a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" target="_blank">Expectation Maximization</a>.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> <strong>Run the following line to instanciate a <code class="docutils literal notranslate"><span class="pre">AlgorithmSettings</span></code> object.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> Run the following line to instanciate a <code class="docutils literal notranslate"><span class="pre">AlgorithmSettings</span></code> object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">algo_settings</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;mcmc_saem&#39;</span><span class="p">,</span> 
@@ -868,7 +718,7 @@
 </div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> You can specify many more settings that are left by default for now. You can also save and load an <code class="docutils literal notranslate"><span class="pre">AlgorithmSettings</span></code> object in a json file.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> <strong>Run the following line to get more informations.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> Run the following line to get more informations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> AlgorithmSettings
@@ -877,7 +727,7 @@
 </div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> It is often usefull, even if it is optional to store the different logs of the model during the iterations. You can use the following method with the path of the folder where the logs will be stored.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> <strong>Run the following lines.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> Run the following lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">algo_settings</span><span class="o">.</span><span class="n">set_logs</span><span class="p">(</span>
@@ -898,8 +748,8 @@
 </div>
 </div>
 <div class="section" id="part-iv-fit-your-model">
-<h1>Part IV : Fit your model<a class="headerlink" href="#part-iv-fit-your-model" title="Permalink to this headline">¶</a></h1>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span> <strong>Run the following lines to fit the model.</strong></p>
+<h2>Part IV : Fit your model<a class="headerlink" href="#part-iv-fit-your-model" title="Permalink to this headline">¶</a></h2>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span> Run the following lines to fit the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
@@ -980,7 +830,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span>  Parameters are probably not straightfoward for now. The most important one is probably <code class="docutils literal notranslate"><span class="pre">noise_std</span></code>. It corresponds to the standard deviation of the Gaussian errors (one per feature). The smallest, the better - up to the lower bound which is the intrinsic noise in the data. Note that usually, cognitive measurements have an intrinsic error (computed on test-retest exams) between 5% and 10%.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> <strong>Let’s display <code class="docutils literal notranslate"><span class="pre">noise_std</span></code></strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> Let’s display <code class="docutils literal notranslate"><span class="pre">noise_std</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;noise_std&#39;</span><span class="p">]</span>
@@ -1001,7 +851,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 16 💬</span> <strong>Save the model with the command below</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 16 💬</span> Save the model with the command below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;outputs/model_parameters.json&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1009,7 +859,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> <strong>Load the model with the command below</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Load the model with the command below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;outputs/model_parameters.json&#39;</span><span class="p">)</span>
@@ -1020,7 +870,7 @@ Calibration took: 4min 2s
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Now that we have sufficient evidence that the model has converged, let’s output what the average progression looks like!</p>
 <p>First, let’s detail a bit what we are going to represent. We are going to display a trajectory: it corresponds to the temporal progression of the biomarkers. There is not only one trajectory for a cohort, as each subject has his or her own specific trajectory, meaning his or her disease progression. Each of these individual trajectories rely on individual parameters that are subject-specific. We will see those individual parameters a bit later, do not worry. For now, let’s stick to the <em>average</em> trajectory.</p>
 <p>So what does the average trajectory corresponds to? The average trajectory correspond to a <em>virtual patient</em> whose individual parameters are the average individual parameters. And these averages are already estimated during the calibration.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> <strong>Let’s plot the average trajectory</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> Let’s plot the average trajectory</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">average_trajectory</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1035,7 +885,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 <div class="section" id="part-v-personalize-the-model-to-individual-data">
-<h1>Part V : Personalize the model to individual data<a class="headerlink" href="#part-v-personalize-the-model-to-individual-data" title="Permalink to this headline">¶</a></h1>
+<h2>Part V : Personalize the model to individual data<a class="headerlink" href="#part-v-personalize-the-model-to-individual-data" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> The personalization procedure allows to estimate the individual parameters that allows to modify the average progression to individual observations. The variations from the average trajectory to the individual one are encoded within three individual parameters :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\alpha_i = \exp(\xi_i)\)</span> : the acceleration factor, that modulates the speed of progression : <span class="math notranslate nohighlight">\(\alpha_i &gt; 1\)</span> means faster, <span class="math notranslate nohighlight">\(\alpha_i &lt; 1\)</span> means slower than the average progression</p></li>
@@ -1054,7 +904,7 @@ Calibration took: 4min 2s
 <p>This writing is not exactly correct but helps understand the role of each individual parameters.</p>
 <p><strong>[ Advanced ]</strong> Remember the <code class="docutils literal notranslate"><span class="pre">sources</span></code>, or the <code class="docutils literal notranslate"><span class="pre">source_dimension</span></code>? Well, <span class="math notranslate nohighlight">\(w_i\)</span> is not estimated directly, but rather thanks to a Independant Component Analysis, such that <span class="math notranslate nohighlight">\(w_i = A s_i\)</span> where <span class="math notranslate nohighlight">\(s_i\)</span> is of dimension <span class="math notranslate nohighlight">\(N_s\)</span> = <code class="docutils literal notranslate"><span class="pre">source_dimension</span></code>. See associated papers for further details.</p>
 <p>Now, let’s estimate these individual parameters. The procedure relies on the <code class="docutils literal notranslate"><span class="pre">scipy_minimize</span></code> algorithm (gradient descent) that you have to define (or to load from an appropriate json file) :</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> <strong>First set the parameters</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> First set the parameters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings_personalization</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;scipy_minimize&#39;</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_jacobian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1062,7 +912,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> <strong>Then use the second most important function of leaspy : <code class="docutils literal notranslate"><span class="pre">leaspy.personalize</span></code>. It estimates the individual parameters for the data you provide:</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Then use the second most important function of leaspy : <code class="docutils literal notranslate"><span class="pre">leaspy.personalize</span></code>. It estimates the individual parameters for the data you provide:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>leaspy.personalize
@@ -1089,7 +939,7 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Note here that you can personalize your model on patients that have only one visit! And you don’t have to use the same <code class="docutils literal notranslate"><span class="pre">data</span></code> as previously. It is especially useful, and important, in order to validate your model!</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20b 💬</span> <strong>Once the personalization is done, check the different functions that the <code class="docutils literal notranslate"><span class="pre">IndividualParameters</span></code> provides (you can save and load them, transform them to dataframes, etc) :</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20b 💬</span> Once the personalization is done, check the different functions that the <code class="docutils literal notranslate"><span class="pre">IndividualParameters</span></code> provides (you can save and load them, transform them to dataframes, etc) :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>ip
@@ -1097,7 +947,7 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> <strong>Plot the test data, but with reparametrized ages instead of real ages</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> Plot the test data, but with reparametrized ages instead of real ages</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the test data with individually reparametrized ages</span>
@@ -1134,7 +984,7 @@ Personalization scipy_minimize took: 1s
 <p>Now, let’s see what you can do with the individual parameters.</p>
 </div>
 <div class="section" id="part-vi-impute-missing-values-predict-individual-trajectories">
-<h1>Part VI : Impute missing values &amp; predict individual trajectories<a class="headerlink" href="#part-vi-impute-missing-values-predict-individual-trajectories" title="Permalink to this headline">¶</a></h1>
+<h2>Part VI : Impute missing values &amp; predict individual trajectories<a class="headerlink" href="#part-vi-impute-missing-values-predict-individual-trajectories" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Together with the population parameters, the individual parameters entirely defines the individual trajectory, and thus, the biomarker values at any time. So you can reconstruct the individual biomarkers at different ages.</p>
 <p>You can reconstruct your observations at seen ages, i.e. at visits that have been used to personalize the model. There are two reasons you might want to do that:</p>
 <ul class="simple">
@@ -1142,7 +992,7 @@ Personalization scipy_minimize took: 1s
 <li><p>impute missing values: as Leaspy handles missing values, it can then reconstruct them (note that this reconstruction will be noiseless)</p></li>
 </ul>
 <p>The third very important function - after <code class="docutils literal notranslate"><span class="pre">leaspy.fit</span></code> and <code class="docutils literal notranslate"><span class="pre">leaspy.personalize</span></code> - is <code class="docutils literal notranslate"><span class="pre">leaspy.estimate</span></code>. Given some individual parameters and timepoints, the function estimates the values of the biomarkers at the given timepoints which derive from the individual trajectory encoded thanks to the individual parameters.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> <strong>Check out the documentation</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> Check out the documentation</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>leaspy.estimate
@@ -1150,7 +1000,7 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> <strong>Before running <code class="docutils literal notranslate"><span class="pre">leaspy.estimate</span></code>, let’s first retrieve the observations of subject ‘GS-187’ in the initial dataset. Get also his/her individual parameters as shown here:</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> Before running <code class="docutils literal notranslate"><span class="pre">leaspy.estimate</span></code>, let’s first retrieve the observations of subject ‘GS-187’ in the initial dataset. Get also his/her individual parameters as shown here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observations</span> <span class="o">=</span> <span class="n">df_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;GS-187&#39;</span><span class="p">]</span>
@@ -1169,7 +1019,7 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> The <code class="docutils literal notranslate"><span class="pre">estimate</span></code> first argument is a dictionary, so that you can estimate the trajectory of multiple individuals simultaneously (as long as the individual parameters of all your queried patients are in <code class="docutils literal notranslate"><span class="pre">ip</span></code>.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> <strong>Now, let’s estimate the trajectory for this patient.</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> Now, let’s estimate the trajectory for this patient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timepoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1266,9 +1116,9 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <div class="section" id="part-vii-leaspy-application-cofactor-analysis">
-<h1>Part VII : Leaspy application - Cofactor analysis<a class="headerlink" href="#part-vii-leaspy-application-cofactor-analysis" title="Permalink to this headline">¶</a></h1>
+<h2>Part VII : Leaspy application - Cofactor analysis<a class="headerlink" href="#part-vii-leaspy-application-cofactor-analysis" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Besides prediction, the individual parameters are interesting in the sense that they provide meaningful and interesting insights about the disease progression. For that reason, these individual parameters can be correlated to other cofactors. Let’s consider that you have a covariate <em>Cofactor 1</em> that encodes a genetic status: 1 if a specific mutation is present, 0 otherwise.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> <strong>Now, let’s see if this mutation has an effect on the disease progression:</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> Now, let’s see if this mutation has an effect on the disease progression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -1329,9 +1179,9 @@ MannwhitneyuResult(statistic=48.0, pvalue=5.152999045364206e-05)
 </div>
 </div>
 <div class="section" id="part-viii-data-simulation">
-<h1>Part VIII : Data Simulation<a class="headerlink" href="#part-viii-data-simulation" title="Permalink to this headline">¶</a></h1>
+<h2>Part VIII : Data Simulation<a class="headerlink" href="#part-viii-data-simulation" title="Permalink to this headline">¶</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Now that you are able to predict the evolution of a patient and use it to analyse cofactors, you might want to simulate a new one thanks to the information that you have learned. To do so you can use the last method of leaspy that we will study : <code class="docutils literal notranslate"><span class="pre">simulate</span></code>.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> <strong>Have a look to the function</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> Have a look to the function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>leaspy.simulate
@@ -1341,7 +1191,7 @@ MannwhitneyuResult(statistic=48.0, pvalue=5.152999045364206e-05)
 </div>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> To use the fuction we will first extract the individual parameters using personalize with <code class="docutils literal notranslate"><span class="pre">mode_real</span></code> option. The simulate function learns the joined distribution of the individual parameters and baseline age of the subjects
 present in <code class="docutils literal notranslate"><span class="pre">individual_parameters</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> respectively to sample new patients from this joined distribution.</p>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> <strong>Define the settings for the personalization and get the individual parameters</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> Define the settings for the personalization and get the individual parameters</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings_ip_simulate</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;mode_real&#39;</span><span class="p">)</span>
@@ -1360,7 +1210,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> <strong>Define your algorithm for the simulation and simulate individuals from previously obtained individual parameters and dataset</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> Define your algorithm for the simulation and simulate individuals from previously obtained individual parameters and dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings_simulate</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
@@ -1369,7 +1219,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> <strong>Access to the individual parameters of one individual that you have created</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> Access to the individual parameters of one individual that you have created</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">simulated_data</span><span class="o">.</span><span class="n">get_patient_individual_parameters</span><span class="p">(</span><span class="s2">&quot;Generated_subject_001&quot;</span><span class="p">))</span>
@@ -1382,7 +1232,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 </div>
-<p><span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> <strong>Plot the joint distribution of individual parameters (tau, xi) for simulated individuals that you have created</strong></p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> Plot the joint distribution of individual parameters (tau, xi) for simulated individuals that you have created</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe with individual parameters from both real &amp; simulated individuals</span>
@@ -1417,9 +1267,6 @@ Personalization mode_real took: 5s
 </div>
 </div>
 </div>
-<div class="section" id="congratulations-this-is-the-end">
-<h1>Congratulations this is the end !!!!!<a class="headerlink" href="#congratulations-this-is-the-end" title="Permalink to this headline">¶</a></h1>
-<p>You can now have a break ;)</p>
 </div>
 
     <script type="text/x-thebe-config">

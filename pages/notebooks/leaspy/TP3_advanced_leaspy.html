@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -43,6 +44,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -98,7 +100,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../DPM/introduction.html">
-   Introduction to Disease Progression Modelling
+   Introduction
   </a>
  </li>
 </ul>
@@ -109,8 +111,23 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/introduction.html">
+   Introduction to Disease Progression Models
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../materials/event_based_model.html">
    Event Based model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/leaspy.html">
+   Leaspy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../materials/non_parametric_DPM.html">
+   Non-Parametric Disease Progression Model
   </a>
  </li>
 </ul>
@@ -125,162 +142,29 @@
    Notebooks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html">
-   Linear Mixed-effects Models
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="leaspy.html">
+   Leaspy
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-i-the-data">
-   Part I: The data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-ii-linear-regression">
-   Part II: Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-iii-the-longitudinal-aspect">
-   Part III: The longitudinal aspect
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-iv-indivual-linear-regressions">
-   PART IV: Indivual Linear Regressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-v-linear-mixed-effects-model-with-statsmodels">
-   Part V : Linear Mixed effects Model with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     statsmodels
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-   PART VI: A taste of the future - Linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-   PART VII: A taste of the future - Non-linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-   For the fast-running Zebras: all-in-one with a more realistic split of data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP1_LMM.html#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-   Bonus: have a look at the LMM log-likelihood landscape
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html">
-   First steps with Leaspy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-i-data">
-   Part I: Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-ii-instantiate-a-leaspy-object">
-   Part II : Instantiate a
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Leaspy
-    </span>
-   </code>
-   object
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-iii-choose-your-algorithms">
-   Part III : Choose your algorithms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-iv-fit-your-model">
-   Part IV : Fit your model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-v-personalize-the-model-to-individual-data">
-   Part V : Personalize the model to individual data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-vi-impute-missing-values-predict-individual-trajectories">
-   Part VI : Impute missing values &amp; predict individual trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-vii-leaspy-application-cofactor-analysis">
-   Part VII : Leaspy application - Cofactor analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#part-viii-data-simulation">
-   Part VIII : Data Simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TP2_leaspy_beginner.html#congratulations-this-is-the-end">
-   Congratulations this is the end !!!!!
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Advanced Leaspy Utilisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-i-the-prediction">
-   Part I: The prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-ii-the-cofactor-evaluation">
-   Part II: The cofactor evaluation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iii-univariate-vs-multivariate">
-   Part III: Univariate vs Multivariate
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#part-iv-get-the-best-model-as-you-can">
-   Part IV: Get the best model as you can
-  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP1_LMM.html">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP2_leaspy_beginner.html">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -397,6 +281,11 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/leaspy/TP3_advanced_leaspy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
         
     </div>
 </div>
@@ -411,56 +300,49 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Advanced Leaspy Utilisation
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives :
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objectives">
-     Objectives :
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-set-up">
    The set-up
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-i-the-prediction">
    Part I: The prediction
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#i-1-prepare-your-data">
      I.1. Prepare your data
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#i-2-train-your-model">
      I.2. Train your model
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#i-3-test-your-model">
      I.3. Test your model
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-ii-the-cofactor-evaluation">
    Part II: The cofactor evaluation
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iii-univariate-vs-multivariate">
    Part III: Univariate vs Multivariate
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-iv-get-the-best-model-as-you-can">
    Part IV: Get the best model as you can
   </a>
@@ -487,9 +369,8 @@
 <li><p>Explore models selection</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="the-set-up">
-<h1>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h1>
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
 <p>As before, if you have followed the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions">installation details</a> carefully, you should</p>
 <ul class="simple">
 <li><p>be running this notebook in the <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> virtual environment</p></li>
@@ -514,11 +395,11 @@
 </div>
 </div>
 <div class="section" id="part-i-the-prediction">
-<h1>Part I: The prediction<a class="headerlink" href="#part-i-the-prediction" title="Permalink to this headline">¶</a></h1>
+<h2>Part I: The prediction<a class="headerlink" href="#part-i-the-prediction" title="Permalink to this headline">¶</a></h2>
 <p>One of the main issue of Parkinson disease specialized doctor is that they do not know how fast will the disease evolved and then are unable to set the right spacing between two visits wih their patients. In addition, they would like to give advises to their patients for them to anticipate administrative obligations by the time they are still able to do them. The most important score to monitore is MDS3_off_total, but it is always nice to have a some others.</p>
 <p>Leaspy could be a great tool to help solving those issues. The following part contains the main structure to train and test a leaspy model.</p>
 <div class="section" id="i-1-prepare-your-data">
-<h2>I.1. Prepare your data<a class="headerlink" href="#i-1-prepare-your-data" title="Permalink to this headline">¶</a></h2>
+<h3>I.1. Prepare your data<a class="headerlink" href="#i-1-prepare-your-data" title="Permalink to this headline">¶</a></h3>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Two datasets, containing 200 patients, are available :</p>
 <ul class="simple">
 <li><p><strong>learn_leaspy2</strong> : contains historic data of patients visits,</p></li>
@@ -1054,7 +935,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="i-2-train-your-model">
-<h2>I.2. Train your model<a class="headerlink" href="#i-2-train-your-model" title="Permalink to this headline">¶</a></h2>
+<h3>I.2. Train your model<a class="headerlink" href="#i-2-train-your-model" title="Permalink to this headline">¶</a></h3>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Be carefull you have only an <strong>hour and half</strong> and running a leaspy model on ten features can take a lot of time… We advise you to start by univariate model …</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> <strong>Complete the code below to select the columns you want to use to train your leaspy model.</strong></p>
 <div class="cell docutils container">
@@ -1185,7 +1066,7 @@ Calibration took: 2min 48s
 </div>
 </div>
 <div class="section" id="i-3-test-your-model">
-<h2>I.3. Test your model<a class="headerlink" href="#i-3-test-your-model" title="Permalink to this headline">¶</a></h2>
+<h3>I.3. Test your model<a class="headerlink" href="#i-3-test-your-model" title="Permalink to this headline">¶</a></h3>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> <strong>Complete the code below to make the predictions.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1270,7 +1151,7 @@ Personalization scipy_minimize took: 2s
 </div>
 </div>
 <div class="section" id="part-ii-the-cofactor-evaluation">
-<h1>Part II: The cofactor evaluation<a class="headerlink" href="#part-ii-the-cofactor-evaluation" title="Permalink to this headline">¶</a></h1>
+<h2>Part II: The cofactor evaluation<a class="headerlink" href="#part-ii-the-cofactor-evaluation" title="Permalink to this headline">¶</a></h2>
 <p>Besides prediction, the individual parameters are interesting in the sense that they provide meaningful and interesting insights about the disease progression. For that reasons, these individual parameters can be correlated to other cofactors. Let’s consider that you have a covariate Cofactor 1 that encodes a genetic status: 1 if a specific mutation is present, 0 otherwise. Now, let’s see if this mutation has an effect on the disease progression.</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> <strong>Complete the code below to see the repartition of carriers and non carriers.</strong></p>
 <div class="cell docutils container">
@@ -1393,7 +1274,7 @@ MannwhitneyuResult(statistic=662.0, pvalue=0.0026530380825654097)
 </div>
 </div>
 <div class="section" id="part-iii-univariate-vs-multivariate">
-<h1>Part III: Univariate vs Multivariate<a class="headerlink" href="#part-iii-univariate-vs-multivariate" title="Permalink to this headline">¶</a></h1>
+<h2>Part III: Univariate vs Multivariate<a class="headerlink" href="#part-iii-univariate-vs-multivariate" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have a multivariate model that works, let’s compare the multivariate and univariate model. For that you will compare a multivariate model with MDS3 and MDS2 with two univariate model MDS2 and MDS3 separatly.</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> <strong>Fit 3 models, one multivariate and two univariate with MDS2 and MDS3.</strong></p>
 <div class="cell docutils container">
@@ -1613,9 +1494,8 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 <div class="section" id="part-iv-get-the-best-model-as-you-can">
-<h1>Part IV: Get the best model as you can<a class="headerlink" href="#part-iv-get-the-best-model-as-you-can" title="Permalink to this headline">¶</a></h1>
-<p>If you have finished early, you can first fill the <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLScL9wIrtH6_P9z6--EV3AtcTWuqf7smifBc8w3YUt3zrFkj1Q/viewform?usp=sf_link">Google form</a> to help us improve our workshop !
-Then go back to part I and try to get the best results you can by changing the features selected, the data processing pipeline…</p>
+<h2>Part IV: Get the best model as you can<a class="headerlink" href="#part-iv-get-the-best-model-as-you-can" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
