@@ -1,5 +1,8 @@
 # ISBI 2021
 
+![ISBI](../../_static/img/conferences/ISBI_2021.png)
+
+[Link to the conference](https://biomedicalimaging.org/2021/)
 ## Outline
 
 3-hours tutorial on Neurological Disease Progression Modelling (DPM) to present the most advanced and mature data-driven disease progression models and the related software. Each model will be described and illustrated through interactive hands-on sessions.
