@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom_css.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -43,6 +44,7 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/custom_js.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -98,7 +100,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../DPM/introduction.html">
-   Introduction to Disease Progression Modelling
+   Introduction
   </a>
  </li>
 </ul>
@@ -109,8 +111,23 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../materials/introduction.html">
+   Introduction to Disease Progression Models
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../materials/event_based_model.html">
    Event Based model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../materials/leaspy.html">
+   Leaspy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../materials/non_parametric_DPM.html">
+   Non-Parametric Disease Progression Model
   </a>
  </li>
 </ul>
@@ -125,162 +142,29 @@
    Notebooks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html">
-   Linear Mixed-effects Models
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notebooks/leaspy/leaspy.html">
+   Leaspy
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-i-the-data">
-   Part I: The data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-ii-linear-regression">
-   Part II: Linear Regression
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-iii-the-longitudinal-aspect">
-   Part III: The longitudinal aspect
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-iv-indivual-linear-regressions">
-   PART IV: Indivual Linear Regressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-v-linear-mixed-effects-model-with-statsmodels">
-   Part V : Linear Mixed effects Model with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     statsmodels
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-   PART VI: A taste of the future - Linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-   PART VII: A taste of the future - Non-linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-   For the fast-running Zebras: all-in-one with a more realistic split of data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-   Bonus: have a look at the LMM log-likelihood landscape
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html">
-   First steps with Leaspy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-i-data">
-   Part I: Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-ii-instantiate-a-leaspy-object">
-   Part II : Instantiate a
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Leaspy
-    </span>
-   </code>
-   object
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-iii-choose-your-algorithms">
-   Part III : Choose your algorithms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-iv-fit-your-model">
-   Part IV : Fit your model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-v-personalize-the-model-to-individual-data">
-   Part V : Personalize the model to individual data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-vi-impute-missing-values-predict-individual-trajectories">
-   Part VI : Impute missing values &amp; predict individual trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-vii-leaspy-application-cofactor-analysis">
-   Part VII : Leaspy application - Cofactor analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#part-viii-data-simulation">
-   Part VIII : Data Simulation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html#congratulations-this-is-the-end">
-   Congratulations this is the end !!!!!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html">
-   Advanced Leaspy Utilisation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html#part-i-the-prediction">
-   Part I: The prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html#part-ii-the-cofactor-evaluation">
-   Part II: The cofactor evaluation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html#part-iii-univariate-vs-multivariate">
-   Part III: Univariate vs Multivariate
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html#part-iv-get-the-best-model-as-you-can">
-   Part IV: Get the best model as you can
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/leaspy/TP1_LMM.html">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/leaspy/TP2_leaspy_beginner.html">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/leaspy/TP3_advanced_leaspy.html">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -389,6 +273,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outline">
+   Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format">
+   Format
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -398,7 +301,34 @@
                 
   <div class="section" id="isbi-2021">
 <h1>ISBI 2021<a class="headerlink" href="#isbi-2021" title="Permalink to this headline">¶</a></h1>
-<p>Some intro about the conference</p>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<p>3-hours tutorial on Neurological Disease Progression Modelling (DPM) to present the most advanced and mature data-driven disease progression models and the related software. Each model will be described and illustrated through interactive hands-on sessions.
+DPM of neurodegenerative disorders is an active research area aiming at reconstructing the pathological evolution of neurodegenerative pathologies through the statistical analysis of heterogeneous multi-modal biomedical information. DPM models have the potential to highlight the temporal dynamics and relationship across biomarkers. Moreover, by automatically staging patients along the disease time axis, they can be used as predictive tools for diagnostic purposes. The field has blossomed in recent years thanks to the availability of large biomedical datasets, such as ADNI, AIBL, and PPMI, as they offer the possibility of testing novel research and modelling hypotheses. Computational models constructed from such data sets lead to a deeper understanding of the complex pathophysiology of neurodegenerative diseases.
+The topic started from pioneering works of (Jedynak-NeuroImage-2012, Donohue- Alz&amp;Dem-2014, Young-Brain-2014, Schiratti-NIPS-2015), is receiving increasing interest, exemplified by several projects funded on the topic (H2020 EuroPOND, UK EPSRC C-PLACID, Predict-AD, Predict-ND) and by the recent series of high-impact results (Young- NatureComms-2018; Oxtoby-Brain-2018; Lorenzi-ICML-2018; Garbarino-IPMI-2019). The field continues to expand, and many of the models are becoming established software, used by clinical partners for research on Alzheimer’s Disease (Lopez-Alvez HAI 2018), multiple sclerosis (Eshaghi-Brain-2018), ageing (Vinke-Neurobiol.Aging-2018), Huntington’s disease (Wijeratne-AnnalsClinNeurol-2018), and Parkinson’s disease (Iddi-NDD-2018). Some DPMs use discrete staging (Young- Brain-2014); while others aim to capture continuous temporal evolution (Schiratti-NIPS-2015; Lorenzi-NeuroImage-2017).
+Relevance to ISBI audience</p>
+<p>The problem of short-term observations versus long-term reconstruction tackled by DPM is relevant in many areas of medical image analysis and not just neurodegenerative data analysis, where population trajectories have to be estimated based on time windows of individuals. The tutorial we propose has strong mathematical and computational focus, which well aligns with ISBI goal of  contributing to an integrative approach (mathematical, algorithmic and computational) to biomedical imaging. Indeed, the proposed DPMs, although presented in the specific case of neurodegenerative data analysis, are generic enough that the audience will see discussion points beyond the specific application domain.</p>
+<p>Short description of the material to be covered (no more than 4000 characters)</p>
+</div>
+<div class="section" id="format">
+<h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Introduction to the symposium - 10 min</p></li>
+<li><p>Interactive Demonstrations (and hands-on):</p></li>
+</ul>
+<ol class="simple">
+<li><p>Discrete DPM (Neil Oxtoby and Vikram Venkatraghavan) – 55 min</p></li>
+</ol>
+<p>ABSTRACT: Discrete models represent disease progression as a cumulative sequence in which biomarker abnormality occurs (disease “events”), together with uncertainty (positional variance) in that sequence. The most mature discrete DPM is the event-based model (Fonteijn-NeuroImage-2012; Young-Brain-2014; Venkatraghavan-NeuroImage-2019), which is able to infer a sequence from cross-sectional cohort data. Conceptually, this longitudinal picture of neurological disease progression is estimable because earlier events will have commensurately higher prevalence in a cohort containing a spectrum of clinical cases. Mathematically this is evaluated as more individuals having a higher data-driven likelihood of abnormality in the earlier events. With sufficient representation across combinations of abnormal and normal observations, the likelihood of any full ordered sequence can be estimated, and thus the most likely sequences can be revealed. The probabilistic sequence estimated by an event-based model is useful for state-of-the-art precision in fine-grained staging of individuals — assessment of an individual’s disease progression stage — by calculating the likelihood of their biomarker data, given the sequence. Software for the event-based model is part of a suite of models available from <a class="reference external" href="https://github.com/EuroPOND/europond-software">https://github.com/EuroPOND/europond-software</a>, and in this talk we will intriduce the model, then demonstate it’s utility in application to Alzheimer’s disease progression. Our Jupyter notebook will be made available to workshop participants who wish to participate.</p>
+<ol class="simple">
+<li><p>Parametric DPM (Igor Koval) - 55 min</p></li>
+</ol>
+<p>The generic model of (Schiratti-JMLR-2017) learns trajectories of changes from longitudinal manifold-valued (i.e. structured) observations. The model jointly estimates an average long-term history of changes, as well as its variability in terms of untangled static and dynamic components. Additionally, given a new patient, it is possible to estimate a personalized disease progression base on his individual biomarker. Such approach can be further specialized to model the progression of a single or several correlated biomarkers such as cognitive scores (Schiratti-NIPS-2015), surface or volume measurements such as the brain cortical thickness (Koval-MICCAI-2017), or the 3D geometry of objects such as segmented sub-cortical structures (Bône-2018-CVPR). The descriptive quality of this parametric approach is illustrated on <a class="reference external" href="http://www.digital-brain.org">www.digital-brain.org</a> in the context of Alzheimer’s disease. With a pragmatic take based on the Leaspy software, interactive notebook-based demonstrations will gradually unveil how biomarkers enables us to estimate a long-term disease progression and predict the progression at the individual level.</p>
+<ol class="simple">
+<li><p>non-parametric DPM (Sara Garbarino and Marco Lorenzi) - 55 min
+ABSTRACT: The GP Progression Model of (Lorenzi-NeuroImage-2017) is a non-parametric probabilistic DPM which reconstructs long term pathological biomarkers trajectories from short clinical data and quantifies the variability associated with each trajectory. The model can be used for probabilistic diagnosis, as it assesses patients’ stages and diagnostic uncertainty in de-novo individuals. The GP Progression Model is now available online with a simple and intuitive front-end: <a class="reference external" href="http://gpprogressionmodel.inria.fr/">http://gpprogressionmodel.inria.fr/</a>. In this talk we will introduce and illustrate the model with an interactive demonstration of its performances on clinical data. We will provide to the participants a tutorial based on a Python notebook, so they can directly test and reproduce the tutorial material. During the tutorial we will also present the latest advances on the model which are currently being developed at the Epione team, INRIA Sophia Antipolis, including application to spatio-temporal modelling of protein dynamics (Garbarino-IPMI-2019), as well as extensions to the modeling of voxel-based imaging datasets (Abi Nader-NeuroImage-2019).</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -1,5 +1,5 @@
 # Disease Progression Modelling
 
-Some intro text
+The Disease Progression Modelling community gathers researchers, engineers, doctors and many more
 
-Nice !
+This website is a first step to gather different contributors within a single website that propose didactic tutorials to grasp

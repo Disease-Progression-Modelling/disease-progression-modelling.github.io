@@ -5,6 +5,8 @@ author: The Disease Progression Modelling community
 execute:
   execute_notebooks: "off"
 
+exclude_patterns: [README.md]
+
 
 repository:
   url: https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/

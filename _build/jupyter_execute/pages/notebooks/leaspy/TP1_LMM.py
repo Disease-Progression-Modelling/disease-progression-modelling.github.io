@@ -2,20 +2,20 @@
 
 Welcome for the first practical session of the day !
 
-### Objectives : 
+## Objectives : 
 - Get a better idea of medical data, especially longitudinal ones
 - Understand mixed-effects models
 - Get a taste of state-of-the-art techniques
 
 
-# The set-up
+## The set-up
 
 If you have followed the [installation details](https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions) carefully, you should 
 
 - be running this notebook in the `leaspy_tutorial` conda environment (be sure that the kernel you are using is `leaspy_tutorial` => check `Kernel` above)
 - having all the needed packages already install
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines
+<span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines
 
 import os
 import sys
@@ -29,13 +29,13 @@ import seaborn as sns
 %matplotlib inline
 
 
-# Part I: The data
+## Part I: The data
 
 We import a functional medical imaging dataset. We have extracted, for each timepoint, the average value of the metabolic activity of the _putamen_. This brain region is commonly damaged by _Parkinson's disease_.
 
-#### IMPORTANT: The values have been normalized such that a _normal value_ is zero and a _very abrnomal value_ is one. 
+IMPORTANT: The values have been normalized such that a _normal value_ is zero and a _very abrnomal value_ is one. 
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> Run the following cell and look at the `head` of the dataframe to better understand what the data are.
+<span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> Run the following cell and look at the `head` of the dataframe to better understand what the data are.
 
 from leaspy.datasets import Loader
 df = Loader.load_dataset('parkinson-putamen-train_and_test')
@@ -50,7 +50,7 @@ df.head()
 
 <span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> The `SPLIT` column already distinguishes the train and test data.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> Describe the target variable `PUTAMEN` and the explicative variable `TIME`. You can plot:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> Describe the target variable `PUTAMEN` and the explicative variable `TIME`. You can plot:
 
 - Sample size
 - Mean, std
@@ -65,14 +65,14 @@ df.head()
 
 df.reset_index().describe().round(2).T
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> From this value, what can you say about the disease stage of the population?
+<span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> From this value, what can you say about the disease stage of the population?
 
 Your answer: ...
 
-#### Answer:
+ Answer:
 The median and mean value is 0.71, so the average disease stage is high for these subjects.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> Display the data, where the Putamen (y-axis) is plot with respect to the Time (x-axis)
+<span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> Display the data, where the Putamen (y-axis) is plot with respect to the Time (x-axis)
 
 # To complete
 
@@ -90,11 +90,11 @@ plt.show()
 <span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> At first look, the _PUTAMEN values_ do not seem highly correlated to _TIME_.
 
 
-# Part II: Linear Regression
+## Part II: Linear Regression
 
 As we are some pro ML players, let's make some predictions : let's try to predict the putamen value based on the time alone.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Store the train and test data in `df_train` and `df_test`
+<span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Store the train and test data in `df_train` and `df_test`
 
 # To complete
 
@@ -106,7 +106,7 @@ pds = pd.IndexSlice
 df_train = df.loc[pds[:, :, 'train']].copy()  # one possibility
 df_test = df.xs('test', level='SPLIT').copy()  # an other one
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> Run the linear reagression that is in scipy. 
+<span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> Run the linear reagression that is in scipy. 
 
 Be carefull, you have to train it only with the train set!
 
@@ -139,7 +139,7 @@ This will ease the comparison of the models.
 
 <span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> No need to add these predictions to `df_train` and `df_test`. You should be able to easily run the notebook by keeping `df_train` the way it is while appending the results in `df`.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> Add the predictions done by the linear regression in the column `Linear Regression`
+<span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> Add the predictions done by the linear regression in the column `Linear Regression`
 
 df['Linear Regression'] = # Your code here
 
@@ -154,7 +154,7 @@ df['Linear Regression'] = intercept + slope * df.index.get_level_values('TIME')
 
 - `compute_rmse_train_test` is the function that given the dataframe `df` and a `model_name` (`Linear Regression` for instance), compute the mean absolute error on the train and test set and stores it in `overall_results`
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> Run the following cell to see the results
+<span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> Run the following cell to see the results
 
 overall_results = pd.DataFrame({'train': [], 'test': []})  
 
@@ -180,7 +180,7 @@ overall_results
 
 Let's look at what we are doing by plotting the data and the linear regression. Throughout the notebook, we will use the function `plot_individuals` that, given a subset of IDs and a model name (as stored in the `df` dataframe) plots the individual data and their prediction
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> Use the following cell. 
+<span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> Use the following cell. 
 
 def get_title(overall_results, model_name):
     """Precise model's name and its RMSE train & test"""
@@ -251,11 +251,11 @@ plot_individuals(df, overall_results, 'Linear Regression',
                  kind='scatter', highlight_test=False)
 plt.show()
 
-#### Is the previous plot relevant to assess the quality of our model?
+Is the previous plot relevant to assess the quality of our model?
 
 We will answer this question in the following cells:
 
-# Part III: The longitudinal aspect
+## Part III: The longitudinal aspect
 
 
 <span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> Run the cell to have a better understanding of your data:
@@ -266,20 +266,20 @@ plt.title('Longitudinal aspect')
 plt.show()
 
 The test data are highlited with dots.
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> What are actually the test data ?
+<span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> What are actually the test data ?
 
 Your answer: ...
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span>Why does the global linear model not describe the temporal evolution of the variable?
+<span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span>Why does the global linear model not describe the temporal evolution of the variable?
 
 Your answer: ...
 
-# PART IV: Indivual Linear Regressions
+## PART IV: Indivual Linear Regressions
 
 
 <span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> In fact, this is not the best idea to have one general linear regression. Because we do not benefit from indiviudal information. Therefore, let's do one linear regression per individual
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> Look at what this function is doing and at the result
+<span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> Look at what this function is doing and at the result
 
 individual_parameters = pd.DataFrame({'INTERCEPT': [], 'SLOPE': []})
 
@@ -302,7 +302,7 @@ individual_parameters.loc[subject_idx] = compute_individual_parameters(df_train,
 
 individual_parameters
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> Apply the function to everyone 
+<span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> Apply the function to everyone 
 
 # Your answer
 
@@ -338,7 +338,7 @@ def compute_individual_reconstruction(x, parameters):
 df['Individual Linear Regression'] = df.apply(
     lambda x: compute_individual_reconstruction(x, individual_parameters), axis=1)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Use the `compute_train_test_mean_absolute_error` function to get the train and test errors and compare the two models.
+<span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Use the `compute_train_test_mean_absolute_error` function to get the train and test errors and compare the two models.
 
 # Your code here
 
@@ -350,7 +350,7 @@ compute_rmse_train_test(df, overall_results, 'Individual Linear Regression')
 overall_results
 
 We clearly see that the RMSE is much better!
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> Create a list with the five patients having the more visits and the five patients having the less visits, then use `plot_individuals` function to display their observations and reconstructions by the model
+<span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> Create a list with the five patients having the more visits and the five patients having the less visits, then use `plot_individuals` function to display their observations and reconstructions by the model
 _Hint_ : use the keyword `sublist`
 
 # sublist = # TODO
@@ -367,13 +367,13 @@ sublist += visits_per_subjects.head(5).index.tolist()
 plot_individuals(df, overall_results, 'Individual Linear Regression', sublist=sublist)
 plt.show()
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> Explain why $RMSE_{test} >> RMSE_{train}$:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> Explain why $RMSE_{test} >> RMSE_{train}$:
 
 Your answer: ...
 
 **Answer**: the LM overfit for patients with only few data
 
-# Part V : Linear Mixed effects Model with `statsmodels`
+## Part V : Linear Mixed effects Model with `statsmodels`
 With the previous method, we made a significant improvement. However, we suffer fro an overfitting problem. Let's see what a _mixed effect model_ can do for us!
 
 ### Run a LMM with `statsmodels`
@@ -381,7 +381,7 @@ With the previous method, we made a significant improvement. However, we suffer 
 <span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> We will use the `statsmodel` package to run a Linear Mixed Effect Model (LMM or LMEM in the literature).
 
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Load the following lines to import the packages
+<span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Load the following lines to import the packages
 
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
@@ -395,7 +395,7 @@ from statsmodels.regression.mixed_linear_model import MixedLMParams
 If you go back to the equation you get :
 $ PUTAMEN_{id,time} = \underbrace{\alpha*TIME_{id,time} + \beta}_\text{formula} + \underbrace{\alpha_{id}*TIME_{id,time} + \beta_{id}}_\text{re_formula}$
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> Let's try a very **_naive_** run:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> Let's try a very **_naive_** run:
 
 lmm = smf.mixedlm(formula='PUTAMEN ~ 1 + TIME', 
                   data=df_train.reset_index(), 
@@ -406,18 +406,18 @@ lmm.summary()
 
 Let's try and see.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> Run the following commands to get the intercept and slope
+<span style='color: #a13203; font-weight: 600;'>💬 Question 22 💬</span> Run the following commands to get the intercept and slope
 
 print(lmm.fe_params.loc['Intercept'])
 print(lmm.fe_params.loc['TIME'])
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> Run the following commands to get the variation to the mean slope and intercept
+<span style='color: #a13203; font-weight: 600;'>💬 Question 23 💬</span> Run the following commands to get the variation to the mean slope and intercept
 Example on few subject
 
 {key: val for key, val in lmm.random_effects.items() if key in 
  ['GS-00'+str(i) for i in range(1, 4)]}
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> From the fixed and random effects, compute for each subject its INTERCEPT and SLOPE:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 24 💬</span> From the fixed and random effects, compute for each subject its INTERCEPT and SLOPE:
 
 # df_random_effects['INTERCEPT'] = # TODO
 # df_random_effects['SLOPE'] = # TODO
@@ -436,7 +436,7 @@ df_random_effects['SLOPE'] = df_random_effects['Random slope'] + lmm.fe_params.l
 
 df_random_effects.head()
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> Use the `compute_individual_reconstruction` function but with `df_random_effects` to compute the prediction with the new individual effects
+<span style='color: #a13203; font-weight: 600;'>💬 Question 25 💬</span> Use the `compute_individual_reconstruction` function but with `df_random_effects` to compute the prediction with the new individual effects
 
 df['Linear Mixed Effect Model'] = # Your code here
 
@@ -461,7 +461,7 @@ overall_results
 
 <span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> The result is worse than with the previous model. 
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> __What do you think happened? Let's check it visually__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 27 💬</span> What do you think happened? Let's check it visually
 
 # Your code here
 
@@ -474,7 +474,7 @@ plt.show()
 
 <span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> All the slopes are the same. This is related to the warning above : these are warnings are a way of alerting you that you may be in a non-standard situation. Most likely, one of your variance parameters is converging to zero. Which is the case if you have a look to time variance. 
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> Let's rerun it by normalizing the time first. Add to `df_train` and `df_test` a renormalizing function. Be careful to normalize only with the known ages from train.
+<span style='color: #a13203; font-weight: 600;'>💬 Question 28 💬</span> Let's rerun it by normalizing the time first. Add to `df_train` and `df_test` a renormalizing function. Be careful to normalize only with the known ages from train.
 _Hint_ : Watchout to data leakage!
 
 # Your code
@@ -500,7 +500,7 @@ df['TIME_NORMALIZED'] = (df.index.get_level_values('TIME') -  age_mean) / age_st
 df_train = df.xs('train',level='SPLIT')
 df_test = df.xs('test',level='SPLIT')
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> __Rerun the previous mixed lm (some cells above) but with the TIME_NORMALIZED instead of TIME in the formula and re_formula.__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 29 💬</span> Rerun the previous mixed lm (some cells above) but with the TIME_NORMALIZED instead of TIME in the formula and re_formula.
 
 # YOUR CODE
 
@@ -516,7 +516,7 @@ lmm.summary()
 
 Ahaaaaah! No warnings!
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> Get the parameters as previously in `df_random_effects_2` and store the `INTERCEPT_NORMALIZED` and `SLOPE_NORMALIZED` 
+<span style='color: #a13203; font-weight: 600;'>💬 Question 30 💬</span> Get the parameters as previously in `df_random_effects_2` and store the `INTERCEPT_NORMALIZED` and `SLOPE_NORMALIZED` 
 
 # TODO 
 
@@ -552,7 +552,7 @@ $$ y = SLOPE * TIME + INTERCEPT $$
 where $$SLOPE = \frac{SLOPE_{normalized}}{ std_{ages}}$$ and $$INTERCEPT = INTERCEPT_{normalized} - \frac{SLOPE_{normalized} * mean_{ages}}{std_{ages}}$$
 
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> From INTERCEPT_NORMALIZED & SLOPE_NORMALIZED, compute for each subject its INTERCEPT and SLOPE:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 31 💬</span> From INTERCEPT_NORMALIZED & SLOPE_NORMALIZED, compute for each subject its INTERCEPT and SLOPE:
 
 ```
 parameters['GS-001'] 
@@ -570,7 +570,7 @@ df_random_effects_2['INTERCEPT'] = df_random_effects_2['INTERCEPT_NORMALIZED'] -
                                    (df_random_effects_2['SLOPE_NORMALIZED'] * age_mean)/age_std
 
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 32 💬</span> Use the `compute_individual_reconstruction` function but with `df_random_effects_2` to compute the prediction with the new individual effects
+<span style='color: #a13203; font-weight: 600;'>💬 Question 32 💬</span> Use the `compute_individual_reconstruction` function but with `df_random_effects_2` to compute the prediction with the new individual effects
 
 # Your code
 
@@ -581,7 +581,7 @@ df_random_effects_2['INTERCEPT'] = df_random_effects_2['INTERCEPT_NORMALIZED'] -
 df['Linear Mixed Effect Model - V2'] = df.apply(
     lambda x: compute_individual_reconstruction(x, df_random_effects_2), axis=1)
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 33 💬</span> __Store the results in `overall_results` (thanks to `compute_rmse_train_test` function) and compare the models__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 33 💬</span> Store the results in `overall_results` (thanks to `compute_rmse_train_test` function) and compare the models
 
 # Your code
 
@@ -594,7 +594,8 @@ compute_rmse_train_test(df, overall_results, 'Linear Mixed Effect Model - V2')
 overall_results
 
 The RMSE is much better!
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 34 💬</span> Display the subjects of `sublist` :
+
+<span style='color: #a13203; font-weight: 600;'>💬 Question 34 💬</span> Display the subjects of `sublist` :
 
 # Your code
 
@@ -605,11 +606,11 @@ The RMSE is much better!
 plot_individuals(df, overall_results, 'Linear Mixed Effect Model - V2', sublist=sublist)
 plt.show()
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 35 💬</span> What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?
+<span style='color: #a13203; font-weight: 600;'>💬 Question 35 💬</span> What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?
 
 Your answer...
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 36 💬</span> Let's check the average RMSE per subject depending of the number of timepoints per subjects:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 36 💬</span> Let's check the average RMSE per subject depending of the number of timepoints per subjects:
 
 models = ['Individual Linear Regression', 'Linear Mixed Effect Model - V2']
 
@@ -645,12 +646,12 @@ def plot_rmse_by_number_of_visit(models, df=df):
 plot_rmse_by_number_of_visit(models, df)
 plt.show()
 
-# PART VI: A taste of the future - Linear mixed-effect model with _Leaspy_
+## PART VI: A taste of the future - Linear mixed-effect model with _Leaspy_
 
 
 In the next practical sessions you will learn to use the package developped by the Aramis team. Now, just to be able to compare performances you will run a few methods of leaspy in advance...
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 37 💬</span>  Run the following cell to make the import of leaspy methods, format the data and fit a model :
+<span style='color: #a13203; font-weight: 600;'>💬 Question 37 💬</span>  Run the following cell to make the import of leaspy methods, format the data and fit a model :
 
 # --- Import methods
 from leaspy import Leaspy, Data, AlgorithmSettings
@@ -663,7 +664,7 @@ leaspy_univariate = Leaspy('univariate_linear')
 settings_fit = AlgorithmSettings('mcmc_saem', progress_bar=True, seed=0)
 leaspy_univariate.fit(data, settings_fit)
 
-#### Well it's a bit slow, but here is a joke to wait:
+Well it's a bit slow, but here is a joke to wait:
 -    What did the triangle say to the circle? “You’re pointless.”
 
 ...
@@ -672,7 +673,7 @@ leaspy_univariate.fit(data, settings_fit)
 Okay, it was short. Here is another one:
 -    I had an argument with a 90° angle. It turns out it was right.
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 38 💬</span>  Run the following two cells to make the predictions:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 38 💬</span>  Run the following two cells to make the predictions:
 
 settings_personalize = AlgorithmSettings('scipy_minimize', progress_bar=True, use_jacobian=True)
 
@@ -682,20 +683,20 @@ timepoints = {idx: df.loc[idx].index.get_level_values('TIME').values for idx in
               df.index.get_level_values('ID').unique()}
 estimates = leaspy_univariate.estimate(timepoints, individual_parameters)
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 39 💬</span>  __Add the predictions to `df`__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 39 💬</span>  Add the predictions to `df`
 
 df['Leaspy linear'] = float('nan')
 
 for idx in df.index.unique('ID'):
     df.loc[idx, 'Leaspy linear'] = estimates[idx]
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 40 💬</span>  __Compute and add the new rmse__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 40 💬</span>  Compute and add the new rmse
 
 compute_rmse_train_test(df, overall_results, 'Leaspy linear')
 
 overall_results
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 41 💬</span> Display the subjects of `sublist` :
+<span style='color: #a13203; font-weight: 600;'>💬 Question 41 💬</span> Display the subjects of `sublist` :
 
 # Your code
 
@@ -706,21 +707,17 @@ overall_results
 plot_individuals(df, overall_results, 'Leaspy linear', sublist=sublist)
 plt.show()
 
-# PART VII: A taste of the future - Non-linear mixed-effect model with _Leaspy_
+## PART VII: A taste of the future - Non-linear mixed-effect model with _Leaspy_
 
 Again you will use an other model of leapsy...
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 42 💬</span> __Fit the model with the data.__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 42 💬</span> Fit the model with the data.
 
 leaspy_univariate = Leaspy('univariate_logistic')
 settings_fit = AlgorithmSettings('mcmc_saem', progress_bar=True, seed=0)
 leaspy_univariate.fit(data, settings_fit)
 
-#### Well it's a bit slow, but here is meme to wait:
-
-![image.png](attachment:7e587d1a-67e7-4a36-bb4b-ce28105cbaa8.png)
-
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 43 💬</span>  Run the following two cells to make the predictions:
+<span style='color: #a13203; font-weight: 600;'>💬 Question 43 💬</span>  Run the following two cells to make the predictions:
 
 settings_personalize = AlgorithmSettings('scipy_minimize', progress_bar=True, use_jacobian=True)
 
@@ -730,20 +727,20 @@ timepoints = {idx: df.loc[idx].index.get_level_values('TIME').values for idx in
               df.index.get_level_values('ID').unique()}
 estimates = leaspy_univariate.estimate(timepoints, individual_parameters)
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 44 💬</span>  __Add the predictions to `df`__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 44 💬</span>  Add the predictions to `df`
 
 df['Leaspy logistic'] = float('nan')
 
 for idx in df.index.unique('ID'):
     df.loc[idx, 'Leaspy logistic'] = estimates[idx]
 
-<span style='color: #a13203; font-weight: 600;'>💬 Question 45 💬</span>  __Compute and add the new rmse__
+<span style='color: #a13203; font-weight: 600;'>💬 Question 45 💬</span>  Compute and add the new rmse
 
 compute_rmse_train_test(df, overall_results, 'Leaspy logistic')
 
 overall_results
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 46 💬</span> Display the subjects of `sublist` :
+<span style='color: #a13203; font-weight: 600;'>💬 Question 46 💬</span> Display the subjects of `sublist` :
 
 # Your code
 
@@ -754,7 +751,7 @@ overall_results
 plot_individuals(df, overall_results, 'Leaspy logistic', sublist=sublist)
 plt.show()
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 47 💬</span> Check the average RMSE per subject depending of the number of timepoints per subjects
+<span style='color: #a13203; font-weight: 600;'>💬 Question 47 💬</span> Check the average RMSE per subject depending of the number of timepoints per subjects
 
 models = ['Individual Linear Regression', 
           'Linear Mixed Effect Model - V2',
@@ -767,7 +764,7 @@ plt.show()
 
 Here we clearly see that the few subjects who have less than 6 timepoints are better reconstructed with a mixed effect model!
 
-# For the fast-running Zebras: all-in-one with a more realistic split of data
+## For the fast-running Zebras: all-in-one with a more realistic split of data
 
 Let's try to split differently data so to mimic real-world applications.
 
@@ -781,7 +778,7 @@ The previous split was not taking into account this constraint and this extra pa
   - _Present_ data: partial data of these new individuals that will be _known_ (used for **personalization** of model)
   - _Future_ data: hidden data from these individuals (not known during personalization, used for **prediction**)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 48 💬</span> Split data differently so to respect real-world constraint
+<span style='color: #a13203; font-weight: 600;'>💬 Question 48 💬</span> Split data differently so to respect real-world constraint
 
 # be sure that ages are increasing
 df.sort_index(inplace=True)
@@ -821,7 +818,7 @@ data_test = {
 
 Let's check that distributions of ages and putamen values between train & test are similar... unlike previous split!
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 49 💬</span> Check consistence of new train/test split and compare to previous split
+<span style='color: #a13203; font-weight: 600;'>💬 Question 49 💬</span> Check consistence of new train/test split and compare to previous split
 
 df_new_split = pd.concat({
     'Train': s_train,
@@ -847,7 +844,7 @@ for which_split, df_split in {'Previous split': df, 'New split': df_new_split}.i
 #sns.scatterplot(data=s_test.reset_index(), 
 #                x='TIME', y='PUTAMEN', alpha=.5, s=60)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 50 💬</span> Double check number of individuals and visits in each split of our dataset
+<span style='color: #a13203; font-weight: 600;'>💬 Question 50 💬</span> Double check number of individuals and visits in each split of our dataset
 
 # Some descriptive stats on number of visits in test set (present part)
 
@@ -868,7 +865,7 @@ pd.concat({
     'Prediction': s_test_future.groupby('ID').size().describe(percentiles=[]), # min: 2 tpts to predict
 }).unstack(0).rename({'count':'nb of individuals'}, axis=0)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 51 💬</span> Write a all-in-one personalization & prediction function thanks to Leaspy api
+<span style='color: #a13203; font-weight: 600;'>💬 Question 51 💬</span> Write a all-in-one personalization & prediction function thanks to Leaspy api
 
 def personalize_model(leaspy_model, settings_perso):
     """
@@ -908,7 +905,7 @@ def personalize_model(leaspy_model, settings_perso):
     # return everything that could be needed
     return pred_errs, all_recons_df, ips_test, rmse_test
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 52 💬</span> Calibrate, personalize & predict with LMM, univariate linear & univariate logistic thanks to Leaspy
+<span style='color: #a13203; font-weight: 600;'>💬 Question 52 💬</span> Calibrate, personalize & predict with LMM, univariate linear & univariate logistic thanks to Leaspy
 
 ## Leaspy LMM (using integrated exact personalization formula)
 
@@ -945,7 +942,7 @@ leaspy_log.fit(data_train, settings_fit)
 # Personalize
 pred_errs_log, all_recons_df_log, _, _  = personalize_model(leaspy_log, settings_perso)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 53 💬</span> Display RMSE on all splits of data depending on models & part where models were personalized on
+<span style='color: #a13203; font-weight: 600;'>💬 Question 53 💬</span> Display RMSE on all splits of data depending on models & part where models were personalized on
 
 # reconstruct using different personalizations made
 pd.options.display.float_format = '{:.5f}'.format
@@ -961,7 +958,7 @@ print('RMSE by:\n- model\n- part of data for personalization\n- part of data for
 rmses_by_perso_split = (all_pred_errs**2).groupby(['MODEL','PERSO_ON','PART']).mean() ** .5
 rmses_by_perso_split.unstack('MODEL').droplevel(0, axis=1).sort_index(ascending=[True,False]).rename_axis(index={'PART':'RECONS_ON'})
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 54 💬</span> Plot distributions of absolute errors
+<span style='color: #a13203; font-weight: 600;'>💬 Question 54 💬</span> Plot distributions of absolute errors
 
 def plot_dist_errs(pred_errs, model_name, grouping_reverse=False):
     plt.figure(figsize=(14,6))
@@ -992,7 +989,7 @@ def plot_dist_errs(pred_errs, model_name, grouping_reverse=False):
 plot_dist_errs(pred_errs_lmm, 'LMM')
 plot_dist_errs(pred_errs_lmm, 'LMM', True)
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 55 💬</span> Plot some individual trajectories with their associated predicted trajectories
+<span style='color: #a13203; font-weight: 600;'>💬 Question 55 💬</span> Plot some individual trajectories with their associated predicted trajectories
 
 idx_list = np.random.RandomState(5).choice(s_test.index.unique('ID'), 6).tolist()
 
@@ -1021,7 +1018,7 @@ plot_recons(all_recons_df_lmm, 'LMM')
 #plot_recons(all_recons_df_lin, 'Leaspy linear (univ.)')
 #plot_recons(all_recons_df_log, 'Leaspy logistic (univ.)')
 
-# Bonus: have a look at the LMM log-likelihood landscape
+## Bonus: have a look at the LMM log-likelihood landscape
 
 import statsmodels.formula.api as smf
 from tqdm import tqdm
@@ -1047,7 +1044,7 @@ view = dict(
 
 Rs = {} # placeholder for results
 
-#### <span style='color: #a13203; font-weight: 600;'>💬 Question 56 💬</span> Plot log-likelihood landscapes for LMM model, depending on variance-covariance matrix of random effects
+<span style='color: #a13203; font-weight: 600;'>💬 Question 56 💬</span> Plot log-likelihood landscapes for LMM model, depending on variance-covariance matrix of random effects
 
 for fix_k, fix_v in tqdm([
     # corr fixed

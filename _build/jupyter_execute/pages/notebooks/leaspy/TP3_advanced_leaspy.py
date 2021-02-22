@@ -2,12 +2,12 @@
 
 This is already the last practical session of the day ! Be carefull you only have an __hour and a half__.
 
-### Objectives : 
+## Objectives : 
 - Understand data format that is needed to use Leaspy,
 - Learn to use parameters
 - Explore models selection
 
-# The set-up
+## The set-up
 
 As before, if you have followed the [installation details](https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions) carefully, you should 
 
@@ -27,7 +27,7 @@ from scipy import stats
 
 from leaspy import Leaspy, IndividualParameters, AlgorithmSettings, Data
 
-# Part I: The prediction
+## Part I: The prediction
 
 One of the main issue of Parkinson disease specialized doctor is that they do not know how fast will the disease evolved and then are unable to set the right spacing between two visits wih their patients. In addition, they would like to give advises to their patients for them to anticipate administrative obligations by the time they are still able to do them. The most important score to monitore is MDS3_off_total, but it is always nice to have a some others. 
 
@@ -339,7 +339,7 @@ for s in col :
 
 <span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Note that an average good error is about 5% of absolute error for MDS3_off_total.
 
-# Part II: The cofactor evaluation
+## Part II: The cofactor evaluation
 
 Besides prediction, the individual parameters are interesting in the sense that they provide meaningful and interesting insights about the disease progression. For that reasons, these individual parameters can be correlated to other cofactors. Let's consider that you have a covariate Cofactor 1 that encodes a genetic status: 1 if a specific mutation is present, 0 otherwise. Now, let's see if this mutation has an effect on the disease progression. 
 
@@ -427,7 +427,7 @@ print(stats.ttest_ind(carriers['xi'], non_carriers['xi']))
 print(stats.mannwhitneyu(carriers['tau'], non_carriers['tau']))
 print(stats.mannwhitneyu(carriers['xi'], non_carriers['xi']))
 
-# Part III: Univariate vs Multivariate
+## Part III: Univariate vs Multivariate
 
 Now that you have a multivariate model that works, let's compare the multivariate and univariate model. For that you will compare a multivariate model with MDS3 and MDS2 with two univariate model MDS2 and MDS3 separatly. 
 
@@ -565,9 +565,6 @@ for i in range(len(col_plot)) :
     plt.ylabel("Predicted value")
     plt.show()
 
-# Part IV: Get the best model as you can
+## Part IV: Get the best model as you can
 
-
-If you have finished early, you can first fill the [Google form](https://docs.google.com/forms/d/e/1FAIpQLScL9wIrtH6_P9z6--EV3AtcTWuqf7smifBc8w3YUt3zrFkj1Q/viewform?usp=sf_link) to help us improve our workshop ! 
-Then go back to part I and try to get the best results you can by changing the features selected, the data processing pipeline... 
 
