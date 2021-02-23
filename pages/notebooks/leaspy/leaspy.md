@@ -1,6 +1,4 @@
-# This is a test
-
-What is it?
+# Leaspy
 
 
 There is three progression tutorials :

@@ -5,7 +5,7 @@ author: The Disease Progression Modelling community
 execute:
   execute_notebooks: "off"
 
-exclude_patterns: [README.md, pages/notebooks/_template.ipynb]
+exclude_patterns: [README.md, pages/notebooks/_template.ipynb, data/README.md]
 
 
 repository:
