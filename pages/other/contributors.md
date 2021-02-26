@@ -25,6 +25,9 @@
       <i class="fab fa-linkedin"></i>
     </a>
     <!-- -->
+  </div>
+  <!-- Grid column -->
+  <div class="col-md-3 mb-md-0 mb-5">
     <div class="avatar mx-auto">
       <img src="../../_static/img/contributors/neil_oxtoby.jpg" class="rounded z-depth-1-half" alt="Neil onstage">
     </div>
@@ -40,8 +43,6 @@
       <i class="fab fa-twitter"></i>
     </a>
   </div>
-  <!-- Grid column -->
-
-
+  <!-- -->
 </div>
 <!-- Grid row -->
