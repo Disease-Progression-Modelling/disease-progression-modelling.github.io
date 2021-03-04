@@ -11,4 +11,4 @@ The good news is that there has been a push to perform large observational studi
 
 This has enabled and empowered the emerging field of data-driven Disease Progession Modelling (DPM). DPM is a field of research bridging computer science, mathematics, and medicine that is dedicated to unravelling the mysteries of neurodegenerative disease progression through a balance of imposed domain knowledge (such as from clinical experts) and patterns learned from the data (machine learning).
 
-There are too many papers to attempt a comprehensive literature review here, but the history of data-driven DPM is documented neatly in [(Oxtoby and Alexander, "Imaging plus X...", Curr Opin Neurol 2017)](https://doi.org/10.1097/WCO.0000000000000460)
+There are too many papers to attempt a comprehensive literature review here, but the history of data-driven DPM is documented neatly in ([Oxtoby and Alexander, "Imaging plus X...", Curr Opin Neurol 2017](https://doi.org/10.1097/WCO.0000000000000460))
