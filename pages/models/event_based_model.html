@@ -308,6 +308,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -317,7 +336,39 @@
                 
   <div class="section" id="event-based-model">
 <h1>Event Based Model<a class="headerlink" href="#event-based-model" title="Permalink to this headline">¶</a></h1>
-<p>Lorem Ipsum</p>
+<img src="../../_static/img/ebm.png" width="320px" alt="EBM from (Oxtoby et al., Brain 2021)">
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>The event-based model (EBM) of disease progression was invented in 2011 by Hubert Fonteijn and Danny Alexander. Hubert’s <a class="reference external" href="https://doi.org/10.1007/978-3-642-22092-0_61">IPMI 2011 conference paper</a> won the prestigious <a class="reference external" href="https://en.wikipedia.org/wiki/Information_Processing_in_Medical_Imaging#Past_Francois_Erbsmann_Prize_Winners">Erbsmann Prize</a>, and was published in full form in <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2012.01.062">this NeuroImage 2012 article</a> using a small dataset from two rarer inherited neurodegenerative diseases: familial Alzheimer’s disease and Huntington’s disease.</p>
+<p>The EBM methodology was generalised to sporadic disease by Alex Young and colleagues in her <a class="reference external" href="https://doi.org/10.1093/brain/awu176">2014 Brain paper</a> and has since seen wide application (and methodological updates) across multiple neurodegenerative diseases including <a class="reference external" href="https://doi.org/10.1093/brain/amy050">familial Alzheimer’s disease</a>, <a class="reference external" href="https://doi.org/10.1002/acn3.558">Huntington’s disease</a>, <a class="reference external" href="https://doi.org/10.1093/brain/awz136">posterior cortical atrophy</a> (also <a class="reference external" href="https://doi.org/10.1002/alz.12083">here</a>), <a class="reference external" href="https://doi.org/10.1093/brain/awaa461">Parkinson’s disease</a>, <a class="reference external" href="https://doi.org/10.1002/acn3.51035">amyotrophic lateral sclerosis</a>, and more.</p>
+<p>The EBM is uniquely capable of estimating an ordered sequence of disease progression events, along with uncertainty in that ordering, using only cross-sectional data — a single visit per patient. This is powerful for two reasons. First, disease progression can be estimated from smaller, and more widely-available cross-sectional datasets. Second, in real-world (future) clinical applications, new patients can be assessed on the spot at their first visit — without the need for any patient history, nor the need to wait for a follow-up visit that might require them to wait in uncertainty for a year or more. Of course, the limitation of using only cross-sectional data is that <em>timescales</em> of disease progression are much harder to estimate without further information.</p>
+<p>You might ask “How is it possible to estimate a sequence of disease progression events from a single visit across multiple patients?”</p>
+<p>The concept behind the EBM is quite simple and is based on one key assumption: disease progression is irreversible. This assumption is valid in chronic, progressive diseases if there is no disease-modifying intervention. To explain the concept, we borrow here from the analogy in <a class="reference external" href="https://doi.org/10.1093/brain/awaa461">(Oxtoby, et al., Brain 2021)</a>: imagine that the common cold was a chronic irreversible condition. If all patients who present with the common cold have a cough, but only some of these also have a sneeze, then we would infer with very high confidence that coughing comes before sneezing in the disease progression sequence. Any variability across individuals would decrease the certainty in this conclusion. The EBM uses this concept across multiple symptoms (more generally, biomarkers) to both estimate the disease progression seqeunce, and uncertainty in the sequence.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started:<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To see what the model is capable of:</p>
+<ul>
+<li><p><a class="reference external" href="https://icometrix.com/services/icobrain-dm">ico<strong>brain dm</strong> clinical tool</a> from the <a class="reference external" href="http://europond.eu">EuroPOND consortium</a>.<br/>
+The EBM is embedded within ico<strong>brain dm</strong></p></li>
+</ul>
+</li>
+<li><p>Take a look at the python code from the <a class="reference external" href="https://github.com/ucl-pond">UCL POND group</a> on GitHub:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/ucl-pond/ebm">normal EBM</a> from (<a class="reference external" href="https://doi.org/10.1093/brain/awu176">Young et al., Brain 2014</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/noxtoby/kde_ebm_open">KDE EBM</a> from (<a class="reference external" href="https://doi.org/10.1002/alz.12083">Firth et al., Alzheimers Dement 2020</a>). This is a more flexible version capable of handling skewed biomarker data by using kernel density estimation (KDE) mixture modelling instead of Gaussian mixture modelling.</p></li>
+</ul>
+</li>
+<li><p>Scientific papers about the EBM:</p>
+<ul>
+<li><p><a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2012.01.062">NeuroImage 2012</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1093/brain/awu176">Brain 2014</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1002/alz.12083">Alzheimer’s &amp; Dementia 2020</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
