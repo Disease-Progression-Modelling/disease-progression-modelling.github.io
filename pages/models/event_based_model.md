@@ -15,7 +15,7 @@ The concept behind the EBM is quite simple and is based on one key assumption: d
 
 An important assumption made in EBM is that the ordering of events is common for all the subjects in a dataset. However, neurodegenerative diseases such as Alzheimer’s disease are notoriously heterogeneous; pathologically as well as in their clinical presentation in patients. There are differences between different patients in terms of the pathways of progression, and the effect the progression has on a patient's cognition. Discriminative EBM (DEBM) model, invented in 2017 by Vikram Venkatraghavan and colleagues [IPMI 2017 conference paper](https://arxiv.org/abs/1702.06408) and later published as a journal article in [NeuroImage](https://doi.org/10.1016/j.neuroimage.2018.11.024), estimates the orderings robustly in the presence of such heterogeneity. Apart from estimating the sequence of events, DEBM also estimates the relative temporal distance between the events, as illustrated below.
 
-<img src="../../_static/img/debm.png" width="320px" alt="DEBM from (Venkatraghavan et al., NeuroImage 2021)">
+<div style="text-align:center"><img src="../../_static/img/debm.png" width="450px" alt="DEBM from (Venkatraghavan et al., NeuroImage 2021)" /></div>
 
 These improvements helped a DEBM based method end up as one of the winning methods of the coveted [TADPOLE challenge](https://tadpole.grand-challenge.org/). The robustness of DEBM was further verified in multi-centre studies in [AD](https://doi.org/10.1016/j.nicl.2019.101954) and [genetic FTD](http://dx.doi.org/10.1136/jnnp-2020-323541).
 
