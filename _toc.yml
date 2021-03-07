@@ -3,13 +3,13 @@
 - part: Models
   chapters:
     - file: pages/models/introduction
-      title: Introduction to Disease Progression Models
+      title: Introduction to DPM
     - file: pages/models/event_based_model
-      title: Event Based model
+      title: Event Based Model
     - file: pages/models/leaspy
       title: Leaspy
     - file: pages/models/non_parametric_DPM
-      title: Non-Parametric Disease Progression Model
+      title: GP Progression Model
 
 
 - part: Notebooks
