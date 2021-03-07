@@ -33,7 +33,7 @@
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
     sections:
       - file: pages/notebooks/non_parametric_DPM/TP1
-        title: TP1 - Non Parametric DPM
+        title: TP1 - GP Progression Model
 
   - file: pages/notebooks/data_simulation/data_simulation
     sections:
