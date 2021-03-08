@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Non Parametric EBBM &#8212; Disease Progression Modelling</title>
+    <title>Gaussian Process Progression Model &#8212; Disease Progression Modelling</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -308,6 +308,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -315,9 +334,28 @@
         
               <div>
                 
-  <div class="section" id="non-parametric-ebbm">
-<h1>Non Parametric EBBM<a class="headerlink" href="#non-parametric-ebbm" title="Permalink to this headline">¶</a></h1>
-<p>Lorem Ipsum</p>
+  <div class="section" id="gaussian-process-progression-model">
+<h1>Gaussian Process Progression Model<a class="headerlink" href="#gaussian-process-progression-model" title="Permalink to this headline">¶</a></h1>
+<img src="../../_static/img/gppm_AD.png" width="320px" alt="GPPM from (Lorenzi et al., Neuroimage 2017)">
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>The Gaussian Process Progression Model (GPPM) reformulates disease progression modelling within a probabilistic setting to quantify the diagnostic uncertainty of individual disease severity, with respect to missing measurements, biomarkers, and follow-up information. The model was originally published in <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/29079521/">NeuroImage 2017</a> by Marco Lorenzi and colleagues, and there demonstrated on a large cohort of amyloid positive testing, Alzheimer’s disease individuals.</p>
+<p>GPPM has three key components underlying its methodology: 1) it defines a non-parametric, Gaussian process, Bayesian regression model for individual trajectories, 2) introduces a monotonicity information to impose some regular behaviour on the trajectories, and 3) models individual time transformations encoding the information on the latent pathological stage.</p>
+<p>GPPM has been generalised in recent years, and is now capable of disentangling spatio-temporal disease trajectories from collections of <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2019.116266">high-dimensional brain images</a>, and imposing a variety of <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5">biology-inspired constraints on the biomarker trajectories</a>.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started:<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>About the code.</p></li>
+<li><p>Some scientific papers about the GPPM method:</p>
+<ul>
+<li><p><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/29079521/">Lorenzi, et al., NeuroImage 2017</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1002/alz.12083">Garbarino, et al., IPMI 2019</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5">Abi Nader, et al., NeuroImage 2020</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
