@@ -6,8 +6,8 @@
       title: Introduction to DPM
     - file: pages/models/event_based_model
       title: Event Based Model
-    - file: pages/models/leaspy
-      title: Leaspy
+    - file: pages/models/disease_course_mapping
+      title: Disease Course Mapping
     - file: pages/models/non_parametric_DPM
       title: GP Progression Model
 
@@ -21,13 +21,13 @@
       - file: pages/notebooks/ebm/TP1
         title: TP1 - EBM
 
-  - file: pages/notebooks/leaspy/leaspy
+  - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
-      - file: pages/notebooks/leaspy/TP1_LMM
+      - file: pages/notebooks/disease_course_mapping/TP1_LMM
         title: TP1 - Linear Mixed Effect Models
-      - file: pages/notebooks/leaspy/TP2_leaspy_beginner
+      - file: pages/notebooks/disease_course_mapping/TP2_leaspy_beginner
         title: TP2 - Get ready with Leaspy
-      - file: pages/notebooks/leaspy/TP3_advanced_leaspy
+      - file: pages/notebooks/disease_course_mapping/TP3_advanced_leaspy
         title: TP3 - Leaspy advanced
 
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
