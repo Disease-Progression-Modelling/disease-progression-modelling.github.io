@@ -1,3 +1,3 @@
-# Non Parametric EBM
+# GP Progression Model
 
 Lorem Ipsum
