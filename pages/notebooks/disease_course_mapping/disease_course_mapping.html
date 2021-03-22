@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leaspy &#8212; Disease Progression Modelling</title>
+    <title>Disease Course Mapping with Leaspy &#8212; Disease Progression Modelling</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -109,8 +109,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../models/leaspy.html">
-   Leaspy
+  <a class="reference internal" href="../../models/disease_course_mapping.html">
+   Disease Course Mapping
   </a>
  </li>
  <li class="toctree-l1">
@@ -146,7 +146,7 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
-   Leaspy
+   Disease Course Mapping with Leaspy
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -265,7 +265,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/leaspy/leaspy.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/disease_course_mapping/disease_course_mapping.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -285,10 +285,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/leaspy/leaspy.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/disease_course_mapping/disease_course_mapping.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/leaspy/leaspy.md"><button
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/disease_course_mapping/disease_course_mapping.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -308,6 +308,30 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorials">
+   Tutorials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -315,15 +339,124 @@
         
               <div>
                 
-  <div class="section" id="leaspy">
-<h1>Leaspy<a class="headerlink" href="#leaspy" title="Permalink to this headline">¶</a></h1>
-<p>There is three progression tutorials :</p>
+  <div class="section" id="disease-course-mapping-with-leaspy">
+<h1>Disease Course Mapping with Leaspy<a class="headerlink" href="#disease-course-mapping-with-leaspy" title="Permalink to this headline">¶</a></h1>
+<p><em>by Igor Koval</em></p>
+<div class="figure align-center" id="logo">
+<a class="reference internal image-reference" href="../../../_images/logo.png"><img alt="../../../_images/logo.png" src="../../../_images/logo.png" style="height: 150px;" /></a>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-12 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong><em>Disease Course Mapping</em> with Leaspy</strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Leaspy is a Python software package that implements the <a class="reference external" href="https://disease-progression-modelling.github.io/pages/models/disease_course_mapping.html">Disease Course Mapping</a> methods. In particular, it is designed for the statistical analysis of <strong>longitudinal data</strong>, particularly <strong>medical</strong> data that comes in a form of <strong>repeated observations</strong> of patients at different time-points.
+Considering these series of short-term data, the software aims at :</p>
 <ul class="simple">
-<li><p>linear mixed effect models</p></li>
-<li><p>leaspy TP2_leaspy_beginner</p></li>
-<li><p>leaspy advanced</p></li>
+<li><p class="card-text">recombining them to reconstruct the long-term spatio-temporal trajectory of progression</p></li>
+<li><p class="card-text">positioning each patient observations relatively to the group-average timeline</p></li>
+<li><p class="card-text">quantifying the impact of different cofactors (gender, genetic mutation, environmental factors, etc) on the progression of the biomarkers</p></li>
+<li><p class="card-text">imputing missing values</p></li>
+<li><p class="card-text">predicting future observations</p></li>
+<li><p class="card-text">simulating virtual patients</p></li>
 </ul>
+<p class="card-text"><span class="sphinx-bs badge badge-primary">Software</span>
+<span class="sphinx-bs badge badge-primary">Python package</span>
+<span class="sphinx-bs badge badge-primary">Open source</span>
+<span class="sphinx-bs badge badge-primary">Tutorials</span>
+<span class="sphinx-bs badge badge-primary">Continuous integration</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The software is distributed on <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy">Gitlab</a> under the GNU GPLv3 Licence. It has a complete <a class="reference external" href="https://leaspy.readthedocs.io/en/latest/">documentation</a> as well as an active community that you can solicit through the use of the dedicated <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy/-/issues">bug &amp; issue tracker</a>. The software operates on <span class="sphinx-bs badge badge-dark">Mac</span> and <span class="sphinx-bs badge badge-dark">Linux</span> - <span class="sphinx-bs badge badge-dark">Windows</span> is also working though no guarantee can be given as no specific development was developed for this platform.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Leaspy</strong> originally comes from  from LEArning Spatiotemporal Patterns in Python.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The package has been written to offer a user-friendly API in order to be used by non-experts. The API essentially includes the following functions</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">leaspy.fit(...)</span></code></dt><dd><p>To estimate the average progression of the biomarkers</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">leaspy.personalize(...)</span></code></dt><dd><p>To estimate the individual parameters that allows to derive the average progression to fit individual Data</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">leaspy.estimate(...)</span></code></dt><dd><p>To impute or predict the values of an individual at any time-point</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">leaspy.simulate(...)</span></code></dt><dd><p>To simulate synthetic patients</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">leaspy.load(...)</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">leaspy.save(...)</span></code></dt><dd><p>To load and save the entire description of the disease progression, share it or reuse it on another cohort</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>New developers are welcome to participate and contribute</strong> !</p>
+<p>While offering an easy-to-use API, the package has been designed with an internal modular architecture in order to make new developments possible. In particular, new developments are on they way to enlarge the possibilities of types of disease progression, in particular with ordinal data or progressions affected by drugs.</p>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have developed few tutorials to better understand the goals of Disease Course Mapping, in particular how it allows to go beyond the current limitations of linear mixed-effects models, while getting familiar with Leaspy.</p>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-8 offset-md-2 docutils">
+<div class="card w-100 m-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong>Tutorial 1: Limitations of linear mixed-effects model</strong></p>
+</div>
+<div class="card-body text-justify docutils">
+<p class="card-text">This introduction to longitudinal data progressively unveils the limitations of linear models, beginning by a cross-patient linear regression, going to individual linear regressions, then to a linear mixed-effects model, finishing by the limitations of linear models that Leaspy is able to overcome.</p>
+<p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP1_LMM.html">Go to the tutorial</a></p>
+</div>
+<div class="card-footer docutils">
+<p class="card-text"><span class="sphinx-bs badge badge-warning">1 hour</span> <span class="sphinx-bs badge badge-primary">longitudinal data</span> <span class="sphinx-bs badge badge-primary">Linear model</span> <span class="sphinx-bs badge badge-primary">Mixed effects model</span></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-8 offset-md-2 docutils">
+<div class="card w-100 m-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong>Tutorial 2: <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> with Leaspy</strong></p>
+</div>
+<div class="card-body text-justify docutils">
+<p class="card-text">This introduction to Leaspy gives a handful overview of Leaspy possibilities along with the user-friendly commands to use it</p>
+<p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP2_leaspy_beginner.html">Go to the tutorial</a></p>
+</div>
+<div class="card-footer docutils">
+<p class="card-text"><span class="sphinx-bs badge badge-warning">30 minutes</span> <span class="sphinx-bs badge badge-primary">longitudinal data</span> <span class="sphinx-bs badge badge-primary">non-linear mixed-effects model</span></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-8 offset-md-2 docutils">
+<div class="card w-100 m-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong>Tutorial 3: Real-case usage</strong></p>
+</div>
+<div class="card-body text-justify docutils">
+<p class="card-text">This tutorial is designed for the ones that want to use Leaspy with their own data. We therefore designed this tutorial to present step-by-step the different operations that you might go through : data manipulation, normalization, interpretation of the algorithm convergence, in-depth understanding of the parameters and hyperparameters, etc.</p>
+<p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP3_advanced_leaspy.html">Go to the tutorial</a></p>
+</div>
+<div class="card-footer docutils">
+<p class="card-text"><span class="sphinx-bs badge badge-warning">1 hour 30</span> <span class="sphinx-bs badge badge-primary">longitudinal data</span> <span class="sphinx-bs badge badge-primary">Missing values</span> <span class="sphinx-bs badge badge-primary">longitudinal data</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The installation procedure is entirely detailed on the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy">dedicated Gitlab repository</a></p>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -340,7 +473,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./pages/notebooks/leaspy"
+            path: "./pages/notebooks/disease_course_mapping"
         },
         predefinedOutput: true
     }

@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Course Mapping &#8212; Disease Progression Modelling</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom_css.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/custom_js.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Gaussian Process Progression Model" href="non_parametric_DPM.html" />
+    <link rel="prev" title="Event Based Model" href="event_based_model.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../main.html">
+   Disease Progression Modelling
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction to DPM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="event_based_model.html">
+   Event Based Model
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Disease Course Mapping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/notebooks.html">
+   Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notebooks/ebm/ebm.html">
+   Event Based Model
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/ebm/TP1.html">
+     TP1 - EBM
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notebooks/disease_course_mapping/disease_course_mapping.html">
+   Disease Course Mapping with Leaspy
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/disease_course_mapping/TP1_LMM.html">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/disease_course_mapping/TP2_leaspy_beginner.html">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/disease_course_mapping/TP3_advanced_leaspy.html">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notebooks/non_parametric_DPM/non_parametric_DPM.html">
+   Non Parametric EBM
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/non_parametric_DPM/TP1.html">
+     TP1 - GP Progression Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../notebooks/data_simulation/data_simulation.html">
+   Data Simulation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data_simulation/debm.html">
+     Title of the notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data_simulation/non_parametric_DPM.html">
+     Title of the notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Conferences
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conferences/ISBI.html">
+   ISBI 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../other/contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/pages/models/disease_course_mapping.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/models/disease_course_mapping.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/models/disease_course_mapping.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-picture-is-worth-a-thousand-words">
+   A picture is worth a thousand words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-description">
+   Model description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contacts">
+   Contacts
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="disease-course-mapping">
+<h1>Disease Course Mapping<a class="headerlink" href="#disease-course-mapping" title="Permalink to this headline">¶</a></h1>
+<p><em>by Igor Koval</em></p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-12 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong><em>Disease Course Mapping</em> in a nutshell</strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.</p>
+<p class="card-text">For that purpose, we have developed a technique called <strong>Disease Course Mapping</strong>. Its aim is to estimate, both spatially and temporally, a unified spectrum of disease progression from a population. It directly allows to :</p>
+<ul class="simple">
+<li><p class="card-text">describe the average progression (along with its variability) of the biomarkers over the entire course of the disease</p></li>
+<li><p class="card-text">position any individual onto this map to precisely characterize the patients trajectory and predict his current and future stages</p></li>
+</ul>
+<p class="card-text"><span class="sphinx-bs badge badge-primary">Longitudinal data</span>
+<span class="sphinx-bs badge badge-primary">Non-linear Mixed-effects model</span>
+<span class="sphinx-bs badge badge-primary">Description of disease progression</span>
+<span class="sphinx-bs badge badge-primary">Personalized staging &amp; prediction</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-picture-is-worth-a-thousand-words">
+<h2>A picture is worth a thousand words<a class="headerlink" href="#a-picture-is-worth-a-thousand-words" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/trajectory_mapping.png"><img alt="../../_images/trajectory_mapping.png" src="../../_images/trajectory_mapping.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><strong>Disease Course Mapping</strong>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The central panel corresponds to the progression of two biomarkers (x and y axis) across the course of a neurodegenerative disease. Each curve represents the progression of these biomarkers over time, from [0, 0] to [1, 1]. The central curve corresponds to the average progression whose temporal representation is represented by the two idealized blue and orange curves on the four subpanels. Each point on the mapping corresponds to the value of two biomarkers measured at any visit. The repetition of visits therefore characterizes the positioning of a patient onto the disease progression spectrum. Its variability, reflected by the envelop around the average progression as well as the orientation of the curves that corresponds to the temporal trajectories, perfectly distinguishes likely individual progressions (green subpanels) from the one that do no appear in practice (red subpanels).</p>
+</div>
+<div class="section" id="model-description">
+<h2>Model description<a class="headerlink" href="#model-description" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-input-data admonition">
+<p class="admonition-title">Input data</p>
+<p>We here consider <strong>longitudinal data</strong>, i.e. patients with multiple visits along time, each corresponding to multiple observations : cognitive tests, neuropsychological assessments, medical imaging features, etc.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>For the sake of clarity, in the following, we consider two biomarkers that have been normalized such that a value of 0 corresponds to normal (i.e. control) stages where 1 corresponds to pathological stages.</p>
+</div>
+<p>The aim of the model is to describe the progression of the biomarkers across the course of the disease.  Let’s here assume that it corresponds to two idealized logistic curves as shown on <a class="reference internal" href="#individual-parameters"><span class="std std-numref">Fig. 2</span></a>. Given this average progression, how is it related to the observations of any new subject?</p>
+<div class="figure align-center" id="individual-parameters">
+<a class="reference internal image-reference" href="../../_images/model_explanation_1.png"><img alt="../../_images/model_explanation_1.png" src="../../_images/model_explanation_1.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The individual trajectory corresponds to the average disease progression that has been (i) shifted thanks to the time shift, (ii) decelerated thanks to the acceleration factor, and, (iii) reordered thanks to the inter-marker spacing.</span><a class="headerlink" href="#individual-parameters" title="Permalink to this image">¶</a></p>
+</div>
+<p>As shown on <a class="reference internal" href="#individual-parameters"><span class="std std-numref">Fig. 2</span></a>, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parametes :</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">time-shift</span></code> <span class="math notranslate nohighlight">\(\tau\)</span></dt><dd><p>It shifts the disease onset by a given number of years. For instance, a time-shift of 7 delays the entire disease progression of 7 years. <span class="math notranslate nohighlight">\(\tau &gt; 0\)</span> corresponds to disease progression that are later than the average one, while <span class="math notranslate nohighlight">\(\tau &lt; 0\)</span> corresponds to earlier than average progression.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">acceleration</span> <span class="pre">factor</span></code> <span class="math notranslate nohighlight">\(\alpha\)</span></dt><dd><p>It accelerates (<span class="math notranslate nohighlight">\(\alpha &gt; 1\)</span>) or deccelerate (<span class="math notranslate nohighlight">\(\alpha &lt; 1\)</span>) the overall disease progression, i.e. it changes the slope of the logistic curves</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">inter-marker</span> <span class="pre">spacing</span></code> <span class="math notranslate nohighlight">\(\omega\)</span></dt><dd><p>It accounts for the fact that the ordering of the event (i.e. biomarker progression) might differ within the population, therefore to each patient corresponds a given sequence of events described by the vector <span class="math notranslate nohighlight">\(\omega\)</span> that shifts each logistic curve. [Note: To ensure identifiability with the parameter <span class="math notranslate nohighlight">\(\tau\)</span>, we enforce <span class="math notranslate nohighlight">\(\sum \omega_k = 0\)</span> ].</p>
+</dd>
+</dl>
+<div class="figure align-center" id="individual-parameters-2">
+<a class="reference internal image-reference" href="../../_images/model_explanation_2.png"><img alt="../../_images/model_explanation_2.png" src="../../_images/model_explanation_2.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Variation of the average trajectory to the individual data in the Disease Mapping space.</span><a class="headerlink" href="#individual-parameters-2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The procedure that allows to derive the average trajectory can also be shown in the space of the biomarker, as shown on <a class="reference internal" href="#individual-parameters-2"><span class="std std-numref">Fig. 3</span></a>. It shows how the average progression is changed to fit the individual data - and vice-versa.</p>
+<div class="tip admonition">
+<p class="admonition-title">Though, a question still holds</p>
+<p>How do we first estimate the average progression of the biomarkers from which any individual observations derive?</p>
+</div>
+<div class="figure align-center" id="model-estimation">
+<a class="reference internal image-reference" href="../../_images/calibration.png"><img alt="../../_images/calibration.png" src="../../_images/calibration.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Model estimation</span><a class="headerlink" href="#model-estimation" title="Permalink to this image">¶</a></p>
+</div>
+<p>In practice, the average model of progression <em>and</em> the individual parameters are jointly estimated such that :</p>
+<ul class="simple">
+<li><p>the variation of the mean trajectory fits the individual data (stochastic maximum likelihood estimation)</p></li>
+<li><p>the individual parameters are considered as random variables whose mean corresponds to the average trajectory (mixed-effect model)</p></li>
+</ul>
+<p>This procedure is sketched on <a class="reference internal" href="#model-estimation"><span class="std std-numref">Fig. 4</span></a> which shows that the average model corresponds to the recombination of the short-term individual measurements onto a long-term disease progression that spans different disease stages.</p>
+<p>Then, once the model has been estimated, the estimation of the parameter of a new patient given this data corresponds to an optimization procedure, that under-the-hoods minimize the fit to the data <strong>and</strong> a regularization term over the individual parameters that follow normal distributions.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>As we derive a continuous model to fit the individual data, we can predict the future biomarkers values base on the patient observation as shown on <a class="reference internal" href="#prediction"><span class="std std-numref">Fig. 5</span></a>. Such procedure can be done from a baseline visit only, and, has shown to be accurate (up to the noise level of the data) up to 5 years in advance.</p>
+</div>
+<div class="figure align-center" id="prediction">
+<a class="reference internal image-reference" href="../../_images/prediction.png"><img alt="../../_images/prediction.png" src="../../_images/prediction.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The personalization of the average trajectory to the individual data allows to predict the future values of the different biomarkers.</span><a class="headerlink" href="#prediction" title="Permalink to this image">¶</a></p>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-12 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong><em>Disease Course Mapping</em> as a software</strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><strong>Interested by this model? You want to test it on your own data?</strong></p>
+<p class="card-text">It is made very easy thanks to the Leaspy software package. <a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/disease_course_mapping.html">Give a look at the tutorials here</a>.</p>
+<p class="card-text"><span class="sphinx-bs badge badge-primary">Software</span>
+<span class="sphinx-bs badge badge-primary">Python package</span>
+<span class="sphinx-bs badge badge-primary">Open source</span>
+<span class="sphinx-bs badge badge-primary">Tutorials</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :</p>
+<ol class="simple">
+<li><p>Mathematical Framework</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hal.archives-ouvertes.fr/hal-01540367v3/document"><em>A Bayesian mixed-effects model to learn trajectories of changes from repeated manifold-valued observations</em></a>. Jean-Baptiste Schiratti, Stéphanie Allassonnière, Olivier Colliot, and Stanley Durrleman.  The Journal of Machine Learning Research, 18:1–33, December 2017.</p></li>
+<li><p><a class="reference external" href="https://tel.archives-ouvertes.fr/tel-02524279/document"><em>Learning Multimodal Digital Models of Disease Progression from Longitudinal Data : Methods &amp; Algorithms for the Description, Prediction and Simulation of Alzheimer’s Disease Progression</em></a>. I. Koval, Thesis.</p></li>
+</ul>
+</li>
+<li><p>Model instantiations</p>
+<ul class="simple">
+<li><p><strong>Application to imaging data</strong>: <a class="reference external" href="https://arxiv.org/pdf/1709.08491.pdf"><em>Statistical learning of spatiotemporal patterns from longitudinal manifold-valued networks</em></a>. I. Koval, J.-B. Schiratti, A. Routier, M. Bacci, O. Colliot, S. Allassonnière and S. Durrleman. MICCAI, September 2017.</p></li>
+<li><p><strong>Application to imaging data</strong>: <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fneur.2018.00235/full?&amp;utm_source=Email_to_authors_&amp;utm_medium=Email&amp;utm_content=T1_11.5e1_author&amp;utm_campaign=Email_publication&amp;field=&amp;journalName=Frontiers_in_Neurology&amp;id=298610"><em>Spatiotemporal Propagation of the Cortical Atrophy: Population and Individual Patterns</em></a>. Igor Koval, Jean-Baptiste Schiratti, Alexandre Routier, Michael Bacci, Olivier Colliot, Stéphanie Allassonnière, and Stanley Durrleman. Front Neurol. 2018 May 4;9:235.</p></li>
+<li><p><strong>Application to data with missing values</strong>: <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-02091571/document"><em>Learning disease progression models with longitudinal data and missing values</em></a>. R. Couronne, M. Vidailhet, JC. Corvol, S. Lehéricy, S. Durrleman</p></li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul class="simple">
+<li><p><strong>Applications for Alzheimer’s Disease progression</strong>: <a class="reference external" href="https://hal.inria.fr/hal-01964821/file/manuscript.pdf"><em>AD Course Map charts Alzheimer’s disease progression</em></a>, I. Koval, A. Bone, M. Louis, S. Bottani, A. Marcoux, J. Samper-Gonzalez, N. Burgos, B. Charlier, A. Bertrand, S. Epelbaum, O. Colliot, S. Allassonniere &amp; S. Durrleman, Under review.</p></li>
+<li><p><strong>Application to better include patients in clinical trials for Huntington disease</strong>: <a class="reference external" href="https://assets.researchsquare.com/files/rs-264531/v1/fe70fee1-8187-4572-afd3-271a0220d4b2.pdf"><em>Machine learning spots the time to treat Huntington disease</em></a>, I. Koval, T. Dighiero-Brecht, A. Tobin, S. Tabrizi, R. Scahill, S. Durrleman &amp; A. Durr. Under review.</p></li>
+</ul>
+</li>
+<li><p>Website &amp; Code</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.digital-brain.org">Digital Brain website</a>: website related to the application of the model for Alzheimer’s disease</p></li>
+<li><p><a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy/">Gitlab repository</a> : Leaspy Software, used for all the previous experiments.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="contacts">
+<h2>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Igor Koval (See Contributors)</p></li>
+<li><p>Stanley Durrleman
+http://www.aramislab.fr/</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages/models"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="event_based_model.html" title="previous page">Event Based Model</a>
+    <a class='right-next' id="next-link" href="non_parametric_DPM.html" title="next page">Gaussian Process Progression Model</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Disease Progression Modelling community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
