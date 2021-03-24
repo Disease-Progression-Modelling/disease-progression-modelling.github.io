@@ -1,5 +1,10 @@
 - file: pages/main
 
+- part: Proposition
+  chapters:
+    - file: pages/proposition
+      title: Proposition for the home page
+
 - part: Models
   chapters:
     - file: pages/models/introduction
@@ -11,10 +16,9 @@
     - file: pages/models/non_parametric_DPM
       title: GP Progression Model
 
-
 - part: Notebooks
   chapters:
-  - file: pages/notebooks/notebooks
+  - file: pages/notebooks/overview
 
   - file: pages/notebooks/ebm/ebm
     sections:
@@ -24,11 +28,11 @@
   - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
       - file: pages/notebooks/disease_course_mapping/TP1_LMM
-        title: TP1 - Linear Mixed Effect Models
+        title: Tutorial 1 - Linear Mixed Effect Models
       - file: pages/notebooks/disease_course_mapping/TP2_leaspy_beginner
-        title: TP2 - Get ready with Leaspy
+        title: Tutorial 2 - Get ready with Leaspy
       - file: pages/notebooks/disease_course_mapping/TP3_advanced_leaspy
-        title: TP3 - Leaspy advanced
+        title: Tutorial 3 - Leaspy advanced
 
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
     sections:
@@ -42,6 +46,8 @@
 
 - part: Conferences
   chapters:
+  - file: pages/conferences/conferences
+  - file: pages/conferences/MICCAI
   - file: pages/conferences/ISBI
 
 - part: Other

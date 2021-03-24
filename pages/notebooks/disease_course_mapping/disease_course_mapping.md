@@ -11,7 +11,7 @@ align: center
 
 ````{panels}
 :column: col-12
-:card: border-2
+:card: border-2 shadow
 :header: bg-warning
 **_Disease Course Mapping_ with Leaspy**
 ^^^
@@ -19,7 +19,7 @@ align: center
 Leaspy is a Python software package that implements the [Disease Course Mapping](https://disease-progression-modelling.github.io/pages/models/disease_course_mapping.html) methods. In particular, it is designed for the statistical analysis of **longitudinal data**, particularly **medical** data that comes in a form of **repeated observations** of patients at different time-points.
 Considering these series of short-term data, the software aims at :
 - recombining them to reconstruct the long-term spatio-temporal trajectory of progression
-- positioning each patient observations relatively to the group-average timeline
+- positioning each patient observations relatively to the group-average progression
 - quantifying the impact of different cofactors (gender, genetic mutation, environmental factors, etc) on the progression of the biomarkers
 - imputing missing values
 - predicting future observations
@@ -40,7 +40,7 @@ The software is distributed on [Gitlab](https://gitlab.com/icm-institute/aramisl
 **Leaspy** originally comes from  from LEArning Spatiotemporal Patterns in Python.
 ```
 
-## Usage
+## **Usage**
 
 The package has been written to offer a user-friendly API in order to be used by non-experts. The API essentially includes the following functions
 
@@ -67,16 +67,15 @@ While offering an easy-to-use API, the package has been designed with an interna
 ```
 
 
-## Tutorials
+## **Tutorials**
 
-```{note}
 We have developed few tutorials to better understand the goals of Disease Course Mapping, in particular how it allows to go beyond the current limitations of linear mixed-effects models, while getting familiar with Leaspy.
-```
+
 
 ````{panels}
 :column: col-8 offset-md-2
 :header: bg-warning
-:card: m-2
+:card: m-2 shadow
 :body: text-justify
 
 **Tutorial 1: Limitations of linear mixed-effects model**
@@ -109,6 +108,6 @@ This tutorial is designed for the ones that want to use Leaspy with their own da
 ````
 
 
-## Installation
+## **Installation**
 
 The installation procedure is entirely detailed on the [dedicated Gitlab repository](https://gitlab.com/icm-institute/aramislab/leaspy)

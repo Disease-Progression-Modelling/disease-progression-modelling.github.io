@@ -3,7 +3,7 @@ _by Igor Koval_
 
 ````{panels}
 :column: col-12
-:card: border-2
+:card: border-2 shadow
 :header: bg-warning
 **_Disease Course Mapping_ in a nutshell**
 ^^^
@@ -20,7 +20,7 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 
 ````
 
-## A picture is worth a thousand words
+## **A picture is worth a thousand words**
 
 
 ```{figure} ../../_static/img/disease_course_mapping/trajectory_mapping.png
@@ -35,7 +35,7 @@ width: 100%
 The central panel corresponds to the progression of two biomarkers (x and y axis) across the course of a neurodegenerative disease. Each curve represents the progression of these biomarkers over time, from [0, 0] to [1, 1]. The central curve corresponds to the average progression whose temporal representation is represented by the two idealized blue and orange curves on the four subpanels. Each point on the mapping corresponds to the value of two biomarkers measured at any visit. The repetition of visits therefore characterizes the positioning of a patient onto the disease progression spectrum. Its variability, reflected by the envelop around the average progression as well as the orientation of the curves that corresponds to the temporal trajectories, perfectly distinguishes likely individual progressions (green subpanels) from the one that do no appear in practice (red subpanels).
 
 
-## Model description
+## **Model description**
 
 ```{admonition} Input data
 We here consider **longitudinal data**, i.e. patients with multiple visits along time, each corresponding to multiple observations : cognitive tests, neuropsychological assessments, medical imaging features, etc.
@@ -126,16 +126,10 @@ The personalization of the average trajectory to the individual data allows to p
 ```
 
 
-```{tip}
-
-```
-
-
-
 
 ````{panels}
 :column: col-12
-:card: border-2
+:card: border-2 shadow
 :header: bg-warning
 **_Disease Course Mapping_ as a software**
 ^^^
@@ -151,7 +145,7 @@ It is made very easy thanks to the Leaspy software package. [Give a look at the 
 
 ````
 
-## References
+## **References**
 More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :
 
 1. Mathematical Framework
@@ -169,7 +163,7 @@ More detailed explanations about the models themselves and  about the estimation
     - [Gitlab repository](https://gitlab.com/icm-institute/aramislab/leaspy/) : Leaspy Software, used for all the previous experiments.
 
 
-## Contacts
+## **Contacts**
 - Igor Koval (See Contributors)
 - Stanley Durrleman
 http://www.aramislab.fr/
