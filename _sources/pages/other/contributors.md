@@ -46,3 +46,10 @@
   <!-- -->
 </div>
 <!-- Grid row -->
+
+
+```{admonition} Interested?
+:class: warning
+
+You are warmly welcome to join our community. Do not hesitate to reach out directly, we will be happy to add new contributors, models and tutorials to this webpage.
+```

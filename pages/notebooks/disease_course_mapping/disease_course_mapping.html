@@ -94,6 +94,18 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Proposition
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../proposition.html">
+   Proposition for the home page
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Models
  </span>
 </p>
@@ -126,8 +138,8 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks.html">
-   Notebooks
+  <a class="reference internal" href="../overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
@@ -151,17 +163,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="TP1_LMM.html">
-     TP1 - Linear Mixed Effect Models
+     Tutorial 1 - Linear Mixed Effect Models
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="TP2_leaspy_beginner.html">
-     TP2 - Get ready with Leaspy
+     Tutorial 2 - Get ready with Leaspy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="TP3_advanced_leaspy.html">
-     TP3 - Leaspy advanced
+     Tutorial 3 - Leaspy advanced
     </a>
    </li>
   </ul>
@@ -170,7 +182,7 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">
-   Non Parametric EBM
+   GP Progression Model
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -208,6 +220,16 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/conferences.html">
+   Conferences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/MICCAI.html">
+   MICCAI
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../conferences/ISBI.html">
    ISBI 2021
@@ -315,17 +337,23 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#usage">
-   Usage
+   <strong>
+    Usage
+   </strong>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorials">
-   Tutorials
+   <strong>
+    Tutorials
+   </strong>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
-   Installation
+   <strong>
+    Installation
+   </strong>
   </a>
  </li>
 </ul>
@@ -348,7 +376,7 @@
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-12 docutils">
-<div class="card w-100 border-2 docutils">
+<div class="card w-100 border-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong><em>Disease Course Mapping</em> with Leaspy</strong></p>
 </div>
@@ -357,7 +385,7 @@
 Considering these series of short-term data, the software aims at :</p>
 <ul class="simple">
 <li><p class="card-text">recombining them to reconstruct the long-term spatio-temporal trajectory of progression</p></li>
-<li><p class="card-text">positioning each patient observations relatively to the group-average timeline</p></li>
+<li><p class="card-text">positioning each patient observations relatively to the group-average progression</p></li>
 <li><p class="card-text">quantifying the impact of different cofactors (gender, genetic mutation, environmental factors, etc) on the progression of the biomarkers</p></li>
 <li><p class="card-text">imputing missing values</p></li>
 <li><p class="card-text">predicting future observations</p></li>
@@ -379,7 +407,7 @@ Considering these series of short-term data, the software aims at :</p>
 <p><strong>Leaspy</strong> originally comes from  from LEArning Spatiotemporal Patterns in Python.</p>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Usage</strong><a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>The package has been written to offer a user-friendly API in order to be used by non-experts. The API essentially includes the following functions</p>
 <dl class="simple myst">
 <dt><code class="docutils literal notranslate"><span class="pre">leaspy.fit(...)</span></code></dt><dd><p>To estimate the average progression of the biomarkers</p>
@@ -400,15 +428,12 @@ Considering these series of short-term data, the software aims at :</p>
 </div>
 </div>
 <div class="section" id="tutorials">
-<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<h2><strong>Tutorials</strong><a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
 <p>We have developed few tutorials to better understand the goals of Disease Course Mapping, in particular how it allows to go beyond the current limitations of linear mixed-effects models, while getting familiar with Leaspy.</p>
-</div>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-8 offset-md-2 docutils">
-<div class="card w-100 m-2 docutils">
+<div class="card w-100 m-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong>Tutorial 1: Limitations of linear mixed-effects model</strong></p>
 </div>
@@ -422,7 +447,7 @@ Considering these series of short-term data, the software aims at :</p>
 </div>
 </div>
 <div class="d-flex col-8 offset-md-2 docutils">
-<div class="card w-100 m-2 docutils">
+<div class="card w-100 m-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong>Tutorial 2: <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> with Leaspy</strong></p>
 </div>
@@ -436,7 +461,7 @@ Considering these series of short-term data, the software aims at :</p>
 </div>
 </div>
 <div class="d-flex col-8 offset-md-2 docutils">
-<div class="card w-100 m-2 docutils">
+<div class="card w-100 m-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong>Tutorial 3: Real-case usage</strong></p>
 </div>
@@ -453,7 +478,7 @@ Considering these series of short-term data, the software aims at :</p>
 </div>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Installation</strong><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The installation procedure is entirely detailed on the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy">dedicated Gitlab repository</a></p>
 <div class="toctree-wrapper compound">
 </div>

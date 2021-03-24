@@ -96,6 +96,18 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Proposition
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../proposition.html">
+   Proposition for the home page
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Models
  </span>
 </p>
@@ -128,8 +140,8 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/notebooks.html">
-   Notebooks
+  <a class="reference internal" href="../notebooks/overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
@@ -153,17 +165,17 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/disease_course_mapping/TP1_LMM.html">
-     TP1 - Linear Mixed Effect Models
+     Tutorial 1 - Linear Mixed Effect Models
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/disease_course_mapping/TP2_leaspy_beginner.html">
-     TP2 - Get ready with Leaspy
+     Tutorial 2 - Get ready with Leaspy
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/disease_course_mapping/TP3_advanced_leaspy.html">
-     TP3 - Leaspy advanced
+     Tutorial 3 - Leaspy advanced
     </a>
    </li>
   </ul>
@@ -172,7 +184,7 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../notebooks/non_parametric_DPM/non_parametric_DPM.html">
-   Non Parametric EBM
+   GP Progression Model
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -210,6 +222,16 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conferences/conferences.html">
+   Conferences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../conferences/MICCAI.html">
+   MICCAI
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../conferences/ISBI.html">
    ISBI 2021
@@ -317,22 +339,30 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-picture-is-worth-a-thousand-words">
-   A picture is worth a thousand words
+   <strong>
+    A picture is worth a thousand words
+   </strong>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#model-description">
-   Model description
+   <strong>
+    Model description
+   </strong>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References
+   <strong>
+    References
+   </strong>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contacts">
-   Contacts
+   <strong>
+    Contacts
+   </strong>
   </a>
  </li>
 </ul>
@@ -352,7 +382,7 @@
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-12 docutils">
-<div class="card w-100 border-2 docutils">
+<div class="card w-100 border-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong><em>Disease Course Mapping</em> in a nutshell</strong></p>
 </div>
@@ -373,7 +403,7 @@
 </div>
 </div>
 <div class="section" id="a-picture-is-worth-a-thousand-words">
-<h2>A picture is worth a thousand words<a class="headerlink" href="#a-picture-is-worth-a-thousand-words" title="Permalink to this headline">¶</a></h2>
+<h2><strong>A picture is worth a thousand words</strong><a class="headerlink" href="#a-picture-is-worth-a-thousand-words" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../../_images/trajectory_mapping.png"><img alt="../../_images/trajectory_mapping.png" src="../../_images/trajectory_mapping.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><strong>Disease Course Mapping</strong>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -381,7 +411,7 @@
 <p>The central panel corresponds to the progression of two biomarkers (x and y axis) across the course of a neurodegenerative disease. Each curve represents the progression of these biomarkers over time, from [0, 0] to [1, 1]. The central curve corresponds to the average progression whose temporal representation is represented by the two idealized blue and orange curves on the four subpanels. Each point on the mapping corresponds to the value of two biomarkers measured at any visit. The repetition of visits therefore characterizes the positioning of a patient onto the disease progression spectrum. Its variability, reflected by the envelop around the average progression as well as the orientation of the curves that corresponds to the temporal trajectories, perfectly distinguishes likely individual progressions (green subpanels) from the one that do no appear in practice (red subpanels).</p>
 </div>
 <div class="section" id="model-description">
-<h2>Model description<a class="headerlink" href="#model-description" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Model description</strong><a class="headerlink" href="#model-description" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-input-data admonition">
 <p class="admonition-title">Input data</p>
 <p>We here consider <strong>longitudinal data</strong>, i.e. patients with multiple visits along time, each corresponding to multiple observations : cognitive tests, neuropsychological assessments, medical imaging features, etc.</p>
@@ -435,7 +465,7 @@
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-12 docutils">
-<div class="card w-100 border-2 docutils">
+<div class="card w-100 border-2 shadow docutils">
 <div class="card-header bg-warning docutils">
 <p class="card-text"><strong><em>Disease Course Mapping</em> as a software</strong></p>
 </div>
@@ -453,7 +483,7 @@
 </div>
 </div>
 <div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><strong>References</strong><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :</p>
 <ol class="simple">
 <li><p>Mathematical Framework</p>
@@ -484,7 +514,7 @@
 </ol>
 </div>
 <div class="section" id="contacts">
-<h2>Contacts<a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Contacts</strong><a class="headerlink" href="#contacts" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Igor Koval (See Contributors)</p></li>
 <li><p>Stanley Durrleman
