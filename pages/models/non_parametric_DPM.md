@@ -37,5 +37,5 @@ GPPM has been extended in recent years, and is now capable of disentangling spat
 
 - Some scientific literature on the GPPM methods:
   - Modeling biomarkers' trajectories in Alzheimer's disease: [Lorenzi, et al., NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/)
-  - Modeling the dynamics of amyloid propagation across brain networks: [Garbarino and Lorenzi, IPMI 2019](https://doi.org/10.1002/alz.12083)
+  - Modeling the dynamics of amyloid propagation across brain networks: [Garbarino and Lorenzi, IPMI 2019](https://doi.org/10.1002/alz.12083), [Garbarino and Lorenzi, NeuroImage 2021](https://www.sciencedirect.com/science/article/pii/S1053811921002573)
   - Spatio-temporal analysis of multimodal changes from time series of brain images [Abi Nader, et al., NeuroImage 2020](https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5)
