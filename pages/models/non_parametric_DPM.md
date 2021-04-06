@@ -17,14 +17,18 @@ GPPM has three key components underlying its methodology: 1) it defines a non-pa
 
 ## A variety of applications
 
-The model was originally published in [NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/) by Marco Lorenzi and colleagues, and there demonstrated on a large cohort of amyloid positive testing, Alzheimer's disease individuals.
+The model was originally published in [NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/), and demonstrated on a large cohort of amyloid positive Alzheimer's disease individuals.
 
 <img src="../../_static/img/gppm/gppm_AD.png" width="500px" alt="GPPM from (Lorenzi et al., Neuroimage 2017)">
 
 
-GPPM has been extended in recent years, and is now capable of disentangling spatio-temporal disease trajectories from collections of [high-dimensional brain images](https://doi.org/10.1016/j.neuroimage.2019.116266), and imposing a variety of [biology-inspired constraints on the biomarker trajectories](https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5).
+GPPM has been extended in recent years, and is now capable of disentangling spatio-temporal disease trajectories from collections of [high-dimensional brain images](https://doi.org/10.1016/j.neuroimage.2019.116266)
 
-<img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)"> <img src="../../_static/img/gppm/full_brain.gif" width="600px" alt="GPPM from (Abi Nader et al, NeuroImage 2019)">
+<img src="../../_static/img/gppm/full_brain.gif" width="600px" alt="GPPM from (Abi Nader et al, NeuroImage 2019)">
+
+and imposing a variety of [biology-inspired constraints on the biomarker trajectories](https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5).
+
+<img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)"> 
 
 
 ## Getting started:
