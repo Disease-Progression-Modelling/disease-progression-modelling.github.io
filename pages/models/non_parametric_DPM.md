@@ -7,9 +7,9 @@ Longitudinal dataset of measurements from neurodegenerative studies generally la
 
 ## The solution: GPPM ;)
 
-The [Gaussian Process Progression Model (GPPM)](https://gitlab.inria.fr/epione/GP_progression_model_V2) is based on the probabilistic estimation of biomarkers’ trajectories and on the quantification of the uncertainty of the predicted individual pathological stage. To this end, the inference framework accounts for a time reparameterization function, encoding individual differences in disease timing and speed relative to the fixed effect. 
+The [Gaussian Process Progression Model (GPPM)](https://gitlab.inria.fr/epione/GP_progression_model_V2) is based on the probabilistic estimation of biomarkers’ trajectories and on the quantification of the uncertainty of the predicted individual pathological stage. The inference framework accounts for a time reparameterization function, encoding individual differences in disease timing and speed relative to the fixed effect. 
 
-<img src="https://github.com/marcolorenzi/marcolorenzi.github.io/blob/master/img/animated.gif" width="320px" alt="GGPM in action">
+<img src="https://github.com/marcolorenzi/marcolorenzi.github.io/blob/master/img/animated.gif" width="400px" alt="GGPM in action">
 
 Thanks to the probabilistic nature of GPPM, the resulting long-term disease progression model can be used as a statistical reference representing the transition from normal to pathological stages, thus allowing probabilistic diagnosis in the clinical scenario. The model can be further used to quantify the diagnostic uncertainty of individual disease severity, with respect to missing measurements, biomarkers, and follow-up information.
 
@@ -19,12 +19,12 @@ GPPM has three key components underlying its methodology: 1) it defines a non-pa
 
 The model was originally published in [NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/) by Marco Lorenzi and colleagues, and there demonstrated on a large cohort of amyloid positive testing, Alzheimer's disease individuals.
 
-<img src="../../_static/img/gppm/gppm_AD.png" width="320px" alt="GPPM from (Lorenzi et al., Neuroimage 2017)">
+<img src="../../_static/img/gppm/gppm_AD.png" width="500px" alt="GPPM from (Lorenzi et al., Neuroimage 2017)">
 
 
 GPPM has been extended in recent years, and is now capable of disentangling spatio-temporal disease trajectories from collections of [high-dimensional brain images](https://doi.org/10.1016/j.neuroimage.2019.116266), and imposing a variety of [biology-inspired constraints on the biomarker trajectories](https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5).
 
-<img src="../../_static/img/gppm/animation_sara.gif" width="500px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)">
+<img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)">
 
 
 ## Getting started:
