@@ -24,7 +24,7 @@ The model was originally published in [NeuroImage 2017](https://pubmed.ncbi.nlm.
 
 GPPM has been extended in recent years, and is now capable of disentangling spatio-temporal disease trajectories from collections of [high-dimensional brain images](https://doi.org/10.1016/j.neuroimage.2019.116266), and imposing a variety of [biology-inspired constraints on the biomarker trajectories](https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5).
 
-<img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)">
+<img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)"> <img src="../../_static/img/gppm/full_brain.gif" width="600px" alt="GPPM from (Abi Nader et al, NeuroImage 2019)">
 
 
 ## Getting started:
