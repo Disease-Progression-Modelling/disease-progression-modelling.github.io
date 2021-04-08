@@ -58,7 +58,7 @@ We have developed an introductory tutorial to understand Disease Course Sequenci
 ^^^
 This introduction to Event-Based Modelling is a walkthrough where you will fit an EBM using the KDE EBM software and simulated data.
 
-[Go to the tutorial](T1_kde_ebm_walkthrough.html)
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 +++
 {badge}`30 minutes,badge-warning` {badge}`crosssectional data,badge-primary`
 
@@ -67,7 +67,7 @@ This introduction to Event-Based Modelling is a walkthrough where you will fit a
 **Tutorial 2: Exaple usage on real medical data**
 ^^^
 _Coming soon_.
-
+````
 
 ## **Installation**
 
