@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Course Sequencing with the EBM &#8212; Disease Progression Modelling</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Disease Course Mapping with Leaspy" href="../disease_course_mapping/disease_course_mapping.html" />
+    <link rel="prev" title="Disease Course Sequencing with the Event Based Model" href="ebm.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../main.html">
+   Disease Progression Modelling
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proposition
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../proposition.html">
+   Proposition for the home page
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/introduction.html">
+   Introduction to DPM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/event_based_model.html">
+   Event Based Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/disease_course_mapping.html">
+   Disease Course Mapping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="ebm.html">
+   Disease Course Sequencing with the Event Based Model
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tutorial 1 - EBM Walkthrough
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../disease_course_mapping/disease_course_mapping.html">
+   Disease Course Mapping with Leaspy
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP1_LMM.html">
+     Tutorial 1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP2_leaspy_beginner.html">
+     Tutorial 2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP3_advanced_leaspy.html">
+     Tutorial 3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
+     TP1 - GP Progression Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_simulation/data_simulation.html">
+   Data Simulation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/debm.html">
+     Title of the notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
+     Title of the notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Conferences
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/conferences.html">
+   Conferences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/MICCAI.html">
+   MICCAI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/ISBI.html">
+   ISBI 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../other/contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/ebm/T1_kde_ebm_walkthrough.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Disease-Progression-Modelling/disease-progression-modelling.github.io/master?urlpath=tree/pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#event-based-model-of-disease-progression">
+   Event-Based Model of disease progression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-set-up">
+   The set-up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulate-some-data">
+   Simulate some data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#didactic-step-look-at-the-data">
+   Didactic step: Look at the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-data-for-fitting">
+   Prepare data for fitting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-mixture-models">
+   Fit mixture models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequencing-using-mcmc-markov-chain-monte-carlo">
+   Sequencing using MCMC: Markov Chain Monte Carlo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-prettier-solution">
+     A prettier solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-validation">
+   Cross-validation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#patient-staging-utility">
+   Patient staging utility
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="disease-course-sequencing-with-the-ebm">
+<h1>Disease Course Sequencing with the EBM<a class="headerlink" href="#disease-course-sequencing-with-the-ebm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="event-based-model-of-disease-progression">
+<h2>Event-Based Model of disease progression<a class="headerlink" href="#event-based-model-of-disease-progression" title="Permalink to this headline">¶</a></h2>
+<p>Author: Neil Oxtoby, UCL</p>
+</div>
+<div class="section" id="objectives">
+<h2>Objectives:<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<p>This notebook walks you through how to fit an event-based model of disease progression using publicly available software and simulated data.</p>
+<p>The steps involved:</p>
+<ul class="simple">
+<li><p>Load input data</p>
+<ul>
+<li><p>e.g., a CSV table of disease features (biomarkers) in a cohort including patients and healthy controls</p></li>
+</ul>
+</li>
+<li><p>Prepare the input data: select a subset of features; perform some basic statistical checks; etc.</p></li>
+<li><p>Fit the model</p></li>
+<li><p>Perform cross-validation</p></li>
+</ul>
+<p>We add additional steps as didactic exemplars of good practice in data-driven disease progression modelling.</p>
+</div>
+<div class="section" id="the-set-up">
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
+<p>This notebook is currently designed to run in a specially prepared conda environment, using the <a class="reference external" href="https://github.com/ucl-pond/kde_ebm">KDE EBM</a> package (see <a class="reference external" href="https://github.com/ucl-pond/kde_ebm/blob/master/INSTALL.md">installation instructions</a> on GitHub).</p>
+<p>In the future we may support running this in the cloud.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import some packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulate-some-data">
+<h2>Simulate some data<a class="headerlink" href="#simulate-some-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># number of events/features</span>
+<span class="n">J</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># number of patients</span>
+
+<span class="n">noise_scale</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">J</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="o">=-</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">b</span><span class="p">)))</span>
+
+<span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">onsets</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gradients</span><span class="p">))):</span>
+    <span class="c1"># print(&#39;a = %i, b = %i&#39; % (a,b))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">dp</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+    <span class="c1">#print(x)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_scale</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Disease Progression Time&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;sigmoid(t)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/T1_kde_ebm_walkthrough_3_1.png" src="../../../_images/T1_kde_ebm_walkthrough_3_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Sample some controls</span>
+<span class="n">X_controls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gradients</span><span class="p">)):</span>
+    <span class="n">X_controls</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="p">(</span><span class="n">X_controls</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="didactic-step-look-at-the-data">
+<h2>Didactic step: Look at the data<a class="headerlink" href="#didactic-step-look-at-the-data" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Visual: look at the histograms of patients and controls</p></li>
+<li><p>Statistical tests: use null hypothesis statistical tests of “differences” to select features</p></li>
+</ol>
+<ul class="simple">
+<li><p>Loosely speaking, a significant difference suggests presence of “disease signal” (patient measurements are “different” to controls measurements) in a biomarker</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* 1. Histograms</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span> <span class="n">X</span><span class="p">[:,</span><span class="n">k</span><span class="p">],</span><span class="n">X_controls</span><span class="p">[:,</span><span class="n">k</span><span class="p">]],</span><span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Patients&#39;</span><span class="p">,</span><span class="s1">&#39;Controls&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Biomarker </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/T1_kde_ebm_walkthrough_6_0.png" src="../../../_images/T1_kde_ebm_walkthrough_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Basic statistical tests</span>
+<span class="c1"># I use a nonparametric test because it works regardless of the data distributions </span>
+<span class="c1"># (some tests assume some level of Gaussianity)</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FIXME&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIXME
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prepare-data-for-fitting">
+<h2>Prepare data for fitting<a class="headerlink" href="#prepare-data-for-fitting" title="Permalink to this headline">¶</a></h2>
+<p>Data matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> has <code class="docutils literal notranslate"><span class="pre">M</span></code> individuals (patients, controls, prodromal/at-risk individuals) and <code class="docutils literal notranslate"><span class="pre">N</span></code> biomarkers/events</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Setup data for fitting</span>
+<span class="n">y</span>          <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">y_controls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X_controls</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">X_patients_controls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">X_controls</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_patients_controls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">y</span><span class="p">,</span><span class="n">y_controls</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_patients_controls</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_patients_controls</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fit-mixture-models">
+<h2>Fit mixture models<a class="headerlink" href="#fit-mixture-models" title="Permalink to this headline">¶</a></h2>
+<p>This step maps biomarker values <code class="docutils literal notranslate"><span class="pre">x</span></code> (columns of data matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>) to <code class="docutils literal notranslate"><span class="pre">p(event)</span></code>, allowing for patients to be at different stages of cumulative abnormality.</p>
+<p>Typical group-level analyses simply compare measurements from patients with controls, e.g., looking for statistical “differences” in the mean values. The mixture model allows for patients to have both abnormal observations that deviate from controls (these are early disease events), and normal observations (these will be later disease events)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kde_ebm.mixture_model</span> <span class="kn">import</span> <span class="n">fit_all_kde_models</span><span class="p">,</span> <span class="n">fit_all_gmm_models</span><span class="p">,</span> <span class="n">get_prob_mat</span>
+
+<span class="kn">from</span> <span class="nn">kde_ebm.plotting</span> <span class="kn">import</span> <span class="n">mixture_model_grid</span><span class="p">,</span> <span class="n">mcmc_uncert_mat</span><span class="p">,</span> <span class="n">mcmc_trace</span><span class="p">,</span> <span class="n">stage_histogram</span>
+
+<span class="kn">from</span> <span class="nn">kde_ebm.mcmc</span> <span class="kn">import</span> <span class="n">mcmc</span><span class="p">,</span> <span class="n">parallel_bootstrap</span><span class="p">,</span> <span class="n">bootstrap_ebm</span><span class="p">,</span> <span class="n">bootstrap_ebm_fixedMM</span><span class="p">,</span> <span class="n">bootstrap_ebm_return_mixtures</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Label the biomarkers/events</span>
+<span class="n">e</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Early&#39;</span><span class="p">,</span><span class="s1">&#39;Early-ish&#39;</span><span class="p">,</span><span class="s1">&#39;Late-ish&#39;</span><span class="p">,</span><span class="s1">&#39;Late&#39;</span><span class="p">]</span>
+<span class="n">e_labels</span> <span class="o">=</span> <span class="n">e</span>
+<span class="c1">#* Direction of progression (1 = biomarker increases in patients; -1 = biomarker decreases in patients)</span>
+<span class="c1">#  This is a feature of the KDE EBM software.</span>
+<span class="n">e_disease_direction_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Early&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Early-ish&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Late-ish&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Late&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">e_disease_direction</span> <span class="o">=</span> <span class="p">[</span><span class="n">e_disease_direction_dict</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">e</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_mixtures</span> <span class="o">=</span> <span class="n">fit_all_kde_models</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+    <span class="n">implement_fixed_controls</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">patholog_dirn_array</span>      <span class="o">=</span> <span class="n">e_disease_direction</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* View the mixture models</span>
+<span class="n">mixture_model_grid</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">kde_mixtures</span><span class="p">,</span>
+    <span class="n">score_names</span><span class="o">=</span><span class="n">e</span><span class="p">,</span>
+    <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Controls&#39;</span><span class="p">,</span><span class="s1">&#39;Patients&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;Figure size 720x720 with 4 Axes&gt;,
+ array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;Early&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Early-ish&#39;}&gt;],
+        [&lt;AxesSubplot:title={&#39;center&#39;:&#39;Late-ish&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Late&#39;}&gt;]], dtype=object))
+</pre></div>
+</div>
+<img alt="../../../_images/T1_kde_ebm_walkthrough_14_1.png" src="../../../_images/T1_kde_ebm_walkthrough_14_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="sequencing-using-mcmc-markov-chain-monte-carlo">
+<h2>Sequencing using MCMC: Markov Chain Monte Carlo<a class="headerlink" href="#sequencing-using-mcmc-markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<p>This is a standard method for approximating a model posterior when exact inference is intractable.</p>
+<p>Here we are performing maximum likelihood inference. The EBM posterior is intractable in general because evaluating the likelihood function requires calculating the likelihood of all <code class="docutils literal notranslate"><span class="pre">N!</span></code> possible sequences for <code class="docutils literal notranslate"><span class="pre">N</span></code> biomarkers.</p>
+<p>This quickly explodes for <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">&gt;</span> <span class="pre">6</span></code>, so we generate <em>random samples from the posterior</em> (the full set of possible sequences) using MCMC, and keep only those sequences that increase the likelihood (ideally towards the maximum).</p>
+<p>In general, the posterior won’t be a convex function, i.e., one having a single easy-to-find maximum.</p>
+<p>In practice, the posterior could consist of multiple maxima at different locations in parameter space. To avoid getting “stuck” in a local maximum, we follow good machine learning practice when searching parameter space to sample from the posterior: multiple random initialisations of the sampling, greedy initialisation, and MCMC sampling.</p>
+<p>Details of the bespoke MCMC algorithm used here are in the original EBM paper: <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2012.01.062">Fonteijn <em>et al.</em>, NeuroImage (2012)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* MCMC sequencing</span>
+<span class="n">mcmc_samples</span> <span class="o">=</span> <span class="n">kde_ebm</span><span class="o">.</span><span class="n">mcmc</span><span class="o">.</span><span class="n">mcmc</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kde_mixtures</span><span class="p">)</span>
+<span class="c1">#* Maximum Likelihood sequence over all samples</span>
+<span class="n">seq_ml</span> <span class="o">=</span> <span class="n">mcmc_samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ordering</span>
+<span class="c1"># print(&#39;ML sequence: {0}&#39;.format(seq_ml))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ML order   : </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">e_labels</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">seq_ml</span><span class="p">]))</span>
+      
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/noxtoby/Documents/code/github/kde_ebm/kde_ebm/mcmc/mcmc.py:34: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
+  fig.show()
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ML order   : Early, Early-ish, Late-ish, Late
+</pre></div>
+</div>
+<img alt="../../../_images/T1_kde_ebm_walkthrough_16_2.png" src="../../../_images/T1_kde_ebm_walkthrough_16_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the ML posterior</span>
+<span class="n">f</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">mcmc_uncert_mat</span><span class="p">(</span><span class="n">mcmc_samples</span><span class="p">,</span> <span class="n">ml_order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">score_names</span><span class="o">=</span><span class="n">e_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/T1_kde_ebm_walkthrough_17_0.png" src="../../../_images/T1_kde_ebm_walkthrough_17_0.png" />
+</div>
+</div>
+<div class="section" id="a-prettier-solution">
+<h3>A prettier solution<a class="headerlink" href="#a-prettier-solution" title="Permalink to this headline">¶</a></h3>
+<p>I define some convenience functions, then use them to plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="k">def</span> <span class="nf">extract_pvd</span><span class="p">(</span><span class="n">ml_order</span><span class="p">,</span><span class="n">samples</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">ml_order</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="c1">#* List of PVDs from cross-validation/bootstrapping</span>
+        <span class="n">n_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ml_order</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">pvd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_</span><span class="p">,</span><span class="n">n_</span><span class="p">))</span>
+        <span class="c1">#all_orders = np.array(ml_order)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="c1">#* 10-fold CV returns MCMC samples for each fold separately in a list - concatenate them here</span>
+            <span class="n">all_samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">samples</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1">#* Bootstrapping returns MCMC samples pre-concatenated</span>
+            <span class="n">all_samples</span> <span class="o">=</span> <span class="n">samples</span>
+        <span class="n">all_orders</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">ordering</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_samples</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_</span><span class="p">):</span>
+            <span class="n">pvd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">all_orders</span> <span class="o">==</span> <span class="n">ml_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1">#pvd_cv, cv_rank = reorder_PVD_average_ranking(PVD=pvd)</span>
+        <span class="n">pvd</span><span class="p">,</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">reorder_PVD</span><span class="p">(</span><span class="n">pvd</span><span class="p">)</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="n">ml_order</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rank</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#* Single PVD (ML results)</span>
+        <span class="n">n_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ml_order</span><span class="p">)</span>
+        <span class="n">pvd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_</span><span class="p">,</span><span class="n">n_</span><span class="p">))</span>
+        <span class="n">samples_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">ordering</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">])</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="n">ml_order</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_</span><span class="p">):</span>
+            <span class="n">pvd</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">samples_</span> <span class="o">==</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pvd</span><span class="p">,</span> <span class="n">seq</span>
+
+<span class="k">def</span> <span class="nf">reorder_PVD</span><span class="p">(</span><span class="n">PVD</span><span class="p">,</span><span class="n">mean_bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">edf_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reorders a PVD by scoring the frequencies in each row, then ranking in increasing order.</span>
+
+<span class="sd">    Score: integral of complementary empirical distribution (1-EDF) up to a threshold.</span>
+<span class="sd">    Rationale: the sooner the EDF gets to the threshold, the earlier it should be in the ranking.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">mean_bool</span><span class="p">:</span>
+        <span class="n">n_</span> <span class="o">=</span> <span class="n">PVD</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ranking</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n_</span><span class="p">,</span><span class="n">n_</span><span class="p">)</span> <span class="c1"># weights</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">PVD</span>
+        <span class="n">mean_rank</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_</span><span class="p">):</span>
+            <span class="n">mean_rank</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">*</span> <span class="n">ranking</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="p">)</span>
+        <span class="n">new_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">mean_rank</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#* Find where the empirical distribution first exceeds the threshold</span>
+        <span class="n">edf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">PVD</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">edf</span> <span class="o">=</span> <span class="n">edf</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">edf</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="n">edf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">edf_above_threshold</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">edf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">edf_above_threshold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">edf</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span><span class="o">&gt;=</span><span class="n">edf_threshold</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">#* Ties implicitly split by original ordering in the PVD (likely the ML ordering)</span>
+        <span class="n">edf_rank</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">edf_above_threshold</span><span class="p">)</span>
+        <span class="n">new_order</span> <span class="o">=</span> <span class="n">edf_rank</span>
+
+    <span class="n">PVD_new</span> <span class="o">=</span> <span class="n">PVD</span><span class="p">[</span><span class="n">new_order</span><span class="p">,:]</span>
+    <span class="c1"># PVD_new = np.zeros((n_,n_))</span>
+    <span class="c1"># for i in range(n_):</span>
+    <span class="c1">#     PVD_new[i, :] = PVD[new_order[i],:]</span>
+
+    <span class="k">return</span> <span class="n">PVD_new</span><span class="p">,</span> <span class="n">new_order</span>
+
+<span class="c1"># Frontiers default is pdf with 300dpi</span>
+<span class="c1"># And run it all through imagemagick after to convert</span>
+<span class="k">def</span> <span class="nf">save_plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">fig_format</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">fig_format</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+        <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get labels</span>
+<span class="n">nom</span> <span class="o">=</span> <span class="s1">&#39;tute&#39;</span>
+<span class="c1">#* Plot EBM (PVD)</span>
+<span class="n">pvd_ml</span><span class="p">,</span> <span class="n">seq_ml</span> <span class="o">=</span> <span class="n">extract_pvd</span><span class="p">(</span><span class="n">ml_order</span><span class="o">=</span><span class="n">seq_ml</span><span class="p">,</span><span class="n">samples</span><span class="o">=</span><span class="n">mcmc_samples</span><span class="p">)</span>
+<span class="n">reorder_ml</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">seq_ml</span><span class="p">)</span>
+<span class="n">pvd_ml_</span> <span class="o">=</span> <span class="n">pvd_ml</span><span class="p">[:][</span><span class="n">reorder_ml</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span><span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">e_labels</span>
+<span class="n">labels_</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;TOTAL&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;TOT&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-detrended&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">seq_ml</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pvd_ml_</span><span class="p">[:][</span><span class="n">seq_ml</span><span class="p">],</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
+
+<span class="n">n_biomarkers</span> <span class="o">=</span> <span class="n">pvd_ml</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">stp</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">tick_marks_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n_biomarkers</span><span class="p">,</span><span class="n">stp</span><span class="p">)</span>
+<span class="n">x_labs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_biomarkers</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">stp</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">tick_marks_x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_labs</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="n">tick_marks_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_biomarkers</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">tick_marks_y</span><span class="o">+</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">labels_trimmed</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;p_&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">labels_</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels_trimmed</span><span class="p">,</span><span class="c1">#,np.array(labels_trimmed, dtype=&#39;object&#39;)[seq_],</span>
+                   <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1">#ha=&#39;right&#39;,</span>
+                   <span class="n">rotation_mode</span><span class="o">=</span><span class="s1">&#39;anchor&#39;</span><span class="p">,</span>
+                   <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="c1"># ax.set_ylabel(&#39;Instrument&#39;, fontsize=28)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Positional Variance&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">save_plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">nom</span><span class="o">+</span><span class="s2">&quot;-PVD_ML&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/T1_kde_ebm_walkthrough_20_0.png" src="../../../_images/T1_kde_ebm_walkthrough_20_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cross-validation">
+<h2>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
+<p><strong>FIXME: add this</strong></p>
+</div>
+<div class="section" id="patient-staging-utility">
+<h2>Patient staging utility<a class="headerlink" href="#patient-staging-utility" title="Permalink to this headline">¶</a></h2>
+<p><strong>FIXME: add this</strong></p>
+<p>Can compare data from each individual (patients/controls/at-risk) with the model and calculate a <code class="docutils literal notranslate"><span class="pre">p(event)</span></code> vector</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages/notebooks/ebm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="ebm.html" title="previous page">Disease Course Sequencing with the Event Based Model</a>
+    <a class='right-next' id="next-link" href="../disease_course_mapping/disease_course_mapping.html" title="next page">Disease Course Mapping with Leaspy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Disease Progression Modelling community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

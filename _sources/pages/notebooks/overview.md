@@ -1,9 +1,7 @@
 # Overview
 
-```{admonition} Overview of the notebook
+```{admonition} This page gives a short overview of the tutorials that you can find on the website.
 :class: tip
-
-This page gives a short overview of the tutorials that you can find on the website. Lorem ipsum
 
 ```
 
@@ -13,7 +11,9 @@ This page gives a short overview of the tutorials that you can find on the websi
 **Event Based Model**
 ^^^
 
-Lorem Ipsum
+Tutorial 1: A walkthrough of fitting an EBM on simulated data
+
+Tutorial 2 (coming soon): A walkthrough of fitting an EBM on real data
 
 [Discover](ebm/ebm)
 
