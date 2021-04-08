@@ -8,12 +8,16 @@ This page gives a short overview of the tutorials that you can find on the websi
 
 ````{panels}
 :header: bg-warning text-center
-**Event Based Model**
+**Disease Course Sequencing (Event Based Modelling)**
 ^^^
 
-Tutorial 1: A walkthrough of fitting an EBM on simulated data
+Tutorial 1: A walkthrough of fitting a KDE EBM on simulated data
 
-Tutorial 2 (coming soon): A walkthrough of fitting an EBM on real data
+Tutorial 2: A walkthrough of fitting a DEBM on simulated data
+
+Tutorial 3: (coming soon) A walkthrough of fitting a KDE EBM on real data
+
+Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
 
 [Discover](ebm/ebm)
 
