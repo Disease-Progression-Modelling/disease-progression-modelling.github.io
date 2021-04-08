@@ -35,7 +35,7 @@ The software is distributed via the UCL POND group's [GitHub](https://github.com
 
 The [KDE EBM](https://github.com/ucl-pond/kde_ebm) package includes user-friendly functions to perform key operations in the Disease Course Sequencing pipeline:
 
-`kde_ebm.mixture_model.fit_all_kde_models(...), fit_all_gmm_models(...)`
+`kde_ebm.mixture_model: fit_all_kde_models(...), fit_all_gmm_models(...)`
 : Converts multimodal biomarker data into event probabilities by fitting mixture models to patient/control data using Kernel Density Estimation or Gaussian mixture modelling.
 
 `kde_ebm.plotting`
