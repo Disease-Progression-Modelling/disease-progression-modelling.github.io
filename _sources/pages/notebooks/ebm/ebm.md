@@ -3,7 +3,7 @@ _by Neil Oxtoby_
 
 ```{figure} ../../../_static/img/ebm.png
 ---
-height: 150px
+height: 300px
 name: EBM schematic
 align: center
 ```
