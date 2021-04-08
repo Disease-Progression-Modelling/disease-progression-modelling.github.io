@@ -22,8 +22,8 @@
 
   - file: pages/notebooks/ebm/ebm
     sections:
-      - file: pages/notebooks/ebm/TP1
-        title: TP1 - EBM
+      - file: pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb
+        title: Tutorial 1 - EBM Walkthrough
 
   - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
