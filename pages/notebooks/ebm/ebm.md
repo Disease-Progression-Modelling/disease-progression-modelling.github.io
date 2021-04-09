@@ -1,5 +1,5 @@
 # Disease Course Sequencing with the Event Based Model
-_by Neil Oxtoby_
+_by Neil Oxtoby and Vikram Venkatraghavan_
 
 ```{figure} ../../../_static/img/ebm.png
 ---
@@ -16,9 +16,9 @@ align: center
 **_Disease Course Sequencing_ with Event-Based Modelling**
 ^^^
 
-Event-Based Modelling is a mathematical model, with associated Python software, that estimates a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
+Event-Based Modelling is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
 
-The software:
+The softwares:
 - reconstructs the pathophysiological cascade (fine-grained temporal sequence of events) for a chronic, progressive disease
 - stages individuals along this fine-grained Disease Course Sequence, representing their cumulative abnormality along the group-average progression
 - does this all probabilistically and without predefined biomarker cutpoints
