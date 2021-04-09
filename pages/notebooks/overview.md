@@ -32,7 +32,11 @@ Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
 **Disease Course Mapping**
 ^^^
 
-Lorem Ipsum
+Tutorial 1 - Linear Mixed Effect Models limitations
+
+Tutorial 2 - Get ready with Leaspy
+
+Tutorial 3 - Leaspy advanced
 
 [Discover](disease_course_mapping/disease_course_mapping)
 
