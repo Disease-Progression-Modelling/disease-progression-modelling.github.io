@@ -1,10 +1,5 @@
 - file: pages/main
 
-- part: Proposition
-  chapters:
-    - file: pages/proposition
-      title: Proposition for the home page
-
 - part: Models
   chapters:
     - file: pages/models/introduction
