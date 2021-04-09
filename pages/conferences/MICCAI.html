@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MICCAI &#8212; Disease Progression Modelling</title>
+    <title>MICCAI 2021 &#8212; Disease Progression Modelling</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -89,18 +89,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../main.html">
    Disease Progression Modelling
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Proposition
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../proposition.html">
-   Proposition for the home page
   </a>
  </li>
 </ul>
@@ -227,7 +215,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   MICCAI
+   MICCAI 2021
   </a>
  </li>
  <li class="toctree-l1">
@@ -330,6 +318,25 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-objectives-of-the-tutorial">
+   Learning objectives of the tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schedule">
+   Schedule
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -337,8 +344,49 @@
         
               <div>
                 
-  <div class="section" id="miccai">
-<h1>MICCAI<a class="headerlink" href="#miccai" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="miccai-2021">
+<h1>MICCAI 2021<a class="headerlink" href="#miccai-2021" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-12 docutils">
+<div class="card w-100 border-2 shadow docutils">
+<div class="card-header bg-warning docutils">
+<p class="card-text"><strong>Workshop abstract</strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">The proposed tutorial is intended to present the most advanced and mature data-driven models for the modelling of neurological disease progression within a day-long session. The main objective is to illustrate the major challenges of modelling neurodegenerative disorders, especially the unknown (and heterogeneous) disease time axis, and, the reconstruction of long-term disease history from short-term individual observations - challenges existing beyond neurological applications. To that end, the tutorial will dive into state-of-the-art models that allows to take the best out of cross-sectional and longitudinal data. Short lectures introducing the intention of each DPM model will be followed by hands-on session based on Python notebooks that illustrate the different concepts in the context of Alzheimer’s disease progression. At the end, the participants will be able to select a DPM model suitable to their own dataset and implement it thanks to the software presented.</p>
+<p class="card-text"><span class="sphinx-bs badge badge-primary">Conference workshop</span>
+<span class="sphinx-bs badge badge-primary">Hands-on session</span>
+<span class="sphinx-bs badge badge-primary">Full day</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="learning-objectives-of-the-tutorial">
+<h2>Learning objectives of the tutorial<a class="headerlink" href="#learning-objectives-of-the-tutorial" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Discover the main challenges of DPM thanks to the estimation of Alzheimer’s disease progression  at group and individual levels,</p></li>
+<li><p>Understand the rationale behind different state-of-the-art DPM methods and their limitations,</p></li>
+<li><p>Acquire operational knowledge for selecting a DPM suitable to any given dataset, and be able to implement it with the right software,</p></li>
+<li><p>Get an in-depth overview of the operational challenges of longitudinal data, along with the ‘know-hows’ to overcome them</p></li>
+</ol>
+</div>
+<div class="section" id="schedule">
+<h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Disease</span> <span class="pre">Progression</span> <span class="pre">Modelling</span></code></p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">1:</span> <span class="pre">Discrete</span> <span class="pre">DPM</span> <span class="pre">/</span> </code>  by <em>Neil Oxtoby &amp; Vikram Venkatraghavan</em></dt><dd><p>Discrete models are capable of inferring a longitudinal picture of disease progression using only cross-sectional data. Software part of  github.com/EuroPOND/europond-software .</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">2:</span> <span class="pre">Linear</span> <span class="pre">Mixed-effects</span> <span class="pre">models</span> <span class="pre">/</span> </code></dt><dd><p>The workhorse of statistical analysis for longitudinal data. Important to understand their capabilities and limitations for analysing neurological disease progression. (gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions.).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">3:</span> <span class="pre">Parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code>  by <em>Igor Koval &amp; Stanley Durrleman</em></dt><dd><p>Recent developments that address some limitations of Linear Mixed-effects methods account for the non-linear dynamics of progression. They are able to estimate a long-term history of changes based on longitudinal observations, referred to as a disease course mapping.  Leaspy software : gitlab.com/icm-institute/aramislab/leaspy.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">4:</span> <span class="pre">Non-parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code>  by <em>Sara Garbarino, Clément Abi Nader, Marco Lorenzi</em></dt><dd><p>DPM based on dynamical system modelling allow estimating the dynamics of biomarkers’ interactions characterizing the long-term disease history.  Building upon probabilistic DPM (Lorenzi-NeuroImage-2017),  these methods have been applied to the modelling of pathological protein propagation across brain networks in Alzheimer’s (Garbarino-IPMI-2019), and to simulate the effect of amyloid intervention on long term clinical and imaging outcomes (Abi Nader -preprint- 2020). Software: gitlab.inria.fr/epione/GP_progression_model_V2).</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Wrap-up</span> <span class="pre">&amp;</span> <span class="pre">Conclusion</span></code></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
