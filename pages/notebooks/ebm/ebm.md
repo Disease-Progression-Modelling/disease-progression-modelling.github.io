@@ -16,10 +16,10 @@ align: center
 **_Disease Course Sequencing_ with Event-Based Modelling**
 ^^^
 
-Event-Based Modelling is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
+Event-Based Modelling (EBM) is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
 
 The softwares:
-- reconstructs the pathophysiological cascade (fine-grained temporal sequence of events) for a chronic, progressive disease
+- reconstruct the pathophysiological cascade (fine-grained temporal sequence of events) for a chronic, progressive disease
 - stages individuals along this fine-grained Disease Course Sequence, representing their cumulative abnormality along the group-average progression
 - does this all probabilistically and without predefined biomarker cutpoints
 
@@ -29,7 +29,13 @@ The softwares:
 {badge}`Tutorials,badge-primary`
 ````
 
-The software is distributed via the UCL POND group's [GitHub](https://github.com/ucl-pond) account, typically under the MIT license. The software should operate across operating systems, but specific requirements, e.g., python package versions, are detailed in each repository.
+The software for classical EBM is distributed via the UCL POND group's [GitHub](https://github.com/ucl-pond) account, typically under the MIT license. 
+
+The software for the state-of-the-art Discriminative EBM as well as classical EBM (pyebm) is distributed via Vikram's [GitHub](https://github.com/88vikram/pyebm) account, typically under the GNU General Public License v3.0. 
+
+Note: The classical EBM implementation in the two repositories differ in the type of mixture modelling (an essential step in EBMs) they support. The UCL POND group's implementation supports KDE based mixture modelling as well as Gaussian mixture modelling (GMM), whereas pyebm only supports GMM.
+
+The softwares should operate across operating systems, but specific requirements, e.g., python package versions, are detailed in each repository.
 
 ## **Usage**
 
@@ -44,7 +50,13 @@ The [KDE EBM](https://github.com/ucl-pond/kde_ebm) package includes user-friendl
 `kde_ebm.mcmc`
 : Tools for Markov Chain Monte Carlo fitting of the EBM, including bootstrap cross-validation.
 
-The [pyEBM](https://github.com/88vikram/pyEBM) toolbox can be used to fit a traditional EBM, or a Discriminative EBM.
+The [pyEBM](https://github.com/88vikram/pyEBM) toolbox can be used to fit a Discriminative EBM, or a classical EBM using Gaussian mixture modelling.
+
+`pyebm.debm.fit(...):`
+: Fits DEBM to multimodal biomarker data and inherently handles missing data. DEBM estimates average Disease Course Sequence for the entire cohort, any pre-defined subgroup of it, as well as for each subject in the cohort.
+
+`pyebm.ebm.fit(...):`
+: Fits EBM to multimodal biomarker data and inherently handles missing data. EBM estimates average Disease Course Sequence for the entire cohort.
 
 ## **Tutorial(s)**
 
@@ -70,8 +82,7 @@ This introduction to Event-Based Modelling is a walkthrough where you will fit a
 ^^^
 This introduction to Discriminative Event-Based Modelling is a walkthrough where you will fit a DEBM using the pyEBM software and simulated data.
 
-FIXME: add Vikram's tutorial (`T2_pyEBM_walkthrough.ipynb`?)
-<!-- [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html) -->
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 +++
 {badge}`30 minutes,badge-warning` {badge}`crosssectional data,badge-primary`
 
