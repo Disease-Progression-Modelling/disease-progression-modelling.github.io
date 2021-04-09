@@ -19,6 +19,8 @@
     sections:
       - file: pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb
         title: Tutorial 1 - EBM Walkthrough
+      - file: pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb
+        title: Tutorial 2 - DEBM Walkthrough
 
   - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
