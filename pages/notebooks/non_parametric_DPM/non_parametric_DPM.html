@@ -348,10 +348,10 @@ GPPM software has been first presented in the work <a class="reference external"
 <p class="card-text"><strong>_Getting started</strong></p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">The software comes with a <span class="xref myst">simple installation</span> and an easy interface.</p>
+<p class="card-text">The software comes with a <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">simple installation</a>) and an easy interface.</p>
 <p class="card-text">An example of the basic usage of GPPM on synthetic and real data is available here:</p>
 <p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_basic.html">Basic GPPM tutorial</a>.<br />
-[Colab notebook] (https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&amp;actionButton=1#scrollTo=D6-zqSnoFcVy)</p>
+<a class="reference external" href="https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&amp;actionButton=1#scrollTo=D6-zqSnoFcVy">Colab notebook</a></p>
 <p class="card-text">An example of GPPM-DS on synthetic and real data is available here:</p>
 <p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_DS.html">Basic GPPM-DS tutorial</a>.</p>
 </div>
@@ -359,13 +359,6 @@ GPPM software has been first presented in the work <a class="reference external"
 </div>
 </div>
 </div>
-<p>Overall framework</p>
-<p>The optimization of GPPM iterates over two steps:</p>
-<ul class="simple">
-<li><p><em>Estimation of biomarkers trajectories</em>. This is a regression problem, and is solved in GPPM by fitting a Gaussian Process (GP) mixed effect model to the observations. Gaussian processes are a fabulous family of non-parametric functions that can be used to solve a large variety of machine learning problems. In the case of GPPM, we impose clinically or biologically inspired constraints on the trajectories over time, to describe plausible evolutions from normal to pathological states (see ).</p></li>
-<li></li>
-<li><p><em>Estimation of subject-specific time reparameterization function</em>. This step idetifies the most likely instant during the pathological evolution at which the individual has been observed, by optimizing the timing of the measurements with respect to the trajectories estimated above. The current version of the model support the estimation of both time-shift and scaling parameters.</p></li>
-</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The source code is available on <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">GitLab</a>.
