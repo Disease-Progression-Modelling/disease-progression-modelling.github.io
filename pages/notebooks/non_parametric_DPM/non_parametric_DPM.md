@@ -19,7 +19,7 @@ GPPM and GPPM-DS enable the following analyses:
 :header: bg-warning
 **Getting started**
 ^^^
-The software comes with a [simple installation](https://gitlab.inria.fr/epione/GP_progression_model_V2)) and an easy interface. 
+The software comes with a [simple installation](https://gitlab.inria.fr/epione/GP_progression_model_V2) and an easy interface. 
 
 An example of the basic usage of GPPM on synthetic and real data is available here:
 
