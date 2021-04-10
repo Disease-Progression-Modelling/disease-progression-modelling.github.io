@@ -23,7 +23,8 @@ The software comes with a [simple installation](https://gitlab.inria.fr/epione/G
 
 An example of the basic usage of GPPM on synthetic and real data is available here:
 
-[Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_basic.html)
+[Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/non_parametric_DPM/GPPM_basic.html)
+
 [Colab notebook](https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&actionButton=1#scrollTo=D6-zqSnoFcVy)
 
 An example of GPPM-DS on synthetic and real data is available here:
