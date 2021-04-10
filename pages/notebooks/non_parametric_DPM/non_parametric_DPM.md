@@ -19,26 +19,17 @@ GPPM and GPPM-DS enable the following analyses:
 :header: bg-warning
 **_Getting started**
 ^^^
-The software comes with a [simple installation]((https://gitlab.inria.fr/epione/GP_progression_model_V2)) and an easy interface. 
+The software comes with a [simple installation](https://gitlab.inria.fr/epione/GP_progression_model_V2)) and an easy interface. 
 
 An example of the basic usage of GPPM on synthetic and real data is available here:
 
-[Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_basic.html).  
-[Colab notebook] (https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&actionButton=1#scrollTo=D6-zqSnoFcVy)
+[Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/basic_GPPM.html).  
+[Colab notebook](https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&actionButton=1#scrollTo=D6-zqSnoFcVy)
 
 An example of GPPM-DS on synthetic and real data is available here:
 
 [Basic GPPM-DS tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_DS.html).  
 ````
-
-Overall framework
-
-The optimization of GPPM iterates over two steps:
-
-- *Estimation of biomarkers trajectories*. This is a regression problem, and is solved in GPPM by fitting a Gaussian Process (GP) mixed effect model to the observations. Gaussian processes are a fabulous family of non-parametric functions that can be used to solve a large variety of machine learning problems. In the case of GPPM, we impose clinically or biologically inspired constraints on the trajectories over time, to describe plausible evolutions from normal to pathological states (see ).
-- 
-- *Estimation of subject-specific time reparameterization function*. This step idetifies the most likely instant during the pathological evolution at which the individual has been observed, by optimizing the timing of the measurements with respect to the trajectories estimated above. The current version of the model support the estimation of both time-shift and scaling parameters.
-
 
 ```{note}
 The source code is available on [GitLab](https://gitlab.inria.fr/epione/GP_progression_model_V2). 
