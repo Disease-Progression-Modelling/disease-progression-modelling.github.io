@@ -9,7 +9,7 @@ Longitudinal dataset of measurements from neurodegenerative studies generally la
 
 The [Gaussian Process Progression Model (GPPM)](https://gitlab.inria.fr/epione/GP_progression_model_V2) is based on the probabilistic estimation of biomarkers’ trajectories and on the quantification of the uncertainty of the predicted individual pathological stage. The inference framework accounts for a time reparameterization function, encoding individual differences in disease timing and speed relative to the fixed effect. 
 
-<img src="https://github.com/marcolorenzi/marcolorenzi.github.io/blob/master/img/animated.gif" width="400px" alt="GGPM in action">
+<img src="../../_static/img/gppm/animated.gif" width="400px" alt="GGPM in action">
 
 Thanks to the probabilistic nature of GPPM, the resulting long-term disease progression model can be used as a statistical reference representing the transition from normal to pathological stages, thus allowing probabilistic diagnosis in the clinical scenario. The model can be further used to quantify the diagnostic uncertainty of individual disease severity, with respect to missing measurements, biomarkers, and follow-up information.
 
