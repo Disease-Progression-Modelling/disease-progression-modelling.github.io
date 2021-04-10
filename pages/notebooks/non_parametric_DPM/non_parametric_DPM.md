@@ -2,6 +2,7 @@
 
 The Gaussian Process Progression Model (GPPM) is a model of disease progression estimating long-term biomarkers’ trajectories across the evolution of a disease, from the analysis of short-term individual measurements. 
 GPPM software has been first presented in the work [Lorenzi, NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/), and subsequently extended in the GPPM-DS presented in [Garbarino and Lorenzi, IPMI 2019](https://doi.org/10.1002/alz.12083) and [Garbarino and Lorenzi, NeuroImage 2021](https://www.sciencedirect.com/science/article/pii/S1053811921002573).
+
 GPPM and GPPM-DS enable the following analyses: 
 
 - [GPPM] reoconstruct the profile of biomarkers evolution over time, 
@@ -12,13 +13,14 @@ GPPM and GPPM-DS enable the following analyses:
 - [GPPM-DS] data-driven comparison between different hypothesis to identify the most plausible interaction dynamics between biomarkers,
 - [GPPM-DS] model personalisation to simulate and predict subject-specific biomarker trajectories,
 
-
 ````{panels}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
 **_Getting started**
 ^^^
+The software comes with a [simple installation]((https://gitlab.inria.fr/epione/GP_progression_model_V2)) and an easy interface. 
+
 An example of the basic usage of GPPM on synthetic and real data is available here:
 
 [Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_basic.html).  
