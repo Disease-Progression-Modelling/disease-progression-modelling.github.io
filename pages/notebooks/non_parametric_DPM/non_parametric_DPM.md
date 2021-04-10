@@ -1,9 +1,46 @@
 # GP Progression Model
 
+The Gaussian Process Progression Model (GPPM) is a model of disease progression estimating long-term biomarkers’ trajectories across the evolution of a disease, from the analysis of short-term individual measurements. 
+GPPM software has been first presented in the work [Lorenzi, NeuroImage 2017](https://pubmed.ncbi.nlm.nih.gov/29079521/), and subsequently extended in the GPPM-DS presented in [Garbarino and Lorenzi, IPMI 2019](https://doi.org/10.1002/alz.12083) and [Garbarino and Lorenzi, NeuroImage 2021](https://www.sciencedirect.com/science/article/pii/S1053811921002573).
+GPPM and GPPM-DS enable the following analyses: 
 
+- [GPPM] reoconstruct the profile of biomarkers evolution over time, 
+- [GPPM] quantify the subject-specific disease severity associated with the measurements each individual (missing observations are allowed),
+- [GPPM] estimate the ordering of the biomarkers from normal to pathological stages,
+- [GPPM-DS] specify prior hypothesis about the causal interaction between biomarkers,
+- [GPPM-DS] data-driven estimation of the interaction parameters, 
+- [GPPM-DS] data-driven comparison between different hypothesis to identify the most plausible interaction dynamics between biomarkers,
+- [GPPM-DS] model personalisation to simulate and predict subject-specific biomarker trajectories,
+
+
+````{panels}
+:column: col-12
+:card: border-2 shadow
+:header: bg-warning
+**_Getting started**
+^^^
+An example of the basic usage of GPPM on synthetic and real data is available here:
+
+[Basic GPPM tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_basic.html).  
+[Colab notebook] (https://colab.research.google.com/drive/1JcouPj4KzOC_klOa2uwRvNHVtdjEensz?userstoinvite=sssilvar%40unal.edu.co&actionButton=1#scrollTo=D6-zqSnoFcVy)
+
+An example of GPPM-DS on synthetic and real data is available here:
+
+[Basic GPPM-DS tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_DS.html).  
+````
+
+Overall framework
 
 The optimization of GPPM iterates over two steps:
 
-- *Estimation of biomarkers trajectories*. This is a regression problem, and is solved in GPPM by fitting a Gaussian Process (GP) mixed effect model to the observations. Gaussian processes are a fabulous family of non-parametric functions that can be used to solve a large variety of machine learning problems. In the case of GPPM, we impose that the trajectory must be monotonic over time, to describe steady evolutions from normal to pathological states.
+- *Estimation of biomarkers trajectories*. This is a regression problem, and is solved in GPPM by fitting a Gaussian Process (GP) mixed effect model to the observations. Gaussian processes are a fabulous family of non-parametric functions that can be used to solve a large variety of machine learning problems. In the case of GPPM, we impose clinically or biologically inspired constraints on the trajectories over time, to describe plausible evolutions from normal to pathological states (see ).
 - 
 - *Estimation of subject-specific time reparameterization function*. This step idetifies the most likely instant during the pathological evolution at which the individual has been observed, by optimizing the timing of the measurements with respect to the trajectories estimated above. The current version of the model support the estimation of both time-shift and scaling parameters.
+
+
+```{note}
+The source code is available on [GitLab](https://gitlab.inria.fr/epione/GP_progression_model_V2). 
+The software is freely distributed for academic purposes. All the commercial rights are owned by Inria.
+```
+
+
