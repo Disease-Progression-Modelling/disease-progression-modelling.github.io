@@ -1,0 +1,1717 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPPM for disease progression modeling: basic use &#8212; Disease Progression Modelling</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data Simulation" href="../data_simulation/data_simulation.html" />
+    <link rel="prev" title="GP Progression Model" href="non_parametric_DPM.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../main.html">
+   Disease Progression Modelling
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/introduction.html">
+   Introduction to DPM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/event_based_model.html">
+   Event Based Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/disease_course_mapping.html">
+   Disease Course Mapping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../ebm/ebm.html">
+   Disease Course Sequencing with the Event Based Model
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ebm/T1_kde_ebm_walkthrough.html">
+     Tutorial 1 - EBM Walkthrough
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../disease_course_mapping/disease_course_mapping.html">
+   Disease Course Mapping with Leaspy
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP1_LMM.html">
+     Tutorial 1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP2_leaspy_beginner.html">
+     Tutorial 2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP3_advanced_leaspy.html">
+     Tutorial 3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tutorial 1 - GP Progression Model Walkthrough
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_simulation/data_simulation.html">
+   Data Simulation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/debm.html">
+     Title of the notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
+     Title of the notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Conferences
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/conferences.html">
+   Conferences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/MICCAI.html">
+   MICCAI 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/ISBI.html">
+   ISBI 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../other/contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/non_parametric_DPM/GPPM_basic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/non_parametric_DPM/GPPM_basic.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/non_parametric_DPM/GPPM_basic.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Disease-Progression-Modelling/disease-progression-modelling.github.io/master?urlpath=tree/pages/notebooks/non_parametric_DPM/GPPM_basic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/non_parametric_DPM/GPPM_basic.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparation">
+   Preparation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#illustration-on-a-synthetic-case">
+   Illustration on a synthetic case
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gppm-in-action">
+     GPPM in action
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeling-of-longitudinal-biomarkers-form-the-pseudo-adni-dataset">
+   Modeling of longitudinal biomarkers form the (pseudo-)ADNI dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     GPPM in action
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="gppm-for-disease-progression-modeling-basic-use">
+<h1>GPPM for disease progression modeling: basic use<a class="headerlink" href="#gppm-for-disease-progression-modeling-basic-use" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial introduces the use of the software GPMM available at https://gitlab.inria.fr/epione/GP_progression_model_V2.git.</p>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>We start by downloading and installing the package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install git+https://gitlab.inria.fr/epione/GP_progression_model_V2.git@fix_prediction
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://gitlab.inria.fr/epione/GP_progression_model_V2.git@fix_prediction
+  Cloning https://gitlab.inria.fr/epione/GP_progression_model_V2.git (to revision fix_prediction) to /tmp/pip-req-build-u4p6a4ky
+  Running command git clone -q https://gitlab.inria.fr/epione/GP_progression_model_V2.git /tmp/pip-req-build-u4p6a4ky
+  Running command git checkout -b fix_prediction --track origin/fix_prediction
+  Switched to a new branch &#39;fix_prediction&#39;
+  Branch &#39;fix_prediction&#39; set up to track remote branch &#39;fix_prediction&#39; from &#39;origin&#39;.
+Building wheels for collected packages: gppm
+  Building wheel for gppm (setup.py) ... ?25l?25hdone
+  Created wheel for gppm: filename=gppm-2.0.0-cp37-none-any.whl size=15757 sha256=f272c7e528112ed3711a1cf8a8b977c983851f88fa957502769635b8e1013434
+  Stored in directory: /tmp/pip-ephem-wheel-cache-1_upv448/wheels/7b/4f/99/ae6da29607cff6cb811b4f4ca93aeabc1678a71e582534c93f
+Successfully built gppm
+Installing collected packages: gppm
+Successfully installed gppm-2.0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once GPPM is installed, we can import what is needed to run the tutorial</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GP_progression_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#%matplotlib inline</span>
+<span class="c1">## workaround for OS X</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span> <span class="k">as</span> <span class="n">sys_pf</span>
+<span class="k">if</span> <span class="n">sys_pf</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+    <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;TkAgg&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">GP_progression_model</span>
+<span class="kn">from</span> <span class="nn">GP_progression_model</span> <span class="kn">import</span> <span class="n">DataGenerator</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="illustration-on-a-synthetic-case">
+<h2>Illustration on a synthetic case<a class="headerlink" href="#illustration-on-a-synthetic-case" title="Permalink to this headline">¶</a></h2>
+<p>To understand the principle behind GPPM, let’s generate some data that will be later used to fit the model.
+The aim of GPPM is to reconstruct long-term temporal trajectories from the analysis of collections of short-terms observations.
+To get an idea of the  principle, the following piece of code can be used to generate some synthetic trajectories for <em>Nbiom</em> biomarkers, and to sample idnvidual measurements from them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;synth&#39;</span><span class="p">)</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">fastest</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+<span class="c1">## Parameters for progression curves and data generation</span>
+<span class="c1"># Max value of the trajectories </span>
+<span class="c1"># (we assume that they range from 0, healthy, to L, pathological)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># time interval for the trajectories</span>
+<span class="n">interval</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># Number of biomarkers</span>
+<span class="n">Nbiom</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># Number of individuals</span>
+<span class="n">Nsubs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="c1"># Gaussian observational noise</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># We set the seed=111 as a reference for the further analysis</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="c1"># Creating random parameter sets for each biomarker&#39;s progression</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="o">!=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">CurveParam</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">):</span>
+        <span class="n">CurveParam</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()),</span><span class="n">noise</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">CurveParam</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling the data generator</span>
+<span class="n">dg</span> <span class="o">=</span> <span class="n">DataGenerator</span><span class="o">.</span><span class="n">DataGenerator</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="n">CurveParam</span><span class="p">,</span> <span class="n">Nsubs</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the generated biomarkers trajectories (continuous lines) that we generated, along with observations from the different subjects (dashed segments). Each subject’s observation is assumed to be a noisy realisation from the original trajectory, evaluated over few samples.  The number of time points available per subject is assigned randomly in the DataGenerator routine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;long&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/GPPM_basic_9_0.png" src="../../../_images/GPPM_basic_9_0.png" />
+</div>
+</div>
+<p>The difference in shape between biomarkers trajectories is due to the different in speed (the slope) and in the timing (the moment at which the trajectory starts increasing). Here is the timing associated with each biomarker:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The time_shift indicates the moment at which each biomarker becomes abnormal</span>
+<span class="n">ground_truth_ts</span> <span class="o">=</span> <span class="n">dg</span><span class="o">.</span><span class="n">time_shift</span>
+<span class="n">dict_gt_ts</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">biom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">):</span>
+  <span class="n">dict_gt_ts</span><span class="p">[</span><span class="s1">&#39;biom_&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">biom</span><span class="p">)]</span> <span class="o">=</span> <span class="n">ground_truth_ts</span><span class="p">[</span><span class="n">biom</span><span class="p">]</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_gt_ts</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;change time&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>biom_0</th>
+      <th>biom_1</th>
+      <th>biom_2</th>
+      <th>biom_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>change time</th>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>14.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We note that the change time associated to biomarker 2 is the furthest in time (at t=14), which means that the trajectory of this biomarker is constant along the entire observation interval.</p>
+<p>We are ready not to generate our <em>real observations</em>, by resetting the individual observations above to the same origin. In this case, the time information is zero-centered for each subject:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;short&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/GPPM_basic_14_0.png" src="../../../_images/GPPM_basic_14_0.png" />
+</div>
+</div>
+<p>This kind of data is what is generally called <em>spaghetti plot</em>. The time axis is not related anymore directly to the original progression, but instead to an arbitrary unit (which may correspond for instance to a visit time).
+<strong>The goal of GPPM is to retrieve the long-term progressions from the spaghetti plot</strong>.</p>
+<p>Let’s extract our synthetic data as a pandas DataFrame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>  <span class="o">=</span> <span class="n">dg</span><span class="o">.</span><span class="n">get_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data frame has the following jey fields:</p>
+<ul class="simple">
+<li><p>RID: the identifier for each individual,</p></li>
+<li><p>time: the zero-centered time (e.g. visit time)</p></li>
+<li><p>time_gt: the ground thruth time corresponding to position with respect to the long-term original synthetic trajectories</p></li>
+<li><p>biom_*: the measurements for each biomarker and time point</p></li>
+</ul>
+<p>We note that the structure of this data frame is very similar to the one of typical clinical and research datasets (e.g. ADNI).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RID</th>
+      <th>time</th>
+      <th>biom_0</th>
+      <th>biom_1</th>
+      <th>biom_2</th>
+      <th>biom_3</th>
+      <th>time_gt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>-1.0</td>
+      <td>0.979932</td>
+      <td>0.732228</td>
+      <td>0.011024</td>
+      <td>0.412049</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.138082</td>
+      <td>0.790095</td>
+      <td>-0.039992</td>
+      <td>0.836982</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.991504</td>
+      <td>0.928058</td>
+      <td>0.122740</td>
+      <td>1.042216</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.292893</td>
+      <td>0.020794</td>
+      <td>-0.023364</td>
+      <td>0.043239</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.012792</td>
+      <td>0.604817</td>
+      <td>-0.092707</td>
+      <td>0.403241</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>28.0</td>
+      <td>0.0</td>
+      <td>0.371390</td>
+      <td>0.165749</td>
+      <td>-0.118679</td>
+      <td>-0.054633</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>29.0</td>
+      <td>-2.0</td>
+      <td>0.062574</td>
+      <td>-0.041898</td>
+      <td>-0.056814</td>
+      <td>-0.005067</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>29.0</td>
+      <td>0.0</td>
+      <td>0.182433</td>
+      <td>0.080903</td>
+      <td>0.027772</td>
+      <td>-0.043215</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>29.0</td>
+      <td>1.0</td>
+      <td>0.256241</td>
+      <td>0.005242</td>
+      <td>-0.016863</td>
+      <td>-0.064809</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>29.0</td>
+      <td>2.0</td>
+      <td>0.544529</td>
+      <td>0.041862</td>
+      <td>0.040187</td>
+      <td>0.032076</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>66 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="gppm-in-action">
+<h3>GPPM in action<a class="headerlink" href="#gppm-in-action" title="Permalink to this headline">¶</a></h3>
+<p>We are ready to apply GPPM to solve ou estimation problem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># since the biomarkers are increasing from normal to abnormal states </span>
+<span class="c1"># (resp. from 0 to L) we set the monotonicity constraint to 1 for each biomarker</span>
+<span class="n">monotonicity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nbiom</span><span class="p">)</span>
+
+<span class="c1"># the input is the generated synthetic data frame</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time_gt&#39;</span><span class="p">])</span>
+
+<span class="c1"># we convert the input data to the pieces that will be fed to GPPM  </span>
+<span class="n">Xdata</span><span class="p">,</span> <span class="n">Ydata</span><span class="p">,</span> <span class="n">RID</span><span class="p">,</span> <span class="n">list_biomarkers</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">GP_progression_model</span><span class="o">.</span><span class="n">convert_from_df</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span>
+                                                                 <span class="p">[</span><span class="s1">&#39;biom_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">)],</span> <span class="n">time_var</span> <span class="o">=</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1"># here we call GPPM with the appropriate input</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GP_progression_model</span><span class="o">.</span><span class="n">GP_Progression_Model</span><span class="p">(</span><span class="n">Xdata</span><span class="p">,</span><span class="n">Ydata</span><span class="p">,</span> <span class="n">monotonicity</span> <span class="o">=</span> <span class="n">monotonicity</span><span class="p">,</span> <span class="n">trade_off</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                                                  <span class="n">names_biomarkers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;biom_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">)]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once created our GPPM object, we are ready to optimize.
+The optimization of GPPM iterates over two steps:</p>
+<ul class="simple">
+<li><p><em>Estimation of the biomarkers trajectories</em>. This is a regression problem, and is solved in GPPM by fitting a Gaussian Process (GP) mixed effect model to the observations. Gaussian processes are a fabulous family of non-parametric functions that can be used to solve a large variety of machine learning problems. In the case of GPPM, we impose that the trajectory must be monotonic over time, to describe steady evolutions from normal to pathological states.</p></li>
+<li><p><em>Estimation of the subject-specific time reparameterization function</em>. This step idetifies the most likely instant during the pathological evolution at which the individual has been observed, by optimizing the timing of the measurements with respect to the trajectories estimated above. The current version of the model support the estimation of both time-shift and scaling parameters.</p></li>
+</ul>
+<p>Let’s run the optimization and observe how trajectories and individual parameters evolve over the iterations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">Optimize</span><span class="p">(</span><span class="n">plot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">benchmark</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 1 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 15.51 - Cost (fit): 355.66 - Cost (constr): 170.16|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 50 of 200 || Cost (DKL): 15.30 - Cost (fit): 238.45 - Cost (constr): 150.13|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 16.57 - Cost (fit): 205.81 - Cost (constr): 77.51|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 15.42 - Cost (fit): 226.96 - Cost (constr): 44.91|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 14.17 - Cost (fit): 184.17 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_2.png" src="../../../_images/GPPM_basic_23_2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 14.17 - Cost (fit): 240.22 - Cost (constr): 61.96|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 14.17 - Cost (fit): 163.64 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 14.17 - Cost (fit): 176.37 - Cost (constr): 41.22|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 14.17 - Cost (fit): 164.56 - Cost (constr): 20.46|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 14.17 - Cost (fit): 155.17 - Cost (constr): 16.51|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_6.png" src="../../../_images/GPPM_basic_23_6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 2 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 14.15 - Cost (fit): 204.55 - Cost (constr): 36.75|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 15.09 - Cost (fit): 154.31 - Cost (constr): 17.32|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 15.66 - Cost (fit): 103.17 - Cost (constr): 30.12|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 15.17 - Cost (fit): 112.74 - Cost (constr): 20.25|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 200 of 200 || Cost (DKL): 15.51 - Cost (fit): 110.74 - Cost (constr): 16.42|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_10.png" src="../../../_images/GPPM_basic_23_10.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 15.51 - Cost (fit): 66.27 - Cost (constr): 16.45|| Batch (each iter) of size 30 || Time (each iter): 0.05s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 15.51 - Cost (fit): 87.60 - Cost (constr): 20.36|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 100 of 200 || Cost (DKL): 15.51 - Cost (fit): 58.95 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 150 of 200 || Cost (DKL): 15.51 - Cost (fit): 54.43 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 200 of 200 || Cost (DKL): 15.51 - Cost (fit): 62.00 - Cost (constr): 21.28|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_14.png" src="../../../_images/GPPM_basic_23_14.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 3 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 15.50 - Cost (fit): 47.49 - Cost (constr): 28.55|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 15.61 - Cost (fit): 21.12 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 17.46 - Cost (fit): 0.83 - Cost (constr): 17.02|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 150 of 200 || Cost (DKL): 19.71 - Cost (fit): 8.68 - Cost (constr): 22.75|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 21.50 - Cost (fit): -26.30 - Cost (constr): 23.18|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_18.png" src="../../../_images/GPPM_basic_23_18.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 21.50 - Cost (fit): 13.32 - Cost (constr): 17.05|| Batch (each iter) of size 30 || Time (each iter): 0.06s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 21.50 - Cost (fit): -10.16 - Cost (constr): 26.20|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 21.50 - Cost (fit): -39.39 - Cost (constr): 23.83|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 21.50 - Cost (fit): -14.59 - Cost (constr): 21.50|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 21.50 - Cost (fit): -48.67 - Cost (constr): 16.59|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_22.png" src="../../../_images/GPPM_basic_23_22.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 4 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 21.52 - Cost (fit): -17.67 - Cost (constr): 16.49|| Batch (each iter) of size 30 || Time (each iter): 0.05s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 23.31 - Cost (fit): -38.82 - Cost (constr): 20.30|| Batch (each iter) of size 30 || Time (each iter): 0.05s
+Iteration 100 of 200 || Cost (DKL): 26.56 - Cost (fit): -51.46 - Cost (constr): 16.40|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 26.74 - Cost (fit): -53.30 - Cost (constr): 23.91|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 200 of 200 || Cost (DKL): 30.27 - Cost (fit): -52.75 - Cost (constr): 17.37|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_26.png" src="../../../_images/GPPM_basic_23_26.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 30.27 - Cost (fit): -79.87 - Cost (constr): 22.59|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 30.27 - Cost (fit): -85.82 - Cost (constr): 23.56|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 30.27 - Cost (fit): -88.86 - Cost (constr): 16.39|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 30.27 - Cost (fit): -84.62 - Cost (constr): 18.26|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 30.27 - Cost (fit): -70.81 - Cost (constr): 18.83|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_30.png" src="../../../_images/GPPM_basic_23_30.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 5 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 30.23 - Cost (fit): -51.87 - Cost (constr): 18.02|| Batch (each iter) of size 30 || Time (each iter): 0.05s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 32.13 - Cost (fit): -63.44 - Cost (constr): 18.78|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 33.72 - Cost (fit): -65.22 - Cost (constr): 17.61|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 150 of 200 || Cost (DKL): 34.77 - Cost (fit): -41.57 - Cost (constr): 20.51|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 36.42 - Cost (fit): -110.31 - Cost (constr): 21.96|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_34.png" src="../../../_images/GPPM_basic_23_34.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 36.42 - Cost (fit): -112.59 - Cost (constr): 17.11|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 36.42 - Cost (fit): -98.19 - Cost (constr): 26.84|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+Iteration 100 of 200 || Cost (DKL): 36.42 - Cost (fit): -125.11 - Cost (constr): 28.69|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 36.42 - Cost (fit): -111.69 - Cost (constr): 16.38|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 36.42 - Cost (fit): -78.53 - Cost (constr): 17.14|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_38.png" src="../../../_images/GPPM_basic_23_38.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 6 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 36.50 - Cost (fit): -110.81 - Cost (constr): 16.67|| Batch (each iter) of size 30 || Time (each iter): 0.04s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 50 of 200 || Cost (DKL): 38.18 - Cost (fit): -105.39 - Cost (constr): 23.05|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 100 of 200 || Cost (DKL): 39.09 - Cost (fit): -115.45 - Cost (constr): 23.37|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 150 of 200 || Cost (DKL): 40.47 - Cost (fit): -128.37 - Cost (constr): 22.59|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+Iteration 200 of 200 || Cost (DKL): 41.02 - Cost (fit): -137.26 - Cost (constr): 33.65|| Batch (each iter) of size 30 || Time (each iter): 0.03s
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_23_42.png" src="../../../_images/GPPM_basic_23_42.png" />
+</div>
+</div>
+<p>Here we go!
+The estimated trajectories can be observed with the command <em>model.Plot()</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_25_1.png" src="../../../_images/GPPM_basic_25_1.png" />
+</div>
+</div>
+<p>GPPM an produce a variety of figures that can be used to interpret the results and extract a lot of useful information about data and trajectories</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#This command saves the fitted biomarkers trajectories in separate files</span>
+<span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">save_fig</span> <span class="o">=</span> <span class="s1">&#39;./synth/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s read the images one by one</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">fig_biom</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./synth/biom_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fig_biom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/GPPM_basic_29_0.png" src="../../../_images/GPPM_basic_29_0.png" />
+</div>
+</div>
+<p>We note that the estimated uncertainty for biomarker 2 is large, and that the trajectory is mostly flat.</p>
+<p>By plotting with the option <em>join=True</em> we can extract more information on the fitted trajectories:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># with the option </span>
+<span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">save_fig</span> <span class="o">=</span> <span class="s1">&#39;./synth/&#39;</span><span class="p">,</span> <span class="n">joint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A key information for understanding the relationship between biomarkers is the estimated time of maximum change. This is the moment at which the speed of the estimated trajectory is maximum, and indicates the relative positioning (ranking) of the biomarkers when varying from normal to pathological stages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">timing</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./synth/change_timing.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">timing</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimated trajectories timing&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;long&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/GPPM_basic_34_0.png" src="../../../_images/GPPM_basic_34_0.png" />
+</div>
+</div>
+<p>We observe that the order of the four biomarkers across the estimated time-axis correponds to the ground thruth change time generated for the synthetic data. The most interesting observation is that biomarker 2 is associated with very large uncertainty, since it is flat. In this case there is not a well defined transition time, and this leads to high uncertainty of the model: based on the data, it is not possible to establish when this biomarker is going to transition from normal to pathological values.</p>
+<p>We can also quantify the magnitude of the trajectories of changes of each biomarker:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">magnitude</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./synth/change_magnitude.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimated trajectories magnitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;long&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/GPPM_basic_36_0.png" src="../../../_images/GPPM_basic_36_0.png" />
+</div>
+</div>
+<p>We can see that biomarker 2 is associated with the lowest amount of change across the estimated long-term progression. Biomarker 0 and 3 are the one changing the most, and this is in agreement with the synthetic trajectories originally generated.</p>
+<p>Given the model, it is possible to estimate the time-shift (or disease severity) associated with each individual, based on the available set of biomarkers. This can be simply done with the following command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_time_shift</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">PredictOptimumTime</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span> <span class="n">id_var</span><span class="o">=</span><span class="s1">&#39;RID&#39;</span><span class="p">,</span> <span class="n">time_var</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_time_shift</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>Time Shift</th>
+    </tr>
+    <tr>
+      <th>RID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.0</th>
+      <td>-1.0</td>
+      <td>1.530266</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>0.0</td>
+      <td>4.387256</td>
+    </tr>
+    <tr>
+      <th>2.0</th>
+      <td>0.0</td>
+      <td>-3.112342</td>
+    </tr>
+    <tr>
+      <th>3.0</th>
+      <td>0.0</td>
+      <td>0.816019</td>
+    </tr>
+    <tr>
+      <th>4.0</th>
+      <td>-1.0</td>
+      <td>-2.755218</td>
+    </tr>
+    <tr>
+      <th>5.0</th>
+      <td>0.0</td>
+      <td>-0.969600</td>
+    </tr>
+    <tr>
+      <th>6.0</th>
+      <td>0.0</td>
+      <td>-0.255352</td>
+    </tr>
+    <tr>
+      <th>7.0</th>
+      <td>-1.0</td>
+      <td>0.816019</td>
+    </tr>
+    <tr>
+      <th>8.0</th>
+      <td>-2.0</td>
+      <td>0.101771</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>-2.0</td>
+      <td>2.958761</td>
+    </tr>
+    <tr>
+      <th>10.0</th>
+      <td>-2.0</td>
+      <td>-2.398095</td>
+    </tr>
+    <tr>
+      <th>11.0</th>
+      <td>0.0</td>
+      <td>1.887390</td>
+    </tr>
+    <tr>
+      <th>12.0</th>
+      <td>-1.5</td>
+      <td>-2.398095</td>
+    </tr>
+    <tr>
+      <th>13.0</th>
+      <td>-0.5</td>
+      <td>0.458895</td>
+    </tr>
+    <tr>
+      <th>14.0</th>
+      <td>-1.0</td>
+      <td>-2.398095</td>
+    </tr>
+    <tr>
+      <th>15.0</th>
+      <td>-1.5</td>
+      <td>0.458895</td>
+    </tr>
+    <tr>
+      <th>16.0</th>
+      <td>-1.0</td>
+      <td>3.673009</td>
+    </tr>
+    <tr>
+      <th>17.0</th>
+      <td>-0.5</td>
+      <td>-1.683847</td>
+    </tr>
+    <tr>
+      <th>18.0</th>
+      <td>-2.0</td>
+      <td>-2.755218</td>
+    </tr>
+    <tr>
+      <th>19.0</th>
+      <td>-1.5</td>
+      <td>3.315885</td>
+    </tr>
+    <tr>
+      <th>20.0</th>
+      <td>-0.5</td>
+      <td>3.673009</td>
+    </tr>
+    <tr>
+      <th>21.0</th>
+      <td>-1.0</td>
+      <td>1.173143</td>
+    </tr>
+    <tr>
+      <th>22.0</th>
+      <td>-1.5</td>
+      <td>3.315885</td>
+    </tr>
+    <tr>
+      <th>23.0</th>
+      <td>-1.0</td>
+      <td>-4.897961</td>
+    </tr>
+    <tr>
+      <th>24.0</th>
+      <td>0.0</td>
+      <td>4.387256</td>
+    </tr>
+    <tr>
+      <th>25.0</th>
+      <td>0.0</td>
+      <td>-2.755218</td>
+    </tr>
+    <tr>
+      <th>26.0</th>
+      <td>-0.5</td>
+      <td>-0.969600</td>
+    </tr>
+    <tr>
+      <th>27.0</th>
+      <td>0.0</td>
+      <td>-0.255352</td>
+    </tr>
+    <tr>
+      <th>28.0</th>
+      <td>0.0</td>
+      <td>-2.398095</td>
+    </tr>
+    <tr>
+      <th>29.0</th>
+      <td>-2.0</td>
+      <td>-3.826590</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can plot the predicted individual time-shift against the ground truth time-shift generated for each individual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ground_truth</span> <span class="o">=</span> <span class="n">dg</span><span class="o">.</span><span class="n">OutputTimeShift</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pred_time_shift</span><span class="p">[</span><span class="s1">&#39;Time Shift&#39;</span><span class="p">],</span><span class="n">ground_truth</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;estimated time-shift&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ground truth disease stage&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;ground truth disease stage&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_42_1.png" src="../../../_images/GPPM_basic_42_1.png" />
+</div>
+</div>
+<p>The estimated time-shift is in lage agreement with the original positioning of each individual in the time-axis of the long-term trajectories.</p>
+</div>
+</div>
+<div class="section" id="modeling-of-longitudinal-biomarkers-form-the-pseudo-adni-dataset">
+<h2>Modeling of longitudinal biomarkers form the (pseudo-)ADNI dataset<a class="headerlink" href="#modeling-of-longitudinal-biomarkers-form-the-pseudo-adni-dataset" title="Permalink to this headline">¶</a></h2>
+<p>This last section illustrates the use of GPPM on real data.
+We are going to work with a pseudo-version of ADNI. The dataset consists of biomarkers collected over time for 171 subjects. 82 individuals are healhty (NL), 752 are affected by mild cognitive impairment (MCI), and 82 are patients with Alzheimer’s disease (AD).
+The measurements were created based on the biomarker’s measures observed in the original ADNI dataset.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
+
+<span class="n">pseudo_adni</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://marcolorenzi.github.io/material/pseudo_adni.csv&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="n">diags</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;NL&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">),</span> 
+          <span class="s1">&#39;MCI&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">),</span> 
+          <span class="s1">&#39;AD&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">3</span><span class="p">),</span> <span class="p">}</span>
+<span class="n">diags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;RID&#39;, &#39;Time&#39;, &#39;Hippocampus&#39;, &#39;Ventricles&#39;, &#39;Entorhinal&#39;, &#39;WholeBrain&#39;,
+       &#39;ADAS11&#39;, &#39;FAQ&#39;, &#39;AV45&#39;, &#39;FDG&#39;, &#39;group&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;AD&#39;: 320, &#39;MCI&#39;: 752, &#39;NL&#39;: 82}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>GPPM in action<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>As for the synthetic example, we first convert the original data frame into a GPPM input</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">biomarkers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hippocampus&#39;</span><span class="p">,</span> <span class="s1">&#39;Ventricles&#39;</span><span class="p">,</span> <span class="s1">&#39;Entorhinal&#39;</span><span class="p">,</span> <span class="s1">&#39;WholeBrain&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ADAS11&#39;</span><span class="p">,</span> <span class="s1">&#39;FAQ&#39;</span><span class="p">,</span> <span class="s1">&#39;AV45&#39;</span><span class="p">,</span> <span class="s1">&#39;FDG&#39;</span><span class="p">]</span>
+<span class="n">Xdata</span><span class="p">,</span> <span class="n">Ydata</span><span class="p">,</span> <span class="n">RID</span><span class="p">,</span> <span class="n">list_biomarkers</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">GP_progression_model</span><span class="o">.</span><span class="n">convert_from_df</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="p">,</span>
+                                                                 <span class="n">biomarkers</span><span class="p">,</span> <span class="n">time_var</span> <span class="o">=</span> <span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case we need to specify a meaningful monotonicity constraint for each biomarkers. The monotonicity will reflect our knowledge on how each biomarker varies from normal to pathological values.
+For example, the brain volume decreases over time, and therefore the monotonicity constraint will be negative. On the contrary, the clinical score ADAS11 increases with more advanced pathological states, and therefore the monotonicity constraint will be positive.</p>
+<p>We obtain:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict_monotonicity</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Hippocampus&#39;</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="c1">#decreasing</span>
+                     <span class="s1">&#39;Ventricles&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#increasing</span>
+                     <span class="s1">&#39;Entorhinal&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="c1">#decreasing</span>
+                     <span class="s1">&#39;WholeBrain&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="c1">#decreasing</span>
+                     <span class="s1">&#39;ADAS11&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#increasing</span>
+                     <span class="s1">&#39;FAQ&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#increasing</span>
+                     <span class="s1">&#39;AV45&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">#increasing</span>
+                     <span class="s1">&#39;FDG&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="c1">#decreasing</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are ready to run and optimize GPPM on this dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># trade off between data-fit and monotonicity</span>
+<span class="n">trade_off</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># create a GPPM object</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GP_progression_model</span><span class="o">.</span><span class="n">GP_Progression_Model</span><span class="p">(</span><span class="n">Xdata</span><span class="p">,</span><span class="n">Ydata</span><span class="p">,</span> <span class="n">names_biomarkers</span> <span class="o">=</span> <span class="n">biomarkers</span><span class="p">,</span> <span class="n">monotonicity</span> <span class="o">=</span> <span class="p">[</span><span class="n">dict_monotonicity</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dict_monotonicity</span><span class="o">.</span><span class="n">keys</span><span class="p">()],</span> <span class="n">trade_off</span> <span class="o">=</span> <span class="n">trade_off</span><span class="p">,</span>
+                                                  <span class="n">groups</span> <span class="o">=</span> <span class="n">group</span><span class="p">,</span> <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NL&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">device</span> <span class="o">=</span> <span class="n">device</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Optimise the model</span>
+<span class="n">N_outer_iterations</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">N_iterations</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">model</span><span class="o">.</span><span class="n">Optimize</span><span class="p">(</span><span class="n">N_outer_iterations</span> <span class="o">=</span> <span class="n">N_outer_iterations</span><span class="p">,</span> <span class="n">N_iterations</span> <span class="o">=</span> <span class="n">N_iterations</span><span class="p">,</span> <span class="n">n_minibatch</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">benchmark</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization step: 1 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 15.25 - Cost (fit): 319.07 - Cost (constr): 2140.06|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 50 of 200 || Cost (DKL): 15.11 - Cost (fit): 375.92 - Cost (constr): 875.30|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 17.36 - Cost (fit): 257.78 - Cost (constr): 466.63|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 150 of 200 || Cost (DKL): 20.35 - Cost (fit): 226.63 - Cost (constr): 147.82|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 200 of 200 || Cost (DKL): 22.76 - Cost (fit): 210.95 - Cost (constr): 116.81|| Batch (each iter) of size 9 || Time (each iter): 0.09s
+ -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 22.76 - Cost (fit): 164.13 - Cost (constr): 134.60|| Batch (each iter) of size 9 || Time (each iter): 0.08s
+Iteration 50 of 200 || Cost (DKL): 22.76 - Cost (fit): 213.85 - Cost (constr): 164.01|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 22.76 - Cost (fit): 229.10 - Cost (constr): 103.49|| Batch (each iter) of size 9 || Time (each iter): 0.10s
+Iteration 150 of 200 || Cost (DKL): 22.76 - Cost (fit): 182.90 - Cost (constr): 188.14|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 22.76 - Cost (fit): 212.29 - Cost (constr): 107.95|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Optimization step: 2 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 22.79 - Cost (fit): 209.65 - Cost (constr): 200.35|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 50 of 200 || Cost (DKL): 23.85 - Cost (fit): 155.76 - Cost (constr): 136.65|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 100 of 200 || Cost (DKL): 23.64 - Cost (fit): 136.93 - Cost (constr): 88.38|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 150 of 200 || Cost (DKL): 23.37 - Cost (fit): 130.74 - Cost (constr): 99.00|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 200 of 200 || Cost (DKL): 23.29 - Cost (fit): 113.99 - Cost (constr): 93.18|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+ -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 23.29 - Cost (fit): 146.91 - Cost (constr): 67.48|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 50 of 200 || Cost (DKL): 23.29 - Cost (fit): 105.83 - Cost (constr): 58.19|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 23.29 - Cost (fit): 129.35 - Cost (constr): 44.85|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 150 of 200 || Cost (DKL): 23.29 - Cost (fit): 140.34 - Cost (constr): 67.39|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 23.29 - Cost (fit): 112.25 - Cost (constr): 71.30|| Batch (each iter) of size 9 || Time (each iter): 0.09s
+Optimization step: 3 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 23.31 - Cost (fit): 182.45 - Cost (constr): 85.02|| Batch (each iter) of size 9 || Time (each iter): 0.10s
+Iteration 50 of 200 || Cost (DKL): 23.43 - Cost (fit): 159.42 - Cost (constr): 68.73|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 22.30 - Cost (fit): 95.59 - Cost (constr): 49.70|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 150 of 200 || Cost (DKL): 21.20 - Cost (fit): 112.01 - Cost (constr): 50.06|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 20.72 - Cost (fit): 104.30 - Cost (constr): 53.42|| Batch (each iter) of size 9 || Time (each iter): 0.09s
+ -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 20.72 - Cost (fit): 190.25 - Cost (constr): 72.73|| Batch (each iter) of size 9 || Time (each iter): 0.10s
+Iteration 50 of 200 || Cost (DKL): 20.72 - Cost (fit): 87.13 - Cost (constr): 41.18|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 20.72 - Cost (fit): 102.05 - Cost (constr): 43.72|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 150 of 200 || Cost (DKL): 20.72 - Cost (fit): 77.64 - Cost (constr): 54.73|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 20.72 - Cost (fit): 107.69 - Cost (constr): 42.10|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Optimization step: 4 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 20.71 - Cost (fit): 83.48 - Cost (constr): 57.58|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 50 of 200 || Cost (DKL): 19.77 - Cost (fit): 157.81 - Cost (constr): 93.12|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 100 of 200 || Cost (DKL): 18.75 - Cost (fit): 127.68 - Cost (constr): 49.10|| Batch (each iter) of size 9 || Time (each iter): 0.08s
+Iteration 150 of 200 || Cost (DKL): 18.15 - Cost (fit): 150.10 - Cost (constr): 41.18|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 17.73 - Cost (fit): 135.45 - Cost (constr): 47.16|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+ -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 17.73 - Cost (fit): 139.73 - Cost (constr): 60.69|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 50 of 200 || Cost (DKL): 17.73 - Cost (fit): 89.27 - Cost (constr): 53.93|| Batch (each iter) of size 9 || Time (each iter): 0.07s
+Iteration 100 of 200 || Cost (DKL): 17.73 - Cost (fit): 108.91 - Cost (constr): 63.02|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 150 of 200 || Cost (DKL): 17.73 - Cost (fit): 104.92 - Cost (constr): 50.13|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Iteration 200 of 200 || Cost (DKL): 17.73 - Cost (fit): 121.70 - Cost (constr): 41.42|| Batch (each iter) of size 9 || Time (each iter): 0.06s
+Optimization step: 5 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 17.75 - Cost (fit): 910.51 - Cost (constr): 41.22|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 50 of 200 || Cost (DKL): 26.76 - Cost (fit): 618.36 - Cost (constr): 44.85|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 100 of 200 || Cost (DKL): 30.98 - Cost (fit): 602.58 - Cost (constr): 54.54|| Batch (each iter) of size 86 || Time (each iter): 0.27s
+Iteration 150 of 200 || Cost (DKL): 33.82 - Cost (fit): 613.27 - Cost (constr): 48.94|| Batch (each iter) of size 86 || Time (each iter): 0.21s
+Iteration 200 of 200 || Cost (DKL): 37.01 - Cost (fit): 601.11 - Cost (constr): 45.43|| Batch (each iter) of size 86 || Time (each iter): 0.28s
+ -- Time reparameterization --
+Iteration 1 of 200 || Cost (DKL): 37.01 - Cost (fit): 536.88 - Cost (constr): 42.77|| Batch (each iter) of size 86 || Time (each iter): 0.35s
+Iteration 50 of 200 || Cost (DKL): 37.01 - Cost (fit): 503.89 - Cost (constr): 41.24|| Batch (each iter) of size 86 || Time (each iter): 0.28s
+Iteration 100 of 200 || Cost (DKL): 37.01 - Cost (fit): 606.19 - Cost (constr): 44.02|| Batch (each iter) of size 86 || Time (each iter): 0.21s
+Iteration 150 of 200 || Cost (DKL): 37.01 - Cost (fit): 464.64 - Cost (constr): 59.21|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 200 of 200 || Cost (DKL): 37.01 - Cost (fit): 505.09 - Cost (constr): 42.63|| Batch (each iter) of size 86 || Time (each iter): 0.21s
+Optimization step: 6 out of 6
+ -- Regression --
+Iteration 1 of 200 || Cost (DKL): 37.12 - Cost (fit): 550.92 - Cost (constr): 50.04|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 50 of 200 || Cost (DKL): 38.77 - Cost (fit): 459.65 - Cost (constr): 43.52|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 100 of 200 || Cost (DKL): 41.05 - Cost (fit): 522.94 - Cost (constr): 43.02|| Batch (each iter) of size 86 || Time (each iter): 0.31s
+Iteration 150 of 200 || Cost (DKL): 41.90 - Cost (fit): 427.11 - Cost (constr): 44.36|| Batch (each iter) of size 86 || Time (each iter): 0.22s
+Iteration 200 of 200 || Cost (DKL): 42.45 - Cost (fit): 442.68 - Cost (constr): 56.11|| Batch (each iter) of size 86 || Time (each iter): 0.21s
+</pre></div>
+</div>
+</div>
+</div>
+<p>And here is the output of our model: the biomarkers show different progression shapes, and different variability of the individual measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_55_1.png" src="../../../_images/GPPM_basic_55_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">save_fig</span> <span class="o">=</span> <span class="s1">&#39;./real/&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">save_fig</span> <span class="o">=</span> <span class="s1">&#39;./real/&#39;</span><span class="p">,</span> <span class="n">joint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">timing</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./real/change_timing.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">timing</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimated trajectories timing&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+/usr/local/lib/python3.7/dist-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Estimated trajectories timing&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_56_2.png" src="../../../_images/GPPM_basic_56_2.png" />
+</div>
+</div>
+<p>The orderning of the biomarkers reflects the progression curves estimated above. The biomarkers showing the earliest changes are Hippocampus, whole brain and AV45, although the timing of this latter biomarker is more uncertain. The abnormality of entorhinal cortex and ventricles appears later. The changes of glucose metabolism are more spread towards the latest stages of the disease, while the clinical scores FAQ and ADAS11 are the last to reach abnormal values. This figure is quite in agreement with the known biomarker progression reported for Alzheimer’s disease.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">timing</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;./real/change_magnitude.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">timing</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimated trajectories magnitude&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Estimated trajectories magnitude&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_58_1.png" src="../../../_images/GPPM_basic_58_1.png" />
+</div>
+</div>
+<p>We can finally predict the disease severity associated with each individual, and compare these estimates group-wise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_time_shift</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">PredictOptimumTime</span><span class="p">(</span><span class="n">pseudo_adni</span><span class="p">,</span> <span class="n">id_var</span><span class="o">=</span><span class="s1">&#39;RID&#39;</span><span class="p">,</span> <span class="n">time_var</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/tensor.py:474: UserWarning: non-inplace resize is deprecated
+  warnings.warn(&quot;non-inplace resize is deprecated&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This command creates another .csv file</span>
+<span class="n">pred_time_shift</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./real/predictions.csv&#39;</span><span class="p">)</span>
+
+<span class="n">diag_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;NL&#39;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">)])</span>
+<span class="n">pred_time_shift</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># This command creates another .png file</span>
+<span class="c1">#optim_time = model.Diagnostic_predictions(predictions, verbose = True, group = [diag_dict[i] for i in group], save_fig = &#39;./real/&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pred_time_shift</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RID</th>
+      <th>Time</th>
+      <th>Time Shift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>47.603824</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>6.981236</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0</td>
+      <td>13.751667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0</td>
+      <td>74.685547</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0</td>
+      <td>122.078564</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>166</td>
+      <td>0</td>
+      <td>67.915117</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>167</td>
+      <td>0</td>
+      <td>-67.493503</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>168</td>
+      <td>0</td>
+      <td>54.374256</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>169</td>
+      <td>0</td>
+      <td>54.374256</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>170</td>
+      <td>0</td>
+      <td>61.144688</td>
+    </tr>
+  </tbody>
+</table>
+<p>171 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rid_group</span> <span class="o">=</span> <span class="n">pseudo_adni</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">pseudo_adni</span><span class="p">[</span><span class="s1">&#39;RID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(),][[</span><span class="s1">&#39;RID&#39;</span><span class="p">,</span><span class="s1">&#39;group&#39;</span><span class="p">]]</span>
+<span class="n">group_and_ts</span> <span class="o">=</span> <span class="n">rid_group</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pred_time_shift</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;RID&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_and_ts</span> <span class="o">=</span> <span class="n">rid_group</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pred_time_shift</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;RID&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">group_and_ts</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time Shift&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time Shift&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">diag_dict</span><span class="p">[</span><span class="n">label</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: &#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39; group has only 1 element and will not be displayed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f4aa1c4e650&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/GPPM_basic_65_1.png" src="../../../_images/GPPM_basic_65_1.png" />
+</div>
+</div>
+<p>Patients with AD appear significantly more advanced on the disease time-axis as compared to MCI and healthy, while MCI subjects are in between healthy and AD groups.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages/notebooks/non_parametric_DPM"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="non_parametric_DPM.html" title="previous page">GP Progression Model</a>
+    <a class='right-next' id="next-link" href="../data_simulation/data_simulation.html" title="next page">Data Simulation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Disease Progression Modelling community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
