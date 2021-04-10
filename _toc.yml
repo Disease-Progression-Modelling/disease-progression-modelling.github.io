@@ -34,7 +34,7 @@
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
     sections:
       - file: pages/notebooks/non_parametric_DPM/GPPM_basic
-        title: Tutorial 1 - GP Progression Model: basic use
+        title: Tutorial 1 - GP Progression Model Walkthrough
 
   - file: pages/notebooks/data_simulation/data_simulation
     sections:
