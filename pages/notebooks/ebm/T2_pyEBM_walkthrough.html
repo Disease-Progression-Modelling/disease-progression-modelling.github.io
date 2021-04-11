@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Disease Progression Modelling</title>
+    <title>Disease Course Sequencing with the DEBM &#8212; Disease Progression Modelling</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -124,20 +124,25 @@
   Notebooks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview.html">
    Overview
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="ebm.html">
    Disease Course Sequencing with the Event Based Model
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="T1_kde_ebm_walkthrough.html">
      Tutorial 1 - EBM Walkthrough
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tutorial 2 - DEBM Walkthrough
     </a>
    </li>
   </ul>
@@ -174,8 +179,8 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
   </ul>
@@ -344,7 +349,12 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyebm-walkthrough">
+   pyEBM Walkthrough
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -356,9 +366,13 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="disease-course-sequencing-with-the-debm">
+<h1>Disease Course Sequencing with the DEBM<a class="headerlink" href="#disease-course-sequencing-with-the-debm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pyebm-walkthrough">
+<h2>pyEBM Walkthrough<a class="headerlink" href="#pyebm-walkthrough" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Simulate data using sigmoids. Low values indicate healthy biomarkers. High values indicate abnormal biomarker values.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Simulate data using sigmoids. Low values indicate healthy biomarkers. High values indicate abnormal biomarker values.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
 
@@ -394,12 +408,12 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_0_1.png" src="../../../_images/T2_pyEBM_walkthrough_0_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_1_1.png" src="../../../_images/T2_pyEBM_walkthrough_1_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
 <span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
 
 <span class="c1">## dp is the simulated disease timeline (x-axis of the above plot)</span>
@@ -430,14 +444,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pyebm
-from pyebm import debm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pyebm
+<span class="kn">from</span> <span class="nn">pyebm</span> <span class="kn">import</span> <span class="n">debm</span>
 
-## Basic call
-ModelOutput, SubjTrain, _  = debm.fit(D,Factors=[],Labels=[&#39;CN&#39;,&#39;MCI&#39;,&#39;AD&#39;])
-print([ModelOutput.BiomarkerList[x] for x in ModelOutput.MeanCentralOrdering])
+<span class="c1">## Basic call</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">ModelOutput</span><span class="o">.</span><span class="n">BiomarkerList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ModelOutput</span><span class="o">.</span><span class="n">MeanCentralOrdering</span><span class="p">])</span>
 
-## Note: The order printed here is the same as the ground truth ordering set obove. You can verify this by changing the order in which biomarkers becomes abnormal in the above cell.
+<span class="c1">## Note: The order printed here is the same as the ground truth ordering set obove. You can verify this by changing the order in which biomarkers becomes abnormal in the above cell.</span>
 </pre></div>
 </div>
 </div>
@@ -471,7 +485,7 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## If you want to view the outputs of the model in different stages you can use VerboseOptions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## If you want to view the outputs of the model in different stages you can use VerboseOptions</span>
 <span class="c1"># In this example, you can view the output of Gaussian Mixture Model</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span> 
 <span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Distributions&#39;</span><span class="p">)</span>
@@ -481,12 +495,12 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/T2_pyEBM_walkthrough_3_0.png" src="../../../_images/T2_pyEBM_walkthrough_3_0.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_4_0.png" src="../../../_images/T2_pyEBM_walkthrough_4_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncertainty estimates of the model can be computed by bootstrap resampling the input data. This can be controlled by MethodOptions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncertainty estimates of the model can be computed by bootstrap resampling the input data. This can be controlled by MethodOptions</span>
 
 <span class="c1"># Bootstrapping</span>
 <span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
@@ -505,13 +519,13 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_4_1.png" src="../../../_images/T2_pyEBM_walkthrough_4_1.png" />
-<img alt="../../../_images/T2_pyEBM_walkthrough_4_2.png" src="../../../_images/T2_pyEBM_walkthrough_4_2.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_5_1.png" src="../../../_images/T2_pyEBM_walkthrough_5_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_5_2.png" src="../../../_images/T2_pyEBM_walkthrough_5_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## The model estimates are very certain because the simulated data is near perfect. Real data usually has measurement errors, low effect sizes etc. Here, you can simulate a more difficult data using noise_scale parameter and the gradients parameters (lower value indicates slower progressing biomarkers, which results in lower effect sizes).</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## The model estimates are very certain because the simulated data is near perfect. Real data usually has measurement errors, low effect sizes etc. Here, you can simulate a more difficult data using noise_scale parameter and the gradients parameters (lower value indicates slower progressing biomarkers, which results in lower effect sizes).</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
@@ -548,12 +562,12 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_5_1.png" src="../../../_images/T2_pyEBM_walkthrough_5_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_6_1.png" src="../../../_images/T2_pyEBM_walkthrough_6_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
 <span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
 
 <span class="c1">## dp is the simulated disease timeline (x-axis of the above plot)</span>
@@ -584,7 +598,7 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
 <span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
 <span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Indicates 10 random iterations of bootstrap resampling</span>
 
@@ -601,13 +615,13 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_7_1.png" src="../../../_images/T2_pyEBM_walkthrough_7_1.png" />
-<img alt="../../../_images/T2_pyEBM_walkthrough_7_2.png" src="../../../_images/T2_pyEBM_walkthrough_7_2.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_8_1.png" src="../../../_images/T2_pyEBM_walkthrough_8_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_8_2.png" src="../../../_images/T2_pyEBM_walkthrough_8_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## In real data, the sequence of biomarkers in itself is not fully informative, because some biomarkers become abnormal at almost the same time, whereas some others become abnormal at substantially different times. In the simulated data this can be controlled by the variable &quot;onsets&quot;. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## In real data, the sequence of biomarkers in itself is not fully informative, because some biomarkers become abnormal at almost the same time, whereas some others become abnormal at substantially different times. In the simulated data this can be controlled by the variable &quot;onsets&quot;. </span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
@@ -644,12 +658,12 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_8_1.png" src="../../../_images/T2_pyEBM_walkthrough_8_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_9_1.png" src="../../../_images/T2_pyEBM_walkthrough_9_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
 <span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
 
 <span class="c1">## dp is the simulated disease timeline (x-axis of the above plot)</span>
@@ -680,7 +694,7 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
 <span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
 <span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Indicates 10 random iterations of bootstrap resampling</span>
 
@@ -697,13 +711,13 @@ Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_10_1.png" src="../../../_images/T2_pyEBM_walkthrough_10_1.png" />
-<img alt="../../../_images/T2_pyEBM_walkthrough_10_2.png" src="../../../_images/T2_pyEBM_walkthrough_10_2.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_11_1.png" src="../../../_images/T2_pyEBM_walkthrough_11_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_11_2.png" src="../../../_images/T2_pyEBM_walkthrough_11_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## The outputs until now were for the entire datasets. Now we will look into patient specific outputs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## The outputs until now were for the entire datasets. Now we will look into patient specific outputs</span>
 <span class="c1">## Patient Staging estimates the stages of different subjects along the disease timeline. </span>
 <span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
 <span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">0</span> 
@@ -723,12 +737,12 @@ findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu S
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in training set
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_11_2.png" src="../../../_images/T2_pyEBM_walkthrough_11_2.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_12_2.png" src="../../../_images/T2_pyEBM_walkthrough_12_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## All the computations until now were done on the training set. If you have a separate test / validation set, that can be included as input in the function call as well.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## All the computations until now were done on the training set. If you have a separate test / validation set, that can be included as input in the function call as well.</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
 
 <span class="n">DTrain</span><span class="p">,</span> <span class="n">DTest</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -745,16 +759,16 @@ findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu S
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in training set
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_12_1.png" src="../../../_images/T2_pyEBM_walkthrough_12_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_13_1.png" src="../../../_images/T2_pyEBM_walkthrough_13_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in test set
 </pre></div>
 </div>
-<img alt="../../../_images/T2_pyEBM_walkthrough_12_3.png" src="../../../_images/T2_pyEBM_walkthrough_12_3.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_13_3.png" src="../../../_images/T2_pyEBM_walkthrough_13_3.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## In the simulated datasets, we could compare the estimated ordering to the ground-truth ordering to see how accurate our estimate was. This is not possible in real data. One of the ways for validating the model in real data is by using the accuracy of classification of patients into different diagnostic groups (for e.g. CN vs AD) using the DEBM model&#39;s patient stages.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## In the simulated datasets, we could compare the estimated ordering to the ground-truth ordering to see how accurate our estimate was. This is not possible in real data. One of the ways for validating the model in real data is by using the accuracy of classification of patients into different diagnostic groups (for e.g. CN vs AD) using the DEBM model&#39;s patient stages.</span>
 
 <span class="c1">## Here, we compute the AUC for CN vs AD classification, done in a cross-validated manner</span>
 
@@ -803,6 +817,8 @@ findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu S
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-Validation Iteration:
 [0],[1],[2],[3],[4],[5],[6],[7],[8],[9],\AUC of DEBM using 10-fold cross-validation =  0.9998857142857144
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
