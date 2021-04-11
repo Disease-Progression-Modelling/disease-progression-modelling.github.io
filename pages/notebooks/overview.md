@@ -1,8 +1,8 @@
 # Overview
 
-```{admonition} This page gives a short overview of the tutorials that you can find on the website.
+```{admonition} Summary
 :class: tip
-
+This page gives a short overview of the tutorials that you can find on the website.
 ```
 
 
