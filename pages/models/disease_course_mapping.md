@@ -59,7 +59,7 @@ The individual trajectory corresponds to the average disease progression that ha
 
 
 
-As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parametes :
+As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parameters :
 
 `The time-shift` $\tau$
 

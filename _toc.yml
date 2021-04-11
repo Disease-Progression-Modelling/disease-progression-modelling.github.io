@@ -1,10 +1,5 @@
 - file: pages/main
 
-- part: Proposition
-  chapters:
-    - file: pages/proposition
-      title: Proposition for the home page
-
 - part: Models
   chapters:
     - file: pages/models/introduction
@@ -24,6 +19,8 @@
     sections:
       - file: pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb
         title: Tutorial 1 - EBM Walkthrough
+      - file: pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb
+        title: Tutorial 2 - DEBM Walkthrough
 
   - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
@@ -36,8 +33,8 @@
 
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
     sections:
-      - file: pages/notebooks/non_parametric_DPM/TP1
-        title: TP1 - GP Progression Model
+      - file: pages/notebooks/non_parametric_DPM/GPPM_basic
+        title: Tutorial 1 - GP Progression Model Walkthrough
 
   - file: pages/notebooks/data_simulation/data_simulation
     sections:
