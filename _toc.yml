@@ -35,6 +35,7 @@
     sections:
       - file: pages/notebooks/non_parametric_DPM/GPPM_basic
         title: Tutorial 1 - GP Progression Model Walkthrough
+        title: Tutorial 1 2- GP Progression Model with dynamical system models Walkthrough
 
   # - file: pages/notebooks/data_simulation/data_simulation
   #   sections:
