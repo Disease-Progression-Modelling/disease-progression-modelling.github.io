@@ -1,48 +1,31 @@
 # ISBI 2021
 
+![ISBI](../../_static/img/conferences/ISBI_2021.png)
 
-```{figure} ../../_static/img/conferences/ISBI_2021.png
----
-name: ISBI
-align: center
-width: 50%
----
-**ISBI 2021**.
-```
+[Link to the conference](https://biomedicalimaging.org/2021/)
+## Outline
 
+3-hours tutorial on Neurological Disease Progression Modelling (DPM) to present the most advanced and mature data-driven disease progression models and the related software. Each model will be described and illustrated through interactive hands-on sessions.
+DPM of neurodegenerative disorders is an active research area aiming at reconstructing the pathological evolution of neurodegenerative pathologies through the statistical analysis of heterogeneous multi-modal biomedical information. DPM models have the potential to highlight the temporal dynamics and relationship across biomarkers. Moreover, by automatically staging patients along the disease time axis, they can be used as predictive tools for diagnostic purposes. The field has blossomed in recent years thanks to the availability of large biomedical datasets, such as ADNI, AIBL, and PPMI, as they offer the possibility of testing novel research and modelling hypotheses. Computational models constructed from such data sets lead to a deeper understanding of the complex pathophysiology of neurodegenerative diseases.
+The topic started from pioneering works of (Jedynak-NeuroImage-2012, Donohue- Alz&Dem-2014, Young-Brain-2014, Schiratti-NIPS-2015), is receiving increasing interest, exemplified by several projects funded on the topic (H2020 EuroPOND, UK EPSRC C-PLACID, Predict-AD, Predict-ND) and by the recent series of high-impact results (Young- NatureComms-2018; Oxtoby-Brain-2018; Lorenzi-ICML-2018; Garbarino-IPMI-2019). The field continues to expand, and many of the models are becoming established software, used by clinical partners for research on Alzheimer’s Disease (Lopez-Alvez HAI 2018), multiple sclerosis (Eshaghi-Brain-2018), ageing (Vinke-Neurobiol.Aging-2018), Huntington’s disease (Wijeratne-AnnalsClinNeurol-2018), and Parkinson’s disease (Iddi-NDD-2018). Some DPMs use discrete staging (Young- Brain-2014); while others aim to capture continuous temporal evolution (Schiratti-NIPS-2015; Lorenzi-NeuroImage-2017).
+Relevance to ISBI audience
 
-````{panels}
-:column: col-12
-:card: border-2 shadow
-:header: bg-warning
-**Workshop abstract**
-^^^
+The problem of short-term observations versus long-term reconstruction tackled by DPM is relevant in many areas of medical image analysis and not just neurodegenerative data analysis, where population trajectories have to be estimated based on time windows of individuals. The tutorial we propose has strong mathematical and computational focus, which well aligns with ISBI goal of  contributing to an integrative approach (mathematical, algorithmic and computational) to biomedical imaging. Indeed, the proposed DPMs, although presented in the specific case of neurodegenerative data analysis, are generic enough that the audience will see discussion points beyond the specific application domain.
 
-We propose to organize a  3 - hours tutorial  on Neurological Disease Progression Modelling (DPM) to  present the most advanced and mature data - driven disease progression models and the related  software. Each model will be described and illustrated through interactive hands - on sessions.  
+Short description of the material to be covered (no more than 4000 characters)
 
-DPM of neurodegenerative disorders is an active research area aiming at reconstructing the  pathological evolution of neurodegenerative pathologies through the statistical analysis of  heterogeneous multi - modal biomedical information. DPM models have the potential to highlight the  temporal dynamics and relationship across biomarkers. Moreover, by automatically staging patients  along the disease time axis, they can be used as predictive tools for diagnostic purposes. The  fi eld has  blossomed in recent years thanks to the ava ilability of large biomedical  datasets, such as ADNI,  AIBL, and PPMI, as they offer the possibility of testing novel research and  modelling hypotheses.  Computational models constructed from such data sets lead to a deeper understanding of the complex pathophysiology of neurodegenerative diseases.
+## Format
+- Introduction to the symposium - 10 min
+- Interactive Demonstrations (and hands-on):
 
-{badge}`Conference workshop,badge-primary`
-{badge}`Tutorial,badge-primary`
-{badge}`3-hours,badge-primary`
-````
+1. Discrete DPM (Neil Oxtoby and Vikram Venkatraghavan) – 55 min
 
+ABSTRACT: Discrete models represent disease progression as a cumulative sequence in which biomarker abnormality occurs (disease “events”), together with uncertainty (positional variance) in that sequence. The most mature discrete DPM is the event-based model (Fonteijn-NeuroImage-2012; Young-Brain-2014; Venkatraghavan-NeuroImage-2019), which is able to infer a sequence from cross-sectional cohort data. Conceptually, this longitudinal picture of neurological disease progression is estimable because earlier events will have commensurately higher prevalence in a cohort containing a spectrum of clinical cases. Mathematically this is evaluated as more individuals having a higher data-driven likelihood of abnormality in the earlier events. With sufficient representation across combinations of abnormal and normal observations, the likelihood of any full ordered sequence can be estimated, and thus the most likely sequences can be revealed. The probabilistic sequence estimated by an event-based model is useful for state-of-the-art precision in fine-grained staging of individuals — assessment of an individual’s disease progression stage — by calculating the likelihood of their biomarker data, given the sequence. Software for the event-based model is part of a suite of models available from https://github.com/EuroPOND/europond-software, and in this talk we will intriduce the model, then demonstate it’s utility in application to Alzheimer’s disease progression. Our Jupyter notebook will be made available to workshop participants who wish to participate.
 
-[Link to the conference](https://biomedicalimaging.org/2021)
+2. Parametric DPM (Igor Koval) - 55 min
+
+The generic model of (Schiratti-JMLR-2017) learns trajectories of changes from longitudinal manifold-valued (i.e. structured) observations. The model jointly estimates an average long-term history of changes, as well as its variability in terms of untangled static and dynamic components. Additionally, given a new patient, it is possible to estimate a personalized disease progression base on his individual biomarker. Such approach can be further specialized to model the progression of a single or several correlated biomarkers such as cognitive scores (Schiratti-NIPS-2015), surface or volume measurements such as the brain cortical thickness (Koval-MICCAI-2017), or the 3D geometry of objects such as segmented sub-cortical structures (Bône-2018-CVPR). The descriptive quality of this parametric approach is illustrated on www.digital-brain.org in the context of Alzheimer’s disease. With a pragmatic take based on the Leaspy software, interactive notebook-based demonstrations will gradually unveil how biomarkers enables us to estimate a long-term disease progression and predict the progression at the individual level.
 
 
-## Schedule
-`Introduction to the symposium /` 10 min
-
-`Discrete DPM / ` by _Neil Oxtoby & Vikram Venkatraghavan_ • 55 min
-
-: Discrete models represent disease progression as a cumulative sequence in which biomarker abnormality occurs (disease “events”), together with uncertainty (positional variance) in that sequence. The most mature discrete DPM is the event-based model (Fonteijn-NeuroImage-2012; Young-Brain-2014; Venkatraghavan-NeuroImage-2019), which is able to infer a sequence from cross-sectional cohort data. Conceptually, this longitudinal picture of neurological disease progression is estimable because earlier events will have commensurately higher prevalence in a cohort containing a spectrum of clinical cases. Mathematically this is evaluated as more individuals having a higher data-driven likelihood of abnormality in the earlier events. With sufficient representation across combinations of abnormal and normal observations, the likelihood of any full ordered sequence can be estimated, and thus the most likely sequences can be revealed. The probabilistic sequence estimated by an event-based model is useful for state-of-the-art precision in fine-grained staging of individuals — assessment of an individual’s disease progression stage — by calculating the likelihood of their biomarker data, given the sequence. Software for the event-based model is part of a suite of models available from [Europond repository](https://github.com/EuroPOND/europond-software).
-
-`Parametric DPM / ` by _Igor Koval_ • 55 min
-
-: The generic model of (Schiratti-JMLR-2017) learns trajectories of changes from longitudinal manifold-valued (i.e. structured) observations. The model jointly estimates an average long-term history of changes, as well as its variability in terms of untangled static and dynamic components. Additionally, given a new patient, it is possible to estimate a personalized disease progression base on his individual biomarker. Such approach can be further specialized to model the progression of a single or several correlated biomarkers such as cognitive scores (Schiratti-NIPS-2015), surface or volume measurements such as the brain cortical thickness (Koval-MICCAI-2017), or the 3D geometry of objects such as segmented sub-cortical structures (Bône-2018-CVPR). The descriptive quality of this parametric approach is illustrated on [Digital-Brain](https://www.digital-brain.org) in the context of Alzheimer’s disease. With a pragmatic take based on the [Leaspy software](https://gitlab.com/icm-institute/aramislab/leaspy), interactive notebook-based demonstrations will gradually unveil how biomarkers enables us to estimate a long-term disease progression and predict the progression at the individual level.
-
-
-`non-parametric DPM /` by _Sara Garbarino & Marco Lorenzi_ • 55 min
-
-: The GP Progression Model of (Lorenzi-NeuroImage-2017) is a non-parametric probabilistic DPM which reconstructs long term pathological biomarkers trajectories from short clinical data and quantifies the variability associated with each trajectory. The model can be used for probabilistic diagnosis, as it assesses patients’ stages and diagnostic uncertainty in de-novo individuals. The GP Progression Model is [now available online](http://gpprogressionmodel.inria.fr/) with a simple and intuitive front-end. In this talk we will introduce and illustrate the model with an interactive demonstration of its performances on clinical data. We will provide to the participants a tutorial based on a Python notebook, so they can directly test and reproduce the tutorial material. During the tutorial we will also present the latest advances on the model which are currently being developed at the Epione team, INRIA Sophia Antipolis, including application to spatio-temporal modelling of protein dynamics (Garbarino-IPMI-2019), as well as extensions to the modeling of voxel-based imaging datasets (Abi Nader-NeuroImage-2019). [GP progression repository](https://gitlab.inria.fr/epione/GP_progression_model_V2).
+3. non-parametric DPM (Sara Garbarino and Marco Lorenzi) - 55 min
+ABSTRACT: The GP Progression Model of (Lorenzi-NeuroImage-2017) is a non-parametric probabilistic DPM which reconstructs long term pathological biomarkers trajectories from short clinical data and quantifies the variability associated with each trajectory. The model can be used for probabilistic diagnosis, as it assesses patients’ stages and diagnostic uncertainty in de-novo individuals. The GP Progression Model is now available online with a simple and intuitive front-end: http://gpprogressionmodel.inria.fr/. In this talk we will introduce and illustrate the model with an interactive demonstration of its performances on clinical data. We will provide to the participants a tutorial based on a Python notebook, so they can directly test and reproduce the tutorial material. During the tutorial we will also present the latest advances on the model which are currently being developed at the Epione team, INRIA Sophia Antipolis, including application to spatio-temporal modelling of protein dynamics (Garbarino-IPMI-2019), as well as extensions to the modeling of voxel-based imaging datasets (Abi Nader-NeuroImage-2019).

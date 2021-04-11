@@ -6,7 +6,7 @@
   <!-- Grid column -->
   <div class="col-md-3 mb-md-0 mb-5">
     <div class="avatar mx-auto">
-      <img src="../../_static/img/contributors/igor_koval.jpg" class="rounded z-depth-1-half" alt="Igor Koval">
+      <img src="../../_static/img/contributors/igor_koval.jpg" class="rounded z-depth-1-half" alt="Sample avatar">
     </div>
     <h4 class="font-weight-bold dark-grey-text">Igor Koval</h4>
     <p>Post-doc @ Paris Brain Institute & Inria</p>
@@ -41,45 +41,6 @@
     </a>
     <a type="button" href="https://twitter.com/NeilOxtoby" class="btn-floating btn-sm mx-1 mb-0">
       <i class="fab fa-twitter"></i>
-    </a>
-  </div>
-  <!-- -->
-  <!-- Grid column -->
-  <div class="col-md-3 mb-md-0 mb-5">
-    <div class="avatar mx-auto">
-      <img src="../../_static/img/contributors/sara_garbarino.jpeg" class="rounded z-depth-1-half" alt="Sara Garbarino">
-    </div>
-    <h4 class="font-weight-bold dark-grey-text">Sara Garbarino</h4>
-    <p>Postdoctoral research fellow  @ UNIGE, Genova</p>
-    <a type="button" href="https://sgarbarino.github.io/" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fas fa-globe fa-lg"></i>
-    </a>
-    <a type="button" href="https://github.com/sgarbarino" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fab fa-github"></i>
-    </a>
-    <a type="button" href="https://twitter.com/lasgarba" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a type="button" href="https://gitlab.inria.fr/x-SGarba" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fab fa-gitlab"></i>
-    </a>
-  </div>
-  <!-- -->
-  <!-- Grid column -->
-  <div class="col-md-3 mb-md-0 mb-5">
-    <div class="avatar mx-auto">
-      <img src="../../_static/img/contributors/marco_lorenzi.jpeg" class="rounded z-depth-1-half" alt="Marco Lorenzi">
-    </div>
-    <h4 class="font-weight-bold dark-grey-text">Marco Lorenzi</h4>
-    <p>Postdoctoral research fellow  @ UNIGE, Genova</p>
-    <a type="button" href="marcolorenzi.github.io/" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fas fa-globe fa-lg"></i>
-    </a>
-    <a type="button" href="https://github.com/marcolorenzi" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fab fa-github"></i>
-    </a>
-    <a type="button" href="https://gitlab.inria.fr/mlorenzi" class="btn-floating btn-sm mx-1 mb-0">
-      <i class="fab fa-gitlab"></i>
     </a>
   </div>
   <!-- -->

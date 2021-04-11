@@ -1,6 +1,6 @@
 # Overview
 
-```{admonition} TL;DR
+```{admonition} Summary
 :class: tip
 This page gives a short overview of the tutorials that you can find on the website.
 ```
@@ -8,16 +8,12 @@ This page gives a short overview of the tutorials that you can find on the websi
 
 ````{panels}
 :header: bg-warning text-center
-**Disease Course Sequencing (Event Based Modelling)**
+**Event Based Model**
 ^^^
 
-Tutorial 1: A walkthrough of fitting a KDE EBM on simulated data
+Tutorial 1: A walkthrough of fitting an EBM on simulated data
 
-Tutorial 2: A walkthrough of fitting a DEBM on simulated data
-
-Tutorial 3: (coming soon) A walkthrough of fitting a KDE EBM on real data
-
-Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
+Tutorial 2 (coming soon): A walkthrough of fitting an EBM on real data
 
 [Discover](ebm/ebm)
 
@@ -32,11 +28,7 @@ Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
 **Disease Course Mapping**
 ^^^
 
-Tutorial 1 - Linear Mixed Effect Models limitations
-
-Tutorial 2 - Get ready with Leaspy
-
-Tutorial 3 - Leaspy advanced
+Lorem Ipsum
 
 [Discover](disease_course_mapping/disease_course_mapping)
 

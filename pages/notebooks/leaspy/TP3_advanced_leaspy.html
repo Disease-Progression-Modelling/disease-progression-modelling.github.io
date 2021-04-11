@@ -1,0 +1,1590 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Leaspy Utilisation &#8212; Disease Progression Modelling</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Non Parametric EBM" href="../non_parametric_DPM/non_parametric_DPM.html" />
+    <link rel="prev" title="First steps with Leaspy" href="TP2_leaspy_beginner.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../main.html">
+   Disease Progression Modelling
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/introduction.html">
+   Introduction to DPM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/event_based_model.html">
+   Event Based Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/leaspy.html">
+   Leaspy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../ebm/ebm.html">
+   Event Based Model
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ebm/TP1.html">
+     TP1 - EBM
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="leaspy.html">
+   Leaspy
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP1_LMM.html">
+     TP1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="TP2_leaspy_beginner.html">
+     TP2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TP3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">
+   Non Parametric EBM
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
+     TP1 - GP Progression Model
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../data_simulation/data_simulation.html">
+   Data Simulation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/debm.html">
+     Title of the notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
+     Title of the notebook
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Conferences
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/ISBI.html">
+   ISBI 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../other/contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/leaspy/TP3_advanced_leaspy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/leaspy/TP3_advanced_leaspy.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/leaspy/TP3_advanced_leaspy.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Disease-Progression-Modelling/disease-progression-modelling.github.io/master?urlpath=tree/pages/notebooks/leaspy/TP3_advanced_leaspy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/leaspy/TP3_advanced_leaspy.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-set-up">
+   The set-up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-i-the-prediction">
+   Part I: The prediction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-1-prepare-your-data">
+     I.1. Prepare your data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-2-train-your-model">
+     I.2. Train your model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-3-test-your-model">
+     I.3. Test your model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-ii-the-cofactor-evaluation">
+   Part II: The cofactor evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iii-univariate-vs-multivariate">
+   Part III: Univariate vs Multivariate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-iv-get-the-best-model-as-you-can">
+   Part IV: Get the best model as you can
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="advanced-leaspy-utilisation">
+<h1>Advanced Leaspy Utilisation<a class="headerlink" href="#advanced-leaspy-utilisation" title="Permalink to this headline">¶</a></h1>
+<p>This is already the last practical session of the day ! Be carefull you only have an <strong>hour and a half</strong>.</p>
+<div class="section" id="objectives">
+<h2>Objectives :<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Understand data format that is needed to use Leaspy,</p></li>
+<li><p>Learn to use parameters</p></li>
+<li><p>Explore models selection</p></li>
+</ul>
+</div>
+<div class="section" id="the-set-up">
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
+<p>As before, if you have followed the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions">installation details</a> carefully, you should</p>
+<ul class="simple">
+<li><p>be running this notebook in the <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> virtual environment</p></li>
+<li><p>having all the needed packages already installed</p></li>
+</ul>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> <strong>Run the following command lines.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">leaspy</span> <span class="kn">import</span> <span class="n">Leaspy</span><span class="p">,</span> <span class="n">IndividualParameters</span><span class="p">,</span> <span class="n">AlgorithmSettings</span><span class="p">,</span> <span class="n">Data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-i-the-prediction">
+<h2>Part I: The prediction<a class="headerlink" href="#part-i-the-prediction" title="Permalink to this headline">¶</a></h2>
+<p>One of the main issue of Parkinson disease specialized doctor is that they do not know how fast will the disease evolved and then are unable to set the right spacing between two visits wih their patients. In addition, they would like to give advises to their patients for them to anticipate administrative obligations by the time they are still able to do them. The most important score to monitore is MDS3_off_total, but it is always nice to have a some others.</p>
+<p>Leaspy could be a great tool to help solving those issues. The following part contains the main structure to train and test a leaspy model.</p>
+<div class="section" id="i-1-prepare-your-data">
+<h3>I.1. Prepare your data<a class="headerlink" href="#i-1-prepare-your-data" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Two datasets, containing 200 patients, are available :</p>
+<ul class="simple">
+<li><p><strong>learn_leaspy2</strong> : contains historic data of patients visits,</p></li>
+<li><p><strong>pred_leaspy2</strong> : contains the next visit for each patient, that it would be nice to predict.</p></li>
+</ul>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> <strong>Run the following command lines to load the data.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;data/TP3_advanced_leaspy/&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;learn_leaspy2.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;TIME&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>MDS1_total</th>
+      <th>MDS2_total</th>
+      <th>MDS3_off_total</th>
+      <th>SCOPA_total</th>
+      <th>MOCA_total</th>
+      <th>PUTAMEN_R</th>
+      <th>PUTAMEN_L</th>
+      <th>CAUDATE_R</th>
+      <th>CAUDATE_L</th>
+      <th>AGD_total</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th>TIME</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">GS-001</th>
+      <th>62.289333</th>
+      <td>NaN</td>
+      <td>3.556297</td>
+      <td>-9.000000</td>
+      <td>0.000000</td>
+      <td>26.784926</td>
+      <td>0.168703</td>
+      <td>0.140237</td>
+      <td>0.069723</td>
+      <td>0.041532</td>
+      <td>0.078704</td>
+    </tr>
+    <tr>
+      <th>62.789333</th>
+      <td>4.644412</td>
+      <td>6.570468</td>
+      <td>15.658805</td>
+      <td>5.721043</td>
+      <td>25.303684</td>
+      <td>0.146405</td>
+      <td>0.172067</td>
+      <td>0.034234</td>
+      <td>0.089805</td>
+      <td>0.374873</td>
+    </tr>
+    <tr>
+      <th>63.289333</th>
+      <td>1.955755</td>
+      <td>2.621946</td>
+      <td>29.142870</td>
+      <td>0.000000</td>
+      <td>30.000000</td>
+      <td>0.163331</td>
+      <td>0.188258</td>
+      <td>0.069586</td>
+      <td>0.060110</td>
+      <td>0.194420</td>
+    </tr>
+    <tr>
+      <th>64.289330</th>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>44.319816</td>
+      <td>44.560006</td>
+      <td>29.851244</td>
+      <td>0.185705</td>
+      <td>0.177019</td>
+      <td>0.053399</td>
+      <td>0.076220</td>
+      <td>0.237782</td>
+    </tr>
+    <tr>
+      <th>64.789330</th>
+      <td>4.169568</td>
+      <td>4.752366</td>
+      <td>29.652244</td>
+      <td>0.000000</td>
+      <td>28.533121</td>
+      <td>0.194951</td>
+      <td>0.171595</td>
+      <td>0.048021</td>
+      <td>0.083921</td>
+      <td>0.159916</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_vis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;pred_leaspy2.csv&quot;</span><span class="p">)</span>
+<span class="n">df_vis</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ID&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_vis</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TIME</th>
+      <th>MDS1_total</th>
+      <th>MDS2_total</th>
+      <th>MDS3_off_total</th>
+      <th>SCOPA_total</th>
+      <th>MOCA_total</th>
+      <th>PUTAMEN_R</th>
+      <th>PUTAMEN_L</th>
+      <th>CAUDATE_R</th>
+      <th>CAUDATE_L</th>
+      <th>AGD_total</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GS-001</th>
+      <td>69.089333</td>
+      <td>4.960370</td>
+      <td>5.635592</td>
+      <td>45.674665</td>
+      <td>13.727753</td>
+      <td>27.915718</td>
+      <td>0.209688</td>
+      <td>0.229443</td>
+      <td>0.105179</td>
+      <td>0.137542</td>
+      <td>0.319582</td>
+    </tr>
+    <tr>
+      <th>GS-002</th>
+      <td>73.647736</td>
+      <td>14.674264</td>
+      <td>9.983259</td>
+      <td>48.461299</td>
+      <td>1.777607</td>
+      <td>19.778270</td>
+      <td>0.268539</td>
+      <td>0.211596</td>
+      <td>0.196772</td>
+      <td>0.193251</td>
+      <td>0.404642</td>
+    </tr>
+    <tr>
+      <th>GS-003</th>
+      <td>62.491299</td>
+      <td>NaN</td>
+      <td>9.429927</td>
+      <td>-9.000000</td>
+      <td>27.019072</td>
+      <td>24.602786</td>
+      <td>0.182493</td>
+      <td>0.151622</td>
+      <td>0.056601</td>
+      <td>0.096034</td>
+      <td>0.347589</td>
+    </tr>
+    <tr>
+      <th>GS-004</th>
+      <td>67.666000</td>
+      <td>7.170177</td>
+      <td>3.978171</td>
+      <td>7.608285</td>
+      <td>0.000000</td>
+      <td>27.879789</td>
+      <td>0.223414</td>
+      <td>0.185168</td>
+      <td>0.186051</td>
+      <td>0.182661</td>
+      <td>0.312880</td>
+    </tr>
+    <tr>
+      <th>GS-005</th>
+      <td>74.125290</td>
+      <td>NaN</td>
+      <td>3.628875</td>
+      <td>-9.000000</td>
+      <td>3.493040</td>
+      <td>28.498334</td>
+      <td>0.197911</td>
+      <td>0.189411</td>
+      <td>0.114025</td>
+      <td>0.122356</td>
+      <td>0.336951</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> You have the following informations about scores :</p>
+<ul class="simple">
+<li><p><strong>MDS1_total</strong> : increasing score from 0 to 52,</p></li>
+<li><p><strong>MDS2_total</strong> : increasing score from 0 to 52,</p></li>
+<li><p><strong>MDS3_off_total</strong> : increasing score from 0 to 132,</p></li>
+<li><p><strong>SCOPA_total</strong> : increasing score from 0 to 72,</p></li>
+<li><p><strong>MOCA_total</strong> : decreasing score from 30 to 0,</p></li>
+<li><p><strong>AGD_total</strong> : unknown positive score (will need to be explored),</p></li>
+<li><p><strong>Others</strong> : the rest are imaging increasing score and then have no border, except that they are suppose to be positive.</p></li>
+</ul>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 3 💬</span> <strong>Plot histogram to check that the data are as expected.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TP3_advanced_leaspy_7_0.png" src="../../../_images/TP3_advanced_leaspy_7_0.png" />
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 4 💬</span> <strong>Check that the variables respect the constraints. How can you interpret those unexpected datas ?</strong></p>
+<p>Your answer: …</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 5 💬</span> <strong>Apply the right pre-processing to those unexpected data. Do not forget to apply it on ALL the data.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df_vis</span> <span class="o">=</span> <span class="n">df_vis</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Leaspy model is able to handle NaN, but it is always important to quantify them.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> <strong>Return the number of NaN by feature.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MDS1_total        596
+MDS2_total          0
+MDS3_off_total    196
+SCOPA_total         0
+MOCA_total          0
+PUTAMEN_R           0
+PUTAMEN_L           0
+CAUDATE_R           0
+CAUDATE_L           0
+AGD_total           0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Leaspy model only takes normalised increasing with time data.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 7 💬</span> <strong>Using the functions below, explore AGD_total to try to understand its progression and compare it to other features.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_individuals</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span>  <span class="n">sublist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">sublist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sublist</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
+        
+    <span class="n">colors</span> <span class="o">=</span>  <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;icefire&#39;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sublist</span><span class="p">),</span> <span class="n">desat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">sublist</span><span class="p">):</span>
+        <span class="n">indiv_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        
+        <span class="n">ages</span> <span class="o">=</span> <span class="n">indiv_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">real_values</span> <span class="o">=</span> <span class="n">indiv_df</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">real_values</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age in years&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolution for each patient of &quot;</span> <span class="o">+</span> <span class="n">feature</span><span class="p">)</span>
+        
+        
+<span class="k">def</span> <span class="nf">individual_linear_regression_against_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+    
+    <span class="c1"># individual linear regressions on each feature, to study individual progression (with linear regression against age)</span>
+    <span class="n">lin_reg_on_frame_time_y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;slope&#39;</span><span class="p">,</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span><span class="s1">&#39;correl_coef&#39;</span><span class="p">,</span><span class="s1">&#39;pval&#39;</span><span class="p">,</span><span class="s1">&#39;stderr&#39;</span><span class="p">,</span><span class="s1">&#39;intercept_stderr&#39;</span><span class="p">],</span> 
+                                                        <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">values</span><span class="p">))))</span>
+    
+    
+    <span class="c1"># select individuals with at least 3 visits</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">nb_visits_with_data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nb_visits_with_data</span><span class="p">[</span><span class="n">nb_visits_with_data</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lin_reg_on_frame_time_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">plot_individuals</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;AGD_total&quot;</span><span class="p">,</span> <span class="n">sublist</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)[:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">ft_name</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    
+    <span class="n">ilr_ft</span> <span class="o">=</span> <span class="n">individual_linear_regression_against_time</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ft_name</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">ilr_ft</span><span class="p">[[</span><span class="s1">&#39;slope&#39;</span><span class="p">,</span><span class="s1">&#39;correl_coef&#39;</span><span class="p">,</span> <span class="s1">&#39;pval&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">ft_name</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ft_name</span><span class="si">}</span><span class="s2">: linear correlation coefficient with time = &quot;</span>
+          <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ilr_ft</span><span class="p">[</span><span class="s1">&#39;correl_coef&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">ilr_ft</span><span class="p">[</span><span class="s1">&#39;correl_coef&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TP3_advanced_leaspy_17_0.png" src="../../../_images/TP3_advanced_leaspy_17_0.png" />
+<img alt="../../../_images/TP3_advanced_leaspy_17_1.png" src="../../../_images/TP3_advanced_leaspy_17_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MDS1_total: linear correlation coefficient with time = 0.36 ± 0.45
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_3.png" src="../../../_images/TP3_advanced_leaspy_17_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MDS2_total: linear correlation coefficient with time = 0.37 ± 0.42
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_5.png" src="../../../_images/TP3_advanced_leaspy_17_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MDS3_off_total: linear correlation coefficient with time = 0.35 ± 0.37
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_7.png" src="../../../_images/TP3_advanced_leaspy_17_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SCOPA_total: linear correlation coefficient with time = 0.08 ± 0.40
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_9.png" src="../../../_images/TP3_advanced_leaspy_17_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MOCA_total: linear correlation coefficient with time = -0.20 ± 0.39
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_11.png" src="../../../_images/TP3_advanced_leaspy_17_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PUTAMEN_R: linear correlation coefficient with time = 0.44 ± 0.37
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_13.png" src="../../../_images/TP3_advanced_leaspy_17_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PUTAMEN_L: linear correlation coefficient with time = 0.48 ± 0.35
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_15.png" src="../../../_images/TP3_advanced_leaspy_17_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CAUDATE_R: linear correlation coefficient with time = 0.53 ± 0.35
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_17.png" src="../../../_images/TP3_advanced_leaspy_17_17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CAUDATE_L: linear correlation coefficient with time = 0.54 ± 0.36
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_17_19.png" src="../../../_images/TP3_advanced_leaspy_17_19.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AGD_total: linear correlation coefficient with time = 0.09 ± 0.44
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 8 💬</span> <strong>What do you conclude about AGD_total progression? Should we consider it for longitudinal modeling?</strong></p>
+<p>Your answer: …</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 9 💬</span> <strong>Now that you know the progression of all the features, can you normalize them all now? If not what is the issue and which features are concerned?</strong></p>
+<p>Your answer: …</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 10 💬</span> <strong>Run the code below to split the data into a training and testing set.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##CREATE TRAINING AND TESTING SETS</span>
+<span class="n">patient_stop</span> <span class="o">=</span> <span class="s1">&#39;GS-100&#39;</span>
+<span class="n">patient_start</span> <span class="o">=</span> <span class="s1">&#39;GS-101&#39;</span>
+
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">patient_stop</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">patient_start</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_to_pred</span> <span class="o">=</span> <span class="n">df_vis</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">patient_start</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> <strong>Normalize the data using the function below and making sure that you have increasing data at the end.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feat</span><span class="p">,</span> <span class="n">max_</span><span class="p">,</span> <span class="n">min_</span><span class="p">,</span> <span class="n">increase</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">):</span>
+    <span class="n">df_study</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">feat</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_study</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_study</span> <span class="o">-</span> <span class="n">min_</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_</span> <span class="o">-</span> <span class="n">min_</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">increase</span> <span class="p">:</span>
+        <span class="n">df_study</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">df_study</span>
+    <span class="k">return</span> <span class="n">df_study</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="c1"># bounded scores</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;MDS1_total&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="c1"># max, min, increase?</span>
+    <span class="s2">&quot;MDS2_total&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="s2">&quot;SCOPA_total&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="s2">&quot;MOCA_total&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+    <span class="c1">#&quot;AGD_total&quot;: #No need we will not use it...</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">score_name</span><span class="p">,</span> <span class="n">normalize_args</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">df_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">score_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">df_train</span><span class="p">,</span> <span class="n">score_name</span><span class="p">,</span> <span class="o">*</span><span class="n">normalize_args</span> <span class="p">)</span>
+    <span class="n">df_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">score_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">score_name</span><span class="p">,</span> <span class="o">*</span><span class="n">normalize_args</span> <span class="p">)</span>
+    <span class="n">df_to_pred</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">score_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">df_to_pred</span><span class="p">,</span> <span class="n">score_name</span><span class="p">,</span> <span class="o">*</span><span class="n">normalize_args</span> <span class="p">)</span>
+
+<span class="c1"># imagery (all features are increasing)</span>
+<span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;PUTAMEN_R&#39;</span><span class="p">,</span> <span class="s1">&#39;PUTAMEN_L&#39;</span><span class="p">,</span> <span class="s1">&#39;CAUDATE_R&#39;</span><span class="p">,</span> <span class="s1">&#39;CAUDATE_L&#39;</span><span class="p">]:</span>
+    
+    <span class="n">df_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">df_train</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> 
+                                         <span class="n">df_train</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">increase</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="i-2-train-your-model">
+<h3>I.2. Train your model<a class="headerlink" href="#i-2-train-your-model" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Be carefull you have only an <strong>hour and half</strong> and running a leaspy model on ten features can take a lot of time… We advise you to start by univariate model …</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 12 💬</span> <strong>Complete the code below to select the columns you want to use to train your leaspy model.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+
+<span class="n">col</span> <span class="o">=</span> <span class="c1">#####################################</span>
+
+<span class="n">data_train</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> 
+<span class="n">data_test</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="n">df_to_pred</span> <span class="o">=</span> <span class="n">df_to_pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">,</span> <span class="s2">&quot;MDS2_total&quot;</span><span class="p">]</span>
+
+<span class="n">data_train</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> 
+<span class="n">data_test</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_test</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="n">df_to_pred</span> <span class="o">=</span> <span class="n">df_to_pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 13 💬</span> <strong>Complete the code below to set the parameters you want for your model.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+
+<span class="n">leaspy_model</span> <span class="o">=</span> <span class="c1">###############</span>
+<span class="n">nb_source</span> <span class="o">=</span> <span class="c1">###############</span>
+<span class="n">algo_settings</span> <span class="o">=</span> <span class="c1">#################</span>
+
+<span class="n">algo_settings</span><span class="o">.</span><span class="n">set_logs</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> 
+    <span class="n">console_print_periodicity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># If = N, it display logs in the console/terminal every N iterations</span>
+    <span class="n">overwrite_logs_folder</span><span class="o">=</span><span class="kc">True</span>       <span class="c1"># Default behaviour raise an error if the folder already exists.</span>
+<span class="p">)</span>
+
+<span class="c1">##FIT</span>
+<span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="n">leaspy_model</span><span class="p">)</span>
+<span class="n">leaspy</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_hyperparameters</span><span class="p">({</span><span class="s1">&#39;source_dimension&#39;</span><span class="p">:</span> <span class="n">nb_source</span><span class="p">})</span>
+<span class="n">leaspy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">leaspy_model</span> <span class="o">=</span> <span class="s2">&quot;logistic&quot;</span> <span class="c1">#&#39;univariate&#39;</span>
+<span class="n">nb_source</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">algo_settings</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;mcmc_saem&#39;</span><span class="p">,</span> 
+                                  <span class="n">n_iter</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>           <span class="c1"># n_iter defines the number of iterations</span>
+                                  <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>     <span class="c1"># To display a nice progression bar during calibration</span>
+
+<span class="n">algo_settings</span><span class="o">.</span><span class="n">set_logs</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;logs&#39;</span><span class="p">,</span> 
+    <span class="n">console_print_periodicity</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># If = N, it display logs in the console/terminal every N iterations</span>
+    <span class="n">overwrite_logs_folder</span><span class="o">=</span><span class="kc">True</span>       <span class="c1"># Default behaviour raise an error if the folder already exists.</span>
+<span class="p">)</span>
+
+<span class="c1">##FIT</span>
+<span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="n">leaspy_model</span><span class="p">)</span>
+<span class="n">leaspy</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_hyperparameters</span><span class="p">({</span><span class="s1">&#39;source_dimension&#39;</span><span class="p">:</span> <span class="n">nb_source</span><span class="p">})</span>
+<span class="n">leaspy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
+
+<span class="c1">#leaspy = Leaspy.load(&#39;./outputs/model_parameters.json&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...overwrite logs folder...
+|##################################################|   3000/3000 iterations
+The standard deviation of the noise at the end of the calibration is:
+0.0582
+
+Calibration took: 2min 48s
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> <strong>Evaluate that your model learned well and then save it.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="c1"># Check the logs, the noise std, coherence of model parameters, ...</span>
+
+<span class="n">leaspy</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./outputs/model_parameters.json&#39;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">leaspy</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;./logs/plots/convergence_1.pdf&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">990</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">670</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;g&#39;: tensor([0.9264, 1.3880]), &#39;v0&#39;: tensor([-4.4238, -4.1641]), &#39;betas&#39;: tensor([[-0.0449]]), &#39;tau_mean&#39;: tensor(71.3112), &#39;tau_std&#39;: tensor(10.0713), &#39;xi_mean&#39;: tensor(0.), &#39;xi_std&#39;: tensor(0.6131), &#39;sources_mean&#39;: tensor(0.), &#39;sources_std&#39;: tensor(1.), &#39;noise_std&#39;: tensor(0.0582)}
+</pre></div>
+</div>
+<div class="output text_html">
+<iframe
+    width="990"
+    height="670"
+    src="./logs/plots/convergence_1.pdf"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="i-3-test-your-model">
+<h3>I.3. Test your model<a class="headerlink" href="#i-3-test-your-model" title="Permalink to this headline">¶</a></h3>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 15 💬</span> <strong>Complete the code below to make the predictions.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+
+<span class="c1">##SET PARAMETERS</span>
+<span class="n">settings_personalization</span> <span class="o">=</span> <span class="c1">#################</span>
+
+<span class="c1">##PREDICTIONS</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="c1">#################</span>
+<span class="n">reconstruction</span> <span class="o">=</span> <span class="c1">#################</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="s2">&quot;_model1&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="c1">##SET PARAMETERS</span>
+<span class="n">settings_personalization</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;scipy_minimize&#39;</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_jacobian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">##PREDICTIONS</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">personalize</span><span class="p">(</span><span class="n">data_test</span><span class="p">,</span> <span class="n">settings_personalization</span><span class="p">)</span>
+<span class="n">reconstruction</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="s2">&quot;_model1&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|##################################################|   100/100 subjects
+The standard deviation of the noise at the end of the personalization is:
+0.0567
+
+Personalization scipy_minimize took: 2s
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 16 💬</span> <strong>Display results of your prediction against real values and the mean absolute error.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">col</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean absolute error &quot;</span><span class="o">+</span><span class="n">s</span><span class="o">+</span><span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_to_pred</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">-</span><span class="n">df_pred</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="s1">&#39;_model1&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_to_pred</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">df_pred</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="s1">&#39;_model1&#39;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Real value&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted value&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS3_off_total : 0.059690863332327676
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_38_1.png" src="../../../_images/TP3_advanced_leaspy_38_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS2_total : 0.05356992930173874
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_38_3.png" src="../../../_images/TP3_advanced_leaspy_38_3.png" />
+</div>
+</div>
+<p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> Note that an average good error is about 5% of absolute error for MDS3_off_total.</p>
+</div>
+</div>
+<div class="section" id="part-ii-the-cofactor-evaluation">
+<h2>Part II: The cofactor evaluation<a class="headerlink" href="#part-ii-the-cofactor-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Besides prediction, the individual parameters are interesting in the sense that they provide meaningful and interesting insights about the disease progression. For that reasons, these individual parameters can be correlated to other cofactors. Let’s consider that you have a covariate Cofactor 1 that encodes a genetic status: 1 if a specific mutation is present, 0 otherwise. Now, let’s see if this mutation has an effect on the disease progression.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> <strong>Complete the code below to see the repartition of carriers and non carriers.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># —— Convert individual parameters to dataframe</span>
+<span class="n">df_ip</span> <span class="o">=</span> <span class="c1">###############</span>
+
+<span class="c1"># —— Join the cofactors to individual parameters</span>
+<span class="n">cofactor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;cof_leaspy2.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span>
+<span class="n">df_ip</span> <span class="o">=</span> <span class="n">df_ip</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cofactor</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Non-carrier&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Carrier&#39;</span><span class="p">}}))</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># —— Plot the time shifts in carriers and non-carriers</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Time shift histogram&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ip</span><span class="p">,</span> <span class="n">x</span><span class="o">=...</span><span class="p">,</span> <span class="n">hue</span><span class="o">=...</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># —— Plot the acceleration factor in carriers and non-carriers</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Log-Acceleration factor histogram&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ip</span><span class="p">,</span> <span class="n">x</span><span class="o">=...</span><span class="p">,</span> <span class="n">hue</span><span class="o">=...</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># __ Joint density (tau, xi) __</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=...</span><span class="p">,</span> <span class="n">x</span><span class="o">=...</span><span class="p">,</span> <span class="n">y</span><span class="o">=...</span><span class="p">,</span> <span class="n">hue</span><span class="o">=...</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+
+<span class="c1"># __ Nb of mutated patients ___</span>
+<span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># —— Convert individual parameters to dataframe</span>
+<span class="n">df_ip</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+
+<span class="c1"># —— Join the cofactors to individual parameters</span>
+<span class="n">cofactor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;cof_leaspy2.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span>
+<span class="n">df_ip</span> <span class="o">=</span> <span class="n">df_ip</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cofactor</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Non-carrier&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Carrier&#39;</span><span class="p">}}))</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># —— Plot the time shifts in carriers and non-carriers</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Time shift histogram&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ip</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># —— Plot the acceleration factor in carriers and non-carriers</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Log-Acceleration factor histogram&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ip</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;xi&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># __ Joint density (tau, xi) __</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_ip</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tau&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;xi&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;MUTATION&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bw_adjust</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+
+<span class="c1"># __ Nb of mutated patients ___</span>
+<span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/TP3_advanced_leaspy_42_0.png" src="../../../_images/TP3_advanced_leaspy_42_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-carrier    71
+Carrier        29
+Name: MUTATION, dtype: int64
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_42_2.png" src="../../../_images/TP3_advanced_leaspy_42_2.png" />
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 18 💬</span> <strong>Make a statistic tests using <code class="docutils literal notranslate"><span class="pre">stats.ttest_ind</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.mannwhitneyu</span></code>.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">carriers</span> <span class="o">=</span> <span class="n">df_ip</span><span class="p">[</span><span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carrier&#39;</span><span class="p">]</span>
+<span class="n">non_carriers</span> <span class="o">=</span> <span class="n">df_ip</span><span class="p">[</span><span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Non-carrier&#39;</span><span class="p">]</span>
+
+<span class="c1"># —— Student t-test (under the asumption of a gaussian distribution only)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">]))</span>
+
+<span class="c1"># —— Mann-withney t-test</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=6.116870627752805, pvalue=1.958990326701787e-08)
+Ttest_indResult(statistic=-2.9131535065482375, pvalue=0.004431884326689646)
+MannwhitneyuResult(statistic=301.0, pvalue=1.6002231482727975e-08)
+MannwhitneyuResult(statistic=662.0, pvalue=0.0026530380825654097)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-iii-univariate-vs-multivariate">
+<h2>Part III: Univariate vs Multivariate<a class="headerlink" href="#part-iii-univariate-vs-multivariate" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have a multivariate model that works, let’s compare the multivariate and univariate model. For that you will compare a multivariate model with MDS3 and MDS2 with two univariate model MDS2 and MDS3 separatly.</p>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> <strong>Fit 3 models, one multivariate and two univariate with MDS2 and MDS3.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+
+<span class="n">leaspy_model_u</span> <span class="o">=</span> <span class="c1">###########################</span>
+<span class="n">leaspy_model</span> <span class="o">=</span> <span class="c1">###########################</span>
+<span class="n">algo_settings</span> <span class="o">=</span> <span class="c1">###########################</span>
+
+<span class="c1">#With MDS2 and MDS3</span>
+<span class="n">data_train23</span> <span class="o">=</span> <span class="c1">###########################</span>
+<span class="n">data_test23</span> <span class="o">=</span> <span class="c1">###########################</span>
+
+<span class="n">leaspy23</span> <span class="o">=</span> <span class="c1">#########</span>
+<span class="c1">###########################</span>
+
+<span class="c1">#With MDS3</span>
+<span class="n">data_train3</span> <span class="o">=</span> <span class="c1">##################</span>
+<span class="n">data_test3</span> <span class="o">=</span> <span class="c1">##################</span>
+
+<span class="n">leaspy3</span> <span class="o">=</span> <span class="c1">##################</span>
+<span class="c1">##################</span>
+
+<span class="c1">#With MDS2</span>
+
+<span class="c1">##########################</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="n">leaspy_model_u</span> <span class="o">=</span> <span class="s1">&#39;univariate_logistic&#39;</span>
+<span class="n">leaspy_model</span> <span class="o">=</span> <span class="s2">&quot;logistic&quot;</span> <span class="c1">#&#39;univariate&#39;</span>
+<span class="n">algo_settings</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;mcmc_saem&#39;</span><span class="p">,</span> 
+                                  <span class="n">n_iter</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>           <span class="c1"># n_iter defines the number of iterations</span>
+                                  <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>     <span class="c1"># To display a nice progression bar during calibration</span>
+
+<span class="c1">#algo_settings.set_logs(path=...)</span>
+
+<span class="c1">#With MDS2 and MDS3</span>
+<span class="n">data_train23</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">[[</span><span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">,</span> <span class="s2">&quot;MDS2_total&quot;</span><span class="p">]])</span> 
+<span class="n">data_test23</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_test</span><span class="p">[[</span><span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">,</span> <span class="s2">&quot;MDS2_total&quot;</span><span class="p">]])</span>
+
+<span class="n">leaspy23</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="n">leaspy_model</span><span class="p">)</span>
+<span class="n">leaspy23</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train23</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
+<span class="n">leaspy23</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./outputs/model_parameters_23.json&#39;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#With MDS3</span>
+<span class="n">data_train3</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">[[</span><span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">]])</span> 
+<span class="n">data_test3</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_test</span><span class="p">[[</span><span class="s2">&quot;MDS3_off_total&quot;</span><span class="p">]])</span>
+
+<span class="n">leaspy3</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="n">leaspy_model_u</span><span class="p">)</span>
+<span class="n">leaspy3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train3</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
+<span class="n">leaspy3</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./outputs/model_parameters_3.json&#39;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#With MDS2</span>
+<span class="n">data_train2</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_train</span><span class="p">[[</span><span class="s2">&quot;MDS2_total&quot;</span><span class="p">]])</span> 
+<span class="n">data_test2</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df_test</span><span class="p">[[</span><span class="s2">&quot;MDS2_total&quot;</span><span class="p">]])</span>
+
+<span class="n">leaspy2</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="p">(</span><span class="n">leaspy_model_u</span><span class="p">)</span>
+<span class="n">leaspy2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_train3</span><span class="p">,</span> <span class="n">algorithm_settings</span><span class="o">=</span><span class="n">algo_settings</span><span class="p">)</span>
+<span class="n">leaspy2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;./outputs/model_parameters_2.json&#39;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|##################################################|   3000/3000 iterations
+The standard deviation of the noise at the end of the calibration is:
+0.0583
+
+Calibration took: 53s
+|##################################################|   3000/3000 iterations
+The standard deviation of the noise at the end of the calibration is:
+0.0661
+
+Calibration took: 12s
+|##################################################|   3000/3000 iterations
+The standard deviation of the noise at the end of the calibration is:
+0.0669
+
+Calibration took: 9s
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> <strong>Make the predictions for each model.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+
+<span class="c1">##SET PARAMETERS</span>
+<span class="n">settings_personalization</span> <span class="o">=</span> <span class="c1">#############################</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="n">ip23</span> <span class="o">=</span> <span class="c1">#############################</span>
+<span class="n">reconstruction23</span> <span class="o">=</span> <span class="n">leaspy23</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip23</span><span class="p">)</span>
+<span class="n">d223</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction23</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred23</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d223</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS3_off_total_model_m&quot;</span><span class="p">,</span> <span class="s2">&quot;MDS2_total_model_m&quot;</span><span class="p">])</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="n">ip3</span> <span class="o">=</span> <span class="c1">#############################</span>
+<span class="n">reconstruction3</span> <span class="o">=</span> <span class="n">leaspy3</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip3</span><span class="p">)</span>
+<span class="n">d23</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction3</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d23</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS3_off_total_model_u&quot;</span><span class="p">])</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="c1">#############################</span>
+
+<span class="c1">#CONCATE PREDICTIONS</span>
+<span class="n">df_pred_mu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_pred23</span><span class="p">,</span> <span class="n">df_pred3</span><span class="p">,</span> <span class="n">df_pred2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+
+<span class="c1">##SET PARAMETERS</span>
+<span class="n">settings_personalization</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;scipy_minimize&#39;</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_jacobian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="n">ip23</span> <span class="o">=</span> <span class="n">leaspy23</span><span class="o">.</span><span class="n">personalize</span><span class="p">(</span><span class="n">data_test23</span><span class="p">,</span> <span class="n">settings_personalization</span><span class="p">)</span>
+<span class="n">reconstruction23</span> <span class="o">=</span> <span class="n">leaspy23</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip23</span><span class="p">)</span>
+<span class="n">d223</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction23</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred23</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d223</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS3_off_total_model_m&quot;</span><span class="p">,</span> <span class="s2">&quot;MDS2_total_model_m&quot;</span><span class="p">])</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="n">ip3</span> <span class="o">=</span> <span class="n">leaspy3</span><span class="o">.</span><span class="n">personalize</span><span class="p">(</span><span class="n">data_test3</span><span class="p">,</span> <span class="n">settings_personalization</span><span class="p">)</span>
+<span class="n">reconstruction3</span> <span class="o">=</span> <span class="n">leaspy3</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip3</span><span class="p">)</span>
+<span class="n">d23</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction3</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d23</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS3_off_total_model_u&quot;</span><span class="p">])</span>
+
+<span class="c1">##PREDICTIONS MDS3</span>
+<span class="n">ip2</span> <span class="o">=</span> <span class="n">leaspy2</span><span class="o">.</span><span class="n">personalize</span><span class="p">(</span><span class="n">data_test2</span><span class="p">,</span> <span class="n">settings_personalization</span><span class="p">)</span>
+<span class="n">reconstruction2</span> <span class="o">=</span> <span class="n">leaspy2</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_to_pred</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df_to_pred</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">])),</span> <span class="n">ip2</span><span class="p">)</span>
+<span class="n">d22</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">reconstruction2</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">df_pred2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">d22</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MDS2_total_model_u&quot;</span><span class="p">])</span>
+
+<span class="c1">#CONCATE PREDICTIONS</span>
+<span class="n">df_pred_mu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_pred23</span><span class="p">,</span> <span class="n">df_pred3</span><span class="p">,</span> <span class="n">df_pred2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|##################################################|   100/100 subjects
+The standard deviation of the noise at the end of the personalization is:
+0.0569
+
+Personalization scipy_minimize took: 3s
+|##################################################|   100/100 subjects
+The standard deviation of the noise at the end of the personalization is:
+0.0687
+
+Personalization scipy_minimize took: 1s
+|##################################################|   100/100 subjects
+The standard deviation of the noise at the end of the personalization is:
+0.0707
+
+Personalization scipy_minimize took: 1s
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style='color: #a13203; font-weight: 600;'>💬 Question 21 💬</span> <strong>Display results of predictions against real values and the mean absolute error.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To complete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
+<span class="c1"># –––– Answer –––– #</span>
+<span class="c1"># –––––––––––––––– #</span>
+<span class="n">col_plot</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MDS3_off_total_model_m&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS3_off_total_model_u&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS2_total_model_m&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS2_total_model_u&#39;</span><span class="p">]</span>
+<span class="n">col_real</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MDS3_off_total&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS3_off_total&#39;</span><span class="p">,</span><span class="s1">&#39;MDS2_total&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS2_total&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">col_plot</span><span class="p">))</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean absolute error &quot;</span><span class="o">+</span><span class="n">col_plot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_to_pred</span><span class="p">[</span><span class="n">col_real</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">-</span><span class="n">df_pred_mu</span><span class="p">[</span><span class="n">col_plot</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df_to_pred</span><span class="p">[</span><span class="n">col_real</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">df_pred_mu</span><span class="p">[</span><span class="n">col_plot</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">col_plot</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Real value&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted value&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS3_off_total_model_m : 0.05958525082644294
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_54_1.png" src="../../../_images/TP3_advanced_leaspy_54_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS3_off_total_model_u : 0.06501929260352078
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_54_3.png" src="../../../_images/TP3_advanced_leaspy_54_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS2_total_model_m : 0.05325222294777632
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_54_5.png" src="../../../_images/TP3_advanced_leaspy_54_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error MDS2_total_model_u : 0.0676489770412445
+</pre></div>
+</div>
+<img alt="../../../_images/TP3_advanced_leaspy_54_7.png" src="../../../_images/TP3_advanced_leaspy_54_7.png" />
+</div>
+</div>
+</div>
+<div class="section" id="part-iv-get-the-best-model-as-you-can">
+<h2>Part IV: Get the best model as you can<a class="headerlink" href="#part-iv-get-the-best-model-as-you-can" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages/notebooks/leaspy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="TP2_leaspy_beginner.html" title="previous page">First steps with Leaspy</a>
+    <a class='right-next' id="next-link" href="../non_parametric_DPM/non_parametric_DPM.html" title="next page">Non Parametric EBM</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Disease Progression Modelling community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

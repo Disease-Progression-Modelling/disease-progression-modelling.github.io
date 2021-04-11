@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -46,7 +46,7 @@
     <script src="../../../_static/copybutton.js"></script>
     <script src="../../../_static/js/custom_js.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,6 +56,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data Simulation" href="../data_simulation/data_simulation.html" />
+    <link rel="prev" title="GP Progression Model" href="non_parametric_DPM.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -92,6 +94,18 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Proposition
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../proposition.html">
+   Proposition for the home page
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Models
  </span>
 </p>
@@ -122,7 +136,7 @@
   Notebooks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview.html">
    Overview
@@ -166,14 +180,14 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="non_parametric_DPM.html">
    GP Progression Model
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="GPPM_basic.html">
-     Tutorial 1 - GP Progression Model Walkthrough
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TP1 - GP Progression Model
     </a>
    </li>
   </ul>
@@ -213,7 +227,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../conferences/MICCAI.html">
-   MICCAI 2021
+   MICCAI
   </a>
  </li>
  <li class="toctree-l1">
@@ -250,21 +264,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -282,7 +296,7 @@
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -303,13 +317,13 @@
 </div>
 
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -333,14 +347,13 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -363,7 +376,6 @@
 
         </nav>
         
-        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -393,179 +405,12 @@
 <p>Write the step-up to launch the tutorial here! It should be as easy as possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone git@gitlab.inria.fr:epione/GP_progression_model_V2.git
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;GP_progression_model_V2&#39; already exists and is not an empty directory.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> GP_progression_model_V2
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mlorenzi/works/temp/disease-progression-modelling.github.io/pages/notebooks/non_parametric_DPM/GP_progression_model_V2
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python ./setup.py develop
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: &#39;&#39; not a valid package name; please use only .-separated package names in setup.py
-running develop
-running egg_info
-writing src/gppm.egg-info/PKG-INFO
-writing dependency_links to src/gppm.egg-info/dependency_links.txt
-writing top-level names to src/gppm.egg-info/top_level.txt
-reading manifest file &#39;src/gppm.egg-info/SOURCES.txt&#39;
-writing manifest file &#39;src/gppm.egg-info/SOURCES.txt&#39;
-running build_ext
-Creating /Users/mlorenzi/miniconda3/envs/DPM_website/lib/python3.6/site-packages/gppm.egg-link (link to src)
-gppm 2.0.0 is already the active version in easy-install.pth
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up</span>
 
-Installed /Users/mlorenzi/works/temp/disease-progression-modelling.github.io/pages/notebooks/non_parametric_DPM/GP_progression_model_V2/src
-Processing dependencies for gppm==2.0.0
-Finished processing dependencies for gppm==2.0.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>conda install gppm -c <span class="nb">local</span> -c pytorch -c defaults --override-channels -y
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (repodata.json): done
-Solving environment: done
-
-
-==&gt; WARNING: A newer version of conda exists. &lt;==
-  current version: 4.9.2
-  latest version: 4.10.0
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
-
-# All requested packages already installed.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">GP_progression_model</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="c1">#%matplotlib inline</span>
-<span class="c1">## workaround for OS X</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">platform</span> <span class="k">as</span> <span class="n">sys_pf</span>
-<span class="k">if</span> <span class="n">sys_pf</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
-    <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;TkAgg&quot;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">GP_progression_model</span>
-<span class="kn">from</span> <span class="nn">GP_progression_model</span> <span class="kn">import</span> <span class="n">DataGenerator</span>
-<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">fastest</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
-
-<span class="c1">## Parameters for progression curves and data generation</span>
-<span class="c1"># Max value</span>
-<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="c1"># time interval</span>
-<span class="n">interval</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
-
-<span class="c1"># Number of biomarkers</span>
-<span class="n">Nbiom</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="c1"># Number of individuals</span>
-<span class="n">Nsubs</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="c1"># Gaussian observational noise</span>
-<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.1</span>
-
-<span class="c1"># Creating random parameter sets for each biomarker&#39;s progression</span>
-<span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">flag</span><span class="o">!=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">CurveParam</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">):</span>
-        <span class="n">CurveParam</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">L</span><span class="p">,</span><span class="mf">0.8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(),</span><span class="n">noise</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">CurveParam</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
-            <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling the data generator</span>
-<span class="n">dg</span> <span class="o">=</span> <span class="n">DataGenerator</span><span class="o">.</span><span class="n">DataGenerator</span><span class="p">(</span><span class="n">Nbiom</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="n">CurveParam</span><span class="p">,</span> <span class="n">Nsubs</span><span class="p">)</span>
-
-<span class="c1">### The object dg has 3 parameters defining the data</span>
-<span class="c1"># dg.XData is a list with Nbiomarkers elements:</span>
-<span class="c1"># for each element (biomarker) we have Nsubjects arrays with a random number of associated time points.</span>
-<span class="c1"># This is the ground truth time along the disease progression associated to each subject.</span>
-<span class="c1">####</span>
-<span class="c1"># dg.YData is a list with Nbiomarkers elements:</span>
-<span class="c1"># for each element (biomarker) we have Nsubjects arrays with measurements associated to the time points of dg.XData</span>
-<span class="c1">####</span>
-<span class="c1"># dg.ZeroXData is a list with Nbiomarkers elements:</span>
-<span class="c1"># for each element (biomarker) we have Nsubjects arrays with the associated time points of dg.XData zero-centered. </span>
-<span class="c1"># This is the reparameterized time-axis corresponding to the observations. </span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">dg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-[-11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2]
-[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-[-9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4]
-[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mlorenzi/works/temp/disease-progression-modelling.github.io/pages/notebooks/non_parametric_DPM/GP_progression_model_V2/src/GP_progression_model/DataGenerator.py:93: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div>
-</div>
-<img alt="../../../_images/TP1_9_2.png" src="../../../_images/TP1_9_2.png" />
-<img alt="../../../_images/TP1_9_3.png" src="../../../_images/TP1_9_3.png" />
 </div>
 </div>
 </div>
@@ -617,13 +462,15 @@ Please update conda by running
 
               </div>
               
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
         
-        <div class='prev-next-bottom'>
-            
+    <a class='left-prev' id="prev-link" href="non_parametric_DPM.html" title="previous page">GP Progression Model</a>
+    <a class='right-next' id="next-link" href="../data_simulation/data_simulation.html" title="next page">Data Simulation</a>
 
-        </div>
-        
-        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
