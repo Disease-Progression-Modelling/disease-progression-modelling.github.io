@@ -36,10 +36,10 @@
       - file: pages/notebooks/non_parametric_DPM/GPPM_basic
         title: Tutorial 1 - GP Progression Model Walkthrough
 
-  - file: pages/notebooks/data_simulation/data_simulation
-    sections:
-      - file: pages/notebooks/data_simulation/debm
-      - file: pages/notebooks/data_simulation/non_parametric_DPM
+  # - file: pages/notebooks/data_simulation/data_simulation
+  #   sections:
+  #     - file: pages/notebooks/data_simulation/debm
+  #     - file: pages/notebooks/data_simulation/non_parametric_DPM
 
 - part: Conferences
   chapters:
