@@ -31,7 +31,7 @@ An example of the basic usage of GPPM on synthetic and real data is available he
 
 An example of GPPM-DS on synthetic and real data is available here:
 
-[[Basic GPPM-DS tutorial](https://disease-progression-modelling.github.io/pages/notebooks/Non_parametric_DPM/GPPM_DS.html)]
+[[Basic GPPM-DS tutorial](https://disease-progression-modelling.github.io/pages/notebooks/non_parametric_DPM/GPPM_DS.html)]
 
 [[Jupyter notebook](https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/non_parametric_DPM/GPPM_DS.ipynb)]
 

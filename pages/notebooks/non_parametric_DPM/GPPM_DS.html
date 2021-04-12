@@ -58,6 +58,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Conferences" href="../../conferences/conferences.html" />
+    <link rel="prev" title="GPPM for disease progression modeling: basic use" href="GPPM_basic.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -124,7 +126,7 @@
   Notebooks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview.html">
    Overview
@@ -173,13 +175,18 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="non_parametric_DPM.html">
    GP Progression Model
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
@@ -539,13 +546,13 @@ Successfully installed gppm-2.0.0
 <p><em>Of course in a real-case scenario we do not know <span class="math notranslate nohighlight">\(\mathcal{H}_{\boldsymbol\theta}\)</span>, and instead we are interested in providing estimates of it!</em></p>
 <p>Well, using the GPPM, we can set-up a <strong>combined framework</strong> to investigate the different bio–mechanical hypotheses governing disease progression.</p>
 <p>In order to do so, we equip the standard GPPM model</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2300ef3-3990-4457-a68b-e02912e1f594">
-<span class="eqno">()<a class="headerlink" href="#equation-f2300ef3-3990-4457-a68b-e02912e1f594" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a5beb2b-b852-478f-b5dd-932c628c1708">
+<span class="eqno">(1)<a class="headerlink" href="#equation-6a5beb2b-b852-478f-b5dd-932c628c1708" title="Permalink to this equation">¶</a></span>\[\begin{equation}
  {\bf Y}^s(\tau^s) = {\bf f}(\tau^s) + {\boldsymbol \nu}^s(\tau^s) +\epsilon,
 \end{equation}\]</div>
 <p>with (unknown) dynamical systems constraints on the biomarker trajectories</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78dce1ef-0b46-432b-932f-c154222c3cbe">
-<span class="eqno">()<a class="headerlink" href="#equation-78dce1ef-0b46-432b-932f-c154222c3cbe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3aabd700-59ac-47e0-9140-d5f5ecbf8d70">
+<span class="eqno">(2)<a class="headerlink" href="#equation-3aabd700-59ac-47e0-9140-d5f5ecbf8d70" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {\bf\dot{f}}(t) = \mathcal{H}_{\boldsymbol\theta}({\bf f}(t), t).
 \end{equation}\]</div>
 <p><strong>The combined GPPM-DS framework provides spatio–temporal modeling and inference of biomarkers dynamics from short term data.</strong></p>
@@ -1526,6 +1533,8 @@ Successfully installed nilearn-0.7.1
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="GPPM_basic.html" title="previous page">GPPM for disease progression modeling: basic use</a>
+    <a class='right-next' id="next-link" href="../../conferences/conferences.html" title="next page">Conferences</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
