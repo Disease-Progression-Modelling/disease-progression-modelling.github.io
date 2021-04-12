@@ -71,7 +71,7 @@
       <img src="../../_static/img/contributors/marco_lorenzi.jpeg" class="rounded z-depth-1-half" alt="Marco Lorenzi">
     </div>
     <h4 class="font-weight-bold dark-grey-text">Marco Lorenzi</h4>
-    <p>Postdoctoral research fellow  @ UNIGE, Genova</p>
+    <p>Researcher @Inria Sophia Antipolis, Université Côte d'Azur, France</p>
     <a type="button" href="marcolorenzi.github.io/" class="btn-floating btn-sm mx-1 mb-0">
       <i class="fas fa-globe fa-lg"></i>
     </a>
