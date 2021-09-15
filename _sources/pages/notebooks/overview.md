@@ -24,7 +24,7 @@ Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
 +++
 
 {badge}`Cross-sectional data,badge-primary`
-{badge}`Probabilistic,badge-primary`
+{badge}`Probabilisti,badge-primary`
 
 
 ---  
@@ -51,10 +51,7 @@ Tutorial 3 - Leaspy advanced
 **GP Progression Model**
 ^^^
 
-Tutorial 1 - (GPPM) GP Progression Model Walkthrough
-
-Tutorial 2 - (GPPM-DS) GP Progression Model Dynamical Systems Walkthrough
-
+Lorem Ipsum
 
 [Discover](non_parametric_DPM/non_parametric_DPM)
 
