@@ -140,6 +140,11 @@
      Tutorial 1 - EBM Walkthrough
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T2_pyEBM_walkthrough.html">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -174,27 +179,13 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../data_simulation/data_simulation.html">
-   Data Simulation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/debm.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
   </ul>
@@ -357,7 +348,7 @@
                 
   <div class="section" id="disease-course-sequencing-with-the-event-based-model">
 <h1>Disease Course Sequencing with the Event Based Model<a class="headerlink" href="#disease-course-sequencing-with-the-event-based-model" title="Permalink to this headline">¶</a></h1>
-<p><em>by Neil Oxtoby</em></p>
+<p><em>by Neil Oxtoby and Vikram Venkatraghavan</em></p>
 <div class="figure align-center" id="ebm-schematic">
 <a class="reference internal image-reference" href="../../../_images/ebm.png"><img alt="../../../_images/ebm.png" src="../../../_images/ebm.png" style="height: 300px;" /></a>
 </div>
@@ -369,10 +360,10 @@
 <p class="card-text"><strong><em>Disease Course Sequencing</em> with Event-Based Modelling</strong></p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">Event-Based Modelling is a mathematical model, with associated Python software, that estimates a quantitative signature of disease progression (a Disease Course Sequence) using either <strong>cross-sectional</strong> or longitudinal <strong>medical</strong> data.</p>
-<p class="card-text">The software:</p>
+<p class="card-text">Event-Based Modelling (EBM) is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either <strong>cross-sectional</strong> or longitudinal <strong>medical</strong> data.</p>
+<p class="card-text">The softwares:</p>
 <ul class="simple">
-<li><p class="card-text">reconstructs the pathophysiological cascade (fine-grained temporal sequence of events) for a chronic, progressive disease</p></li>
+<li><p class="card-text">reconstruct the pathophysiological cascade (fine-grained temporal sequence of events) for a chronic, progressive disease</p></li>
 <li><p class="card-text">stages individuals along this fine-grained Disease Course Sequence, representing their cumulative abnormality along the group-average progression</p></li>
 <li><p class="card-text">does this all probabilistically and without predefined biomarker cutpoints</p></li>
 </ul>
@@ -385,7 +376,10 @@
 </div>
 </div>
 </div>
-<p>The software is distributed via the UCL POND group’s <a class="reference external" href="https://github.com/ucl-pond">GitHub</a> account, typically under the MIT license. The software should operate across operating systems, but specific requirements, e.g., python package versions, are detailed in each repository.</p>
+<p>The software for classical EBM is distributed via the UCL POND group’s <a class="reference external" href="https://github.com/ucl-pond">GitHub</a> account, typically under the MIT license.</p>
+<p>The software for the state-of-the-art Discriminative EBM as well as classical EBM (pyebm) is distributed via Vikram’s <a class="reference external" href="https://github.com/88vikram/pyebm">GitHub</a> account, typically under the GNU General Public License v3.0.</p>
+<p>Note: The classical EBM implementation in the two repositories differ in the type of mixture modelling (an essential step in EBMs) they support. The UCL POND group’s implementation supports KDE based mixture modelling as well as Gaussian mixture modelling (GMM), whereas pyebm only supports GMM.</p>
+<p>The softwares should operate across operating systems, but specific requirements, e.g., python package versions, are detailed in each repository.</p>
 <div class="section" id="usage">
 <h2><strong>Usage</strong><a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://github.com/ucl-pond/kde_ebm">KDE EBM</a> package includes user-friendly functions to perform key operations in the Disease Course Sequencing pipeline:</p>
@@ -397,7 +391,13 @@
 <dt><code class="docutils literal notranslate"><span class="pre">kde_ebm.mcmc</span></code></dt><dd><p>Tools for Markov Chain Monte Carlo fitting of the EBM, including bootstrap cross-validation.</p>
 </dd>
 </dl>
-<p>The <a class="reference external" href="https://github.com/88vikram/pyEBM">pyEBM</a> toolbox can be used to fit a traditional EBM, or a Discriminative EBM.</p>
+<p>The <a class="reference external" href="https://github.com/88vikram/pyEBM">pyEBM</a> toolbox can be used to fit a Discriminative EBM, or a classical EBM using Gaussian mixture modelling.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">pyebm.debm.fit(...):</span></code></dt><dd><p>Fits DEBM to multimodal biomarker data and inherently handles missing data. DEBM estimates average Disease Course Sequence for the entire cohort, any pre-defined subgroup of it, as well as for each subject in the cohort.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pyebm.ebm.fit(...):</span></code></dt><dd><p>Fits EBM to multimodal biomarker data and inherently handles missing data. EBM estimates average Disease Course Sequence for the entire cohort.</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="tutorial-s">
 <h2><strong>Tutorial(s)</strong><a class="headerlink" href="#tutorial-s" title="Permalink to this headline">¶</a></h2>
@@ -425,8 +425,7 @@
 </div>
 <div class="card-body text-justify docutils">
 <p class="card-text">This introduction to Discriminative Event-Based Modelling is a walkthrough where you will fit a DEBM using the pyEBM software and simulated data.</p>
-<p class="card-text">FIXME: add Vikram’s tutorial (<code class="docutils literal notranslate"><span class="pre">T2_pyEBM_walkthrough.ipynb</span></code>?)</p>
-<!-- [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html) -->
+<p class="card-text"><a class="reference external" href="https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html">Go to the tutorial</a></p>
 </div>
 <div class="card-footer docutils">
 <p class="card-text"><span class="sphinx-bs badge badge-warning">30 minutes</span> <span class="sphinx-bs badge badge-primary">crosssectional data</span></p>

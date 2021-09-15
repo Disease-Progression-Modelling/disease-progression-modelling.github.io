@@ -142,6 +142,11 @@
      Tutorial 1 - EBM Walkthrough
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ebm/T2_pyEBM_walkthrough.html">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -176,27 +181,13 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../data_simulation/data_simulation.html">
-   Data Simulation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/debm.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
   </ul>
@@ -446,13 +437,14 @@
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 1 💬</span> Run the following command lines</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># import main classes from Leaspy package</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/Users/igor.koval/Documents/work/leaspy/&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">leaspy</span> <span class="kn">import</span> <span class="n">Leaspy</span><span class="p">,</span> <span class="n">Data</span><span class="p">,</span> <span class="n">AlgorithmSettings</span><span class="p">,</span> <span class="n">IndividualParameters</span><span class="c1">#, __watermark__</span>
 
 <span class="c1"># Watermark trace with all packages versions</span>
@@ -481,8 +473,8 @@
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> <strong>Run the following lines to load the data.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s2">&quot;data/TP2_leaspy_beginner/&quot;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;simulated_data-corrected.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;TP2_leaspy_beginner&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s1">&#39;simulated_data-corrected.csv&#39;</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="s2">&quot;TIME&quot;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -755,7 +747,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">algo_settings</span> <span class="o">=</span> <span class="n">AlgorithmSettings</span><span class="p">(</span><span class="s1">&#39;mcmc_saem&#39;</span><span class="p">,</span> 
-                                  <span class="n">n_iter</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>           <span class="c1"># n_iter defines the number of iterations</span>
+                                  <span class="n">n_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>           <span class="c1"># n_iter defines the number of iterations</span>
                                   <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;MSE_diag_noise&#39;</span><span class="p">,</span> <span class="c1"># estimate the residual noise scaling per feature</span>
                                   <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>     <span class="c1"># To display a nice progression bar during calibration</span>
 </pre></div>
@@ -802,31 +794,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|##################################################|   3000/3000 iterations
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|##################################################|   2000/2000 iterations
 The standard deviation of the noise at the end of the calibration is:
 MDS1_total: 0.0512
-MDS2_total: 0.0543
-MDS3_off_total: 0.0647
+MDS2_total: 0.0544
+MDS3_off_total: 0.0649
 
-Calibration took: 4min 2s
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#y_ij = f(model) + epsilon, epsilon ~ N(0, \sigma)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># –––––––––––––––– #</span>
-<span class="c1"># –––– Answer –––– #</span>
-<span class="c1"># –––––––––––––––– #</span>
-
-<span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;outputs/model_parameters.json&#39;</span><span class="p">)</span>
+Calibration took: 1min 22s
 </pre></div>
 </div>
 </div>
@@ -836,7 +810,7 @@ Calibration took: 4min 2s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
-<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;./logs/plots/convergence_2.pdf&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">990</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">670</span><span class="p">)</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;./logs/plots/convergence_1.pdf&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">990</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">670</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -845,7 +819,7 @@ Calibration took: 4min 2s
 <iframe
     width="990"
     height="670"
-    src="./logs/plots/convergence_2.pdf"
+    src="./logs/plots/convergence_1.pdf"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -859,17 +833,17 @@ Calibration took: 4min 2s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;g&#39;: tensor([2.4051, 2.4871, 1.6007]),
- &#39;v0&#39;: tensor([-5.3408, -5.1878, -5.1113]),
- &#39;betas&#39;: tensor([[-0.0364,  0.0244],
-         [ 0.0156,  0.0148]]),
- &#39;tau_mean&#39;: tensor(56.5587),
- &#39;tau_std&#39;: tensor(10.2532),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;g&#39;: tensor([1.9860, 1.8967, 1.2987]),
+ &#39;v0&#39;: tensor([-4.7647, -4.5189, -4.6165]),
+ &#39;betas&#39;: tensor([[ 0.0230,  0.0497],
+         [-0.0321,  0.0040]]),
+ &#39;tau_mean&#39;: tensor(65.0794),
+ &#39;tau_std&#39;: tensor(10.3418),
  &#39;xi_mean&#39;: tensor(0.),
- &#39;xi_std&#39;: tensor(0.6619),
+ &#39;xi_std&#39;: tensor(0.5935),
  &#39;sources_mean&#39;: tensor(0.),
  &#39;sources_std&#39;: tensor(1.),
- &#39;noise_std&#39;: tensor([0.0513, 0.0548, 0.0656])}
+ &#39;noise_std&#39;: tensor([0.0512, 0.0544, 0.0649])}
 </pre></div>
 </div>
 </div>
@@ -890,8 +864,8 @@ Calibration took: 4min 2s
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of the residual noise for the feature:
 - MDS1_total: 5.12%
-- MDS2_total: 5.43%
-- MDS3_off_total: 6.47%
+- MDS2_total: 5.44%
+- MDS3_off_total: 6.49%
 </pre></div>
 </div>
 </div>
@@ -899,7 +873,7 @@ Calibration took: 4min 2s
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 16 💬</span> Save the model with the command below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;outputs/model_parameters.json&quot;</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;model_parameters.json&quot;</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -907,7 +881,7 @@ Calibration took: 4min 2s
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 17 💬</span> Load the model with the command below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;outputs/model_parameters.json&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">leaspy</span> <span class="o">=</span> <span class="n">Leaspy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s1">&#39;model_parameters.json&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -925,7 +899,7 @@ Calibration took: 4min 2s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_42_0.png" src="../../../_images/TP2_leaspy_beginner_42_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_40_0.png" src="../../../_images/TP2_leaspy_beginner_40_0.png" />
 </div>
 </div>
 </div>
@@ -974,11 +948,11 @@ Calibration took: 4min 2s
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|########################################|   40/40 subjects
 The standard deviation of the noise at the end of the personalization is:
-MDS1_total: 0.0467
-MDS2_total: 0.0493
-MDS3_off_total: 0.0580
+MDS1_total: 0.0466
+MDS2_total: 0.0492
+MDS3_off_total: 0.0582
 
-Personalization scipy_minimize took: 1s
+Personalization scipy_minimize took: 2s
 </pre></div>
 </div>
 </div>
@@ -998,7 +972,7 @@ Personalization scipy_minimize took: 1s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the test data with individually reparametrized ages</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">patient_observations_reparametrized</span><span class="p">(</span><span class="n">data_test</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> 
                                                          <span class="n">alpha</span><span class="o">=.</span><span class="mi">7</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> 
-                                                         <span class="c1">#patients_idx=list(data_test.individuals.keys())[:4],</span>
+                                                         <span class="c1">#patients_idx=list(data_test.individuals.keys())[:20],</span>
                                                          <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1006,7 +980,7 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_52_0.png" src="../../../_images/TP2_leaspy_beginner_52_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_50_0.png" src="../../../_images/TP2_leaspy_beginner_50_0.png" />
 </div>
 </div>
 <p>Remember the raw plotting of values during question 9? Better, no?</p>
@@ -1023,7 +997,7 @@ Personalization scipy_minimize took: 1s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_54_0.png" src="../../../_images/TP2_leaspy_beginner_54_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_52_0.png" src="../../../_images/TP2_leaspy_beginner_52_0.png" />
 </div>
 </div>
 <p>Now, let’s see what you can do with the individual parameters.</p>
@@ -1058,7 +1032,7 @@ Personalization scipy_minimize took: 1s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seen ages: [61.34811783 62.34811783 63.84811783 64.34812164 67.84812164 68.34812164
  69.34812164 69.84812164 70.84812164 71.34812164 71.84812164 72.34812164
  72.84812164 73.34812164]
-Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.7496566772461, &#39;sources&#39;: [-1.2913795709609985, 0.507883608341217]}
+Individual Parameters :  {&#39;xi&#39;: 8.263221388915554e-05, &#39;tau&#39;: 70.71927642822266, &#39;sources&#39;: [0.8920779228210449, -0.9051297903060913]}
 </pre></div>
 </div>
 </div>
@@ -1102,15 +1076,156 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
   y = y[:, np.newaxis]
 </pre></div>
 </div>
-<img alt="../../../_images/TP2_leaspy_beginner_60_1.png" src="../../../_images/TP2_leaspy_beginner_60_1.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_58_1.png" src="../../../_images/TP2_leaspy_beginner_58_1.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_test</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;GS-187&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TIME</th>
+      <th>MDS1_total</th>
+      <th>MDS2_total</th>
+      <th>MDS3_off_total</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GS-187</th>
+      <td>61.348118</td>
+      <td>0.032155</td>
+      <td>0.079023</td>
+      <td>0.194349</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>62.348118</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.105951</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>63.848118</td>
+      <td>0.056661</td>
+      <td>0.015366</td>
+      <td>0.213064</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>64.348122</td>
+      <td>0.113765</td>
+      <td>0.151636</td>
+      <td>0.220763</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>67.848122</td>
+      <td>0.087926</td>
+      <td>0.142727</td>
+      <td>0.121259</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>68.348122</td>
+      <td>0.127519</td>
+      <td>0.208425</td>
+      <td>0.215517</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>69.348122</td>
+      <td>0.014113</td>
+      <td>0.116000</td>
+      <td>0.115312</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>69.848122</td>
+      <td>0.098333</td>
+      <td>0.067149</td>
+      <td>0.147486</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>70.848122</td>
+      <td>0.088108</td>
+      <td>0.168970</td>
+      <td>0.235806</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>71.348122</td>
+      <td>0.025140</td>
+      <td>0.206862</td>
+      <td>0.245327</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>71.848122</td>
+      <td>0.088468</td>
+      <td>0.193132</td>
+      <td>0.215797</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>72.348122</td>
+      <td>0.156485</td>
+      <td>0.281915</td>
+      <td>0.255358</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>72.848122</td>
+      <td>0.072483</td>
+      <td>0.134019</td>
+      <td>0.297301</td>
+    </tr>
+    <tr>
+      <th>GS-187</th>
+      <td>73.348122</td>
+      <td>0.076749</td>
+      <td>0.177526</td>
+      <td>0.196283</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Or with plotting object</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">leaspy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">patient_trajectories</span><span class="p">(</span><span class="n">data_test</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span>
                                           <span class="n">patients_idx</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GS-187&#39;</span><span class="p">,</span><span class="s1">&#39;GS-180&#39;</span><span class="p">],</span>
-                                          <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MDS1&#39;</span><span class="p">,</span><span class="s1">&#39;MDS2&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS3 (off)&#39;</span><span class="p">],</span>
+                                          <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MDS1_total&#39;</span><span class="p">,</span><span class="s1">&#39;MDS2_total&#39;</span><span class="p">,</span> <span class="s1">&#39;MDS3_off_total&#39;</span><span class="p">],</span>
                                           <span class="c1">#reparametrized_ages=True, # check sources effect</span>
                                           
                                           <span class="c1"># plot kwargs</span>
@@ -1130,7 +1245,7 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_61_0.png" src="../../../_images/TP2_leaspy_beginner_61_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_60_0.png" src="../../../_images/TP2_leaspy_beginner_60_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1156,7 +1271,7 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_62_0.png" src="../../../_images/TP2_leaspy_beginner_62_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_61_0.png" src="../../../_images/TP2_leaspy_beginner_61_0.png" />
 </div>
 </div>
 </div>
@@ -1172,7 +1287,7 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 <span class="n">df_ip</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 
 <span class="c1"># —— Join the cofactors to individual parameters</span>
-<span class="n">cofactor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;cof_leaspy1.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span>
+<span class="n">cofactor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;cof_leaspy1.csv&quot;</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span>
 <span class="n">df_ip</span> <span class="o">=</span> <span class="n">df_ip</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cofactor</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">:{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Non-carrier&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;Carrier&#39;</span><span class="p">}}))</span>
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -1195,14 +1310,30 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_64_0.png" src="../../../_images/TP2_leaspy_beginner_64_0.png" />
-<img alt="../../../_images/TP2_leaspy_beginner_64_1.png" src="../../../_images/TP2_leaspy_beginner_64_1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/cbook/__init__.py:1402: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  x[:, None]
+/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/axes/_base.py:276: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  x = x[:, np.newaxis]
+/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/axes/_base.py:278: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  y = y[:, np.newaxis]
+/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/cbook/__init__.py:1402: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  x[:, None]
+/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/axes/_base.py:276: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  x = x[:, np.newaxis]
+/usr/local/Cellar/graph-tool/2.35/libexec/lib/python3.8/site-packages/matplotlib/axes/_base.py:278: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  y = y[:, np.newaxis]
+</pre></div>
+</div>
+<img alt="../../../_images/TP2_leaspy_beginner_63_1.png" src="../../../_images/TP2_leaspy_beginner_63_1.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_63_2.png" src="../../../_images/TP2_leaspy_beginner_63_2.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 26 💬</span> <strong>Now, check your hypothesis with statistical tests</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shortcuts of df_ip for 2 sub-populationscarriers = df_ip[df_ip[&#39;MUTATION&#39;] == &#39;Carrier&#39;]non_carriers = df_ip[df_ip[&#39;MUTATION&#39;] == &#39;Non-carrier&#39;]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shortcuts of df_ip for 2 sub-populations</span>
+<span class="n">carriers</span> <span class="o">=</span> <span class="n">df_ip</span><span class="p">[</span><span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Carrier&#39;</span><span class="p">]</span>
+<span class="n">non_carriers</span> <span class="o">=</span> <span class="n">df_ip</span><span class="p">[</span><span class="n">df_ip</span><span class="p">[</span><span class="s1">&#39;MUTATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Non-carrier&#39;</span><span class="p">]</span>
 <span class="c1"># —— Student t-test (under the asumption of a gaussian distribution only)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">],</span> <span class="n">non_carriers</span><span class="p">[</span><span class="s1">&#39;xi&#39;</span><span class="p">]))</span>
@@ -1214,10 +1345,10 @@ Individual Parameters :  {&#39;xi&#39;: -0.03377921134233475, &#39;tau&#39;: 76.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=-0.9757572384196719, pvalue=0.3353558736353631)
-Ttest_indResult(statistic=3.7526560503249073, pvalue=0.0005838617062167643)
-MannwhitneyuResult(statistic=150.0, pvalue=0.15064363240193013)
-MannwhitneyuResult(statistic=48.0, pvalue=5.152999045364206e-05)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=1.941230030309452, pvalue=0.059673501020270414)
+Ttest_indResult(statistic=-3.3108067640055814, pvalue=0.0020460286770261965)
+MannwhitneyuResult(statistic=120.0, pvalue=0.030617610211415968)
+MannwhitneyuResult(statistic=65.0, pvalue=0.00032679719774224823)
 </pre></div>
 </div>
 </div>
@@ -1248,9 +1379,9 @@ present in <code class="docutils literal notranslate"><span class="pre">individu
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard deviation of the noise at the end of the personalization is:
 MDS1_total: 0.0469
 MDS2_total: 0.0494
-MDS3_off_total: 0.0599
+MDS3_off_total: 0.0583
 
-Personalization mode_real took: 5s
+Personalization mode_real took: 6s
 </pre></div>
 </div>
 </div>
@@ -1272,7 +1403,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tau&#39;: tensor([56.2327], dtype=torch.float64), &#39;xi&#39;: tensor([0.8927], dtype=torch.float64), &#39;sources&#39;: tensor([0.0626, 1.8273], dtype=torch.float64)}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tau&#39;: tensor([65.7623], dtype=torch.float64), &#39;xi&#39;: tensor([0.5340], dtype=torch.float64), &#39;sources&#39;: tensor([1.5067, 0.3401], dtype=torch.float64)}
 </pre></div>
 </div>
 </div>
@@ -1294,7 +1425,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_76_0.png" src="../../../_images/TP2_leaspy_beginner_76_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_75_0.png" src="../../../_images/TP2_leaspy_beginner_75_0.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 32 💬</span> <strong>Plot some simulated individual trajectories</strong></p>
@@ -1308,7 +1439,7 @@ Personalization mode_real took: 5s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP2_leaspy_beginner_78_0.png" src="../../../_images/TP2_leaspy_beginner_78_0.png" />
+<img alt="../../../_images/TP2_leaspy_beginner_77_0.png" src="../../../_images/TP2_leaspy_beginner_77_0.png" />
 </div>
 </div>
 </div>

@@ -140,6 +140,11 @@
      Tutorial 1 - EBM Walkthrough
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/ebm/T2_pyEBM_walkthrough.html">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -174,27 +179,13 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../notebooks/data_simulation/data_simulation.html">
-   Data Simulation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/data_simulation/debm.html">
-     Title of the notebook
+    <a class="reference internal" href="../notebooks/non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/data_simulation/non_parametric_DPM.html">
-     Title of the notebook
+    <a class="reference internal" href="../notebooks/non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
   </ul>
@@ -339,6 +330,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-scientific-literature-on-the-gppm-methods">
+   Some scientific literature on the GPPM methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-started">
    Getting started:
   </a>
@@ -364,7 +360,7 @@
 <div class="section" id="the-solution-gppm">
 <h2>The solution: GPPM ;)<a class="headerlink" href="#the-solution-gppm" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">Gaussian Process Progression Model (GPPM)</a> is based on the probabilistic estimation of biomarkers’ trajectories and on the quantification of the uncertainty of the predicted individual pathological stage. The inference framework accounts for a time reparameterization function, encoding individual differences in disease timing and speed relative to the fixed effect.</p>
-<img src="https://github.com/marcolorenzi/marcolorenzi.github.io/blob/master/img/animated.gif" width="400px" alt="GGPM in action">
+<img src="../../_static/img/gppm/animated.gif" width="400px" alt="GGPM in action">
 <p>Thanks to the probabilistic nature of GPPM, the resulting long-term disease progression model can be used as a statistical reference representing the transition from normal to pathological stages, thus allowing probabilistic diagnosis in the clinical scenario. The model can be further used to quantify the diagnostic uncertainty of individual disease severity, with respect to missing measurements, biomarkers, and follow-up information.</p>
 <p>GPPM has three key components underlying its methodology: 1) it defines a non-parametric, Gaussian process, Bayesian regression model for individual trajectories, 2) introduces a monotonicity information to impose some regular behaviour on the trajectories, and 3) models individual time transformations encoding the information on the latent pathological stage.</p>
 </div>
@@ -377,17 +373,28 @@
 <p>… and imposing a variety of <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5">biology-inspired constraints on the biomarker trajectories</a>.</p>
 <img src="../../_static/img/gppm/animation_sara.gif" width="600px" alt="GPPM from (Garbarino and Lorenzi, IPMI 2019)"> 
 </div>
+<div class="section" id="some-scientific-literature-on-the-gppm-methods">
+<h2>Some scientific literature on the GPPM methods<a class="headerlink" href="#some-scientific-literature-on-the-gppm-methods" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The theory of (deep) GP regression under constraints on the derivatives:</p>
+<p><em><a class="reference external" href="http://proceedings.mlr.press/v80/lorenzi18a.html">M. Lorenzi and M. Filipponr. In ICML 2018: International Conference on Machine Learning, PMLR 80:3227-3236, 2018</a></em></p>
+</li>
+<li><p>Modeling biomarkers’ trajectories in Alzheimer’s disease:</p>
+<p><em><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/29079521/">M. Lorenzi, M. Filippone G.B. Frisoni, D.C. Alexander, S. Ourselin. Probabilistic disease progression modeling to characterize diagnostic uncertainty: Application to staging and prediction in Alzheimer’s disease, NeuroImage 2017</a></em></p>
+</li>
+<li><p>Modeling the dynamics of amyloid propagation across brain networks:</p>
+<p><em><a class="reference external" href="https://arxiv.org/abs/1901.10545">S. Garbarino and M. Lorenzi, In IPMI 2019: Information Processing in Medical Imaging pp 57-69</a></em>,</p>
+<p><em><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/33823273/">S. Garbarino and M. Lorenzi, NeuroImage 2021</a></em></p>
+</li>
+<li><p>Spatio-temporal analysis of multimodal changes from time series of brain images:</p>
+<p><em><a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/31648001/">C. Abi Nader, N. Ayache, P. Robert and M. Lorenzi. NeuroImage 2020</a></em></p>
+</li>
+</ul>
+</div>
 <div class="section" id="getting-started">
 <h2>Getting started:<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The code is available <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">here</a>.</p></li>
-<li><p>Some scientific literature on the GPPM methods:</p>
-<ul>
-<li><p>Modeling biomarkers’ trajectories in Alzheimer’s disease: <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/29079521/">Lorenzi, et al., NeuroImage 2017</a></p></li>
-<li><p>Modeling the dynamics of amyloid propagation across brain networks: <a class="reference external" href="https://doi.org/10.1002/alz.12083">Garbarino and Lorenzi, IPMI 2019</a>, <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811921002573">Garbarino and Lorenzi, NeuroImage 2021</a></p></li>
-<li><p>Spatio-temporal analysis of multimodal changes from time series of brain images <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-20351-1_5">Abi Nader, et al., NeuroImage 2020</a></p></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>

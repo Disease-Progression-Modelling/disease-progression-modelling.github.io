@@ -140,6 +140,11 @@
      Tutorial 1 - EBM Walkthrough
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/ebm/T2_pyEBM_walkthrough.html">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -174,27 +179,13 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../notebooks/data_simulation/data_simulation.html">
-   Data Simulation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/data_simulation/debm.html">
-     Title of the notebook
+    <a class="reference internal" href="../notebooks/non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/data_simulation/non_parametric_DPM.html">
-     Title of the notebook
+    <a class="reference internal" href="../notebooks/non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
   </ul>
@@ -379,18 +370,18 @@
 </div>
 <div class="section" id="schedule">
 <h2>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Disease</span> <span class="pre">Progression</span> <span class="pre">Modelling</span> <span class="pre">/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[9:00</span> <span class="pre">-</span> <span class="pre">9:15]</span> <span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Disease</span> <span class="pre">Progression</span> <span class="pre">Modelling</span></code></p>
 <dl class="simple myst">
-<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">1:</span> <span class="pre">Discrete</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Neil Oxtoby &amp; Vikram Venkatraghavan</em> • 1h30</dt><dd><p>Discrete models are capable of inferring a longitudinal picture of disease progression using only cross-sectional data. <a class="reference external" href="https://github.com/EuroPOND/europond-software">Europond : github link</a>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">[9:15-11:35]</span> <span class="pre">Discrete</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Neil Oxtoby &amp; Vikram Venkatraghavan</em></dt><dd><p>Discrete models are capable of inferring a longitudinal picture of disease progression using only cross-sectional data. <a class="reference external" href="https://github.com/EuroPOND/europond-software">Europond : github link</a>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">2:</span> <span class="pre">Linear</span> <span class="pre">Mixed-effects</span> <span class="pre">models</span> <span class="pre">/</span> </code> 1h30</dt><dd><p>The workhorse of statistical analysis for longitudinal data. Important to understand their capabilities and limitations for analysing neurological disease progression.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">[11:45-13:00]</span> <span class="pre">Linear</span> <span class="pre">Mixed-effects</span> <span class="pre">models</span> <span class="pre">/</span> </code> by <em>Igor Koval</em></dt><dd><p>Linear Mixed-effects Models are the workhorse of statistical analysis for longitudinal data. Important to understand their capabilities and limitations for analysing neurological disease progression.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">3:</span> <span class="pre">Parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Igor Koval &amp; Stanley Durrleman</em> • 1h30</dt><dd><p>Recent developments that address some limitations of Linear Mixed-effects methods account for the non-linear dynamics of progression. They are able to estimate a long-term history of changes based on longitudinal observations, referred to as a disease course mapping.  <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy">Leaspy repository</a></p>
+<dt><code class="docutils literal notranslate"><span class="pre">[14:00-15:20]</span> <span class="pre">Parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Igor Koval</em></dt><dd><p>Recent developments that address some limitations of Linear Mixed-effects methods account for the non-linear dynamics of progression. They are able to estimate a long-term history of changes based on longitudinal observations, referred to as a disease course mapping.  <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/leaspy">Leaspy repository</a></p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Part</span> <span class="pre">4:</span> <span class="pre">Non-parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Sara Garbarino, Clément Abi Nader, Marco Lorenzi</em> • 1h30</dt><dd><p>DPM based on dynamical system modelling allow estimating the dynamics of biomarkers’ interactions characterizing the long-term disease history.  Building upon probabilistic DPM (Lorenzi-NeuroImage-2017),  these methods have been applied to the modelling of pathological protein propagation across brain networks in Alzheimer’s (Garbarino-IPMI-2019), and to simulate the effect of amyloid intervention on long term clinical and imaging outcomes (Abi Nader -preprint- 2020). <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">GP progression repository</a>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">[15:30-17:50]</span> <span class="pre">Non-parametric</span> <span class="pre">continuous</span> <span class="pre">DPM</span> <span class="pre">/</span> </code> by <em>Sara Garbarino, Clément Abi Nader, Marco Lorenzi</em></dt><dd><p>DPM based on dynamical system modelling allow estimating the dynamics of biomarkers’ interactions characterizing the long-term disease history.  Building upon probabilistic DPM (Lorenzi-NeuroImage-2017),  these methods have been applied to the modelling of pathological protein propagation across brain networks in Alzheimer’s (Garbarino-IPMI-2019), and to simulate the effect of amyloid intervention on long term clinical and imaging outcomes (Abi Nader -preprint- 2020). <a class="reference external" href="https://gitlab.inria.fr/epione/GP_progression_model_V2">GP progression repository</a>.</p>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">Wrap-up</span> <span class="pre">&amp;</span> <span class="pre">Conclusion</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">[17:50-18:00]</span> <span class="pre">Wrap-up</span> <span class="pre">&amp;</span> <span class="pre">Conclusion</span></code></p>
 </div>
 </div>
 

@@ -56,7 +56,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Disease Course Mapping with Leaspy" href="../disease_course_mapping/disease_course_mapping.html" />
+    <link rel="next" title="Disease Course Sequencing with the DEBM" href="T2_pyEBM_walkthrough.html" />
     <link rel="prev" title="Disease Course Sequencing with the Event Based Model" href="ebm.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -140,6 +140,11 @@
      Tutorial 1 - EBM Walkthrough
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="T2_pyEBM_walkthrough.html">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -174,27 +179,13 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/TP1.html">
-     TP1 - GP Progression Model
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../data_simulation/data_simulation.html">
-   Data Simulation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/debm.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../data_simulation/non_parametric_DPM.html">
-     Title of the notebook
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
     </a>
    </li>
   </ul>
@@ -371,6 +362,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-statistical-tests">
+   Basic statistical tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#prepare-data-for-fitting">
    Prepare data for fitting
   </a>
@@ -393,14 +389,32 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-validation">
-   Cross-validation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#patient-staging-utility">
    Patient staging utility
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-a-staging-histogram">
+     Plot a staging histogram
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#work-in-progress-bonus-cross-validation">
+   (
+   <em>
+    Work In Progress
+   </em>
+   ) Bonus: Cross-validation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-fold-cross-validation">
+     k-fold cross-validation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -444,6 +458,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import some packages</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span> <span class="c1"># default fontsize</span>
 </pre></div>
 </div>
 </div>
@@ -511,11 +526,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* 1. Histograms</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span> <span class="n">X</span><span class="p">[:,</span><span class="n">k</span><span class="p">],</span><span class="n">X_controls</span><span class="p">[:,</span><span class="n">k</span><span class="p">]],</span><span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Patients&#39;</span><span class="p">,</span><span class="s1">&#39;Controls&#39;</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Biomarker </span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -524,18 +539,47 @@
 <img alt="../../../_images/T1_kde_ebm_walkthrough_6_0.png" src="../../../_images/T1_kde_ebm_walkthrough_6_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="basic-statistical-tests">
+<h2>Basic statistical tests<a class="headerlink" href="#basic-statistical-tests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Effect size: (difference in medians) / (“width” of controls distribution)</p></li>
+<li><p>Mann-Whitney U test (quoting Wikipedia):<br/></p></li>
+</ul>
+<blockquote>
+<div><p>a nonparametric test of the null hypothesis that, for randomly selected values X and Y from two populations, the probability of X being greater than Y is equal to the probability of Y being greater than X.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Basic statistical tests</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* 2. Basic statistics</span>
 <span class="c1"># I use a nonparametric test because it works regardless of the data distributions </span>
 <span class="c1"># (some tests assume some level of Gaussianity)</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FIXME&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mann Whitney U test&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">x_c</span> <span class="o">=</span> <span class="n">X_controls</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>
+    <span class="n">x_p</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span>
+    <span class="n">effect_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x_p</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x_c</span><span class="p">))</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">median_abs_deviation</span><span class="p">(</span><span class="n">x_c</span><span class="p">)</span>
+    <span class="n">u</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span><span class="n">x_p</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Biomarker </span><span class="si">%i</span><span class="se">\n</span><span class="s1"> - effect size = </span><span class="si">%.3g</span><span class="se">\n</span><span class="s1"> - u = </span><span class="si">%i</span><span class="s1">, p = </span><span class="si">%.2g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">effect_size</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIXME
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mann Whitney U test
+Biomarker 1
+ - effect size = 25.6
+ - u = 563, p = 1.1e-27
+Biomarker 2
+ - effect size = 21.4
+ - u = 1774, p = 1.6e-15
+Biomarker 3
+ - effect size = 6.45
+ - u = 2026, p = 1.9e-13
+Biomarker 4
+ - effect size = 2.79
+ - u = 2422, p = 1.5e-10
 </pre></div>
 </div>
 </div>
@@ -619,7 +663,7 @@
          &lt;AxesSubplot:title={&#39;center&#39;:&#39;Late&#39;}&gt;]], dtype=object))
 </pre></div>
 </div>
-<img alt="../../../_images/T1_kde_ebm_walkthrough_14_1.png" src="../../../_images/T1_kde_ebm_walkthrough_14_1.png" />
+<img alt="../../../_images/T1_kde_ebm_walkthrough_15_1.png" src="../../../_images/T1_kde_ebm_walkthrough_15_1.png" />
 </div>
 </div>
 </div>
@@ -634,7 +678,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* MCMC sequencing</span>
-<span class="n">mcmc_samples</span> <span class="o">=</span> <span class="n">kde_ebm</span><span class="o">.</span><span class="n">mcmc</span><span class="o">.</span><span class="n">mcmc</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kde_mixtures</span><span class="p">)</span>
+<span class="n">mcmc_samples</span> <span class="o">=</span> <span class="n">mcmc</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">kde_mixtures</span><span class="p">)</span>
 <span class="c1">#* Maximum Likelihood sequence over all samples</span>
 <span class="n">seq_ml</span> <span class="o">=</span> <span class="n">mcmc_samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ordering</span>
 <span class="c1"># print(&#39;ML sequence: {0}&#39;.format(seq_ml))</span>
@@ -651,7 +695,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ML order   : Early, Early-ish, Late-ish, Late
 </pre></div>
 </div>
-<img alt="../../../_images/T1_kde_ebm_walkthrough_16_2.png" src="../../../_images/T1_kde_ebm_walkthrough_16_2.png" />
+<img alt="../../../_images/T1_kde_ebm_walkthrough_17_2.png" src="../../../_images/T1_kde_ebm_walkthrough_17_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -662,7 +706,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/T1_kde_ebm_walkthrough_17_0.png" src="../../../_images/T1_kde_ebm_walkthrough_17_0.png" />
+<img alt="../../../_images/T1_kde_ebm_walkthrough_18_0.png" src="../../../_images/T1_kde_ebm_walkthrough_18_0.png" />
 </div>
 </div>
 <div class="section" id="a-prettier-solution">
@@ -785,19 +829,234 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/T1_kde_ebm_walkthrough_20_0.png" src="../../../_images/T1_kde_ebm_walkthrough_20_0.png" />
+<img alt="../../../_images/T1_kde_ebm_walkthrough_21_0.png" src="../../../_images/T1_kde_ebm_walkthrough_21_0.png" />
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="cross-validation">
-<h2>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h2>
-<p><strong>FIXME: add this</strong></p>
 </div>
 <div class="section" id="patient-staging-utility">
 <h2>Patient staging utility<a class="headerlink" href="#patient-staging-utility" title="Permalink to this headline">¶</a></h2>
-<p><strong>FIXME: add this</strong></p>
-<p>Can compare data from each individual (patients/controls/at-risk) with the model and calculate a <code class="docutils literal notranslate"><span class="pre">p(event)</span></code> vector</p>
+<p>Concept: align individuals to the model</p>
+<p>Method (see <a class="reference external" href="https://doi.org/10.1093/brain/awu176">Young et al, Brain 2014</a>): compare data from each individual (patients/controls/at-risk) with the model and calculate a <code class="docutils literal notranslate"><span class="pre">p(event)</span></code> vector, then assign the most likely stage according to the accumulation of disease events</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Define the EBM staging function</span>
+<span class="k">def</span> <span class="nf">ebm_staging</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mixtures</span><span class="p">,</span><span class="n">samples</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a trained EBM (mixture_models,mcmc_samples), and correctly-formatted data, stage the data</span>
+<span class="sd">    NOTE: To use CV-EBMs, you&#39;ll need to call this for each fold, then combine.</span>
+<span class="sd">    Author: Neil P Oxtoby, UCL, September 2018</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mixtures</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="c1">#* List of mixture models from cross-validation / bootstrapping</span>
+        <span class="n">n_cv</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mixtures</span><span class="p">)</span>
+        <span class="n">prob_mat</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stages</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stage_likelihoods</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">stages_expected</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cv</span><span class="p">):</span>
+            <span class="c1">#* Stage the data</span>
+            <span class="n">prob_mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_prob_mat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mixtures</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+            <span class="n">stages_k</span><span class="p">,</span> <span class="n">stage_likelihoods_k</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stage_data</span><span class="p">(</span><span class="n">prob_mat</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stages_k</span><span class="p">)</span>
+            <span class="n">stage_likelihoods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">)</span>
+            <span class="c1">#* Average (expectation value) stage</span>
+            <span class="n">stages_expected_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">stages_k</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stages_expected_k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">stages_expected_k</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">[</span><span class="n">kk</span><span class="p">,:]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stage_likelihoods_k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">[</span><span class="n">kk</span><span class="p">,:])</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">stages_expected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stages_expected_k</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1">#* Stage the data</span>
+        <span class="n">prob_mat</span> <span class="o">=</span> <span class="n">get_prob_mat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mixtures</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">n_bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+            <span class="n">stages</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">stage_likelihoods</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">stages_expected</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_bs</span><span class="p">):</span>
+                <span class="c1">#* Stage the data</span>
+                <span class="n">stages_k</span><span class="p">,</span> <span class="n">stage_likelihoods_k</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stage_data</span><span class="p">(</span><span class="n">prob_mat</span><span class="p">)</span>
+                <span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stages_k</span><span class="p">)</span>
+                <span class="n">stage_likelihoods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">)</span>
+                <span class="c1">#* Average (expectation value) stage</span>
+                <span class="n">stages_expected_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">stages_k</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stages_expected_k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">stages_expected_k</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">[</span><span class="n">kk</span><span class="p">,:]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stage_likelihoods_k</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods_k</span><span class="p">[</span><span class="n">kk</span><span class="p">,:])</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">stages_expected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stages_expected_k</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">stages</span><span class="p">,</span> <span class="n">stage_likelihoods</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stage_data</span><span class="p">(</span><span class="n">prob_mat</span><span class="p">)</span>
+            <span class="c1">#* Average (expectation value) stage</span>
+            <span class="n">stages_expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">stages</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stages_expected</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="n">stages_expected</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stage_likelihoods</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">stage_likelihoods</span><span class="p">[</span><span class="n">k</span><span class="p">,:])</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># #* Average (expectation value) stage</span>
+    <span class="c1"># stages_expected_n = np.sum(stage_likelihoods,axis=1)</span>
+    <span class="c1"># stages_expected_ = np.average(stage_likelihoods_long_ml,axis=1,weights=np.arange(1,stage_likelihoods_long_ml.shape[1]+1,1))</span>
+    <span class="c1"># stages_expected_ = stages_expected_/stages_expected_n</span>
+    
+    <span class="k">return</span> <span class="n">prob_mat</span><span class="p">,</span> <span class="n">stages</span><span class="p">,</span> <span class="n">stage_likelihoods</span><span class="p">,</span> <span class="n">stages_expected</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Staging</span>
+<span class="c1"># df_staging = df_EBM.copy()</span>
+<span class="c1"># staging_columns = [&#39;RID&#39;,&#39;VISCODE&#39;,dx_column,&#39;Years_bl&#39;]+e</span>
+<span class="c1"># df_staging = df_staging[staging_columns].copy()</span>
+<span class="c1"># x_long = df_staging[e].values</span>
+<span class="c1"># df_staging[&#39;Fraction missing data&#39;] = np.sum(np.isnan(x_long),axis=1)/x_long.shape[1]</span>
+<span class="c1"># stage_column = &quot;Model stage&quot;</span>
+
+<span class="c1">#* Maximum-likelihood model stage</span>
+<span class="n">prob_mat_ml</span><span class="p">,</span> <span class="n">stages_long_ml</span><span class="p">,</span> <span class="n">stage_likelihoods_long_ml</span><span class="p">,</span> <span class="n">stages_long_ml_expected</span> <span class="o">=</span> <span class="n">ebm_staging</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">mixtures</span><span class="o">=</span><span class="n">kde_mixtures</span><span class="p">,</span>
+    <span class="n">samples</span><span class="o">=</span><span class="n">mcmc_samples</span>
+<span class="p">)</span>
+<span class="n">stages_long</span> <span class="o">=</span> <span class="n">stages_long_ml</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-a-staging-histogram">
+<h3>Plot a staging histogram<a class="headerlink" href="#plot-a-staging-histogram" title="Permalink to this headline">¶</a></h3>
+<p>Number of individuals in each EBM stage</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span> <span class="n">stages_long</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">stages_long</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">]],</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1"># #* Seaborn version: requires creating a Pandas DataFrame and adding data/etc.</span>
+<span class="c1"># ax = sns.histplot(</span>
+<span class="c1">#     data = df_staging,</span>
+<span class="c1">#     x    = stage_column,</span>
+<span class="c1">#     hue  = &quot;Status&quot;,</span>
+<span class="c1">#     ax   = ax</span>
+<span class="c1">#     discrete  = True,</span>
+<span class="c1">#     multiple  = &quot;dodge&quot;,</span>
+<span class="c1">#     log_scale = (False, True),</span>
+<span class="c1">#     palette   = status_palette,</span>
+<span class="c1"># )</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of individuals&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Controls&#39;</span><span class="p">,</span><span class="s1">&#39;Patients&#39;</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff098927690&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/T1_kde_ebm_walkthrough_26_1.png" src="../../../_images/T1_kde_ebm_walkthrough_26_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#* Plot the original data, coloured by stage</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span><span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">stages_long</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span>
+<span class="c1"># ax.legend([&#39;Stage %i&#39; % k for k in range(N)],loc=&#39;center right&#39;,bbox_to_anchor=[1.5,0.5])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/T1_kde_ebm_walkthrough_27_1.png" src="../../../_images/T1_kde_ebm_walkthrough_27_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="work-in-progress-bonus-cross-validation">
+<h2>(<em>Work In Progress</em>) Bonus: Cross-validation<a class="headerlink" href="#work-in-progress-bonus-cross-validation" title="Permalink to this headline">¶</a></h2>
+<p>Generalizability/robustness of a model can be quantified by <strong>testing</strong> the model on independent data, i.e., data not included when training the model.</p>
+<p>Cross-validation does this by splitting the available data into train/test sets.</p>
+<div class="section" id="k-fold-cross-validation">
+<h3>k-fold cross-validation<a class="headerlink" href="#k-fold-cross-validation" title="Permalink to this headline">¶</a></h3>
+<p>Splitting a dataset into <code class="docutils literal notranslate"><span class="pre">k</span></code> “folds” enables calculation of model performance statistics (e.g., mean, standard deviation) over <code class="docutils literal notranslate"><span class="pre">k</span></code> test sets, using the other <code class="docutils literal notranslate"><span class="pre">k-1</span></code> folds to train the model each time.</p>
+<p>It is common to use <code class="docutils literal notranslate"><span class="pre">k=10</span></code>, which amounts to using 90% of your data to train and 10% to test.</p>
+<p>This process can be repeated multiple times using different random partitions (splits) into folds.</p>
+<p><img alt="image_kfold_cv" src="../../../_images/K-fold_cross_validation_EN.png" /></p>
+<p>By Gufosowa - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=82298768</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># markers_all_detrended = [e+&#39;-detrended&#39; for e in event_markers_adcs]</span>
+<span class="c1"># # df_staging = pd.read_csv(&quot;adcs_ebm-prepped-staging.csv&quot;)</span>
+<span class="c1"># # x = df_staging[markers_all_detrended].values</span>
+<span class="c1"># # y = df_staging[&quot;DX&quot;].values.astype(int)</span>
+
+<span class="c1"># #* RCV1: Repeated, stratified 5-fold CV - round 1 (ML stage is ground truth for test folds)</span>
+<span class="c1"># k_folds = 5</span>
+<span class="c1"># n_repeats = 10</span>
+<span class="c1"># from sklearn.model_selection import RepeatedStratifiedKFold</span>
+<span class="c1"># repeated_cvfolds = RepeatedStratifiedKFold(n_splits=k_folds, n_repeats=n_repeats) #, random_state=36851234)</span>
+<span class="c1"># if &quot;mixtures_rcv&quot; in ebm_results:</span>
+<span class="c1">#     kde_mixtures_rcv = ebm_results[&quot;mixtures_rcv&quot;]</span>
+<span class="c1">#     mcmc_samples_rcv = ebm_results[&quot;mcmc_samples_rcv&quot;]</span>
+<span class="c1">#     seqs_rcv = ebm_results[&quot;sequences_rcv&quot;]</span>
+<span class="c1">#     staging_errors_rcv = ebm_results[&quot;staging_errors_rcv&quot;]</span>
+<span class="c1"># else:</span>
+<span class="c1">#     kde_mixtures_rcv, mcmc_samples_rcv, seqs_rcv, staging_errors_rcv = ebm_ute.ebm_2_repeatedcv(</span>
+<span class="c1">#         x=x,</span>
+<span class="c1">#         y=y,</span>
+<span class="c1">#         events=markers_all_detrended,</span>
+<span class="c1">#         rcv_folds=repeated_cvfolds,</span>
+<span class="c1">#         implement_fixed_controls=True,</span>
+<span class="c1">#         patholog_dirn_array=event_markers_adcs_disease_direction,</span>
+<span class="c1">#         model_stage=df_staging[&quot;Model stage&quot;].values</span>
+<span class="c1">#     )</span>
+<span class="c1">#     #* Save</span>
+<span class="c1">#     ebm_results[&quot;mixtures_rcv&quot;] = kde_mixtures_rcv</span>
+<span class="c1">#     ebm_results[&quot;mcmc_samples_rcv&quot;] = mcmc_samples_rcv</span>
+<span class="c1">#     ebm_results[&quot;sequences_rcv&quot;] = seqs_rcv</span>
+<span class="c1">#     ebm_results[&quot;staging_errors_rcv&quot;] = staging_errors_rcv</span>
+<span class="c1">#     pickle_file = open(pickle_path,&#39;wb&#39;)</span>
+<span class="c1">#     pickle_output = pickle.dump(ebm_results, pickle_file)</span>
+<span class="c1">#     pickle_file.close()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #* Plot EBM (PVD)</span>
+<span class="c1"># pvd_rcv, seq_rcv = ebm_ute.extract_pvd(ml_order=seqs_rcv,samples=mcmc_samples_rcv)</span>
+<span class="c1"># reorder_rcv = np.argsort(seq_rcv)</span>
+<span class="c1"># pvd_rcv_ = pvd_rcv[:][reorder_rcv]</span>
+
+<span class="c1"># fig, ax = plt.subplots(1,1,figsize=(9, 6),sharey=False)</span>
+<span class="c1"># labels = ebm_scores_labels</span>
+<span class="c1"># labels_ = [labels[i].replace(&#39;TOTAL&#39;,&#39;&#39;).replace(&#39;TOT&#39;,&#39;&#39;).replace(&#39;-detrended&#39;,&#39;&#39;) for i in seq_rcv]</span>
+<span class="c1"># ax.imshow(pvd_rcv_[:][seq_rcv], interpolation=&#39;nearest&#39;, cmap=&#39;Oranges&#39;)</span>
+<span class="c1"># # ax.set_title(&#39;Cross-Validation&#39;,fontsize=24)</span>
+
+<span class="c1"># n_biomarkers = pvd_rcv.shape[0]</span>
+<span class="c1"># stp = 1</span>
+<span class="c1"># fs = 14</span>
+<span class="c1"># tick_marks_x = np.arange(0,n_biomarkers,stp)</span>
+<span class="c1"># x_labs = range(1, n_biomarkers+1,stp)</span>
+<span class="c1"># ax.set_xticks(tick_marks_x)</span>
+<span class="c1"># ax.set_xticklabels(x_labs, rotation=0,fontsize=fs)</span>
+<span class="c1"># tick_marks_y = np.arange(n_biomarkers)</span>
+<span class="c1"># ax.set_yticks(tick_marks_y+0)</span>
+<span class="c1"># ax.tick_params(axis=&#39;y&#39;,color=&#39;w&#39;)</span>
+<span class="c1"># labels_trimmed = [x[2:].replace(&#39;_&#39;, &#39; &#39;) if x.startswith(&#39;p_&#39;) else x.replace(&#39;_&#39;, &#39; &#39;) for x in labels_]</span>
+<span class="c1"># ax.set_yticklabels(labels_trimmed,#,np.array(labels_trimmed, dtype=&#39;object&#39;)[seq_],</span>
+<span class="c1">#                    rotation=0, #ha=&#39;right&#39;,</span>
+<span class="c1">#                    rotation_mode=&#39;anchor&#39;,</span>
+<span class="c1">#                    fontsize=18)</span>
+<span class="c1"># # ax.set_ylabel(&#39;Instrument&#39;, fontsize=28)</span>
+<span class="c1"># ax.set_xlabel(&#39;Sequence&#39;, fontsize=22)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -830,7 +1089,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="ebm.html" title="previous page">Disease Course Sequencing with the Event Based Model</a>
-    <a class='right-next' id="next-link" href="../disease_course_mapping/disease_course_mapping.html" title="next page">Disease Course Mapping with Leaspy</a>
+    <a class='right-next' id="next-link" href="T2_pyEBM_walkthrough.html" title="next page">Disease Course Sequencing with the DEBM</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

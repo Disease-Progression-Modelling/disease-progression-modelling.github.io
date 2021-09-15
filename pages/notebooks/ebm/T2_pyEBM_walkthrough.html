@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Course Sequencing with the DEBM &#8212; Disease Progression Modelling</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/js/custom_js.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Disease Course Mapping with Leaspy" href="../disease_course_mapping/disease_course_mapping.html" />
+    <link rel="prev" title="Disease Course Sequencing with the EBM" href="T1_kde_ebm_walkthrough.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../main.html">
+   Disease Progression Modelling
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/introduction.html">
+   Introduction to DPM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/event_based_model.html">
+   Event Based Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/disease_course_mapping.html">
+   Disease Course Mapping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../models/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="ebm.html">
+   Disease Course Sequencing with the Event Based Model
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="T1_kde_ebm_walkthrough.html">
+     Tutorial 1 - EBM Walkthrough
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Tutorial 2 - DEBM Walkthrough
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../disease_course_mapping/disease_course_mapping.html">
+   Disease Course Mapping with Leaspy
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP1_LMM.html">
+     Tutorial 1 - Linear Mixed Effect Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP2_leaspy_beginner.html">
+     Tutorial 2 - Get ready with Leaspy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../disease_course_mapping/TP3_advanced_leaspy.html">
+     Tutorial 3 - Leaspy advanced
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">
+   GP Progression Model
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
+     Tutorial 1 - GP Progression Model Walkthrough
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">
+     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Conferences
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/conferences.html">
+   Conferences
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/MICCAI.html">
+   MICCAI 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../conferences/ISBI.html">
+   ISBI 2021
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Other
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../other/contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/ebm/T2_pyEBM_walkthrough.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Disease-Progression-Modelling/disease-progression-modelling.github.io/master?urlpath=tree/pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyebm-walkthrough">
+   pyEBM Walkthrough
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-page-is-a-static-html-file-click-here-for-online-execution-of-the-codes-in-this-tutorial">
+     This page is a static html file. Click here for online execution of the codes in this tutorial
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="disease-course-sequencing-with-the-debm">
+<h1>Disease Course Sequencing with the DEBM<a class="headerlink" href="#disease-course-sequencing-with-the-debm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pyebm-walkthrough">
+<h2>pyEBM Walkthrough<a class="headerlink" href="#pyebm-walkthrough" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="this-page-is-a-static-html-file-click-here-for-online-execution-of-the-codes-in-this-tutorial">
+<h3>This page is a static html file. Click <a class="reference external" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb">here</a> for online execution of the codes in this tutorial<a class="headerlink" href="#this-page-is-a-static-html-file-click-here-for-online-execution-of-the-codes-in-this-tutorial" title="Permalink to this headline">¶</a></h3>
+<p><img alt="DEBM Illustration" src="../../../_images/debm_illu.jpg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Simulate data using sigmoids. Low values indicate healthy biomarkers. High values indicate abnormal biomarker values.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
+
+<span class="k">def</span> <span class="nf">simulate_data</span><span class="p">(</span><span class="n">noise_scale</span><span class="p">,</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># number of events/features</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1"># number of patients</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">J</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="o">=-</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">b</span><span class="p">)))</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">J</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gradients</span><span class="p">))):</span>
+        <span class="c1"># print(&#39;a = %i, b = %i&#39; % (a,b))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">dp</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+        <span class="c1">#print(x)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_scale</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Disease Progression Time&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> 
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;sigmoid(t)&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">dp</span>
+
+<span class="n">noise_scale</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">onsets</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">])</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">dp</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">noise_scale</span><span class="p">,</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_1_1.png" src="../../../_images/T2_pyEBM_walkthrough_1_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
+
+<span class="c1">## dp is the simulated disease timeline (x-axis of the above plot). This function sets 2 thresholds on the disease timeline to define 3 diagnostic classes in the simulated data.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+
+<span class="c1">## Prepare data for DEBM call.</span>
+
+<span class="k">def</span> <span class="nf">prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="n">thresh1</span><span class="p">,</span> <span class="n">thresh2</span><span class="p">):</span>
+    <span class="n">idx_cases</span> <span class="o">=</span> <span class="n">dp</span> <span class="o">&gt;=</span> <span class="n">thresh2</span>
+    <span class="n">idx_controls</span> <span class="o">=</span> <span class="n">dp</span> <span class="o">&lt;=</span> <span class="n">thresh1</span>
+    <span class="n">idx_mci</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">dp</span><span class="o">&gt;</span><span class="n">thresh1</span><span class="p">,</span><span class="n">dp</span><span class="o">&lt;</span><span class="n">thresh2</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="c1"># This sets the order in which different biomarkers become abnormal</span>
+    <span class="c1"># The set order is biomarker 3 -&gt; followed by 1 --&gt; followed by 4 --&gt; followed by 2</span>
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Biomarker 3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Biomarker 1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Biomarker 4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Biomarker 2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_cases</span><span class="p">,</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;AD&#39;</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_controls</span><span class="p">,</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CN&#39;</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_mci</span><span class="p">,</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MCI&#39;</span>
+    <span class="n">D</span><span class="p">[</span><span class="s1">&#39;PTID&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">index</span>
+    <span class="k">return</span> <span class="n">D</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pyebm
+<span class="kn">from</span> <span class="nn">pyebm</span> <span class="kn">import</span> <span class="n">debm</span>
+
+<span class="c1">## Basic call</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">ModelOutput</span><span class="o">.</span><span class="n">BiomarkerList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ModelOutput</span><span class="o">.</span><span class="n">MeanCentralOrdering</span><span class="p">])</span>
+
+<span class="c1">## Note: The order printed here is the same as the ground truth ordering set obove. You can verify this by changing the order in which biomarkers becomes abnormal in the above cell.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyebm in /usr/local/lib/python3.7/dist-packages (2.0.3)
+Requirement already satisfied: seaborn in /usr/local/lib/python3.7/dist-packages (from pyebm) (0.11.1)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.7/dist-packages (from pyebm) (3.2.2)
+Requirement already satisfied: scipy in /usr/local/lib/python3.7/dist-packages (from pyebm) (1.4.1)
+Requirement already satisfied: scikit-learn in /usr/local/lib/python3.7/dist-packages (from pyebm) (0.22.2.post1)
+Requirement already satisfied: statsmodels in /usr/local/lib/python3.7/dist-packages (from pyebm) (0.10.2)
+Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from pyebm) (1.19.5)
+Requirement already satisfied: six in /usr/local/lib/python3.7/dist-packages (from pyebm) (1.15.0)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.7/dist-packages (from pyebm) (4.41.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from pyebm) (2.23.0)
+Requirement already satisfied: pandas in /usr/local/lib/python3.7/dist-packages (from pyebm) (1.1.5)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;pyebm) (2.4.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;pyebm) (1.3.1)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;pyebm) (2.8.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;pyebm) (0.10.0)
+Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from scikit-learn-&gt;pyebm) (1.0.1)
+Requirement already satisfied: patsy&gt;=0.4.0 in /usr/local/lib/python3.7/dist-packages (from statsmodels-&gt;pyebm) (0.5.1)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;pyebm) (2.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;pyebm) (2020.12.5)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;pyebm) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;pyebm) (1.24.3)
+Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.7/dist-packages (from pandas-&gt;pyebm) (2018.9)
+[&#39;Biomarker 3&#39;, &#39;Biomarker 1&#39;, &#39;Biomarker 4&#39;, &#39;Biomarker 2&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## If you want to view the outputs of the model in different stages you can use VerboseOptions</span>
+<span class="c1"># In this example, you can view the output of Gaussian Mixture Model</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span> 
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Distributions&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">Distributions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/T2_pyEBM_walkthrough_4_0.png" src="../../../_images/T2_pyEBM_walkthrough_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Uncertainty estimates of the model can be computed by bootstrap resampling the input data. This can be controlled by MethodOptions</span>
+
+<span class="c1"># Bootstrapping</span>
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Indicates 10 random iterations of bootstrap resampling</span>
+
+<span class="c1"># Visual output of the ordering can be obtained by:</span>
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Ordering&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">Ordering</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">)</span>
+
+<span class="c1">## Note: On top of estimating the sequence in which biomarkers become abnormal, the method also estimates the relative temporal distance between the different biomarkers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_5_1.png" src="../../../_images/T2_pyEBM_walkthrough_5_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_5_2.png" src="../../../_images/T2_pyEBM_walkthrough_5_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## The model estimates are very certain because the simulated data is near perfect. Real data usually has measurement errors, low effect sizes etc. Here, you can simulate a more difficult data using noise_scale parameter and the gradients parameters (lower value indicates slower progressing biomarkers, which results in lower effect sizes).</span>
+
+<span class="n">noise_scale</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># Increased this from 0.1</span>
+<span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">])</span>
+<span class="n">onsets</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">16</span><span class="p">])</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">dp</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">noise_scale</span><span class="p">,</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_6_1.png" src="../../../_images/T2_pyEBM_walkthrough_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
+
+<span class="c1">## dp is the simulated disease timeline (x-axis of the above plot). This function sets 2 thresholds on the disease timeline to define 3 diagnostic classes in the simulated data.</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Indicates 10 random iterations of bootstrap resampling</span>
+
+<span class="c1"># Visual output of the ordering can be obtained by:</span>
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Ordering&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">Ordering</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">)</span>
+
+<span class="c1">## Note: With a more difficult simulated dataset, the uncertainties of the estimates can be more easily seen.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_8_1.png" src="../../../_images/T2_pyEBM_walkthrough_8_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_8_2.png" src="../../../_images/T2_pyEBM_walkthrough_8_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## In real data, the sequence of biomarkers in itself is not fully informative, because some biomarkers become abnormal at almost the same time, whereas some others become abnormal at substantially different times. In the simulated data this can be controlled by the variable &quot;onsets&quot;. </span>
+
+<span class="n">noise_scale</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">gradients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">0.75</span><span class="p">])</span>
+<span class="n">onsets</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span> <span class="c1"># earlier value [4,8,12,16]</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">dp</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">noise_scale</span><span class="p">,</span><span class="n">gradients</span><span class="p">,</span><span class="n">onsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;sigmoid(t)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_9_1.png" src="../../../_images/T2_pyEBM_walkthrough_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## define cases, controls, and subjects in the prodromal stage of disease</span>
+<span class="c1">## For example: if the cases represent Alzheimer&#39;s disease (AD), mild cognitive impairment (MCI) is the prodromal stage of the disease</span>
+
+<span class="c1">## dp is the simulated disease timeline (x-axis of the above plot)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dp</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bootstrapping</span>
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Indicates 10 random iterations of bootstrap resampling</span>
+
+<span class="c1"># Visual output of the ordering can be obtained by:</span>
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Ordering&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">Ordering</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">)</span>
+
+<span class="c1">## Note: Here, even though the ordering plot shows a similar ordering as the first dataset, the event-center plot shows how close the biomarker abnormality events are to each other.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0][1][2][3][4][5][6][7][8][9]
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_11_1.png" src="../../../_images/T2_pyEBM_walkthrough_11_1.png" />
+<img alt="../../../_images/T2_pyEBM_walkthrough_11_2.png" src="../../../_images/T2_pyEBM_walkthrough_11_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## The outputs until now were for the entire datasets. Now we will look into patient specific outputs</span>
+<span class="c1">## Patient Staging estimates the stages of different subjects along the disease timeline. </span>
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;PatientStaging&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">PatientStaging</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">)</span>
+
+<span class="c1">## Note: Unlike EBM, DEBM estimates patient stages between 0 and 1 (rather between 0 and the position of the last event-center), since it also considers relative positioning of events into account.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu Sans.
+findfont: Font family [&#39;sans-serif&#39;] not found. Falling back to DejaVu Sans.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in training set
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_12_2.png" src="../../../_images/T2_pyEBM_walkthrough_12_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## All the computations until now were done on the training set. If you have a separate test / validation set, that can be included as input in the function call as well.</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
+
+<span class="n">DTrain</span><span class="p">,</span> <span class="n">DTest</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span><span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span><span class="s1">&#39;PatientStaging&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">PatientStaging</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">DTrain</span><span class="p">,</span><span class="n">Factors</span><span class="o">=</span><span class="p">[],</span><span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">,</span> <span class="n">DataTest</span><span class="o">=</span><span class="n">DTest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in training set
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_13_1.png" src="../../../_images/T2_pyEBM_walkthrough_13_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated patient stages of subjects in test set
+</pre></div>
+</div>
+<img alt="../../../_images/T2_pyEBM_walkthrough_13_3.png" src="../../../_images/T2_pyEBM_walkthrough_13_3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## In the simulated datasets, we could compare the estimated ordering to the ground-truth ordering to see how accurate our estimate was. This is not possible in real data. One of the ways for validating the model in real data is by using the accuracy of classification of patients into different diagnostic groups (for e.g. CN vs AD) using the DEBM model&#39;s patient stages.</span>
+
+<span class="c1">## Here, we compute the AUC for CN vs AD classification, done in a cross-validated manner</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span> <span class="k">as</span> <span class="n">SKF</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="n">MO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;MethodOptions&#39;</span><span class="p">,</span> <span class="s1">&#39;Bootstrap&#39;</span><span class="p">)</span>
+<span class="n">MO</span><span class="o">.</span><span class="n">Bootstrap</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">VO</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;VerboseOptions&#39;</span><span class="p">,</span> <span class="s1">&#39;Distributions PatientStaging&#39;</span><span class="p">)</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">PatientStaging</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">VO</span><span class="o">.</span><span class="n">Distributions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span>
+<span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="s1">&#39;CN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="s1">&#39;AD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">Y</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="s1">&#39;MCI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">skf</span> <span class="o">=</span> <span class="n">SKF</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cross-Validation Iteration:&quot;</span><span class="p">)</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">count</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">DTrain</span><span class="p">,</span> <span class="n">DTest</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">D</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">ModelOutput</span><span class="p">,</span> <span class="n">SubjTrain</span><span class="p">,</span> <span class="n">SubjTest</span> <span class="o">=</span> <span class="n">debm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">DTrain</span><span class="p">,</span> <span class="n">Factors</span><span class="o">=</span><span class="p">[],</span> <span class="n">Labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span><span class="p">,</span><span class="s1">&#39;MCI&#39;</span><span class="p">,</span><span class="s1">&#39;AD&#39;</span><span class="p">],</span><span class="n">MethodOptions</span><span class="o">=</span><span class="n">MO</span><span class="p">,</span> <span class="n">VerboseOptions</span><span class="o">=</span><span class="n">VO</span><span class="p">,</span> <span class="n">DataTest</span><span class="o">=</span><span class="n">DTest</span><span class="p">)</span>
+
+    <span class="n">stages</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">SubjTest</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Stages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">Yt</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="s1">&#39;Diagnosis&#39;</span><span class="p">]</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">Yt</span> <span class="o">!=</span> <span class="s1">&#39;MCI&#39;</span>
+<span class="n">Yt</span> <span class="o">=</span> <span class="n">Yt</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">Yt</span><span class="p">[</span><span class="n">Yt</span> <span class="o">==</span> <span class="s1">&#39;CN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Yt</span><span class="p">[</span><span class="n">Yt</span> <span class="o">==</span> <span class="s1">&#39;AD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">Yt</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">stages</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\AUC of DEBM using 10-fold cross-validation = &quot;</span><span class="p">,</span> <span class="n">auc</span><span class="p">)</span>
+
+<span class="c1">## Note: The AUC is very high because the simulated dataset is near ideal. You can try to change the following parameters in the simulation script and see how the auc gets affected: noise_scale, gradients, onsets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cross-Validation Iteration:
+[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],\AUC of DEBM using 10-fold cross-validation =  0.9998857142857144
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pages/notebooks/ebm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="T1_kde_ebm_walkthrough.html" title="previous page">Disease Course Sequencing with the EBM</a>
+    <a class='right-next' id="next-link" href="../disease_course_mapping/disease_course_mapping.html" title="next page">Disease Course Mapping with Leaspy</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Disease Progression Modelling community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
