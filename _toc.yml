@@ -10,6 +10,8 @@
       title: Disease Course Mapping
     - file: pages/models/non_parametric_DPM
       title: GP Progression Model
+    - file: pages/models/SuStaIn
+      title: SuStaIn
 
 - part: Notebooks
   chapters:
@@ -37,6 +39,11 @@
         title: Tutorial 1 - GP Progression Model Walkthrough
       - file: pages/notebooks/non_parametric_DPM/GPPM_DS
         title: Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
+
+  - file: pages/notebooks/sustain/sustain
+    sections:
+      - file: pages/notebooks/sustain/T1_sustain_walkthrough
+        title: Tutorial 1 - SuStaIn Walkthrough
 
   # - file: pages/notebooks/data_simulation/data_simulation
   #   sections:
