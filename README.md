@@ -68,7 +68,7 @@ You should be able to navigate and see the website with your modifications.
 Once you are satisfied with your changes, you can open a merge request so that administrators review your code and add it to the website
 
 Note for administrators :
-Github tracks the `_build` folder of the `pg-pages` branch. To push the static files to this branch, we use the `ghg-import` package.
+Github tracks the `_build` folder of the `gh-pages` branch. To push the static files to this branch, we use the `ghp-import` package.
 To use it, you just have to run the following code :
 ```
 ghp-import -n -p -f _build/html

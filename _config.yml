@@ -18,3 +18,17 @@ html:
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
+
+
+# Enable definition lists
+parse:
+  myst_enable_extensions:
+    - deflist
+    - dollarmath
+    - amsmath
+
+
+# Enabble latex
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
