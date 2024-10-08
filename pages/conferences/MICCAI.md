@@ -11,7 +11,10 @@ width: 70%
 **MICCAI 20201**.
 ```
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -19,10 +22,10 @@ width: 70%
 ^^^
 The proposed tutorial is intended to present the most advanced and mature data-driven models for the modelling of neurological disease progression within a day-long session. The main objective is to illustrate the major challenges of modelling neurodegenerative disorders, especially the unknown (and heterogeneous) disease time axis, and, the reconstruction of long-term disease history from short-term individual observations - challenges existing beyond neurological applications. To that end, the tutorial will dive into state-of-the-art models that allows to take the best out of cross-sectional and longitudinal data. Short lectures introducing the intention of each DPM model will be followed by hands-on session based on Python notebooks that illustrate the different concepts in the context of Alzheimer's disease progression. At the end, the participants will be able to select a DPM model suitable to their own dataset and implement it thanks to the software presented.
 
-{badge}`Conference workshop,badge-primary`
+<!-- {badge}`Conference workshop,badge-primary`
 {badge}`Hands-on session,badge-primary`
-{badge}`Full day,badge-primary`
-````
+{badge}`Full day,badge-primary` -->
+::::
 
 [Link to the conference](https://www.miccai2021.org/en)
 
