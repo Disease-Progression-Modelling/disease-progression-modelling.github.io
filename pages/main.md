@@ -65,11 +65,11 @@ Recent mathematical development have enable to unveil some aspect of disease pro
 
 +++
 
-```{link-button} models/introduction
+<!--```{link-button} models/introduction
 :type: ref
 :text: Discover the models
 :classes: btn-outline-primary btn-block stretched-link
-```
+```-->
 
 ---
 **Tutorials**
@@ -79,11 +79,11 @@ To better grasp the intention of each model, we propose few tutorials in the for
 
 +++
 
-```{link-button} notebooks/overview
+<!--```{link-button} notebooks/overview
 :type: ref
 :text: Explore the notebook
 :classes: btn-outline-primary btn-block stretched-link
-```
+```-->
 
 ---
 
@@ -94,11 +94,11 @@ The DPM community is eager to communicate about the most recent developments. Fo
 
 +++
 
-```{link-button} conferences/conferences
+<!--```{link-button} conferences/conferences
 :type: ref
 :text: Find out more about the workshops
 :classes: btn-outline-primary btn-block stretched-link
-```
+```-->
 
 ---
 
@@ -110,10 +110,10 @@ Do not hesitate to reach out if you want to be part of the community
 
 +++
 
-```{link-button} other/contributors
+<!--```{link-button} other/contributors
 :type: ref
 :text: Join the contributors
 :classes: btn-outline-primary btn-block stretched-link
-```
+```-->
 
 ::::
