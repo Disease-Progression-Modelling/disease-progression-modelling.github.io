@@ -1,437 +1,470 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear Mixed-effects Models &#8212; Disease Progression Modelling</title>
-    
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom_css.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/js/custom_js.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/notebooks/disease_course_mapping/TP1_LMM';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="First steps with Leaspy" href="TP2_leaspy_beginner.html" />
     <link rel="prev" title="Disease Course Mapping with Leaspy" href="disease_course_mapping.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../main.html">
   
   
-  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
   
+  
+  
+    <p class="title logo__title">Disease Progression Modelling</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../main.html">
+                    Disease Progression Modelling
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../models/introduction.html">Introduction to DPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/event_based_model.html">Event Based Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/disease_course_mapping.html">Disease Course Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/non_parametric_DPM.html">GP Progression Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/SuStaIn.html">SuStaIn</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ebm/ebm.html">Disease Course Sequencing with the Event Based Model</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ebm/T1_kde_ebm_walkthrough.html">Tutorial 1 - EBM Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ebm/T2_pyEBM_walkthrough.html">Tutorial 2 - DEBM Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="disease_course_mapping.html">Disease Course Mapping with Leaspy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial 1 - Linear Mixed Effect Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TP2_leaspy_beginner.html">Tutorial 2 - Get ready with Leaspy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TP3_advanced_leaspy.html">Tutorial 3 - Leaspy advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">GP Progression Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">Tutorial 1 - GP Progression Model Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sustain/sustain.html">Disease Course Sequencing and Phenotyping with the Subtype and Stage Inference Model</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sustain/T1_sustain_walkthrough.html">Tutorial 1 - SuStaIn Walkthrough</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conferences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../conferences/conferences.html">Conferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conferences/MICCAI.html">MICCAI 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conferences/ISBI.html">ISBI 2021</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../other/contributors.html">Contributors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../main.html">
-   Disease Progression Modelling
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Models
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../models/introduction.html">
-   Introduction to DPM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../models/event_based_model.html">
-   Event Based Model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../models/disease_course_mapping.html">
-   Disease Course Mapping
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../models/non_parametric_DPM.html">
-   GP Progression Model
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../ebm/ebm.html">
-   Disease Course Sequencing with the Event Based Model
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ebm/T1_kde_ebm_walkthrough.html">
-     Tutorial 1 - EBM Walkthrough
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ebm/T2_pyEBM_walkthrough.html">
-     Tutorial 2 - DEBM Walkthrough
-    </a>
-   </li>
+</li>
+      
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="disease_course_mapping.html">
-   Disease Course Mapping with Leaspy
-  </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Tutorial 1 - Linear Mixed Effect Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="TP2_leaspy_beginner.html">
-     Tutorial 2 - Get ready with Leaspy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="TP3_advanced_leaspy.html">
-     Tutorial 3 - Leaspy advanced
-    </a>
-   </li>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/disease_course_mapping/TP1_LMM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../non_parametric_DPM/non_parametric_DPM.html">
-   GP Progression Model
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/GPPM_basic.html">
-     Tutorial 1 - GP Progression Model Walkthrough
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">
-     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
-    </a>
-   </li>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Conferences
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../conferences/conferences.html">
-   Conferences
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../conferences/MICCAI.html">
-   MICCAI 2021
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../conferences/ISBI.html">
-   ISBI 2021
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Other
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../other/contributors.html">
-   Contributors
-  </a>
- </li>
-</ul>
-
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/notebooks/disease_course_mapping/TP1_LMM.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
 </div>
+              
+              
 
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Disease-Progression-Modelling/disease-progression-modelling.github.io/master?urlpath=tree/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/Disease-Progression-Modelling/disease-progression-modelling.github.io/blob/master/pages/notebooks/disease_course_mapping/TP1_LMM.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linear Mixed-effects Models</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectives">
-   Objectives :
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-set-up">
-   The set-up
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-i-the-data">
-   Part I: The data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-ii-linear-regression">
-   Part II: Linear Regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-iii-the-longitudinal-aspect">
-   Part III: The longitudinal aspect
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-iv-indivual-linear-regressions">
-   PART IV: Indivual Linear Regressions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-v-linear-mixed-effects-model-with-statsmodels">
-   Part V : Linear Mixed effects Model with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     statsmodels
-    </span>
-   </code>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#run-a-lmm-with-statsmodels">
-     Run a LMM with
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       statsmodels
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-   PART VI: A taste of the future - Linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-   PART VII: A taste of the future - Non-linear mixed-effect model with
-   <em>
-    Leaspy
-   </em>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-   For the fast-running Zebras: all-in-one with a more realistic split of data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-   Bonus: have a look at the LMM log-likelihood landscape
-  </a>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives :</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-set-up">The set-up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-the-data">Part I: The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-linear-regression">Part II: Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii-the-longitudinal-aspect">Part III: The longitudinal aspect</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iv-indivual-linear-regressions">PART IV: Indivual Linear Regressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-v-linear-mixed-effects-model-with-statsmodels">Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-lmm-with-statsmodels">Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
 </ul>
-
-        </nav>
-        
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">For the fast-running Zebras: all-in-one with a more realistic split of data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">Bonus: have a look at the LMM log-likelihood landscape</a></li>
+</ul>
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="linear-mixed-effects-models">
-<h1>Linear Mixed-effects Models<a class="headerlink" href="#linear-mixed-effects-models" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-mixed-effects-models">
+<h1>Linear Mixed-effects Models<a class="headerlink" href="#linear-mixed-effects-models" title="Permalink to this heading">#</a></h1>
 <p>Welcome for the first practical session of the day !</p>
 <div class="section" id="objectives">
-<h2>Objectives :<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Objectives :<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Get a better idea of medical data, especially longitudinal ones</p></li>
 <li><p>Understand mixed-effects models</p></li>
@@ -439,7 +472,7 @@
 </ul>
 </div>
 <div class="section" id="the-set-up">
-<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this headline">¶</a></h2>
+<h2>The set-up<a class="headerlink" href="#the-set-up" title="Permalink to this heading">#</a></h2>
 <p>If you have followed the <a class="reference external" href="https://gitlab.com/icm-institute/aramislab/disease-course-mapping-solutions">installation details</a> carefully, you should</p>
 <ul class="simple">
 <li><p>be running this notebook in the <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> conda environment (be sure that the kernel you are using is <code class="docutils literal notranslate"><span class="pre">leaspy_tutorial</span></code> =&gt; check <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> above)</p></li>
@@ -464,7 +497,7 @@
 </div>
 </div>
 <div class="section" id="part-i-the-data">
-<h2>Part I: The data<a class="headerlink" href="#part-i-the-data" title="Permalink to this headline">¶</a></h2>
+<h2>Part I: The data<a class="headerlink" href="#part-i-the-data" title="Permalink to this heading">#</a></h2>
 <p>We import a functional medical imaging dataset. We have extracted, for each timepoint, the average value of the metabolic activity of the <em>putamen</em>. This brain region is commonly damaged by <em>Parkinson’s disease</em>.</p>
 <p>IMPORTANT: The values have been normalized such that a <em>normal value</em> is zero and a <em>very abrnomal value</em> is one.</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 2 💬</span> Run the following cell and look at the <code class="docutils literal notranslate"><span class="pre">head</span></code> of the dataframe to better understand what the data are.</p>
@@ -651,20 +684,20 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;SPLIT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> 
-                <span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+                <span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PUTAMEN - Raw data&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_13_0.png" src="../../../_images/TP1_LMM_13_0.png" />
+<img alt="../../../_images/03175409af01347e57315854a40a30e8d0e31c976ab442d15678b6000d93331a.png" src="../../../_images/03175409af01347e57315854a40a30e8d0e31c976ab442d15678b6000d93331a.png" />
 </div>
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> At first look, the <em>PUTAMEN values</em> do not seem highly correlated to <em>TIME</em>.</p>
 </div>
 <div class="section" id="part-ii-linear-regression">
-<h2>Part II: Linear Regression<a class="headerlink" href="#part-ii-linear-regression" title="Permalink to this headline">¶</a></h2>
+<h2>Part II: Linear Regression<a class="headerlink" href="#part-ii-linear-regression" title="Permalink to this heading">#</a></h2>
 <p>As we are some pro ML players, let’s make some predictions : let’s try to predict the putamen value based on the time alone.</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 6 💬</span> Store the train and test data in <code class="docutils literal notranslate"><span class="pre">df_train</span></code> and <code class="docutils literal notranslate"><span class="pre">df_test</span></code></p>
 <div class="cell docutils container">
@@ -794,7 +827,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 
 
 <span class="k">def</span> <span class="nf">compute_rmse</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute RMSE between PUTAMEN column and the &lt;model_name&gt; column of df&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute RMSE between PUTAMEN column and the &lt;model_name&gt; column of df&quot;&quot;&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">]</span>
     <span class="n">y_hat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span>
     <span class="n">diff</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_hat</span>
@@ -802,7 +835,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 
 
 <span class="k">def</span> <span class="nf">compute_rmse_train_test</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">overall_results</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Inplace modification of &lt;overall_results&gt;&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inplace modification of &lt;overall_results&gt;&quot;&quot;&quot;</span>
     <span class="n">overall_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_rmse</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;SPLIT&#39;</span><span class="p">),</span> <span class="n">model_name</span><span class="p">)</span>
     <span class="n">overall_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_rmse</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;SPLIT&#39;</span><span class="p">),</span> <span class="n">model_name</span><span class="p">)</span>
 
@@ -850,7 +883,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="n">overall_results</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Precise model&#39;s name and its RMSE train &amp; test&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Precise model&#39;s name and its RMSE train &amp; test&quot;&quot;&quot;</span>
     <span class="n">rmse_train</span> <span class="o">=</span> <span class="n">overall_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">]</span>
     <span class="n">rmse_test</span> <span class="o">=</span> <span class="n">overall_results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">]</span>
     <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;PUTAMEN - Raw data vs </span><span class="si">{</span><span class="n">model_name</span><span class="si">:</span><span class="s1">s</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
@@ -880,7 +913,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
     <span class="c1"># ---- Plot</span>
     <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;scatter&#39;</span><span class="p">:</span>
         <span class="c1"># -- Used for Linear Regression</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> 
+        <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;TIME&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> 
                         <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observations&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;TIME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                 <span class="n">df</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
@@ -921,14 +954,14 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_26_0.png" src="../../../_images/TP1_LMM_26_0.png" />
+<img alt="../../../_images/66f37a9115fc729ba9fe2815733b944158131467afdc9b323c4e6c81231ac094.png" src="../../../_images/66f37a9115fc729ba9fe2815733b944158131467afdc9b323c4e6c81231ac094.png" />
 </div>
 </div>
 <p>Is the previous plot relevant to assess the quality of our model?</p>
 <p>We will answer this question in the following cells:</p>
 </div>
 <div class="section" id="part-iii-the-longitudinal-aspect">
-<h2>Part III: The longitudinal aspect<a class="headerlink" href="#part-iii-the-longitudinal-aspect" title="Permalink to this headline">¶</a></h2>
+<h2>Part III: The longitudinal aspect<a class="headerlink" href="#part-iii-the-longitudinal-aspect" title="Permalink to this heading">#</a></h2>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 11 💬</span> Run the cell to have a better understanding of your data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,7 +973,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_29_0.png" src="../../../_images/TP1_LMM_29_0.png" />
+<img alt="../../../_images/f1685ff59390af1173e243eb59add389f66280f8659d291b8cfeed8b0ce1b3eb.png" src="../../../_images/f1685ff59390af1173e243eb59add389f66280f8659d291b8cfeed8b0ce1b3eb.png" />
 </div>
 </div>
 <p>The test data are highlited with dots.
@@ -950,7 +983,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 <p>Your answer: …</p>
 </div>
 <div class="section" id="part-iv-indivual-linear-regressions">
-<h2>PART IV: Indivual Linear Regressions<a class="headerlink" href="#part-iv-indivual-linear-regressions" title="Permalink to this headline">¶</a></h2>
+<h2>PART IV: Indivual Linear Regressions<a class="headerlink" href="#part-iv-indivual-linear-regressions" title="Permalink to this heading">#</a></h2>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> In fact, this is not the best idea to have one general linear regression. Because we do not benefit from indiviudal information. Therefore, let’s do one linear regression per individual</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 14 💬</span> Look at what this function is doing and at the result</p>
 <div class="cell docutils container">
@@ -1195,7 +1228,7 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_46_0.png" src="../../../_images/TP1_LMM_46_0.png" />
+<img alt="../../../_images/3aa9626124d05f8d540c44e136b5bc0b7fd6b0f0054d679e6e08f934b207933c.png" src="../../../_images/3aa9626124d05f8d540c44e136b5bc0b7fd6b0f0054d679e6e08f934b207933c.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 19 💬</span> Explain why <span class="math notranslate nohighlight">\(RMSE_{test} &gt;&gt; RMSE_{train}\)</span>:</p>
@@ -1203,10 +1236,10 @@ The median and mean value is 0.71, so the average disease stage is high for thes
 <p><strong>Answer</strong>: the LM overfit for patients with only few data</p>
 </div>
 <div class="section" id="part-v-linear-mixed-effects-model-with-statsmodels">
-<h2>Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#part-v-linear-mixed-effects-model-with-statsmodels" title="Permalink to this headline">¶</a></h2>
+<h2>Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#part-v-linear-mixed-effects-model-with-statsmodels" title="Permalink to this heading">#</a></h2>
 <p>With the previous method, we made a significant improvement. However, we suffer fro an overfitting problem. Let’s see what a <em>mixed effect model</em> can do for us!</p>
 <div class="section" id="run-a-lmm-with-statsmodels">
-<h3>Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#run-a-lmm-with-statsmodels" title="Permalink to this headline">¶</a></h3>
+<h3>Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#run-a-lmm-with-statsmodels" title="Permalink to this heading">#</a></h3>
 <p><span style='color: #015e75; font-weight: 600;'>ℹ️ Information ℹ️</span> We will use the <code class="docutils literal notranslate"><span class="pre">statsmodel</span></code> package to run a Linear Mixed Effect Model (LMM or LMEM in the literature).</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 20 💬</span> Load the following lines to import the packages</p>
 <div class="cell docutils container">
@@ -1522,7 +1555,7 @@ Example on few subject</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_71_0.png" src="../../../_images/TP1_LMM_71_0.png" />
+<img alt="../../../_images/e16e7ae252343fc2399853fb1c9a05806a9af70575e559c0bf3120cc5fd340c4.png" src="../../../_images/e16e7ae252343fc2399853fb1c9a05806a9af70575e559c0bf3120cc5fd340c4.png" />
 </div>
 </div>
 <p><span style='color: #d49800; font-weight: 600;'>⚡ Remark ⚡</span> All the slopes are the same. This is related to the warning above : these are warnings are a way of alerting you that you may be in a non-standard situation. Most likely, one of your variance parameters is converging to zero. Which is the case if you have a look to time variance.</p>
@@ -1864,7 +1897,7 @@ Example on few subject</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_92_0.png" src="../../../_images/TP1_LMM_92_0.png" />
+<img alt="../../../_images/fe7f48facc29b87b846e7f80ba4d5f8de528360240605d290560f8cf11b89b88.png" src="../../../_images/fe7f48facc29b87b846e7f80ba4d5f8de528360240605d290560f8cf11b89b88.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 35 💬</span> What is the main advantage of a Linear Mixed-effects Model compared to multiple Linear Models ?</p>
@@ -1886,7 +1919,7 @@ Example on few subject</p>
     <span class="n">rmse</span> <span class="o">=</span> <span class="n">rmse</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;SPLIT&#39;</span><span class="p">)</span>
     <span class="n">rmse</span> <span class="o">=</span> <span class="n">rmse</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">})</span>
     <span class="n">rmse</span> <span class="o">=</span> <span class="n">rmse</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;MODEL&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">]]</span>
-    <span class="n">rmse</span> <span class="o">=</span> <span class="n">rmse</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;MODEL&#39;</span><span class="p">,</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">**</span> <span class="o">.</span><span class="mi">5</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">rmse</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;MODEL&#39;</span><span class="p">,</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">**</span> <span class="mf">.5</span>
     <span class="n">rmse</span><span class="p">[</span><span class="s1">&#39;Visits number in train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nbr_of_visits</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -1895,7 +1928,7 @@ Example on few subject</p>
                      <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">whis</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">95</span><span class="p">],</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">rmse</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> 
                        <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Visits number in train&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;MODEL&#39;</span><span class="p">,</span> 
-                       <span class="n">dodge</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+                       <span class="n">dodge</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
@@ -1909,13 +1942,13 @@ Example on few subject</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_96_0.png" src="../../../_images/TP1_LMM_96_0.png" />
+<img alt="../../../_images/619fbc0980957917580273dc3cd29ae5144a9056b5b45c2092f449f3a1175e19.png" src="../../../_images/619fbc0980957917580273dc3cd29ae5144a9056b5b45c2092f449f3a1175e19.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">
-<h2>PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h2>
+<h2>PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy" title="Permalink to this heading">#</a></h2>
 <p>In the next practical sessions you will learn to use the package developped by the Aramis team. Now, just to be able to compare performances you will run a few methods of leaspy in advance…</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 37 💬</span>  Run the following cell to make the import of leaspy methods, format the data and fit a model :</p>
 <div class="cell docutils container">
@@ -2069,12 +2102,12 @@ Personalization scipy_minimize took: 20s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_109_0.png" src="../../../_images/TP1_LMM_109_0.png" />
+<img alt="../../../_images/9bec8b61e54051d86231bc3215cb0dc03df6524f21f83ccd63b8fb8ffb8bc262.png" src="../../../_images/9bec8b61e54051d86231bc3215cb0dc03df6524f21f83ccd63b8fb8ffb8bc262.png" />
 </div>
 </div>
 </div>
 <div class="section" id="part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">
-<h2>PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy" title="Permalink to this headline">¶</a></h2>
+<h2>PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em><a class="headerlink" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy" title="Permalink to this heading">#</a></h2>
 <p>Again you will use an other model of leapsy…</p>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 42 💬</span> Fit the model with the data.</p>
 <div class="cell docutils container">
@@ -2217,7 +2250,7 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_121_0.png" src="../../../_images/TP1_LMM_121_0.png" />
+<img alt="../../../_images/b2b85402315718bc67cd41c62b6f1312f0d0ce8671ebbe4a50a2c219f04e2dc1.png" src="../../../_images/b2b85402315718bc67cd41c62b6f1312f0d0ce8671ebbe4a50a2c219f04e2dc1.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 47 💬</span> Check the average RMSE per subject depending of the number of timepoints per subjects</p>
@@ -2235,13 +2268,13 @@ Personalization scipy_minimize took: 4s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_123_0.png" src="../../../_images/TP1_LMM_123_0.png" />
+<img alt="../../../_images/8b3e8bc32c332a8844a332b4b3c8adc802a64e22d1e6aed6ab7c5c5b9332180e.png" src="../../../_images/8b3e8bc32c332a8844a332b4b3c8adc802a64e22d1e6aed6ab7c5c5b9332180e.png" />
 </div>
 </div>
 <p>Here we clearly see that the few subjects who have less than 6 timepoints are better reconstructed with a mixed effect model!</p>
 </div>
 <div class="section" id="for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">
-<h2>For the fast-running Zebras: all-in-one with a more realistic split of data<a class="headerlink" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data" title="Permalink to this headline">¶</a></h2>
+<h2>For the fast-running Zebras: all-in-one with a more realistic split of data<a class="headerlink" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data" title="Permalink to this heading">#</a></h2>
 <p>Let’s try to split differently data so to mimic real-world applications.</p>
 <p>We don’t want to fit again a new model every time we predict the future of a new patient.
 To this aim, we want to calibrate (fit) a model on a large and representative dataset once and then personalize this model to totally new individuals. We can then make forecasts about these new individuals.</p>
@@ -2265,7 +2298,7 @@ To this aim, we want to calibrate (fit) a model on a large and representative da
 <span class="n">n_individuals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">individuals</span><span class="p">)</span>
 
 <span class="c1"># split on individuals</span>
-<span class="n">fraction</span> <span class="o">=</span> <span class="o">.</span><span class="mi">75</span>
+<span class="n">fraction</span> <span class="o">=</span> <span class="mf">.75</span>
 <span class="n">individuals_train</span><span class="p">,</span> <span class="n">individuals_test</span> <span class="o">=</span> <span class="n">individuals</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">fraction</span><span class="o">*</span><span class="n">n_individuals</span><span class="p">)],</span> <span class="n">individuals</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">fraction</span><span class="o">*</span><span class="n">n_individuals</span><span class="p">):]</span>
 
 <span class="n">s_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">individuals_train</span><span class="p">][[</span><span class="s1">&#39;PUTAMEN&#39;</span><span class="p">]]</span>
@@ -2328,8 +2361,8 @@ To this aim, we want to calibrate (fit) a model on a large and representative da
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_131_0.png" src="../../../_images/TP1_LMM_131_0.png" />
-<img alt="../../../_images/TP1_LMM_131_1.png" src="../../../_images/TP1_LMM_131_1.png" />
+<img alt="../../../_images/e71b719e0d9c85b4a26a30d508134625572c1ddee885abdaa59aac2b2311da23.png" src="../../../_images/e71b719e0d9c85b4a26a30d508134625572c1ddee885abdaa59aac2b2311da23.png" />
+<img alt="../../../_images/60e6389bac214018ede3c9ba70998b019314b79c21d1064df34b15b0d3ff9935.png" src="../../../_images/60e6389bac214018ede3c9ba70998b019314b79c21d1064df34b15b0d3ff9935.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 50 💬</span> Double check number of individuals and visits in each split of our dataset</p>
@@ -2431,7 +2464,7 @@ Visits per individual in each split
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">personalize_model</span><span class="p">(</span><span class="n">leaspy_model</span><span class="p">,</span> <span class="n">settings_perso</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    all-in-one function that:</span>
 <span class="sd">    1. takes a calibrated leaspy model, </span>
 <span class="sd">    2. personalizes it with different splits of data</span>
@@ -2614,7 +2647,7 @@ RMSE on test future: 1.62%
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE by:</span><span class="se">\n</span><span class="s1">- model</span><span class="se">\n</span><span class="s1">- part of data for personalization</span><span class="se">\n</span><span class="s1">- part of data for reconstruction</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">rmses_by_perso_split</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_pred_errs</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;MODEL&#39;</span><span class="p">,</span><span class="s1">&#39;PERSO_ON&#39;</span><span class="p">,</span><span class="s1">&#39;PART&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">**</span> <span class="o">.</span><span class="mi">5</span>
+<span class="n">rmses_by_perso_split</span> <span class="o">=</span> <span class="p">(</span><span class="n">all_pred_errs</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;MODEL&#39;</span><span class="p">,</span><span class="s1">&#39;PERSO_ON&#39;</span><span class="p">,</span><span class="s1">&#39;PART&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">**</span> <span class="mf">.5</span>
 <span class="n">rmses_by_perso_split</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;MODEL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;PART&#39;</span><span class="p">:</span><span class="s1">&#39;RECONS_ON&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
@@ -2748,8 +2781,8 @@ RMSE on test future: 1.62%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_144_0.png" src="../../../_images/TP1_LMM_144_0.png" />
-<img alt="../../../_images/TP1_LMM_144_1.png" src="../../../_images/TP1_LMM_144_1.png" />
+<img alt="../../../_images/5090795fa3b6ab42f6c341d487a3b9b63070db8742380f25e8b039fc11ccc118.png" src="../../../_images/5090795fa3b6ab42f6c341d487a3b9b63070db8742380f25e8b039fc11ccc118.png" />
+<img alt="../../../_images/84c0a7698fd7be7023b3f91853c47bdc5d0bf6b4d0a68967b5d819eb2314febe.png" src="../../../_images/84c0a7698fd7be7023b3f91853c47bdc5d0bf6b4d0a68967b5d819eb2314febe.png" />
 </div>
 </div>
 <p><span style='color: #a13203; font-weight: 600;'>💬 Question 55 💬</span> Plot some individual trajectories with their associated predicted trajectories</p>
@@ -2785,12 +2818,12 @@ RMSE on test future: 1.62%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/TP1_LMM_146_0.png" src="../../../_images/TP1_LMM_146_0.png" />
+<img alt="../../../_images/460fa737105366249bc89cd17f167a02430436c5f3a7af14e9e9294311a7fb5f.png" src="../../../_images/460fa737105366249bc89cd17f167a02430436c5f3a7af14e9e9294311a7fb5f.png" />
 </div>
 </div>
 </div>
 <div class="section" id="bonus-have-a-look-at-the-lmm-log-likelihood-landscape">
-<h2>Bonus: have a look at the LMM log-likelihood landscape<a class="headerlink" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape" title="Permalink to this headline">¶</a></h2>
+<h2>Bonus: have a look at the LMM log-likelihood landscape<a class="headerlink" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
@@ -2825,15 +2858,15 @@ RMSE on test future: 1.62%
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fix_k</span><span class="p">,</span> <span class="n">fix_v</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">([</span>
     <span class="c1"># corr fixed</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-.</span><span class="mi">99</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-.</span><span class="mi">9</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-.</span><span class="mi">75</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-.</span><span class="mi">5</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-.</span><span class="mi">25</span><span class="p">),</span> <span class="c1"># ~best</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">.99</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">.9</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">.75</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">.5</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">.25</span><span class="p">),</span> <span class="c1"># ~best</span>
     <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="o">.</span><span class="mi">99</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="mf">.5</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="mf">.75</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;corr&#39;</span><span class="p">,</span> <span class="mf">.99</span><span class="p">),</span>
     <span class="c1"># sx fixed</span>
     <span class="p">(</span><span class="s1">&#39;sx&#39;</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;sx&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
@@ -2857,76 +2890,76 @@ RMSE on test future: 1.62%
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/18 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_1.png" src="../../../_images/TP1_LMM_150_1.png" />
+<img alt="../../../_images/18f08af69d5af8eeb6d90d603cc8613402032ecbdbee690600a1185abfb26b0b.png" src="../../../_images/18f08af69d5af8eeb6d90d603cc8613402032ecbdbee690600a1185abfb26b0b.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|▌         | 1/18 [01:23&lt;23:39, 83.51s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_3.png" src="../../../_images/TP1_LMM_150_3.png" />
+<img alt="../../../_images/cd324341d4802fcb08a361a649716e2029b03abd4e67fb9a8808a8983a16ebbb.png" src="../../../_images/cd324341d4802fcb08a361a649716e2029b03abd4e67fb9a8808a8983a16ebbb.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|█         | 2/18 [02:58&lt;24:06, 90.39s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_5.png" src="../../../_images/TP1_LMM_150_5.png" />
+<img alt="../../../_images/b3c9540ed66633eb617d396b0625926edb85f344b1aa23c7000927b712fbf7ab.png" src="../../../_images/b3c9540ed66633eb617d396b0625926edb85f344b1aa23c7000927b712fbf7ab.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|█▋        | 3/18 [04:43&lt;24:16, 97.10s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_7.png" src="../../../_images/TP1_LMM_150_7.png" />
+<img alt="../../../_images/a4ad3cea0bceeac818ed3f05c86300095f2f5d9a127663f964c485ea54d19c16.png" src="../../../_images/a4ad3cea0bceeac818ed3f05c86300095f2f5d9a127663f964c485ea54d19c16.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|██▏       | 4/18 [06:01&lt;20:53, 89.53s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_9.png" src="../../../_images/TP1_LMM_150_9.png" />
+<img alt="../../../_images/89cf9e6eb8e9a0bb0c7e3e67e389b20ea4752ef3ed43abc268f77a7c08260575.png" src="../../../_images/89cf9e6eb8e9a0bb0c7e3e67e389b20ea4752ef3ed43abc268f77a7c08260575.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██▊       | 5/18 [07:27&lt;19:04, 88.05s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_11.png" src="../../../_images/TP1_LMM_150_11.png" />
+<img alt="../../../_images/d6557c639f7cb86472c4b38b57c49e807ec7b0aab295fee9a2e1a2c769ea11de.png" src="../../../_images/d6557c639f7cb86472c4b38b57c49e807ec7b0aab295fee9a2e1a2c769ea11de.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|███▎      | 6/18 [08:53&lt;17:31, 87.61s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_13.png" src="../../../_images/TP1_LMM_150_13.png" />
+<img alt="../../../_images/f5b75fbc27e4978147de745bf3b752e539c6b4f267e9068aedf0a8163e0c1b4f.png" src="../../../_images/f5b75fbc27e4978147de745bf3b752e539c6b4f267e9068aedf0a8163e0c1b4f.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|███▉      | 7/18 [10:06&lt;15:08, 82.59s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_15.png" src="../../../_images/TP1_LMM_150_15.png" />
+<img alt="../../../_images/7a34a6c300a4393435617a177a28b8b04e13efab405dceab3af123080d58e7a0.png" src="../../../_images/7a34a6c300a4393435617a177a28b8b04e13efab405dceab3af123080d58e7a0.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|████▍     | 8/18 [11:19&lt;13:17, 79.72s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_17.png" src="../../../_images/TP1_LMM_150_17.png" />
+<img alt="../../../_images/ca17d0a05a6436e0faeb0ab658a0b6acd9d4c2a50e3330b51e54476751db3f60.png" src="../../../_images/ca17d0a05a6436e0faeb0ab658a0b6acd9d4c2a50e3330b51e54476751db3f60.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|█████     | 9/18 [12:31&lt;11:35, 77.33s/it]/Users/etienne.maheux/Documents/repos/disease-course-mapping-solutions/TP1_LMM/utils/loglikelihood_landspace_lmm.py:130: UserWarning: No contour levels were found within the data range.
   colors=&#39;black&#39;, alpha=.8, linewidths=1)
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_19.png" src="../../../_images/TP1_LMM_150_19.png" />
+<img alt="../../../_images/24fe148a99a881e17b1d190f64b692fb9acba0835228f3a21bc6d7ec83dc5046.png" src="../../../_images/24fe148a99a881e17b1d190f64b692fb9acba0835228f3a21bc6d7ec83dc5046.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████▌    | 10/18 [13:44&lt;10:07, 75.94s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_21.png" src="../../../_images/TP1_LMM_150_21.png" />
+<img alt="../../../_images/aaf0da588d749e5f54fc686d356ea143fa75259731ee1778e2b5dc6206f864d9.png" src="../../../_images/aaf0da588d749e5f54fc686d356ea143fa75259731ee1778e2b5dc6206f864d9.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|██████    | 11/18 [14:58&lt;08:46, 75.22s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_23.png" src="../../../_images/TP1_LMM_150_23.png" />
+<img alt="../../../_images/2867cb71644dded580f5b14c7bb4d06a47bcbbf9fccbeed92cb7a435b92b3460.png" src="../../../_images/2867cb71644dded580f5b14c7bb4d06a47bcbbf9fccbeed92cb7a435b92b3460.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|██████▋   | 12/18 [16:11&lt;07:27, 74.57s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_25.png" src="../../../_images/TP1_LMM_150_25.png" />
+<img alt="../../../_images/e913208f0b0efb4621e87111e6ae8f93ee6b8571b4b8c4e99cc8676878c0aea7.png" src="../../../_images/e913208f0b0efb4621e87111e6ae8f93ee6b8571b4b8c4e99cc8676878c0aea7.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|███████▏  | 13/18 [17:24&lt;06:10, 74.09s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_27.png" src="../../../_images/TP1_LMM_150_27.png" />
+<img alt="../../../_images/ceaa3f618af386e108cb29eefab9219067712901c4ee374a7445fa925acfdb38.png" src="../../../_images/ceaa3f618af386e108cb29eefab9219067712901c4ee374a7445fa925acfdb38.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|███████▊  | 14/18 [18:38&lt;04:56, 74.21s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_29.png" src="../../../_images/TP1_LMM_150_29.png" />
+<img alt="../../../_images/ee74ce09dcb4a027ee6814fb6765ad917f87bc5c1edc22533573875e82bd3773.png" src="../../../_images/ee74ce09dcb4a027ee6814fb6765ad917f87bc5c1edc22533573875e82bd3773.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 83%|████████▎ | 15/18 [19:56&lt;03:45, 75.18s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_31.png" src="../../../_images/TP1_LMM_150_31.png" />
+<img alt="../../../_images/ce39d57eb4d55f3e4d3bf55e5b252cf3caa5a6952940d8a8e8e184121e640784.png" src="../../../_images/ce39d57eb4d55f3e4d3bf55e5b252cf3caa5a6952940d8a8e8e184121e640784.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|████████▉ | 16/18 [21:14&lt;02:32, 76.14s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_33.png" src="../../../_images/TP1_LMM_150_33.png" />
+<img alt="../../../_images/fa6e10230996a8be5c097870e693be48aa4af5e885fb374c35db4f1354e37cb4.png" src="../../../_images/fa6e10230996a8be5c097870e693be48aa4af5e885fb374c35db4f1354e37cb4.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|█████████▍| 17/18 [22:27&lt;01:15, 75.09s/it]
 </pre></div>
 </div>
-<img alt="../../../_images/TP1_LMM_150_35.png" src="../../../_images/TP1_LMM_150_35.png" />
+<img alt="../../../_images/400cfb938dc8416692911dbdcf8cf54ac9d0863f88e4530a0bb94d0c702f373b.png" src="../../../_images/400cfb938dc8416692911dbdcf8cf54ac9d0863f88e4530a0bb94d0c702f373b.png" />
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 18/18 [23:52&lt;00:00, 79.58s/it]
 </pre></div>
 </div>
@@ -2947,7 +2980,7 @@ RMSE on test future: 1.62%
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./pages/notebooks/disease_course_mapping"
         },
         predefinedOutput: true
@@ -2955,38 +2988,118 @@ RMSE on test future: 1.62%
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="disease_course_mapping.html" title="previous page">Disease Course Mapping with Leaspy</a>
-    <a class='right-next' id="next-link" href="TP2_leaspy_beginner.html" title="next page">First steps with Leaspy</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By The Disease Progression Modelling community<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="disease_course_mapping.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Disease Course Mapping with Leaspy</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="TP2_leaspy_beginner.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">First steps with Leaspy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives :</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-set-up">The set-up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-the-data">Part I: The data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-linear-regression">Part II: Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii-the-longitudinal-aspect">Part III: The longitudinal aspect</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iv-indivual-linear-regressions">PART IV: Indivual Linear Regressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-v-linear-mixed-effects-model-with-statsmodels">Part V : Linear Mixed effects Model with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-lmm-with-statsmodels">Run a LMM with <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-vi-a-taste-of-the-future-linear-mixed-effect-model-with-leaspy">PART VI: A taste of the future - Linear mixed-effect model with <em>Leaspy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-vii-a-taste-of-the-future-non-linear-mixed-effect-model-with-leaspy">PART VII: A taste of the future - Non-linear mixed-effect model with <em>Leaspy</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-the-fast-running-zebras-all-in-one-with-a-more-realistic-split-of-data">For the fast-running Zebras: all-in-one with a more realistic split of data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-have-a-look-at-the-lmm-log-likelihood-landscape">Bonus: have a look at the LMM log-likelihood landscape</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Disease Progression Modelling community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

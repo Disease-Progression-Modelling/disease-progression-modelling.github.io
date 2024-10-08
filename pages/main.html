@@ -1,440 +1,488 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Disease Progression Modelling &#8212; Disease Progression Modelling</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom_css.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/js/custom_js.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="models/introduction.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="#">
   
   
-  <h1 class="site-logo" id="site-title">Disease Progression Modelling</h1>
   
+  
+  
+    <p class="title logo__title">Disease Progression Modelling</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Disease Progression Modelling
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="models/introduction.html">Introduction to DPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/event_based_model.html">Event Based Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/disease_course_mapping.html">Disease Course Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/non_parametric_DPM.html">GP Progression Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/SuStaIn.html">SuStaIn</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/overview.html">Overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/ebm/ebm.html">Disease Course Sequencing with the Event Based Model</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/ebm/T1_kde_ebm_walkthrough.html">Tutorial 1 - EBM Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/ebm/T2_pyEBM_walkthrough.html">Tutorial 2 - DEBM Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/disease_course_mapping/disease_course_mapping.html">Disease Course Mapping with Leaspy</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/disease_course_mapping/TP1_LMM.html">Tutorial 1 - Linear Mixed Effect Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/disease_course_mapping/TP2_leaspy_beginner.html">Tutorial 2 - Get ready with Leaspy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/disease_course_mapping/TP3_advanced_leaspy.html">Tutorial 3 - Leaspy advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/non_parametric_DPM/non_parametric_DPM.html">GP Progression Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/non_parametric_DPM/GPPM_basic.html">Tutorial 1 - GP Progression Model Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/non_parametric_DPM/GPPM_DS.html">Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/sustain/sustain.html">Disease Course Sequencing and Phenotyping with the Subtype and Stage Inference Model</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/sustain/T1_sustain_walkthrough.html">Tutorial 1 - SuStaIn Walkthrough</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conferences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="conferences/conferences.html">Conferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conferences/MICCAI.html">MICCAI 2021</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conferences/ISBI.html">ISBI 2021</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="other/contributors.html">Contributors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
-   Disease Progression Modelling
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Models
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="models/introduction.html">
-   Introduction to DPM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="models/event_based_model.html">
-   Event Based Model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="models/disease_course_mapping.html">
-   Disease Course Mapping
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="models/non_parametric_DPM.html">
-   GP Progression Model
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/overview.html">
-   Overview
-  </a>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="notebooks/ebm/ebm.html">
-   Disease Course Sequencing with the Event Based Model
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/ebm/T1_kde_ebm_walkthrough.html">
-     Tutorial 1 - EBM Walkthrough
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/ebm/T2_pyEBM_walkthrough.html">
-     Tutorial 2 - DEBM Walkthrough
-    </a>
-   </li>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/main.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/issues/new?title=Issue%20on%20page%20%2Fpages/main.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="notebooks/disease_course_mapping/disease_course_mapping.html">
-   Disease Course Mapping with Leaspy
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/disease_course_mapping/TP1_LMM.html">
-     Tutorial 1 - Linear Mixed Effect Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/disease_course_mapping/TP2_leaspy_beginner.html">
-     Tutorial 2 - Get ready with Leaspy
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/disease_course_mapping/TP3_advanced_leaspy.html">
-     Tutorial 3 - Leaspy advanced
-    </a>
-   </li>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/main.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="notebooks/non_parametric_DPM/non_parametric_DPM.html">
-   GP Progression Model
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/non_parametric_DPM/GPPM_basic.html">
-     Tutorial 1 - GP Progression Model Walkthrough
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/non_parametric_DPM/GPPM_DS.html">
-     Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Conferences
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="conferences/conferences.html">
-   Conferences
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="conferences/MICCAI.html">
-   MICCAI 2021
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="conferences/ISBI.html">
-   ISBI 2021
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Other
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="other/contributors.html">
-   Contributors
-  </a>
- </li>
-</ul>
-
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/pages/main.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
+  
 </div>
-
-        <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io//issues/new?title=Issue%20on%20page%20%2Fpages/main.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Disease-Progression-Modelling/disease-progression-modelling.github.io/edit/master/pages/main.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
 </div>
+              
+              
 
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-
-    </div>
-
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Disease Progression Modelling</h1>
     <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#disease-progression-modelling-in-a-nutshell">
-   <strong>
-    <em>
-     Disease Progression Modelling
-    </em>
-    in a nutshell
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#site-content">
-   <strong>
-    Site content
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-  </ul>
- </li>
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disease-progression-modelling-in-a-nutshell"><strong><em>Disease Progression Modelling</em> in a nutshell</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#site-content"><strong>Site content</strong></a></li>
 </ul>
-
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="disease-progression-modelling">
-<h1>Disease Progression Modelling<a class="headerlink" href="#disease-progression-modelling" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="disease-progression-modelling">
+<h1>Disease Progression Modelling<a class="headerlink" href="#disease-progression-modelling" title="Permalink to this heading">#</a></h1>
 <div class="figure align-center" id="logo">
 <a class="reference internal image-reference" href="../_images/main.jpg"><img alt="../_images/main.jpg" src="../_images/main.jpg" style="height: 0px;" /></a>
 </div>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-12 docutils">
-<div class="card w-100 border-1 shadow docutils">
-<div class="card-header bg-danger docutils">
-</div>
-<div class="card-body docutils">
 <blockquote class="epigraph">
-<div><p class="card-text">The <strong>Disease Progression Modelling</strong> community unites medics with researchers and engineers across the physical and life sciences to tackle some of the biggest challenges of 21st-century medicine by harnessing the power of mathematics, computer science, and data.</p>
-<p class="attribution">—This website aims to serve as a portal for Disease Progression Modelling</p>
+<div><p>The <strong>Disease Progression Modelling</strong> community unites medics with researchers and engineers across the physical and life sciences to tackle some of the biggest challenges of 21st-century medicine by harnessing the power of mathematics, computer science, and data.</p>
+<p>This website aims to serve as a portal for Disease Progression Modelling.</p>
 </div></blockquote>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="figure align-center" id="sigmoids">
 <a class="reference internal image-reference" href="../_images/sigmoids.png"><img alt="../_images/sigmoids.png" src="../_images/sigmoids.png" style="width: 70%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><strong>Pursuing the aim of hypothetical cascades of dynamic biomarkers, <em>Disease Progression Modelling</em> unites medical knowledge &amp; data-driven models with the ultimate objective to improve clinical care &amp; research by precisely characterizing the progression of diseases at both the average and individual level</strong>.</span><a class="headerlink" href="#sigmoids" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text"><strong>Pursuing the aim of hypothetical cascades of dynamic biomarkers, <em>Disease Progression Modelling</em> unites medical knowledge &amp; data-driven models with the ultimate objective to improve clinical care &amp; research by precisely characterizing the progression of diseases at both the average and individual level</strong>.</span><a class="headerlink" href="#sigmoids" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="disease-progression-modelling-in-a-nutshell">
-<h2><strong><em>Disease Progression Modelling</em> in a nutshell</strong><a class="headerlink" href="#disease-progression-modelling-in-a-nutshell" title="Permalink to this headline">¶</a></h2>
+<h2><strong><em>Disease Progression Modelling</em> in a nutshell</strong><a class="headerlink" href="#disease-progression-modelling-in-a-nutshell" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.1097/WCO.0000000000000460">Oxtoby and Alexander, “Imaging plus X…”, Curr Opin Neurol 2017</a>.</p></li>
+<li><p><a class="reference external" href="https://doi.org/10.1038/s41583-023-00779-6">Young/Oxtoby, et al., and Alexander, “…thinking outside the black box”, Nat Rev Neurosci 2024</a>.</p></li>
+</ul>
 <p>Disease Progression Modelling (DPM), as we perceive it, has been around since approximately 2011. Computer science researchers took up the challenge of producing quantitative and actionable signatures of disease, inspired by the emerging hypothetical models of Alzheimer’s disease progression at that time (Jack et al, 2010; Aisen et al., 2010; Frisoni et al., 2010) that look like the hypothetical cascade of dynamic biomarkers represented in the image below.</p>
 <p>The snowstorm of data available to clinicians defies qualitative evaluation; the heterogeneity of data types complicates integration through traditional statistical methods; and the large datasets becoming available remain far from the big-data sizes necessary for fully data-driven machine-learning approaches. Data-driven DPM strikes a balance between imposed knowledge of disease features and patterns learned from data.</p>
-<p>Nowadays there are a suite of DPMs available, with a variety of features and requirements, that are capable of answering a vast array of clinical and research questions — often limited only by the data you have available. For a detailed review of key concepts in the development (and progression) of DPM, see (<a class="reference external" href="https://doi.org/10.1097/WCO.0000000000000460">Oxtoby and Alexander, “Imaging plus X…”, Curr Opin Neurol 2017</a>).</p>
+<p>Nowadays there are a suite of DPMs available (see <a class="reference external" href="https://doi.org/10.1007/978-1-0716-3195-9_17">this book chapter</a>), with a variety of features and requirements, that are capable of answering a vast array of clinical and research questions — often limited only by the data you have available. For a detailed review of key concepts in the development (and progression) of DPM, see (<a class="reference external" href="https://doi.org/10.1097/WCO.0000000000000460">Oxtoby and Alexander, “Imaging plus X…”, Curr Opin Neurol 2017</a>) and (<a class="reference external" href="https://doi.org/10.1038/s41583-023-00779-6">Young/Oxtoby, et al., and Alexander, “…thinking outside the black box”, Nat Rev Neurosci 2024</a>).</p>
 <p>DPM has been empowered by the increasing availability of large medical datasets, particularly in neurodegenerative diseases like Alzheimer’s, and the field is indebted to the volunteers who willingly provide their data for research.</p>
 </div>
 <div class="section" id="site-content">
-<h2><strong>Site content</strong><a class="headerlink" href="#site-content" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Site content</strong><a class="headerlink" href="#site-content" title="Permalink to this heading">#</a></h2>
 <p>The site offer multiple ways to have a glance at the Disease Progression Modelling community and discover the models it has been developing, both from a theoretical and practical point of view</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 border-2 shadow docutils">
-<div class="card-header bg-warning text-center docutils">
-<p class="card-text"><strong>Models</strong></p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Models</strong></p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Recent mathematical development have enable to unveil some aspect of disease progression modelling. We here propose to give an overview of these methods and further links and references for discover them.</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="models/introduction.html"><span class="doc">Discover the models</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Recent mathematical development have enable to unveil some aspect of disease progression modelling. We here propose to give an overview of these methods and further links and references for discover them.</p>
+<p class="sd-card-text"><a class="reference internal" href="models/introduction.html"><span class="doc std std-doc">Discover the models</span></a></p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 border-2 shadow docutils">
-<div class="card-header bg-warning text-center docutils">
-<p class="card-text"><strong>Tutorials</strong></p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Tutorials</strong></p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">To better grasp the intention of each model, we propose few tutorials in the form of Python notebooks that are dedicated to dive in each model</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="notebooks/overview.html"><span class="doc">Explore the notebook</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">To better grasp the intention of each model, we propose few tutorials in the form of Python notebooks that are dedicated to dive in each model</p>
+<p class="sd-card-text"><a class="reference internal" href="notebooks/overview.html"><span class="doc std std-doc">Explore the notebooks</span></a></p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 border-2 shadow docutils">
-<div class="card-header bg-warning text-center docutils">
-<p class="card-text"><strong>Conferences</strong></p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Conferences</strong></p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">The DPM community is eager to communicate about the most recent developments. For this reason, multiple workshops have been organized to promote its work.</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="conferences/conferences.html"><span class="doc">Find out more about the workshops</span></a></p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 border-2 shadow docutils">
-<div class="card-header bg-warning text-center docutils">
-<p class="card-text"><strong>Contributors</strong></p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">Lorem Ipsum.
-Do not hesitate to reach out if you want to be part of the community</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="other/contributors.html"><span class="doc">Join the contributors</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">The DPM community is eager to communicate about the most recent developments. For this reason, multiple conferences / workshops / symposia have been organized.</p>
+<p class="sd-card-text"><a class="reference internal" href="conferences/conferences.html"><span class="doc std std-doc">Conference workshops</span></a></p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<hr class="docutils" />
+<p><a class="reference internal" href="other/contributors.html"><span class="doc std std-doc"><strong>Contributors</strong></span></a></p>
+<p>Do not hesitate to reach out if you want to be part of the community.</p>
+</div>
+<hr class="docutils" />
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -442,7 +490,6 @@ Do not hesitate to reach out if you want to be part of the community</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -458,7 +505,7 @@ Do not hesitate to reach out if you want to be part of the community</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./pages"
         },
         predefinedOutput: true
@@ -466,37 +513,97 @@ Do not hesitate to reach out if you want to be part of the community</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='right-next' id="next-link" href="models/introduction.html" title="next page">Introduction</a>
 
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By The Disease Progression Modelling community<br/>
-        
-            &copy; Copyright 2020.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="models/introduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disease-progression-modelling-in-a-nutshell"><strong><em>Disease Progression Modelling</em> in a nutshell</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#site-content"><strong>Site content</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Disease Progression Modelling community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -6,7 +6,10 @@ This page gives a short overview of the tutorials that you can find on the websi
 ```
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :header: bg-warning text-center
 **Disease Course Sequencing (Event Based Modelling)**
 ^^^
@@ -23,8 +26,8 @@ Tutorial 4: (coming soon) A walkthrough of fitting a DEBM on real data
 
 +++
 
-{badge}`Cross-sectional data,badge-primary`
-{badge}`Probabilistic,badge-primary`
+<!-- {badge}`Cross-sectional data,badge-primary`
+{badge}`Probabilistic,badge-primary` -->
 
 
 ---  
@@ -42,9 +45,9 @@ Tutorial 3 - Leaspy advanced
 
 +++
 
-{badge}`Longitudinal data,badge-primary`
+<!-- {badge}`Longitudinal data,badge-primary`
 {badge}`Non linear Mixed-effects model,badge-primary`
-{badge}`Spatiotemporal trajectory,badge-primary`
+{badge}`Spatiotemporal trajectory,badge-primary` -->
 
 ---  
 
@@ -60,8 +63,8 @@ Tutorial 2 - (GPPM-DS) GP Progression Model Dynamical Systems Walkthrough
 
 +++
 
-{badge}`Longitudinal data,badge-primary`
-{badge}`To complete,badge-primary`
+<!-- {badge}`Longitudinal data,badge-primary`
+{badge}`To complete,badge-primary` -->
 
 ---  
 
@@ -74,5 +77,5 @@ Lorem Ipsum
 
 +++
 
-{badge}`To complete,badge-primary`
-````
+<!-- {badge}`To complete,badge-primary`-->
+::::
