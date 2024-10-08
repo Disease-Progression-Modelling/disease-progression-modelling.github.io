@@ -9,7 +9,10 @@ align: center
 ```
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -23,11 +26,11 @@ The softwares:
 - stages individuals along this fine-grained Disease Course Sequence, representing their cumulative abnormality along the group-average progression
 - does this all probabilistically and without predefined biomarker cutpoints
 
-{badge}`Software,badge-primary`
+<!-- {badge}`Software,badge-primary`
 {badge}`Python package,badge-primary`
 {badge}`Open source,badge-primary`
-{badge}`Tutorials,badge-primary`
-````
+{badge}`Tutorials,badge-primary` -->
+::::
 
 The software for classical EBM is distributed via the UCL POND group's [GitHub](https://github.com/ucl-pond) account, typically under the MIT license. 
 
@@ -62,7 +65,10 @@ The [pyEBM](https://github.com/88vikram/pyEBM) toolbox can be used to fit a Disc
 
 We have developed an introductory tutorial to understand Disease Course Sequencing using Event-Based Modelling. In future, we will provide an example on real data from a publicly available dataset.
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-8 offset-md-2
 :header: bg-warning
 :card: m-2 shadow
@@ -74,7 +80,7 @@ This introduction to Event-Based Modelling is a walkthrough where you will fit a
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 +++
-{badge}`30 minutes,badge-warning` {badge}`cross-sectional data,badge-primary`
+<!-- {badge}`30 minutes,badge-warning` {badge}`cross-sectional data,badge-primary` -->
 
 ---
 
@@ -84,7 +90,7 @@ This introduction to Discriminative Event-Based Modelling is a walkthrough where
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 +++
-{badge}`30 minutes,badge-warning` {badge}`crosssectional data,badge-primary`
+<!-- {badge}`30 minutes,badge-warning` {badge}`crosssectional data,badge-primary` -->
 
 ---
 
@@ -100,7 +106,7 @@ _Coming soon_.
 
 ---
 
-````
+::::
 
 ## **Installation**
 

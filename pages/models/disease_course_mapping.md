@@ -1,10 +1,11 @@
 # Disease Course Mapping
 _by Igor Koval_
 
-````{panels}
-:column: col-12
-:card: border-2 shadow
-:header: bg-warning
+````{grid}
+:gutter: 2
+
+```{grid-item-card}
+<!-- :column: col-12 -->
 **_Disease Course Mapping_ in a nutshell**
 ^^^
 Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.
@@ -13,10 +14,10 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 - describe the average progression (along with its variability) of the biomarkers over the entire course of the disease
 - position any individual onto this map to precisely characterize the patients trajectory and predict his current and future stages
 
-{badge}`Longitudinal data,badge-primary`
+<!-- {badge}`Longitudinal data,badge-primary`
 {badge}`Non-linear Mixed-effects model,badge-primary`
 {badge}`Description of disease progression,badge-primary`
-{badge}`Personalized staging & prediction,badge-primary`
+{badge}`Personalized staging & prediction,badge-primary` -->
 
 ````
 
@@ -59,7 +60,7 @@ The individual trajectory corresponds to the average disease progression that ha
 
 
 
-As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parameters :
+As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parameters:
 
 `The time-shift` $\tau$
 
@@ -103,7 +104,7 @@ width: 50%
 Model estimation
 ```
 
-In practice, the average model of progression _and_ the individual parameters are jointly estimated such that :
+In practice, the average model of progression _and_ the individual parameters are jointly estimated such that:
   - the variation of the mean trajectory fits the individual data (stochastic maximum likelihood estimation)
   - the individual parameters are considered as random variables whose mean corresponds to the average trajectory (mixed-effect model)
 
@@ -127,7 +128,10 @@ The personalization of the average trajectory to the individual data allows to p
 
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -138,12 +142,12 @@ The personalization of the average trajectory to the individual data allows to p
 
 It is made very easy thanks to the Leaspy software package. [Give a look at the tutorials here](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/disease_course_mapping.html).
 
-{badge}`Software,badge-primary`
+<!-- {badge}`Software,badge-primary`
 {badge}`Python package,badge-primary`
 {badge}`Open source,badge-primary`
-{badge}`Tutorials,badge-primary`
+{badge}`Tutorials,badge-primary` -->
 
-````
+::::
 
 ## **References**
 More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :
