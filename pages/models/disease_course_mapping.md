@@ -1,13 +1,11 @@
 # Disease Course Mapping
 _by Igor Koval_
 
-::::{grid}
+````{grid}
 :gutter: 2
 
-:::{grid-item}
-:column: col-12
-:card: border-2 shadow
-:header: bg-warning
+```{grid-item-card}
+<!-- :column: col-12 -->
 **_Disease Course Mapping_ in a nutshell**
 ^^^
 Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.
@@ -21,7 +19,7 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 {badge}`Description of disease progression,badge-primary`
 {badge}`Personalized staging & prediction,badge-primary` -->
 
-::::
+````
 
 ## **A picture is worth a thousand words**
 
@@ -62,7 +60,7 @@ The individual trajectory corresponds to the average disease progression that ha
 
 
 
-As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parameters :
+As shown on {numref}`individual_parameters`, we consider that the individual observations are variation of the average progressions in the sense that they derive from the mean biomarker trajectories, based on three subject-specific parameters:
 
 `The time-shift` $\tau$
 
@@ -106,7 +104,7 @@ width: 50%
 Model estimation
 ```
 
-In practice, the average model of progression _and_ the individual parameters are jointly estimated such that :
+In practice, the average model of progression _and_ the individual parameters are jointly estimated such that:
   - the variation of the mean trajectory fits the individual data (stochastic maximum likelihood estimation)
   - the individual parameters are considered as random variables whose mean corresponds to the average trajectory (mixed-effect model)
 
