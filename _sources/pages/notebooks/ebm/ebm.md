@@ -9,13 +9,11 @@ align: center
 ```
 
 
-::::{grid}
+````{grid}
 :gutter: 2
 
-:::{grid-item}
-:column: col-12
-:card: border-2 shadow
-:header: bg-warning
+```{grid-item-card}
+<!-- :column: col-12 -->
 **_Disease Course Sequencing_ with Event-Based Modelling**
 ^^^
 
@@ -30,7 +28,7 @@ The softwares:
 {badge}`Python package,badge-primary`
 {badge}`Open source,badge-primary`
 {badge}`Tutorials,badge-primary` -->
-::::
+````
 
 The software for classical EBM is distributed via the UCL POND group's [GitHub](https://github.com/ucl-pond) account, typically under the MIT license. 
 
@@ -65,48 +63,43 @@ The [pyEBM](https://github.com/88vikram/pyEBM) toolbox can be used to fit a Disc
 
 We have developed an introductory tutorial to understand Disease Course Sequencing using Event-Based Modelling. In future, we will provide an example on real data from a publicly available dataset.
 
-::::{grid}
+````{grid} 2
 :gutter: 2
 
-:::{grid-item}
-:column: col-8 offset-md-2
-:header: bg-warning
-:card: m-2 shadow
-:body: text-justify
-
+```{grid-item-card}
+<!-- :column: col-8 offset-md-2 -->
 **Tutorial 1: KDE EBM `Hello World`: example EBM on simulated data**
 ^^^
 This introduction to Event-Based Modelling is a walkthrough where you will fit an EBM using the KDE EBM software and simulated data.
 
-[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 +++
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 <!-- {badge}`30 minutes,badge-warning` {badge}`cross-sectional data,badge-primary` -->
+```
 
----
-
+```{grid-item-card}
 **Tutorial 2: pyEBM `Hello World`: example DEBM on simulated data**
 ^^^
 This introduction to Discriminative Event-Based Modelling is a walkthrough where you will fit a DEBM using the pyEBM software and simulated data.
 
-[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 +++
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 <!-- {badge}`30 minutes,badge-warning` {badge}`crosssectional data,badge-primary` -->
+```
 
----
-
+```{grid-item-card}
 **Tutorial 3: KDE EBM: example usage on real medical data**
 ^^^
-_Coming soon_.
+_Wishlist_.
+```
 
----
-
+```{grid-item-card}
 **Tutorial 4: DEBM: example usage on real medical data**
 ^^^
-_Coming soon_.
+_Wishlist_.
+```
 
----
-
-::::
+````
 
 ## **Installation**
 

@@ -12,10 +12,8 @@ align: center
 ````{grid}
 :gutter: 2
 
-```{grid-item}
+```{grid-item-card}
 <!-- :column: col-12 -->
-:card: border-2 shadow
-:header: bg-warning
 **_Disease Course Mapping_ with Leaspy**
 ^^^
 
@@ -75,42 +73,40 @@ While offering an easy-to-use API, the package has been designed with an interna
 We have developed few tutorials to better understand the goals of Disease Course Mapping, in particular how it allows to go beyond the current limitations of linear mixed-effects models, while getting familiar with Leaspy.
 
 
-````{grid}
+````{grid} 3
 :gutter: 2
 
-```{grid-item}
+```{grid-item-card}
 <!-- :column: col-8 offset-md-2 -->
-:header: bg-warning
-:card: m-2 shadow
-:body: text-justify
-
 **Tutorial 1: Limitations of linear mixed-effects model**
 ^^^
 This introduction to longitudinal data progressively unveils the limitations of linear models, beginning by a cross-patient linear regression, going to individual linear regressions, then to a linear mixed-effects model, finishing by the limitations of linear models that Leaspy is able to overcome.
 
-[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP1_LMM.html)
 +++
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP1_LMM.html)
 <!-- {badge}`1 hour,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Linear model,badge-primary` {badge}`Mixed effects model,badge-primary` -->
+```
 
----
-
+```{grid-item-card}
 **Tutorial 2: `Hello World` with Leaspy**
 ^^^
 This introduction to Leaspy gives a handful overview of Leaspy possibilities along with the user-friendly commands to use it
 
-[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP2_leaspy_beginner.html)
 +++
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP2_leaspy_beginner.html)
 <!-- {badge}`30 minutes,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`non-linear mixed-effects model,badge-primary` -->
+```
 
----
-
+```{grid-item-card}
 **Tutorial 3: Real-case usage**
 ^^^
 This tutorial is designed for the ones that want to use Leaspy with their own data. We therefore designed this tutorial to present step-by-step the different operations that you might go through : data manipulation, normalization, interpretation of the algorithm convergence, in-depth understanding of the parameters and hyperparameters, etc.
 
-[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP3_advanced_leaspy.html)
 +++
+[Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP3_advanced_leaspy.html)
 <!-- {badge}`1 hour 30,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Missing values,badge-primary` {badge}`longitudinal data,badge-primary` -->
+```
+
 ````
 
 
