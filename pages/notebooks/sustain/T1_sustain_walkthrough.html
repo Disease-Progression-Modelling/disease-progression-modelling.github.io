@@ -69,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Conferences" href="../../conferences/conferences.html" />
-    <link rel="prev" title="Disease Course Sequencing and Phenotyping with the Subtype and Stage Inference Model" href="sustain.html" />
+    <link rel="prev" title="Disease Course Sequence Subtyping with Subtype and Stage Inference" href="sustain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../non_parametric_DPM/GPPM_DS.html">Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="sustain.html">Disease Course Sequencing and Phenotyping with the Subtype and Stage Inference Model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="sustain.html">Disease Course Sequence Subtyping with Subtype and Stage Inference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Tutorial 1 - SuStaIn Walkthrough</a></li>
 </ul>
 </li>
@@ -492,7 +492,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="sustain-tutorial-using-simulated-data">
 <h1>SuStaIn tutorial using simulated data<a class="headerlink" href="#sustain-tutorial-using-simulated-data" title="Permalink to this heading">#</a></h1>
-<p>Written by Alex Young in April 2020, last updated in October 2022. Please email alexandra.young&#64;kcl.ac.uk with any questions.</p>
+<p>Written by Alex Young in April 2020, last updated in October 2022.</p>
 <p>This tutorial demonstrates how to run Subtype and Stage Inference (SuStaIn) using simulated data. SuStaIn is an unsupervised learning algorithm that identifies subgroups of individuals with distinct biomarker progression patterns. See <a class="reference external" href="https://doi.org/10.1038/s41467-018-05892-0">Young et al. Nature Communications 2018</a> for more details.</p>
 <p>SuStaIn is a generalisable algorithm in which you can choose how to model the progression of biomarkers within a subtype. In this tutorial I use the linear z-score model I used in <a class="reference external" href="https://doi.org/10.1038/s41467-018-05892-0">Young et al. 2018</a>, but it is possible to use other models of biomarker evolution, such as the event-based model.</p>
 <p>For a demonstration of the ‘event-based’/mixture modelling version of SuStaIn (i.e. MixtureSustain), see simrun.py, available in the /sim subdirectory of the pySuStaIn package.</p>
@@ -1444,7 +1444,7 @@ Average test set log-likelihood for each subtype model: [-1558.27309601 -1482.54
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Disease Course Sequencing and Phenotyping with the Subtype and Stage Inference Model</p>
+        <p class="prev-next-title">Disease Course Sequence Subtyping with Subtype and Stage Inference</p>
       </div>
     </a>
     <a class="right-next"
