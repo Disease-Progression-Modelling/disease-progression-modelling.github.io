@@ -1,7 +1,10 @@
 # Disease Course Mapping
 _by Igor Koval_
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -13,12 +16,12 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 - describe the average progression (along with its variability) of the biomarkers over the entire course of the disease
 - position any individual onto this map to precisely characterize the patients trajectory and predict his current and future stages
 
-{badge}`Longitudinal data,badge-primary`
+<!-- {badge}`Longitudinal data,badge-primary`
 {badge}`Non-linear Mixed-effects model,badge-primary`
 {badge}`Description of disease progression,badge-primary`
-{badge}`Personalized staging & prediction,badge-primary`
+{badge}`Personalized staging & prediction,badge-primary` -->
 
-````
+::::
 
 ## **A picture is worth a thousand words**
 
@@ -127,7 +130,10 @@ The personalization of the average trajectory to the individual data allows to p
 
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -138,12 +144,12 @@ The personalization of the average trajectory to the individual data allows to p
 
 It is made very easy thanks to the Leaspy software package. [Give a look at the tutorials here](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/disease_course_mapping.html).
 
-{badge}`Software,badge-primary`
+<!-- {badge}`Software,badge-primary`
 {badge}`Python package,badge-primary`
 {badge}`Open source,badge-primary`
-{badge}`Tutorials,badge-primary`
+{badge}`Tutorials,badge-primary` -->
 
-````
+::::
 
 ## **References**
 More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :

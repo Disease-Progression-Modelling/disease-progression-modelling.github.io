@@ -1,6 +1,7 @@
-- file: pages/main
-
-- part: Models
+root: pages/main
+format: jb-book
+parts:
+- caption: Models
   chapters:
     - file: pages/models/introduction
       title: Introduction to DPM
@@ -10,18 +11,17 @@
       title: Disease Course Mapping
     - file: pages/models/non_parametric_DPM
       title: GP Progression Model
-
-- part: Notebooks
+    - file: pages/models/SuStaIn
+      title: SuStaIn
+- caption: Notebooks
   chapters:
   - file: pages/notebooks/overview
-
   - file: pages/notebooks/ebm/ebm
     sections:
       - file: pages/notebooks/ebm/T1_kde_ebm_walkthrough.ipynb
         title: Tutorial 1 - EBM Walkthrough
       - file: pages/notebooks/ebm/T2_pyEBM_walkthrough.ipynb
         title: Tutorial 2 - DEBM Walkthrough
-
   - file: pages/notebooks/disease_course_mapping/disease_course_mapping
     sections:
       - file: pages/notebooks/disease_course_mapping/TP1_LMM
@@ -30,25 +30,21 @@
         title: Tutorial 2 - Get ready with Leaspy
       - file: pages/notebooks/disease_course_mapping/TP3_advanced_leaspy
         title: Tutorial 3 - Leaspy advanced
-
   - file: pages/notebooks/non_parametric_DPM/non_parametric_DPM
     sections:
       - file: pages/notebooks/non_parametric_DPM/GPPM_basic
         title: Tutorial 1 - GP Progression Model Walkthrough
       - file: pages/notebooks/non_parametric_DPM/GPPM_DS
         title: Tutorial 2 - GP Progression Model with Dynamical Systems Walkthrough
-
-  # - file: pages/notebooks/data_simulation/data_simulation
-  #   sections:
-  #     - file: pages/notebooks/data_simulation/debm
-  #     - file: pages/notebooks/data_simulation/non_parametric_DPM
-
-- part: Conferences
+  - file: pages/notebooks/sustain/sustain
+    sections:
+      - file: pages/notebooks/sustain/T1_sustain_walkthrough
+        title: Tutorial 1 - SuStaIn Walkthrough
+- caption: Conferences
   chapters:
   - file: pages/conferences/conferences
   - file: pages/conferences/MICCAI
   - file: pages/conferences/ISBI
-
-- part: Other
+- caption: Other
   chapters:
   - file: pages/other/contributors

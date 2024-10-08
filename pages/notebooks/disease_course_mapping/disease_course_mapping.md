@@ -9,7 +9,10 @@ align: center
 ```
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :card: border-2 shadow
 :header: bg-warning
@@ -25,12 +28,12 @@ Considering these series of short-term data, the software aims at :
 - predicting future observations
 - simulating virtual patients
 
-{badge}`Software,badge-primary`
+<!-- {badge}`Software,badge-primary`
 {badge}`Python package,badge-primary`
 {badge}`Open source,badge-primary`
 {badge}`Tutorials,badge-primary`
-{badge}`Continuous integration,badge-primary`
-````
+{badge}`Continuous integration,badge-primary` -->
+::::
 
 The software is distributed on [Gitlab](https://gitlab.com/icm-institute/aramislab/leaspy) under the GNU GPLv3 Licence. It has a complete [documentation](https://leaspy.readthedocs.io/en/latest/) as well as an active community that you can solicit through the use of the dedicated [bug & issue tracker](https://gitlab.com/icm-institute/aramislab/leaspy/-/issues). The software operates on {badge}`Mac,badge-dark` and {badge}`Linux,badge-dark` - {badge}`Windows,badge-dark` is also working though no guarantee can be given as no specific development was developed for this platform.
 
@@ -72,7 +75,10 @@ While offering an easy-to-use API, the package has been designed with an interna
 We have developed few tutorials to better understand the goals of Disease Course Mapping, in particular how it allows to go beyond the current limitations of linear mixed-effects models, while getting familiar with Leaspy.
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-8 offset-md-2
 :header: bg-warning
 :card: m-2 shadow
@@ -84,7 +90,7 @@ This introduction to longitudinal data progressively unveils the limitations of 
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP1_LMM.html)
 +++
-{badge}`1 hour,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Linear model,badge-primary` {badge}`Mixed effects model,badge-primary`
+<!-- {badge}`1 hour,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Linear model,badge-primary` {badge}`Mixed effects model,badge-primary` -->
 
 ---
 
@@ -94,7 +100,7 @@ This introduction to Leaspy gives a handful overview of Leaspy possibilities alo
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP2_leaspy_beginner.html)
 +++
-{badge}`30 minutes,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`non-linear mixed-effects model,badge-primary`
+<!-- {badge}`30 minutes,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`non-linear mixed-effects model,badge-primary` -->
 
 ---
 
@@ -104,8 +110,8 @@ This tutorial is designed for the ones that want to use Leaspy with their own da
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP3_advanced_leaspy.html)
 +++
-{badge}`1 hour 30,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Missing values,badge-primary` {badge}`longitudinal data,badge-primary`
-````
+<!-- {badge}`1 hour 30,badge-warning` {badge}`longitudinal data,badge-primary` {badge}`Missing values,badge-primary` {badge}`longitudinal data,badge-primary` -->
+::::
 
 
 ## **Installation**
