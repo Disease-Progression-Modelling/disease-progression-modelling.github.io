@@ -73,6 +73,8 @@ Tutorial 2 - (GPPM-DS) GP Progression Model Dynamical Systems Walkthrough
 
 *Work-in-progress...*
 
+In the meantime, the [KDE EBM walkthrough](../notebooks/ebm/T1_kde_ebm_walkthrough) shows you how to simulate relevant data.
+
 +++
 [Forthcoming](data_simulation/data_simulation)
 
