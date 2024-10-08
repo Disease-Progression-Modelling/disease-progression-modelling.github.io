@@ -35,7 +35,7 @@ Considering these series of short-term data, the software aims at :
 {badge}`Continuous integration,badge-primary` -->
 ::::
 
-The software is distributed on [Gitlab](https://gitlab.com/icm-institute/aramislab/leaspy) under the GNU GPLv3 Licence. It has a complete [documentation](https://leaspy.readthedocs.io/en/latest/) as well as an active community that you can solicit through the use of the dedicated [bug & issue tracker](https://gitlab.com/icm-institute/aramislab/leaspy/-/issues). The software operates on {badge}`Mac,badge-dark` and {badge}`Linux,badge-dark` - {badge}`Windows,badge-dark` is also working though no guarantee can be given as no specific development was developed for this platform.
+The software is distributed on [Gitlab](https://gitlab.com/icm-institute/aramislab/leaspy) under the GNU GPLv3 Licence. It has a complete [documentation](https://leaspy.readthedocs.io/en/latest/) as well as an active community that you can solicit through the use of the dedicated [bug & issue tracker](https://gitlab.com/icm-institute/aramislab/leaspy/-/issues). The software operates on <!--{badge}`Mac,badge-dark` and {badge}`Linux,badge-dark` - {badge}`Windows,badge-dark` is also working though no guarantee can be given as no specific development was developed for this platform.-->
 
 
 
