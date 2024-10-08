@@ -9,7 +9,10 @@ name: Logo
 align: center
 ```
 
-`````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :column: col-12
 :header: bg-danger
 :card: border-1 shadow
@@ -19,7 +22,7 @@ The **Disease Progression Modelling** community unites medics with researchers a
 
 --  This website aims to serve as a portal for Disease Progression Modelling
 ```
-`````
+::::
 
 
 ```{figure} ../_static/img/sigmoids.png
@@ -47,7 +50,10 @@ DPM has been empowered by the increasing availability of large medical datasets,
 The site offer multiple ways to have a glance at the Disease Progression Modelling community and discover the models it has been developing, both from a theoretical and practical point of view
 
 
-````{panels}
+::::{grid}
+:gutter: 2
+
+:::{grid-item}
 :card: border-2 shadow
 :header: bg-warning text-center
 **Models**
@@ -110,4 +116,4 @@ Do not hesitate to reach out if you want to be part of the community
 :classes: btn-outline-primary btn-block stretched-link
 ```
 
-````
+::::
