@@ -11,10 +11,10 @@ Our primary intention is to make everyone benefit from our models and methods. F
 ```
 ```{grid-item}
 `ISBI 2021`
-: {bdg-warning}`April 2021` {bdg-primary}`3hour workshop` - [<span style="color: purple;">Find out more</span>](ISBI)
+: {bdg-warning}`April 2021` {bdg-primary}`3hour workshop` - [Find out more](ISBI)
 ```
 ```{grid-item}
 `MICCAI 2021`
-: {bdg-warning}`September 2021` {bdg-primary}`full-day hands-on session` - [<span style="color: purple;">Find out more</span>](MICCAI) 
+: {bdg-warning}`September 2021` {bdg-primary}`full-day hands-on session` - [Find out more](MICCAI) 
 ```
 ````
