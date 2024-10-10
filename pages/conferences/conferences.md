@@ -4,10 +4,8 @@
 ````{grid} 1 1 1 1
 :class-container: col-10 offset-md-1
 
-```{grid-item} 
+```{grid-item} **Events and Workshops**
 :class: border-1 shadow p-3 bg-light
-
-### Events and Workshops
 
 ```{epigraph}
 Our primary intention is to make everyone benefit from our models and methods. For that reason, we have been active into promoting our work at different conferences and workshop sessions. You can here find a list of the events we have been taking part to.
