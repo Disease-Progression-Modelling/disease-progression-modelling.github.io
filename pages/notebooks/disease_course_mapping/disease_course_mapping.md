@@ -83,7 +83,7 @@ This introduction to longitudinal data progressively unveils the limitations of 
 {bdg-warning}`1 hour` {bdg-primary}`longitudinal data` {bdg-primary}`Linear model` {bdg-primary}`Mixed effects model`
 ```
 
-```{grid-item} **Tutorial 2: `Hello World` with Leaspy**
+```{grid-item} **Tutorial 2: Hello World with Leaspy**
 :class: border-1 shadow p-3 bg-light
 
 This introduction to Leaspy gives a handful overview of Leaspy possibilities along with the user-friendly commands to use it
