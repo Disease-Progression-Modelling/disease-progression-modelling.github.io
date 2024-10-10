@@ -15,7 +15,6 @@ width: 50%
 :gutter: 1
 
 ```{grid-item-card}
-:column: col-12
 :card: border-2 shadow
 :header: bg-warning
 **Workshop abstract**
