@@ -10,9 +10,11 @@ width: 50%
 **ISBI 2021**.
 ```
 
+````{grid} 1 1 1 1
+:class-container: col-12
 
-````{admonition} **Workshop abstract**
-:class: tip, border-2 shadow, bg-warning
+```{grid-item} **Workshop abstract**
+:class: border-2 shadow, bg-warning
 
 We propose to organize a  3 - hours tutorial  on Neurological Disease Progression Modelling (DPM) to  present the most advanced and mature data - driven disease progression models and the related  software. Each model will be described and illustrated through interactive hands - on sessions.  
 
