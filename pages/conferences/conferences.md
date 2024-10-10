@@ -1,10 +1,10 @@
 # Conferences
 
 
-```{grid} 1 1 1 1
+````{grid} 1 1 1 1
 :class-container: col-10 offset-md-1
 
-``{grid-item} 
+```{grid-item} 
 :class: border-1 shadow p-3 bg-light
 
 ### Events and Workshops
