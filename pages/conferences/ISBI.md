@@ -11,12 +11,8 @@ width: 50%
 ```
 
 
-````{grid}
-:gutter: 1
-
-```{grid-item-card}
-:card: border-2 shadow
-:header: bg-warning
+````{admonition}
+:class: tip, border-2 shadow, bg-warning
 **Workshop abstract**
 ^^^
 
@@ -27,7 +23,6 @@ DPM of neurodegenerative disorders is an active research area aiming at reconstr
 {bdg-primary}`Conference workshop,badge-primary`
 {bdg-primary}`Tutorial,badge-primary`
 {bdg-primary}`3-hours,badge-primary`
-```
 ````
 
 
