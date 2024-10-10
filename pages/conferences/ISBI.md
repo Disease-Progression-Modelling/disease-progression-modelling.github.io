@@ -18,9 +18,9 @@ We propose to organize a  3 - hours tutorial  on Neurological Disease Progressio
 
 DPM of neurodegenerative disorders is an active research area aiming at reconstructing the  pathological evolution of neurodegenerative pathologies through the statistical analysis of  heterogeneous multi - modal biomedical information. DPM models have the potential to highlight the  temporal dynamics and relationship across biomarkers. Moreover, by automatically staging patients  along the disease time axis, they can be used as predictive tools for diagnostic purposes. The  fi eld has  blossomed in recent years thanks to the ava ilability of large biomedical  datasets, such as ADNI,  AIBL, and PPMI, as they offer the possibility of testing novel research and  modelling hypotheses.  Computational models constructed from such data sets lead to a deeper understanding of the complex pathophysiology of neurodegenerative diseases.
 
-{bdg-primary}`Conference workshop,badge-primary`
-{bdg-primary}`Tutorial,badge-primary`
-{bdg-primary}`3-hours,badge-primary`
+{bdg-primary}`Conference workshop`
+{bdg-primary}`Tutorial`
+{bdg-primary}`3-hours`
 ````
 
 
