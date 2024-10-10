@@ -12,7 +12,7 @@ width: 50%
 
 
 ````{grid}
-:gutter: 2
+:gutter: 1
 
 ```{grid-item-card}
 :column: col-12
@@ -28,6 +28,7 @@ DPM of neurodegenerative disorders is an active research area aiming at reconstr
 {bdg-primary}`Conference workshop,badge-primary`
 {bdg-primary}`Tutorial,badge-primary`
 {bdg-primary}`3-hours,badge-primary`
+```
 ````
 
 
