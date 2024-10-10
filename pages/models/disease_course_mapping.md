@@ -1,7 +1,11 @@
 # Disease Course Mapping
 _by Igor Koval_
 
-````{admonition} **_Disease Course Mapping_ in a nutshell**
+````{grid} 1 1 1 1
+:class-container: col-10 offset-md-1
+
+```{grid-item} **_Disease Course Mapping_ in a nutshell**
+:class: border-1 shadow p-3 bg-light
 
 Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.
 
@@ -13,7 +17,7 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 {bdg-primary}`Non-linear Mixed-effects model`
 {bdg-primary}`Description of disease progression`
 {bdg-primary}`Personalized staging & prediction`
-
+```
 ````
 
 ## **A picture is worth a thousand words**
@@ -121,10 +125,11 @@ width: 50%
 The personalization of the average trajectory to the individual data allows to predict the future values of the different biomarkers.
 ```
 
+````{grid} 1 1 1 1
+:class-container: col-10 offset-md-1
 
-
-````{admonition} **_Disease Course Mapping_ as a software**
-:class: tip, border-2 shadow, bg-warning
+```{grid-item}  **_Disease Course Mapping_ as a software**
+:class: border-2 shadow, bg-warning
 
 **Interested by this model? You want to test it on your own data?**
 
@@ -134,6 +139,7 @@ It is made very easy thanks to the Leaspy software package. [Give a look at the 
 {bdg-primary}`Python package`
 {bdg-primary}`Open source`
 {bdg-primary}`Tutorials`
+```
 ````
 
 ## **References**
