@@ -82,7 +82,8 @@ This introduction to longitudinal data progressively unveils the limitations of 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP1_LMM.html)
 {bdg-warning}`1 hour` {bdg-primary}`longitudinal data` {bdg-primary}`Linear model` {bdg-primary}`Mixed effects model`
 ```
-
+````
+````{grid} 1 1 1 1
 ```{grid-item-card} **Tutorial 2: `Hello World` with Leaspy**
 :class: border-1 shadow p-3 bg-light
 
@@ -92,7 +93,8 @@ This introduction to Leaspy gives a handful overview of Leaspy possibilities alo
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP2_leaspy_beginner.html)
 {bdg-warning}`30 minutes` {bdg-primary}`longitudinal data` {bdg-primary}`non-linear mixed-effects model`
 ```
-
+````
+````{grid} 1 1 1 1
 ```{grid-item} **Tutorial 3: Real-case usage**
 :class: border-1 shadow p-3 bg-light
 
@@ -102,7 +104,7 @@ This tutorial is designed for the ones that want to use Leaspy with their own da
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/TP3_advanced_leaspy.html)
 {bdg-warning}`1 hour 30` {bdg-primary}`longitudinal data` {bdg-primary}`Missing values` {bdg-primary}`longitudinal data`
 ```
-
+````
 ````
 
 
