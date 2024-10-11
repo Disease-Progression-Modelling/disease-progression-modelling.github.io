@@ -13,12 +13,12 @@ GPPM and GPPM-DS enable the following analyses:
 - [GPPM-DS] data-driven comparison between different hypothesis to identify the most plausible interaction dynamics between biomarkers,
 - [GPPM-DS] model personalisation to simulate and predict subject-specific biomarker trajectories,
 
-````{grid}
-:gutter: 2
+````{grid} 1 1 1 1
+:class-container: col-12
 
-```{grid-item-card}
-**Getting started**
-^^^
+```{grid-item} **Getting started**
+:class: border-1 shadow p-3 bg-light
+
 The software comes with a [simple installation](https://gitlab.inria.fr/epione/GP_progression_model_V2) and an easy interface. 
 
 An example of the basic usage of GPPM on synthetic and real data is available here:
