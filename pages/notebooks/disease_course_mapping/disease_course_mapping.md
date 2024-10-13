@@ -12,7 +12,7 @@ align: center
 :class-container: col-12
 
 ```{grid-item} **_Disease Course Mapping_ with Leaspy**
-:class: border-1 shadow p-3 bg-light
+:class: grid_custom
 
 Leaspy is a Python software package that implements the [Disease Course Mapping](https://disease-progression-modelling.github.io/pages/models/disease_course_mapping.html) methods. In particular, it is designed for the statistical analysis of **longitudinal data**, particularly **medical** data that comes in a form of **repeated observations** of patients at different time-points.
 Considering these series of short-term data, the software aims at :
