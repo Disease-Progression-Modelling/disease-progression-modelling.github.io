@@ -5,7 +5,7 @@ _by Igor Koval_
 :class-container: col-10 offset-md-1
 
 ```{grid-item} **_Disease Course Mapping_ in a nutshell**
-:class: border-1 shadow p-3 bg-light
+:class: grid_custom
 
 Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.
 
@@ -129,7 +129,7 @@ The personalization of the average trajectory to the individual data allows to p
 :class-container: col-10 offset-md-1
 
 ```{grid-item}  **_Disease Course Mapping_ as a software**
-:class: border-2 shadow, bg-warning
+:class: grid_custom
 
 **Interested by this model? You want to test it on your own data?**
 
