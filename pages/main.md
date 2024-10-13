@@ -44,36 +44,36 @@ DPM has been empowered by the increasing availability of large medical datasets,
 The site offer multiple ways to have a glance at the Disease Progression Modelling community and discover the models it has been developing, both from a theoretical and practical point of view
 
 
-````{grid}
+::::{grid}
 :gutter: 3
 
-```{grid-item-card}
+:::{grid-item-card}
+:class-body: grid_custom
 **Models**
-^^^
 
 Recent mathematical development have enable to unveil some aspect of disease progression modelling. We here propose to give an overview of these methods and further links and references for discover them.
 
 [Discover the models](models/introduction)
-```
+:::
 
-```{grid-item-card}
+:::{grid-item-card}
+:class-body: grid_custom
 **Tutorials**
-^^^
 
 To better grasp the intention of each model, we propose few tutorials in the form of Python notebooks that are dedicated to dive in each model
 
 [Explore the notebooks](notebooks/overview)
-```
+:::
 
-```{grid-item-card}
+:::{grid-item-card}
+:class-body: grid_custom
 **Conferences**
-^^^
 
 The DPM community is eager to communicate about the most recent developments. For this reason, multiple conferences / workshops / symposia have been organized.
 
 [Conference workshops](conferences/conferences)
 
-````
+::::
 
 
 ---
