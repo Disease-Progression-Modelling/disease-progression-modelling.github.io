@@ -17,7 +17,7 @@ GPPM and GPPM-DS enable the following analyses:
 :class-container: col-12
 
 ```{grid-item} **Getting started**
-:class: border-1 shadow p-3 bg-light
+:class: grid_custom
 
 The software comes with a [simple installation](https://gitlab.inria.fr/epione/GP_progression_model_V2) and an easy interface. 
 
