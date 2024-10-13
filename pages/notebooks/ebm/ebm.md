@@ -68,7 +68,6 @@ We have developed an introductory tutorial to understand Disease Course Sequenci
 
 This introduction to Event-Based Modelling is a walkthrough where you will fit an EBM using the KDE EBM software and simulated data.
 
-+++
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 {bdg-warning}`30 minutes` {bdg-primary}`cross-sectional data`
 ```
@@ -77,7 +76,6 @@ This introduction to Event-Based Modelling is a walkthrough where you will fit a
 
 This introduction to Discriminative Event-Based Modelling is a walkthrough where you will fit a DEBM using the pyEBM software and simulated data.
 
-+++
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 {bdg-warning}`30 minutes` {bdg-primary}`crosssectional data`
 ```
