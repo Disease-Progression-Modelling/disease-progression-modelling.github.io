@@ -12,7 +12,7 @@ align: center
 :class-container: col-12
 
 ```{grid-item} **_Disease Course Sequencing_ with Event-Based Modelling**
-:class: border-1 shadow p-3 bg-light
+:class: grid_custom
 
 Event-Based Modelling (EBM) is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
 
@@ -64,7 +64,7 @@ We have developed an introductory tutorial to understand Disease Course Sequenci
 :class-container: col-8 offset-md-2
 
 ```{grid-item} **Tutorial 1: KDE EBM `Hello World`: example EBM on simulated data**
-:class: border-1 shadow p-3 bg-light
+:class: grid_custom
 
 This introduction to Event-Based Modelling is a walkthrough where you will fit an EBM using the KDE EBM software and simulated data.
 
