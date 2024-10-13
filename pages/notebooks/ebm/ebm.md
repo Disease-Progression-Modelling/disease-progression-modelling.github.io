@@ -8,11 +8,12 @@ name: EBM schematic
 align: center
 ```
 
-````{grid} 1 1 1 1
-:class-container: col-12
+::::{grid} 1 1 1 1
+:class-container: col-8 offset-md-2
 
-```{grid-item} **_Disease Course Sequencing_ with Event-Based Modelling**
-:class: grid_custom
+:::{grid-item-card}
+:class-body: grid_custom
+**_Disease Course Sequencing_ with Event-Based Modelling**
 
 Event-Based Modelling (EBM) is a class of mathematical models, with associated Python softwares, that estimate a quantitative signature of disease progression (a Disease Course Sequence) using either **cross-sectional** or longitudinal **medical** data.
 
@@ -21,11 +22,9 @@ The softwares:
 - stages individuals along this fine-grained Disease Course Sequence, representing their cumulative abnormality along the group-average progression
 - does this all probabilistically and without predefined biomarker cutpoints
 
-{bdg-primary}`Software`
-{bdg-primary}`Python package`
-{bdg-primary}`Open source`
-{bdg-primary}`Tutorials`
-````
+{bdg-primary}`Software` {bdg-primary}`Python package` {bdg-primary}`Open source` {bdg-primary}`Tutorials`
+:::
+::::
 
 The software for classical EBM is distributed via the UCL POND group's [GitHub](https://github.com/ucl-pond) account, typically under the MIT license. 
 
@@ -60,37 +59,39 @@ The [pyEBM](https://github.com/88vikram/pyEBM) toolbox can be used to fit a Disc
 
 We have developed an introductory tutorial to understand Disease Course Sequencing using Event-Based Modelling. In future, we will provide an example on real data from a publicly available dataset.
 
-````{grid} 1 1 1 1
+::::{grid} 1 1 1 1
 :class-container: col-8 offset-md-2
 
-```{grid-item} **Tutorial 1: KDE EBM `Hello World`: example EBM on simulated data**
-:class: grid_custom
+:::{grid-item-card}
+:class-body: grid_custom 
+**Tutorial 1: KDE EBM `Hello World`: example EBM on simulated data**
 
 This introduction to Event-Based Modelling is a walkthrough where you will fit an EBM using the KDE EBM software and simulated data.
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T1_kde_ebm_walkthrough.html)
 {bdg-warning}`30 minutes` {bdg-primary}`cross-sectional data`
-```
+:::
 
-```{grid-item-card} **Tutorial 2: pyEBM `Hello World`: example DEBM on simulated data**
+:::{grid-item-card} 
+:class-body: grid_custom
+**Tutorial 2: pyEBM `Hello World`: example DEBM on simulated data**
 
 This introduction to Discriminative Event-Based Modelling is a walkthrough where you will fit a DEBM using the pyEBM software and simulated data.
 
 [Go to the tutorial](https://disease-progression-modelling.github.io/pages/notebooks/ebm/T2_pyEBM_walkthrough.html)
 {bdg-warning}`30 minutes` {bdg-primary}`crosssectional data`
-```
+:::
 
-```{grid-item-card} **Tutorial 3: KDE EBM: example usage on real medical data**
-
-_Wishlist_.
-```
-
-```{grid-item-card} **Tutorial 4: DEBM: example usage on real medical data**
+:::{grid-item-card} **Tutorial 3: KDE EBM: example usage on real medical data**
 
 _Wishlist_.
-```
+:::
 
-````
+:::{grid-item-card} **Tutorial 4: DEBM: example usage on real medical data**
+
+_Wishlist_.
+:::
+::::
 
 ## **Installation**
 
