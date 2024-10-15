@@ -1,11 +1,12 @@
 # Disease Course Mapping
 _by Igor Koval_
 
-````{grid} 1 1 1 1
+::::{grid} 1 1 1 1
 :class-container: col-10 offset-md-1
 
-```{grid-item} **_Disease Course Mapping_ in a nutshell**
-:class: border-1 shadow p-3 bg-light
+:::{grid-item-card}
+:class-body: grid_custom
+**_Disease Course Mapping_ in a nutshell**
 
 Neurodegenerative disease progresses over periods of time longer than the usual individual observations and with an important inter-individual variability. It directly prevents to straightforwardly disentangle a reference disease progression from its manifestation at an individual level.
 
@@ -13,12 +14,9 @@ For that purpose, we have developed a technique called **Disease Course Mapping*
 - describe the average progression (along with its variability) of the biomarkers over the entire course of the disease
 - position any individual onto this map to precisely characterize the patients trajectory and predict his current and future stages
 
-{bdg-primary}`Longitudinal data`
-{bdg-primary}`Non-linear Mixed-effects model`
-{bdg-primary}`Description of disease progression`
-{bdg-primary}`Personalized staging & prediction`
-```
-````
+{bdg-primary}`Longitudinal data` {bdg-primary}`Non-linear Mixed-effects model` {bdg-primary}`Description of disease progression` {bdg-primary}`Personalized staging & prediction`
+:::
+::::
 
 ## **A picture is worth a thousand words**
 
@@ -125,22 +123,20 @@ width: 50%
 The personalization of the average trajectory to the individual data allows to predict the future values of the different biomarkers.
 ```
 
-````{grid} 1 1 1 1
+::::{grid} 1 1 1 1
 :class-container: col-10 offset-md-1
 
-```{grid-item}  **_Disease Course Mapping_ as a software**
-:class: border-2 shadow, bg-warning
+:::{grid-item-card}
+:class-body: grid_custom
+**_Disease Course Mapping_ as a software**
 
 **Interested by this model? You want to test it on your own data?**
 
 It is made very easy thanks to the Leaspy software package. [Give a look at the tutorials here](https://disease-progression-modelling.github.io/pages/notebooks/disease_course_mapping/disease_course_mapping.html).
 
-{bdg-primary}`Software`
-{bdg-primary}`Python package`
-{bdg-primary}`Open source`
-{bdg-primary}`Tutorials`
-```
-````
+{bdg-primary}`Software` {bdg-primary}`Python package` {bdg-primary}`Open source` {bdg-primary}`Tutorials`
+:::
+::::
 
 ## **References**
 More detailed explanations about the models themselves and  about the estimation procedure can be found in the following articles :
