@@ -26,6 +26,7 @@ parse:
     - deflist
     - dollarmath
     - amsmath
+    - colon_fence
 
 
 # Enabble latex

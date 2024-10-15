@@ -2,3 +2,30 @@
   width: 100px;
   border-radius: 50%;
 }
+
+:root {
+    --background-color-light: #f8f9fa;
+    --background-color-dark: #333;
+    --text-color-light: #000;
+    --text-color-dark: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+    .grid_custom {
+        background-color: var(--background-color-light);
+        color: var(--text-color-light);
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .grid_custom {
+        background-color: var(--background-color-dark);
+        color: var(--text-color-dark);
+        border: 1px solid #555;
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+    }
+}
