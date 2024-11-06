@@ -524,7 +524,9 @@ document.write(`
 <h2>Importing packages<a class="headerlink" href="#importing-packages" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install pysustain</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install setuptools &lt;65</span>
+<span class="o">%</span><span class="k">pip</span> install &#39;setuptools &lt;65&#39;
+<span class="c1"># install pysustain</span>
 <span class="o">%</span><span class="k">pip</span> install git+https://github.com/ucl-pond/pySuStaIn
 <span class="c1"># Download pySuStaIn source code to current directory</span>
 <span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ucl-pond/pySuStaIn
